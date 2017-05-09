@@ -1,0 +1,17 @@
+@import "module-variables";
+
+// Overall module styles
+@include overall_module() {
+    height: 40px;
+    background-color: #00a0d2;
+    width: 100%;
+
+}
+
+// Styles for unique page/post module.
+// In this scope you can use special functions to get data from pageboxes:
+// - get( key )
+// - get_deep( keys... )
+@include specified_module_loop() {
+    //background-color: get('color');
+}

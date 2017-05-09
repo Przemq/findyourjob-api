@@ -1,0 +1,110 @@
+@import "utils";
+
+@mixin overall_module() {
+  @if variable_exists( 'module' ) {
+    #{$module} {
+      $wpx_overall_module: true !global;
+      @content;
+      $wpx_overall_module: null !global;
+    }
+  }
+}
+
+@mixin specified_module_loop() {
+  @if variable_exists( 'sites' ) {
+    @each $blog, $modules in $sites {
+      @at-root {
+        .#{$blog} {
+          @each $id, $variables in $modules {
+            .#{$id} {
+              $wpx_module_variables: $variables !global;
+              @content;
+              $wpx_module_variables: null !global;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@function safe-nth( $value, $n: 1 ) {
+  @if( type_of( $value ) == list and type_of( $n ) == number ) {
+    @return nth( $value, $n );
+  }
+  @return $value;
+}
+
+@function _get( $data, $key ) {
+  @if type_of( $key ) == 'list' {
+    $key: nth( $key, 1 );
+  }
+  @if type_of( $data ) == 'map' and map_has_key( $data, $key ) {
+    $value: map_get( $data, $key );
+    @return if( is_empty( $value ), null, $value );
+  }
+  @if type_of( $data ) == 'list' and type_of( $key ) == 'number' and $key > 0 and $key <= length( $data ) {
+    @return nth( $data, $key );
+  }
+  @return null;
+}
+
+@function _in_overall_scope() {
+  @return variable_exists( 'wpx_overall_module' ) and $wpx_overall_module != null;
+}
+
+@function _in_loop_scope() {
+  @return variable_exists( 'wpx_module_variables' ) and $wpx_module_variables != null;
+}
+
+@mixin parent() {
+  @if _in_overall_scope() {
+    @if mixin_exists( 'overall_module_core' ) {
+      @include overall_module_core();
+    }
+  } @else if _in_loop_scope() {
+    @if mixin_exists( 'specified_module_loop_core' ) {
+      @include specified_module_loop_core();
+    }
+  } @else {
+    @error "Use @include parent() mixin only in overall_module() or specified_module_loop() scope!";
+  }
+}
+
+@function get( $key ) {
+  @if _in_loop_scope() {
+    $value: _get( $wpx_module_variables, $key );
+    @return $value;
+  } @else {
+    @error "Use get() function only in specified_module_loop() scope!";
+  }
+}
+
+@function _get_deep( $data, $keys... ) {
+  @if $data == null { @return null; }
+  $length: length( $keys );
+  $data: _get( $data, nth( $keys, 1 ));
+  @if $length > 1 {
+    @for $n from 2 through $length {
+      @if $data == null { @return null; }
+      $data: _get( $data, nth( $keys, $n ));
+    }
+  }
+  @return $data;
+}
+
+@function get_deep( $keys... ) {
+  @if _in_loop_scope() {
+    @return _get_deep( $wpx_module_variables, $keys... );
+  } @else {
+    @error "Use get_deep() function only in specified_module_loop() scope!";
+  }
+}
+
+@function module_url( $path ) {
+  @if( variable_exists( 'module-url' ) or global_variable_exists( 'module-url' )) {
+    @return url('#{$module-url}/#{$path}')
+  } @else {
+    @return url('#{$path}')
+  }
+}

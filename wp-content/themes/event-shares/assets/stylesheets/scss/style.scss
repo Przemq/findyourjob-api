@@ -1,0 +1,20 @@
+// This file is used only for import other partials. Do not add anything else here.
+// Pagebox theme configuration
+@import "theme-config";
+
+// Bourbon (http://bourbon.io)
+@import "vendor/bourbon/bourbon";
+
+// Register global mixins (pagebox tools)
+@import "mixins/utils";
+
+// Bootstrap mixins
+@import "vendor/bootstrap/mixins/breakpoints";
+@import "mixins/bootstrap-backward";
+
+// Register partials
+@import "partials/header";
+@import "partials/footer";
+
+// Modal
+//@import "partials/modal";

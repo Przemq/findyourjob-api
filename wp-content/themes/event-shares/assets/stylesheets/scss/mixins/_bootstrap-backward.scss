@@ -1,0 +1,81 @@
+// This is overwrited functions for scssphp
+
+@mixin print-media( $type, $zzz ) {
+  @media (unquote($type): $zzz) {
+    @content;
+  }
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @include print-media( 'min-width', $min ) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @include print-media( 'max-width', $max ) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// vendor/bootstrap/mixins/_breakpoints.scss
+// Problem: Undefined variable $min: line: 61
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  $max: breakpoint-max($name, $breakpoints);
+  @if $min and $max {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @if $min {
+      @media (min-width: $min) {
+        @content;
+      }
+    } @else if $max {
+      @media (max-width: $max) {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+}
+
+// vendor/bootstrap/mixins/_breakpoints.scss
+// Problem: Undefined variable $min: line: 61
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+  @if $min and $max {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @if $min {
+      @media (min-width: $min) {
+        @content;
+      }
+    } @else if $max {
+      @media (max-width: $max) {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "expand": true,
+    "src"   : ["jquery*.{js,map}"],
+    "cwd"   : "assets/bower_components/jquery/dist",
+    "dest"  : "assets/vendors/jquery/"
+  },
+  {
+    "expand": true,
+    "src"   : ["**"],
+    "cwd"   : "assets/bower_components/bootstrap/dist/js/",
+    "dest"  : "assets/vendors/bootstrap/"
+  },
+  {
+    "expand": true,
+    "src"   : ["*.{js,css,gif}", "fonts/*"],
+    "cwd"   : "assets/bower_components/slick-carousel/slick/",
+    "dest"  : "assets/vendors/slick/"
+  },
+  {
+    "expand": true,
+    "src"   : ["fonts/*", "*.min.js", "*.css", "ajax-loader.gif"],
+    "cwd"   : "assets/bower_components/slick-carousel/slick/",
+    "dest"  : "assets/vendors/slick/"
+  },
+  {
+    "expand": true,
+    "src"   : ["**"],
+    "cwd"   : "assets/bower_components/tether/dist/js/",
+    "dest"  : "assets/vendors/tether/"
+  },
+  {
+    "expand": true,
+    "src"   : ["**"],
+    "cwd"   : "assets/bower_components/tether-select/dist/",
+    "dest"  : "assets/vendors/tether-select/"
+  },
+  {
+    "expand": true,
+    "src": ["js.cookie.js"],
+    "cwd": "assets/bower_components/js-cookie/src/",
+    "dest": "assets/vendors/js-cookie"
+  }
+]

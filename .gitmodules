@@ -1,0 +1,6 @@
+[submodule "wp-content/plugins/pagebox"]
+	path = wp-content/plugins/pagebox
+	url = https://bitbucket.org/wordpressgeekss/0-pagebox-plugin-production
+[submodule "wp-content/plugins/pagebox-examples"]
+	path = wp-content/plugins/pagebox-examples
+	url = https://bitbucket.org/wordpressgeekss/1-example-modules-plugin

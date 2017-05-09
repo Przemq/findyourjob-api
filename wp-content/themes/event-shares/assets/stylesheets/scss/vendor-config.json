@@ -1,0 +1,14 @@
+[
+  {
+    "expand": true,
+    "cwd": "assets/bower_components/bootstrap/scss/",
+    "src": ["**"],
+    "dest": "assets/stylesheets/scss/vendor/bootstrap/"
+  },
+  {
+    "expand": true,
+    "cwd": "assets/bower_components/bourbon/app/assets/stylesheets/",
+    "src": ["**"],
+    "dest": "assets/stylesheets/scss/vendor/bourbon/"
+  }
+]

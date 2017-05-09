@@ -1,0 +1,18 @@
+@function is_empty( $value ) {
+    @if $value == null or $value == false {
+        @return true;
+    }
+    @return if( type_of( $value ) == 'string' and (str-length( $value ) == 0 or $value == ' ' or $value == '  '), true, false );
+}
+
+@function default( $value, $default ) {
+    @return if( is_empty( $value ), $default, $value );
+}
+
+@function theme_url( $path ) {
+    @if( variable_exists( 'theme-url' ) or global_variable_exists( 'theme-url' )) {
+        @return url('#{$theme-url}#{$path}')
+    } @else {
+        @return url('#{$path}')
+    }
+}
