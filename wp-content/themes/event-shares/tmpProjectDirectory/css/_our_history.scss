@@ -1,0 +1,19 @@
+$header-color: #1e2c32;
+
+#our-history {
+  text-align: center;
+  padding-top: 55px;
+  padding-bottom: 55px;
+  h4{
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: $header-color;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+  }
+
+  p  {
+    font-size: 14px;
+    font-family: 'Merriweather', serif;
+  }
+}

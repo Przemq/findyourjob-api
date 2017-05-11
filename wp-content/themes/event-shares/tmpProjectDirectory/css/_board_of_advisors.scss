@@ -1,0 +1,33 @@
+$header-color: #002841;
+
+#board-of-advisors {
+  padding-top: 55px;
+  h4{
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: $header-color;
+  }
+  h5{
+    font-family: 'Merriweather', serif;
+    color: $header-color;
+    font-style: italic;
+    font-size: 18px;
+  }
+
+  p {
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    color: black;
+  }
+
+  #employees {
+  text-align: center;
+    padding-top: 70px;
+    }
+
+  .employee-row {
+    padding-bottom: 70px;
+  }
+}

@@ -1,0 +1,59 @@
+$send-button-color:  #56C1A3;
+$send-button-text-color: #002842;
+$placeholder-color: #919191;
+
+#contact-form {
+  padding-top: 60px;
+ .small-input{
+   height: 46px;
+   font-family: 'Merriweather', serif;
+   font-size: 14px;
+ }
+
+  #message {
+    height: 164px;
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    line-height: normal;
+  }
+
+  #submit-button {
+    width: 147px;
+    height: 48px;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    background-color: $send-button-color;
+    border: none;
+    color: $send-button-text-color;
+    margin-left: 4px;
+    font-weight: 600;
+    margin-top: 11px;
+    margin-bottom: 23px;
+  }
+
+  p {
+    font-size: 12px;
+    font-family: 'Merriweather', serif;
+    color: black;
+    line-height: 22px;
+  }
+
+  ::-webkit-input-placeholder {
+    color: $placeholder-color;
+  }
+  :-moz-placeholder {
+    color: $placeholder-color;
+
+  }
+  ::-moz-placeholder {
+    color: $placeholder-color;
+
+  }
+  :-ms-input-placeholder {
+    color: $placeholder-color;
+
+  }
+
+}

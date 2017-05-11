@@ -1,0 +1,393 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather|Roboto+Condensed:700,500,400");
+#footer {
+  font-family: 'Merriweather', serif;
+  color: #0d374b;
+  font-size: 13px; }
+  #footer #get-in-touch {
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 97px;
+    background-color: #002841;
+    color: #f0f2f4;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 25px;
+    margin-bottom: 41px; }
+  #footer #left-column {
+    line-height: 23px;
+    color: #0d374b; }
+  #footer #right-column {
+    line-height: 23px;
+    color: rgba(13, 55, 75, 0.651); }
+
+#footer-nav {
+  margin-top: 41px;
+  border-top: 1px solid #494d69;
+  border-bottom: 1px solid #494d69;
+  padding-top: 15px;
+  padding-bottom: 15px; }
+  #footer-nav nav #menu-items ul li {
+    margin-left: 40px; }
+    #footer-nav nav #menu-items ul li a {
+      color: #1e2c32;
+      font-weight: 700;
+      font-size: 13px;
+      font-family: 'Roboto Condensed', sans-serif; }
+  #footer-nav img {
+    height: 24px;
+    width: 24px;
+    margin-right: 16px;
+    margin-top: 11px; }
+  #footer-nav #social-wrapper {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    border-right: 1px solid #494d69; }
+
+#copyright {
+  font-size: 13px;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #56c2a3;
+  padding-top: 15px; }
+
+nav #top-menu-items img {
+  width: 20px;
+  height: 20px; }
+nav ul li a {
+  font-size: 14px;
+  color: black;
+  font-weight: 600;
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-right: 30px; }
+
+#top-menu {
+  padding-bottom: 30px;
+  padding-top: 30px; }
+
+#about-sub-menu {
+  opacity: 0.949;
+  font-size: 14px;
+  font-family: 'Merriweather', serif;
+  background-color: white;
+  padding-top: 30px; }
+  #about-sub-menu h4 {
+    font-size: 18px;
+    font-style: italic;
+    color: #002841; }
+  #about-sub-menu a {
+    text-decoration: none;
+    color: #56C1A3;
+    padding-bottom: 35px;
+    display: block; }
+
+.noDisplay {
+  display: none; }
+
+#search-icon {
+  width: 17px;
+  height: 17px;
+  margin-top: 7px; }
+
+.large-text-banner {
+  font-size: 23px;
+  font-family: 'Merriweather', serif;
+  color: #182328;
+  text-align: center;
+  background-color: white;
+  height: 160px;
+  padding-top: 25px; }
+
+#banner-with-download-button {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px; }
+  #banner-with-download-button h4 {
+    margin: auto;
+    padding-bottom: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: #002842; }
+  #banner-with-download-button p {
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px; }
+  #banner-with-download-button #magnifier-icon {
+    text-align: center;
+    padding-bottom: 30px; }
+    #banner-with-download-button #magnifier-icon img {
+      height: 89px;
+      width: 159px; }
+  #banner-with-download-button #download-button {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #56C1A3;
+    border: none;
+    color: #002841;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 3px; }
+    #banner-with-download-button #download-button #download-icon {
+      height: 17px;
+      width: 18px;
+      margin-right: 10px; }
+
+#three-column-boxes {
+  padding-top: 77px;
+  text-align: center;
+  padding-bottom: 90px; }
+  #three-column-boxes #top-header {
+    text-transform: uppercase;
+    padding-bottom: 58px;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #002842;
+    letter-spacing: 3px; }
+  #three-column-boxes #icon1 {
+    width: 137px;
+    height: 105px; }
+  #three-column-boxes #icon2 {
+    width: 159px;
+    height: 89px; }
+  #three-column-boxes #icon3 {
+    width: 132px;
+    height: 97px; }
+  #three-column-boxes .sub-header {
+    text-transform: uppercase;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #002842;
+    letter-spacing: 3px; }
+  #three-column-boxes p {
+    font-family: 'Merriweather', serif;
+    font-size: 14px; }
+
+#our-history {
+  text-align: center;
+  padding-top: 55px;
+  padding-bottom: 55px; }
+  #our-history h4 {
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #1e2c32;
+    text-transform: uppercase;
+    padding-bottom: 15px; }
+  #our-history p {
+    font-size: 14px;
+    font-family: 'Merriweather', serif; }
+
+#in-the-media {
+  text-align: center;
+  padding-top: 10px; }
+  #in-the-media h4 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #1e2c32;
+    padding-bottom: 40px; }
+  #in-the-media #media1 {
+    width: 208px;
+    height: 44px; }
+  #in-the-media #media2 {
+    width: 186px;
+    height: 36px; }
+  #in-the-media #media3 {
+    width: 142px;
+    height: 47px; }
+  #in-the-media #media4 {
+    width: 160px;
+    height: 56px; }
+
+.media-image {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.6;
+  height: 40px;
+  width: 189px; }
+
+#firm_partnership {
+  text-align: left;
+  padding-top: 55px;
+  padding-bottom: 90px; }
+  #firm_partnership h4 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #1e2c32; }
+  #firm_partnership p {
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    padding-bottom: 80px;
+    color: black; }
+  #firm_partnership #top-image-row {
+    padding-bottom: 45px;
+    text-align: center; }
+  #firm_partnership #bottom-image-row {
+    text-align: center; }
+
+#board-of-advisors {
+  padding-top: 55px; }
+  #board-of-advisors h4 {
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #002841; }
+  #board-of-advisors h5 {
+    font-family: 'Merriweather', serif;
+    color: #002841;
+    font-style: italic;
+    font-size: 18px; }
+  #board-of-advisors p {
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    color: black; }
+  #board-of-advisors #employees {
+    text-align: center;
+    padding-top: 70px; }
+  #board-of-advisors .employee-row {
+    padding-bottom: 70px; }
+
+#single-article {
+  background-color: white;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px; }
+  #single-article .article-icon {
+    height: 105px;
+    width: 90px; }
+  #single-article .publication-info {
+    text-align: left;
+    font-family: 'Merriweather', serif;
+    color: #B3B3B3;
+    padding-top: 25px;
+    font-weight: 400; }
+  #single-article h4 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #002842;
+    text-align: left;
+    font-weight: 700;
+    padding-top: 5px;
+    line-height: 32px; }
+  #single-article p {
+    text-align: left;
+    font-family: 'Merriweather', serif;
+    line-height: 27px;
+    color: #002841; }
+  #single-article a {
+    text-decoration: none;
+    color: #55c2a2;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px; }
+
+#contacts {
+  padding-top: 60px; }
+  #contacts h4 {
+    color: #1e2c32;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 3px;
+    font-weight: 600;
+    padding-bottom: 30px; }
+  #contacts h5 {
+    color: black;
+    font-family: 'Merriweather', serif;
+    font-weight: bold; }
+  #contacts span {
+    font-size: 14px;
+    font-family: 'Merriweather', serif;
+    color: black; }
+  #contacts .padding-bottom {
+    padding-bottom: 30px; }
+
+#contact-form {
+  padding-top: 60px; }
+  #contact-form .small-input {
+    height: 46px;
+    font-family: 'Merriweather', serif;
+    font-size: 14px; }
+  #contact-form #message {
+    height: 164px;
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    line-height: normal; }
+  #contact-form #submit-button {
+    width: 147px;
+    height: 48px;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    background-color: #56C1A3;
+    border: none;
+    color: #002842;
+    margin-left: 4px;
+    font-weight: 600;
+    margin-top: 11px;
+    margin-bottom: 23px; }
+  #contact-form p {
+    font-size: 12px;
+    font-family: 'Merriweather', serif;
+    color: black;
+    line-height: 22px; }
+  #contact-form ::-webkit-input-placeholder {
+    color: #919191; }
+  #contact-form :-moz-placeholder {
+    color: #919191; }
+  #contact-form ::-moz-placeholder {
+    color: #919191; }
+  #contact-form :-ms-input-placeholder {
+    color: #919191; }
+
+#top-page-image-with-text {
+  background-color: #F4F4F4;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  text-align: center; }
+  #top-page-image-with-text #firm-icon {
+    height: 84px;
+    width: 51px; }
+  #top-page-image-with-text p {
+    padding-top: 40px;
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    color: black;
+    line-height: 22px; }
+
+#home-page-our-etfs {
+  background-color: #EBEBEB;
+  padding-top: 32px;
+  padding-bottom: 44px; }
+  #home-page-our-etfs #home-firm-icon {
+    width: 78px;
+    height: 128px;
+    margin-top: 35px; }
+  #home-page-our-etfs h4 {
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 3px;
+    color: #002842;
+    text-transform: uppercase; }
+  #home-page-our-etfs p {
+    font-family: 'Merriweather', serif;
+    color: black;
+    font-size: 14px;
+    line-height: 24px; }
+  #home-page-our-etfs table {
+    margin-top: 40px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 14px; }
+    #home-page-our-etfs table tbody tr th {
+      padding: 0 0 4px 0;
+      border: none;
+      letter-spacing: 1px; }
+    #home-page-our-etfs table tbody tr td {
+      letter-spacing: 1px;
+      padding: 0 0 4px 0;
+      border: none; }
+
+/*# sourceMappingURL=main.css.map */

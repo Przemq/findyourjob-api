@@ -1,0 +1,51 @@
+$article_info_color: #B3B3B3;
+$header-color: #002842;
+$learn-more-color: #55c2a2;
+$paragraph-color: #002841;
+
+#single-article {
+  background-color: white;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  .article-icon {
+    height: 105px;
+    width: 90px ;
+
+  }
+  .publication-info{
+    text-align: left;
+    font-family: 'Merriweather', serif;
+    color: $article_info_color;
+    padding-top: 25px;
+    font-weight: 400;
+  }
+
+  h4 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: $header-color;
+    text-align: left;
+    font-weight: 700;
+    padding-top: 5px;
+    line-height: 32px;
+  }
+
+  p {
+    text-align: left;
+    font-family: 'Merriweather', serif;
+    line-height: 27px;
+    color: $paragraph-color;
+  }
+
+  a{
+    text-decoration: none;
+    color: $learn-more-color;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+  }
+}

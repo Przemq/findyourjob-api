@@ -1,0 +1,44 @@
+$header-color: #002842;
+
+#three-column-boxes {
+  padding-top: 77px;
+  text-align: center;
+  padding-bottom: 90px;
+  #top-header {
+    text-transform: uppercase;
+    padding-bottom: 58px;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: $header-color;
+    letter-spacing: 3px;
+  }
+
+  #icon1 {
+    width: 137px;
+    height: 105px;
+  }
+
+  #icon2 {
+    width: 159px;
+    height: 89px;
+  }
+
+  #icon3 {
+    width: 132px;
+    height: 97px;
+  }
+
+  .sub-header {
+    text-transform: uppercase;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: $header-color;
+    letter-spacing: 3px;
+
+  }
+
+  p {
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+  }
+}
