@@ -1,3 +1,3 @@
-$('#about-us').on('click', function () {
+$('#about-us').on('mouseenter', function () {
     $('#about-sub-menu').toggleClass('noDisplay');
 });

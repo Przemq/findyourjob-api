@@ -77,7 +77,7 @@ $pageContent = array(
     // article-tile
 , 'article_date' => '21.10.2016'
 , 'article_author' => 'Joe Bloggs'
-, 'article_title' => 'consecetur adipis aliquam commodo'
+, 'article_title' => 'consectetur adipis aliquam commodo'
 , 'article_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien.'
     // contacts
 , 'contacts' => 'contacts'
@@ -111,4 +111,9 @@ $pageContent = array(
     // home page our etfs
 ,  'home_our_etfs_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien, vel efficitur dui vehicula laoreet. Sed facilisis ornare tellus a mattis. Mauris volutpat enim eget nibh finibus, quis tempor orci pretium. Ut gravida vehicula dui, ac tincidunt arcu feugiat at.'
 ,  'home_our_etfs_header' => 'our etfs'
-    );
+    // search results
+,  'page_results' => 'page results'
+,  'result_header' => 'lorem ipsum'
+,  'result_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien. Sed facilisis ornare tellus a mattis. Ut gravida vehicula dui, ac tincidunt arcu feugiat at... '
+,    'read_more' => 'read more'
+);

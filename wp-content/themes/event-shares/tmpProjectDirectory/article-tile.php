@@ -9,7 +9,7 @@
 <body>
 <?php include_once('data/pageContent.php') ?>
 <div class="wpx-name-module">
-    <div class="container" style="background-color: gray">
+    <div class="container">
         <div class="col-lg-4" id="single-article">
             <img class="article-icon" src="img/ES%20Piggy%20Bank%20Icon-01-01.svg">
             <div class="publication-info col-lg-12">

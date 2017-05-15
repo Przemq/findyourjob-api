@@ -2,12 +2,13 @@ $article_info_color: #B3B3B3;
 $header-color: #002842;
 $learn-more-color: #55c2a2;
 $paragraph-color: #002841;
+$background-color: #EBEBEB;
 
 #single-article {
-  background-color: white;
   text-align: center;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  margin: 25px 15px 25px 15px;
+  padding: 25px 15px 25px 15px;
+  background-color: white;
 
   .article-icon {
     height: 105px;

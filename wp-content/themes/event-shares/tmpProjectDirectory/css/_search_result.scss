@@ -1,0 +1,50 @@
+$header-color: #002842;
+$read-more-color: #56C1A3;
+$paragraph_font_color: #002841;
+$background-color: #EBEBEB;
+
+#search-results {
+    font-family: 'Roboto Condensed', sans-serif;
+    padding-top: 65px;
+    h4 {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: $header-color;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    #search-top-header{
+        color: black;
+        font-weight: 500;
+        padding-bottom: 15px;
+        letter-spacing: 3px;
+    }
+
+    #read-more {
+        text-decoration: none;
+        color: $read-more-color;
+        padding-bottom: 35px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-family: 'Roboto Condensed', sans-serif;
+        letter-spacing: 3px;
+        font-size: 15px;
+    }
+
+    p {
+        font-family: 'Merriweather', serif;
+        font-size: 14px;
+        line-height: 22px;
+        color: $paragraph_font_color;
+    }
+
+    #page-results {
+        padding-bottom: 120px;
+    }
+
+    #article-results {
+        background-color: $background-color;
+        padding-top: 55px;
+    }
+}

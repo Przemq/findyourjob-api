@@ -2,22 +2,16 @@
 #footer {
   font-family: 'Merriweather', serif;
   color: #0d374b;
-  font-size: 13px; }
-  #footer #get-in-touch {
-    font-family: 'Roboto Condensed', sans-serif;
-    height: 97px;
-    background-color: #002841;
-    color: #f0f2f4;
-    font-size: 30px;
-    text-align: center;
-    padding-top: 25px;
-    margin-bottom: 41px; }
+  font-size: 13px;
+  margin-top: 41px; }
   #footer #left-column {
     line-height: 23px;
-    color: #0d374b; }
+    color: #0d374b;
+    font-size: 13px; }
   #footer #right-column {
     line-height: 23px;
-    color: rgba(13, 55, 75, 0.651); }
+    color: rgba(13, 55, 75, 0.651);
+    font-size: 12px; }
 
 #footer-nav {
   margin-top: 41px;
@@ -25,18 +19,11 @@
   border-bottom: 1px solid #494d69;
   padding-top: 15px;
   padding-bottom: 15px; }
-  #footer-nav nav #menu-items ul li {
-    margin-left: 40px; }
-    #footer-nav nav #menu-items ul li a {
-      color: #1e2c32;
-      font-weight: 700;
-      font-size: 13px;
-      font-family: 'Roboto Condensed', sans-serif; }
   #footer-nav img {
     height: 24px;
     width: 24px;
     margin-right: 16px;
-    margin-top: 11px; }
+    margin-top: 3px; }
   #footer-nav #social-wrapper {
     margin-top: 1px;
     margin-bottom: 1px;
@@ -47,6 +34,14 @@
   font-family: 'Roboto Condensed', sans-serif;
   color: #56c2a3;
   padding-top: 15px; }
+
+#menu-items ul li {
+  margin-left: 15px; }
+  #menu-items ul li a {
+    color: #1e2c32;
+    font-weight: 700;
+    font-size: 13px;
+    font-family: 'Roboto Condensed', sans-serif; }
 
 nav #top-menu-items img {
   width: 20px;
@@ -248,10 +243,10 @@ nav ul li a {
     padding-bottom: 70px; }
 
 #single-article {
-  background-color: white;
   text-align: center;
-  padding-top: 25px;
-  padding-bottom: 25px; }
+  margin: 25px 15px 25px 15px;
+  padding: 25px 15px 25px 15px;
+  background-color: white; }
   #single-article .article-icon {
     height: 105px;
     width: 90px; }
@@ -282,27 +277,6 @@ nav ul li a {
     letter-spacing: 3px;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 16px; }
-
-#contacts {
-  padding-top: 60px; }
-  #contacts h4 {
-    color: #1e2c32;
-    text-transform: uppercase;
-    font-size: 25px;
-    font-family: 'Roboto Condensed', sans-serif;
-    letter-spacing: 3px;
-    font-weight: 600;
-    padding-bottom: 30px; }
-  #contacts h5 {
-    color: black;
-    font-family: 'Merriweather', serif;
-    font-weight: bold; }
-  #contacts span {
-    font-size: 14px;
-    font-family: 'Merriweather', serif;
-    color: black; }
-  #contacts .padding-bottom {
-    padding-bottom: 30px; }
 
 #contact-form {
   padding-top: 60px; }
@@ -342,6 +316,27 @@ nav ul li a {
     color: #919191; }
   #contact-form :-ms-input-placeholder {
     color: #919191; }
+
+#contacts {
+  padding-top: 60px; }
+  #contacts h4 {
+    color: #1e2c32;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 3px;
+    font-weight: 600;
+    padding-bottom: 30px; }
+  #contacts h5 {
+    color: black;
+    font-family: 'Merriweather', serif;
+    font-weight: bold; }
+  #contacts span {
+    font-size: 14px;
+    font-family: 'Merriweather', serif;
+    color: black; }
+  #contacts .padding-bottom {
+    padding-bottom: 30px; }
 
 #top-page-image-with-text {
   background-color: #F4F4F4;
@@ -389,5 +384,49 @@ nav ul li a {
       letter-spacing: 1px;
       padding: 0 0 4px 0;
       border: none; }
+
+#get-in-touch {
+  font-family: 'Roboto Condensed', sans-serif;
+  height: 97px;
+  background-color: #002841;
+  color: #f0f2f4;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 25px;
+  margin-bottom: 41px; }
+
+#search-results {
+  font-family: 'Roboto Condensed', sans-serif;
+  padding-top: 65px; }
+  #search-results h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #002842;
+    font-size: 24px;
+    font-weight: 700; }
+  #search-results #search-top-header {
+    color: black;
+    font-weight: 500;
+    padding-bottom: 15px;
+    letter-spacing: 3px; }
+  #search-results #read-more {
+    text-decoration: none;
+    color: #56C1A3;
+    padding-bottom: 35px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 3px;
+    font-size: 15px; }
+  #search-results p {
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    line-height: 22px;
+    color: #002841; }
+  #search-results #page-results {
+    padding-bottom: 120px; }
+  #search-results #article-results {
+    background-color: #EBEBEB;
+    padding-top: 55px; }
 
 /*# sourceMappingURL=main.css.map */

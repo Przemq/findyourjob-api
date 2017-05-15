@@ -1,0 +1,13 @@
+$font_white_color: #f0f2f4;
+$get_in_touch_color: #002841;
+
+#get-in-touch {
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 97px;
+    background-color: $get_in_touch_color;
+    color: $font_white_color;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 25px;
+    margin-bottom: 41px;
+}

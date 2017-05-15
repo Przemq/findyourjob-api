@@ -1,7 +1,4 @@
 <div class="row" id="footer">
-    <div class="col-lg-12" id="get-in-touch">
-        <?php echo $pageContent['get_in_touch']; ?>
-    </div>
     <div class="col-lg-3 col-sm-12" id="left-column"><?php echo $pageContent['footer_left_text']; ?></div>
     <div class="col-lg-7 col-sm-12" id="right-column"><?php echo $pageContent['footer_right_text']; ?></div>
 </div>
