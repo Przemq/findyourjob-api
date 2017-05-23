@@ -47,7 +47,6 @@ $module = $this->getModule();
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
