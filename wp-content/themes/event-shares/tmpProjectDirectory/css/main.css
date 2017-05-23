@@ -395,6 +395,19 @@ nav ul li a {
   padding-top: 25px;
   margin-bottom: 41px; }
 
+#header-banner {
+  background-color: #002841;
+  color: white; }
+  #header-banner h2 {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 54px; }
+  #header-banner p {
+    font-size: 14px;
+    font-family: 'Merriweather', serif;
+    line-height: 27px; }
+
 #search-results {
   font-family: 'Roboto Condensed', sans-serif;
   padding-top: 65px; }

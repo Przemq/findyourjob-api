@@ -1,4 +1,5 @@
 <?php
+global $pageContent;
 
 $pageContent = array(
     //footer
@@ -106,17 +107,14 @@ $pageContent = array(
 , 'contact_form_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien, vel efficitur dui vehicula laoreet. Sed facilisis ornare tellus a mattis. Mauris volutpat enim eget nibh finibus, quis tempor orci pretium. Ut gravida vehicula dui, ac tincidunt arcu feugiat at. Nam varius eleifend risus ac aliquam.'
 
     // top page image with text
-,  'paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien, vel efficitur dui vehicula laoreet. Sed facilisis ornare tellus a mattis. Mauris volutpat enim eget nibh finibus, quis tempor orci pretium. Ut gravida vehicula dui, ac tincidunt arcu feugiat at.'
+, 'paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien, vel efficitur dui vehicula laoreet. Sed facilisis ornare tellus a mattis. Mauris volutpat enim eget nibh finibus, quis tempor orci pretium. Ut gravida vehicula dui, ac tincidunt arcu feugiat at.'
 
     // home page our etfs
-,  'home_our_etfs_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien, vel efficitur dui vehicula laoreet. Sed facilisis ornare tellus a mattis. Mauris volutpat enim eget nibh finibus, quis tempor orci pretium. Ut gravida vehicula dui, ac tincidunt arcu feugiat at.'
-,  'home_our_etfs_header' => 'our etfs'
+, 'home_our_etfs_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien, vel efficitur dui vehicula laoreet. Sed facilisis ornare tellus a mattis. Mauris volutpat enim eget nibh finibus, quis tempor orci pretium. Ut gravida vehicula dui, ac tincidunt arcu feugiat at.'
+, 'home_our_etfs_header' => 'our etfs'
     // search results
-,  'page_results' => 'page results'
-,  'result_header' => 'lorem ipsum'
-,  'result_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien. Sed facilisis ornare tellus a mattis. Ut gravida vehicula dui, ac tincidunt arcu feugiat at... '
-,    'read_more' => 'read more'
-    // header banner
-,   'header_banner' => 'about us'
-,   'header_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien. Sed facilisis ornare tellus a mattis. Ut gravida vehicula dui, ac tincidunt arcu feugiat at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien'
+, 'page_results' => 'page results'
+, 'result_header' => 'lorem ipsum'
+, 'result_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien. Sed facilisis ornare tellus a mattis. Ut gravida vehicula dui, ac tincidunt arcu feugiat at... '
+, 'read_more' => 'read more'
 );

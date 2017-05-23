@@ -116,7 +116,4 @@ $pageContent = array(
 ,  'result_header' => 'lorem ipsum'
 ,  'result_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien. Sed facilisis ornare tellus a mattis. Ut gravida vehicula dui, ac tincidunt arcu feugiat at... '
 ,    'read_more' => 'read more'
-    // header banner
-,   'header_banner' => 'about us'
-,   'header_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien. Sed facilisis ornare tellus a mattis. Ut gravida vehicula dui, ac tincidunt arcu feugiat at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien'
 );

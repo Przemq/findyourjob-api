@@ -1,0 +1,74 @@
+@import "module-variables";
+
+// Overall module styles
+@include overall_module() {
+
+  $sub_nav_item: #55c2a2;
+  $circle_height: 15px;
+  $circle_width: 15px;
+  $active_link_color: #002841;
+
+  #sub-nav {
+    padding-top: 20px;
+    padding-bottom: 30px;
+
+    .line {
+      height: 1px;
+      background-color: black;
+      position: relative;
+      z-index: -2;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .single-link.active {
+      color: $active_link_color;
+
+      &:after {
+        display: inline-block;
+        vertical-align: middle;
+        width: $circle_width;
+        height: $circle_height;
+        background-color: white;
+        border: solid 2px black;
+        border-radius: 50%;
+        position: absolute;
+        top: 39.5px;
+        left: calc(50% - 5px);
+        content: '';
+      }
+
+
+    }
+    p {
+      padding-top: 20px;
+      font-family: 'Merriweather', serif;
+      font-size: 20px;
+      color: black;
+      line-height: 22px;
+      text-align: center;
+    }
+
+    .single-link {
+      border: none;
+      color: $sub_nav_item;
+      font-family: 'Merriweather', serif;
+      font-style: italic;
+      padding-bottom: 15px;
+    }
+
+    .single-li-item {
+      margin-right: 12%;
+    }
+  }
+}
+
+// Styles for unique page/post module.
+// In this scope you can use special functions to get data from pageboxes:
+// - get( key )
+// - get_deep( keys... )
+@include specified_module_loop() {
+  //background-color: get('color');
+}

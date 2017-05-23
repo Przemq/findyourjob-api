@@ -1,0 +1,60 @@
+@import "module-variables";
+
+// Overall module styles
+@include overall_module() {
+
+    @import url('https://fonts.googleapis.com/css?family=Merriweather:300i,400,400i,700,900');
+    @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700,500,400');
+
+    $header-color: #1e2c32;
+
+    #in-the-media {
+        text-align: center;
+        padding-top: 10px;
+        h4 {
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-family: 'Roboto Condensed', sans-serif;
+            color: $header-color;
+            padding-bottom: 40px;
+        }
+
+        #media1 {
+            width: 208px;
+            height: 44px;
+        }
+        #media2 {
+            width: 186px;
+            height: 36px;
+        }
+        #media3 {
+            width: 142px;
+            height: 47px;
+        }
+        #media4 {
+            width: 160px;
+            height: 56px;
+        }
+
+    }
+
+    .media-image {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        opacity: 0.6;
+        height: 40px;
+        width: 189px;
+        margin-bottom: 45px;
+    }
+
+    .image-container {
+    }
+}
+
+// Styles for unique page/post module.
+// In this scope you can use special functions to get data from pageboxes:
+// - get( key )
+// - get_deep( keys... )
+@include specified_module_loop() {
+    //background-color: get('color');
+}

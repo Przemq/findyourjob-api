@@ -26,6 +26,7 @@ $pageContent = array(
 , 'header1' => 'LOREM IPSUM'
 , 'paragraph1' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed leo nec nulla lobortis dignissim
                    sit amet at lorem. Morbi aliquam id velit id gravida. In massa nunc, pellentesque vitae ligula at, condimentum 
+                    hendrerit ante.Morbi aliquam id velit id gravida. In massa nunc, pellentesque vitae ligula at, condimentum 
                     hendrerit ante.'
 , 'download_button' => 'DOWNLOAD PDF'
     // three column boxes
@@ -116,7 +117,4 @@ $pageContent = array(
 ,  'result_header' => 'lorem ipsum'
 ,  'result_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien. Sed facilisis ornare tellus a mattis. Ut gravida vehicula dui, ac tincidunt arcu feugiat at... '
 ,    'read_more' => 'read more'
-    // header banner
-,   'header_banner' => 'about us'
-,   'header_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien. Sed facilisis ornare tellus a mattis. Ut gravida vehicula dui, ac tincidunt arcu feugiat at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien'
 );

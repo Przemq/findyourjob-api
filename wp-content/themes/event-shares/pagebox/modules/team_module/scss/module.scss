@@ -1,0 +1,103 @@
+@import "module-variables";
+
+// Overall module styles
+@include overall_module()
+{
+
+    $drop-down-color: #002841;
+    $header-color: #002841;
+    $drop-down-header-color: rgb(86, 194, 163);
+
+
+    #board-of-advisors {
+        padding-top: 55px;
+        h4{
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-family: 'Roboto Condensed', sans-serif;
+            color: $header-color;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        h5{
+            font-family: 'Merriweather', serif;
+            color: $header-color;
+            font-style: italic;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        p {
+            font-family: 'Merriweather', serif;
+            font-size: 14px;
+            color: black;
+            line-height: 24px;
+        }
+
+        #employees {
+            text-align: center;
+            padding-top: 70px;
+        }
+
+        .employee-row {
+            padding-bottom: 70px;
+        }
+        .single-team-item{
+            padding-bottom: 56px;
+        }
+      .single-team-item:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+
+      .triangle-pointer:before {
+        content: "";
+        left: 140px;
+        width: 0;
+        height: 0;
+        position: relative;
+        border-style: solid;
+        border-width: 0 13px 13px 13px;
+        border-color: transparent transparent $drop-down-color transparent;
+      }
+
+        .drop-down-item {
+            background-color: $drop-down-color;
+            padding-top: 40px;
+            padding-bottom: 10px;margin-bottom: 45px;
+            h5 {
+                text-align: left;
+                font-style: italic;
+                font-size: 18px;
+                color: $drop-down-header-color;
+                line-height: 28px;
+                padding-bottom: 30px;
+                font-family: 'Merriweather', serif;
+                font-weight: 300;
+            }
+
+            p {
+                color: white;
+                text-align: left;
+                font-size: 14px;
+                line-height: 24px;
+            }
+            h5:before {
+                content: '"';
+            }
+            h5:after {
+                content: '.."';
+            }
+        }
+
+    }
+}
+
+// Styles for unique page/post module.
+// In this scope you can use special functions to get data from pageboxes:
+// - get( key )
+// - get_deep( keys... )
+@include specified_module_loop() {
+    //background-color: get('color');
+}
