@@ -19,7 +19,7 @@ class LogosModule extends AbstractModule implements StaticCacheInterface {
     {
         return [
         	'version'       => '1.0.0',
-            'title'         => 'Logos',
+            'title'         => 'Logos module',
             'description'   => 'Logos module with text header'
         ];
     }

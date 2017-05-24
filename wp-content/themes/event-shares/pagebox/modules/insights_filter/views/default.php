@@ -12,9 +12,9 @@ $module = $this->getModule();
     <div class="container-fluid">
         <div class="container" id="insights-filter">
             <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-33">EV-33</a>
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="nav nav-tabs hidden-sm-down" role="tablist" style="border-bottom-color: black">
+            <div class="row border-bottom">
+                <div class="col-lg-6 col-md-12">
+                    <ul class="nav nav-tabs hidden-sm-down no-border" role="tablist" style="border-bottom-color: black">
                         <li class="nav-item single-li-item">
                             <a class="nav-link active single-link" data-toggle="tab" href="#" role="tab">Board of
                                 Advisors</a>
@@ -28,32 +28,33 @@ $module = $this->getModule();
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-6 ">
-                    <p>FILTER</p>
-                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle filter"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Category
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <a class="dropdown-item" href="#">Category 1</a>
-                                <a class="dropdown-item" href="#">Category 2</a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="btn-group" role="group">
-                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle filter"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Topic
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <a class="dropdown-item" href="#">Topic 1</a>
-                            <a class="dropdown-item" href="#">Topic 2</a>
+                <div class="col-lg-2 col-sm-6 col-6 col-md-12"><p id="filter-by">filter by</p></div>
+                <div class="col-lg-2 col-sm-6 col-6">
+                    <div class="custom-dropdown dropdown">
+                        <a class="dropdown-button" data-toggle="dropdown">
+                            Category
+                        </a>
+                        <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#">Category 1</a>
+                            <a class="dropdown-item" href="#">Category 2</a>
+                            <a class="dropdown-item" href="#">Category 3</a>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-2 col-sm-6 offset-sm-6 col-6 offset-md-0 offset-6">
+                    <div class="custom-dropdown dropdown">
+                        <a class="dropdown-button" data-toggle="dropdown">
+                            Topic
+                        </a>
+                        <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#">Topic 1</a>
+                            <a class="dropdown-item" href="#">Topic 2</a>
+                            <a class="dropdown-item" href="#">Topic 3</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

@@ -19,8 +19,8 @@ class HomeBanner extends AbstractModule implements StaticCacheInterface {
     {
         return [
         	'version'       => '1.0.0',
-            'title'         => 'Home banner',
-            'description'   => 'Home Banner With CTA'
+            'title'         => 'Home Banner With CTA',
+            'description'   => 'Home Banner'
         ];
     }
 

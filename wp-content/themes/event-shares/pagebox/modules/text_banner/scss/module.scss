@@ -1,0 +1,24 @@
+@import "module-variables";
+
+// Overall module styles
+@include overall_module() {
+    $text_banner_color: #182328;
+
+    .large-text-banner  {
+        font-size: 23px;
+        font-family: 'Merriweather', serif;
+        color: $text_banner_color;
+        text-align: center;
+        background-color: white;
+        height: 160px;
+        padding-top: 25px;
+    }
+}
+
+// Styles for unique page/post module.
+// In this scope you can use special functions to get data from pageboxes:
+// - get( key )
+// - get_deep( keys... )
+@include specified_module_loop() {
+    //background-color: get('color');
+}

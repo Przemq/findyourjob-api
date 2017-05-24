@@ -9,7 +9,7 @@ namespace Nurture\EventShares\Module;
 use Nurture\Pagebox\Module\AbstractModule;
 use Nurture\Pagebox\Module\View\StaticCacheInterface;
 
-class GetInTouch extends AbstractModule implements StaticCacheInterface {
+class TextBanner extends AbstractModule implements StaticCacheInterface {
 
     /**
      * Module config
@@ -19,8 +19,8 @@ class GetInTouch extends AbstractModule implements StaticCacheInterface {
     {
         return [
         	'version'       => '1.0.0',
-            'title'         => 'Get in Touch',
-            'description'   => 'Get in touch banner,'
+            'title'         => 'Text Banner',
+            'description'   => 'Simple, plain text banner'
         ];
     }
 

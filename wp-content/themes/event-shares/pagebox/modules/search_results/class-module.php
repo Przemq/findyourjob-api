@@ -20,7 +20,7 @@ class SearchResults extends AbstractModule implements StaticCacheInterface {
         return [
         	'version'       => '1.0.0',
             'title'         => 'Search Results',
-            'description'   => 'Pages and articles results'
+            'description'   => 'Pages and articles search results'
         ];
     }
 
