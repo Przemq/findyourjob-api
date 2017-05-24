@@ -11,117 +11,193 @@ $module = $this->getModule();
 <div class="<?= $module->getClass() ?>">
     <div class="container">
         <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-24">EV-24</a>
-        <div id="board-of-advisors">
+
+        <div class="top col-6">
             <div class="row">
-                <div class="col-lg-12">
-                    <?php include_once('pageContent.php') ?>
-                    <h4><?php echo $pageContent['board_of_advisors'] ?></h4>
+                <h2 class="title">The Management</h2>
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa excepturi magni
+                    voluptatem! Architecto blanditiis, doloribus dolorum enim libero minus optio porro quisquam quo quos
+                    recusandae reiciendis repellat sapiente velit voluptatum?</p>
+            </div>
+        </div>
+
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item col">
+                <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Joe Bloggs
+                    <span>Senior Advisor</span></a>
+            </li>
+            <li class="nav-item col">
+                <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Joseph Baratta
+                    <span>Senior Advisor</span></a>
+            </li>
+            <li class="nav-item col">
+                <a class="nav-link" data-toggle="tab" href="#messages" role="tab">David Calhoun
+                    <span>Senior Advisor</span></a>
+            </li>
+            <li class="nav-item col">
+                <a class="nav-link" data-toggle="tab" href="#settings" role="tab">David S. Blitzer
+                    <span>Senior Advisor</span></a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="home" role="tabpanel">
+                <div class="quote">
+                    "Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus at.
+                    Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum dolor
+                    amet, consectetur adipiscing elit..." 1
                 </div>
-                <div class="col-lg-6">
-                    <p><?php echo $pageContent['board_of_advisors_paragraph'] ?></p>
+                <div class="row">
+                    <div class="col-6">
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
+                            Quisque
+                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="col-6">
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
+                            Quisque
+                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit.</p>
+                    </div>
                 </div>
             </div>
-            <div id="employees">
-                <div class="row employee-row">
+            <div class="tab-pane" id="profile" role="tabpanel">
+                <div class="quote">
+                    "Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus at.
+                    Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum dolor
+                    amet, consectetur adipiscing elit..." 2
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
+                            Quisque
+                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
 
-                    <div class="col-lg-3 col-sm-6 single-team-item">
-                        <h5><?php echo $pageContent['header11'] ?></h5>
-                        <p><?php echo $pageContent['paragraph11'] ?></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit.</p>
                     </div>
+                    <div class="col-6">
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
+                            Quisque
+                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
 
-                    <div class="col-lg-3 col-sm-6 single-team-item">
-                        <h5><?php echo $pageContent['header12'] ?></h5>
-                        <p><?php echo $pageContent['paragraph12'] ?></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit.</p>
                     </div>
-                    <div class="col-lg-3 col-sm-6 single-team-item">
-                        <h5><?php echo $pageContent['header13'] ?></h5>
-                        <p><?php echo $pageContent['paragraph13'] ?></p>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 single-team-item">
-                        <h5><?php echo $pageContent['header14'] ?></h5>
-                        <p><?php echo $pageContent['paragraph14'] ?></p>
-                    </div>
-                    <div>
-                        <div class="row triangle-pointer"></div>
-                        <div class="drop-down-item row" id="test">
-                            <div class="col-lg-10">
-                                <h5>Lorem impsum dolor sit amet, consectetur adipiscing elit. Aenean mollis pellentesque
-                                    sodales. Vestibulum vel nunc sed nisi dapibus dictum. Curabitur aliquet tortor vitae
-                                    pellentesque ultricies. Ut faucibus vel nunc sed nisi ur et nosa cauntis dapibus
-                                    dictum.</h5>
-                            </div>
-                            <p class="col-lg-6">Lorem impsum dolor sit amet, consectetur adipiscing elit. Aenean mollis
-                                pellentesque
-                                sodales. Vestibulum vel nunc sed nisi dapibus dictum. Curabitur aliquet tortor vitae
-                                pellentesque ultricies. Ut faucibus.Lorem impsum dolor sit amet, consectetur adipiscing
-                                elit. Aenean mollis pellentesque
-                                sodales. Vestibulum vel nunc sed nisi dapibus dictum. Curabitur aliquet.</p>
-                            <p class="col-lg-6">Lorem impsum dolor sit amet, consectetur adipiscing elit. Aenean mollis
-                                pellentesque
-                                sodales. Vestibulum vel nunc sed nisi dapibus dictum. Curabitur aliquet tortor vitae
-                                pellentesque ultricies. Ut faucibus.Lorem impsum dolor sit amet, consectetur adipiscing
-                                elit. Aenean mollis pellentesque
-                                sodales. Vestibulum vel nunc sed nisi dapibus dictum. Curabitur aliquet.</p>
-                            <p class="col-lg-6">Lorem impsum dolor sit amet, consectetur adipiscing elit. Aenean mollis
-                                pellentesque
-                                sodales. Vestibulum vel nunc sed nisi dapibus dictum. Curabitur aliquet tortor vitae
-                                pellentesque ultricies. Ut faucibus.Lorem impsum dolor sit amet, consectetur adipiscing
-                                elit.</p>
-                            <p class="col-lg-6">Lorem impsum dolor sit amet, consectetur adipiscing elit. Aenean mollis
-                                pellentesque
-                                sodales. Vestibulum vel nunc sed nisi dapibus dictum. Curabitur aliquet tortor vitae
-                                pellentesque ultricies. Ut faucibus.Lorem impsum dolor sit amet, consectetur adipiscing
-                                elit.</p>
-                        </div>
-                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="messages" role="tabpanel">
+                <div class="quote">
+                    "Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus at.
+                    Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum dolor
+                    amet, consectetur adipiscing elit..." 3
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
+                            Quisque
+                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
 
-                    <div class="col-lg-3 col-sm-6 single-team-item">
-                        <h5><?php echo $pageContent['header21'] ?></h5>
-                        <p><?php echo $pageContent['paragraph21'] ?></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit.</p>
                     </div>
-                    <div class="col-lg-3 col-sm-6 single-team-item">
-                        <h5><?php echo $pageContent['header22'] ?></h5>
-                        <p><?php echo $pageContent['paragraph22'] ?></p>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 single-team-item">
-                        <h5><?php echo $pageContent['header23'] ?></h5>
-                        <p><?php echo $pageContent['paragraph23'] ?></p>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 single-team-item">
-                        <h5><?php echo $pageContent['header24'] ?></h5>
-                        <p><?php echo $pageContent['paragraph24'] ?></p>
-                    </div>
+                    <div class="col-6">
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
+                            Quisque
+                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
 
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="settings" role="tabpanel">
+                <div class="quote">
+                    "Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus at.
+                    Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum dolor
+                    amet, consectetur adipiscing elit..." 4
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
+                            Quisque
+                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
 
-                    <div class="col-lg-3 col-sm-6 single-team-item">
-                        <h5><?php echo $pageContent['header31'] ?></h5>
-                        <p><?php echo $pageContent['paragraph31'] ?></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit.</p>
                     </div>
-                    <div class="col-lg-3 col-sm-6 single-team-item">
-                        <h5><?php echo $pageContent['header32'] ?></h5>
-                        <p><?php echo $pageContent['paragraph32'] ?></p>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 single-team-item">
-                        <h5><?php echo $pageContent['header33'] ?></h5>
-                        <p><?php echo $pageContent['paragraph33'] ?></p>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 single-team-item">
-                        <h5><?php echo $pageContent['header34'] ?></h5>
-                        <p><?php echo $pageContent['paragraph34'] ?></p>
-                    </div>
-                    <!-- test-->
+                    <div class="col-6">
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
+                            Quisque
+                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
 
-                    <!-- test-->
+                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
+                            at.
+                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
+                            dolor
+                            amet, consectetur adipiscing elit.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        $('.single-team-item').on('click', function () {
-            alert('item clicked');
-        });
-    </script>
-
-</div>
 </div>

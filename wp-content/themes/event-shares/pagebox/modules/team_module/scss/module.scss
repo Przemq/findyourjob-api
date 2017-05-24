@@ -1,96 +1,84 @@
 @import "module-variables";
 
 // Overall module styles
-@include overall_module()
-{
+@include overall_module() {
+    background-color: #f4f4f4;
 
-    $drop-down-color: #002841;
-    $header-color: #002841;
-    $drop-down-header-color: rgb(86, 194, 163);
+    .container {
+        padding-top: 60px;
+        padding-bottom: 60px;
 
-
-    #board-of-advisors {
-        padding-top: 55px;
-        h4{
-            text-align: left;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-family: 'Roboto Condensed', sans-serif;
-            color: $header-color;
+        h2.title {
+            font-family: "Roboto Condensed";
             font-size: 25px;
-            font-weight: 500;
+            color: #1E2C32;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+
         }
-        h5{
-            font-family: 'Merriweather', serif;
-            color: $header-color;
+
+        p.description {
+            font-family: "Merriweather";
+            font-size: 14px;
+            color: #000;
+            text-align: left;
+
+        }
+
+        .nav-link {
+            border: none;
+            text-align: center;
             font-style: italic;
             font-size: 18px;
-            font-weight: bold;
-        }
+            font-family: "Merriweather Italic";
+            color: #002841;
+            line-height: 1.333;
+            -moz-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+            -webkit-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+            -ms-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
 
-        p {
-            font-family: 'Merriweather', serif;
-            font-size: 14px;
-            color: black;
-            line-height: 24px;
-        }
-
-        #employees {
-            text-align: center;
-            padding-top: 70px;
-        }
-
-        .employee-row {
-            padding-bottom: 70px;
-        }
-        .single-team-item{
-            padding-bottom: 56px;
-        }
-      .single-team-item:hover {
-        opacity: 0.7;
-        cursor: pointer;
-      }
-
-      .triangle-pointer:before {
-        content: "";
-        left: 140px;
-        width: 0;
-        height: 0;
-        position: relative;
-        border-style: solid;
-        border-width: 0 13px 13px 13px;
-        border-color: transparent transparent $drop-down-color transparent;
-      }
-
-        .drop-down-item {
-            background-color: $drop-down-color;
-            padding-top: 40px;
-            padding-bottom: 10px;margin-bottom: 45px;
-            h5 {
-                text-align: left;
-                font-style: italic;
-                font-size: 18px;
-                color: $drop-down-header-color;
-                line-height: 28px;
-                padding-bottom: 30px;
-                font-family: 'Merriweather', serif;
-                font-weight: 300;
-            }
-
-            p {
-                color: white;
-                text-align: left;
+            span {
+                font-style: normal;
+                display: block;
                 font-size: 14px;
-                line-height: 24px;
+                font-family: "Merriweather Light";
+                color: #000;
+                line-height: 1.714;
+                -moz-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+                -webkit-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+                -ms-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+
             }
-            h5:before {
-                content: '"';
+
+            &.active {
+                background-color: transparent;
+                border: none;
             }
-            h5:after {
-                content: '.."';
+
+            &:hover {
+                border-color: transparent;
             }
+
         }
 
+        .tab-content {
+            font-size: 14px;
+            font-family: "Merriweather Light";
+            line-height: 1.714;
+            text-align: left;
+            padding: 43px 23px 27px 23px;
+            color: #fff;
+            background-color: #002841;
+
+            .quote {
+                color: #56c2a3;
+                font-size: 18px;
+                font-family: "Merriweather Light";
+                font-style: italic;
+                margin-bottom: 38px;
+
+            }
+        }
     }
 }
 

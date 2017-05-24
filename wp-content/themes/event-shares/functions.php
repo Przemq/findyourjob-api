@@ -16,13 +16,16 @@ require_once ('includes/theme-options.php');
  * Use registered media in assets/vendors/register_vendors.php
  */
 add_action( 'wp_enqueue_scripts', function () {
-	wp_enqueue_script( 'scripts', THEME_JS_URI . '/script.js', array( 'jquery' ), null, true );
+	wp_enqueue_script( 'scripts', THEME_JS_URI . '/script.js', array( 'jquery', 'bootstrap' ), null, true );
 } );
 
 /**
  * Login redirect - redirect user when not logged in
  */
-add_action( 'wp', function() {
+if ( ! defined( 'WP_PROD' ) || ! WP_PROD ) {
+	add_action( 'wp', 'login_to_view_site' );
+}
+function login_to_view_site() {
 	$protocol = 'http://';
 	if ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on' || strpos( get_option( 'siteurl' ), 'https' ) !== false ) {
 		$protocol = 'https://';
@@ -33,7 +36,7 @@ add_action( 'wp', function() {
 		wp_redirect( HOME_URL . "/wp-login.php?redirect_to=" . $current_url );
 		die();
 	}
-});
+}
 
 /**
  * Enabled post-thumbnail support

@@ -14,7 +14,7 @@ wp_deregister_script( 'jquery' );
 /**
  * JS files
  */
-wp_register_script( 'jquery', THEME_VENDORS_URI . '/jquery/jquery.slim.min.js', [], '3.2.1', true );
+wp_register_script( 'jquery', THEME_VENDORS_URI . '/jquery/jquery.min.js', [], '3.2.1', true );
 wp_register_script( 'tether', THEME_VENDORS_URI . '/tether/tether.min.js', [ 'jquery' ], '1.3.7', true );
 wp_register_script( 'tether-select', THEME_VENDORS_URI . '/tether-select/js/select.min.js', [ 'tether' ], '1.1.1', true );
 wp_register_script( 'bootstrap', THEME_VENDORS_URI . '/bootstrap/bootstrap.min.js', [ 'jquery', 'tether' ], 'v4.0.0-alpha.6', true );
