@@ -16,7 +16,7 @@ require_once ('includes/theme-options.php');
  * Use registered media in assets/vendors/register_vendors.php
  */
 add_action( 'wp_enqueue_scripts', function () {
-	wp_enqueue_script( 'scripts', THEME_JS_URI . '/script.js', array( 'jquery' ), null, true );
+	wp_enqueue_script( 'scripts', THEME_JS_URI . '/script.js', array( 'jquery', 'bootstrap' ), null, true );
 } );
 
 /**

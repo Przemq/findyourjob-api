@@ -2,6 +2,84 @@
 
 // Overall module styles
 @include overall_module() {
+    background-color: #f4f4f4;
+
+    .container {
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        h2.title {
+            font-family: "Roboto Condensed";
+            font-size: 25px;
+            color: #1E2C32;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+
+        }
+
+        p.description {
+            font-family: "Merriweather";
+            font-size: 14px;
+            color: #000;
+            text-align: left;
+
+        }
+
+        .nav-link {
+            border: none;
+            text-align: center;
+            font-style: italic;
+            font-size: 18px;
+            font-family: "Merriweather Italic";
+            color: #002841;
+            line-height: 1.333;
+            -moz-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+            -webkit-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+            -ms-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+
+            span {
+                font-style: normal;
+                display: block;
+                font-size: 14px;
+                font-family: "Merriweather Light";
+                color: #000;
+                line-height: 1.714;
+                -moz-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+                -webkit-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+                -ms-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+
+            }
+
+            &.active {
+                background-color: transparent;
+                border: none;
+            }
+
+            &:hover {
+                border-color: transparent;
+            }
+
+        }
+
+        .tab-content {
+            font-size: 14px;
+            font-family: "Merriweather Light";
+            line-height: 1.714;
+            text-align: left;
+            padding: 43px 23px 27px 23px;
+            color: #fff;
+            background-color: #002841;
+
+            .quote {
+                color: #56c2a3;
+                font-size: 18px;
+                font-family: "Merriweather Light";
+                font-style: italic;
+                margin-bottom: 38px;
+
+            }
+        }
+    }
 }
 
 // Styles for unique page/post module.
