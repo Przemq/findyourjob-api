@@ -16,7 +16,8 @@ $module = $this->getModule();
                 <div class="col-md-6">
                     <ul class="nav nav-tabs hidden-sm-down" role="tablist" style="border-bottom-color: black">
                         <li class="nav-item single-li-item">
-                            <a class="nav-link active single-link" data-toggle="tab" href="#" role="tab" >Board of Advisors</a>
+                            <a class="nav-link active single-link" data-toggle="tab" href="#" role="tab">Board of
+                                Advisors</a>
                             <div class="line">
                             </div>
                         </li>
@@ -27,24 +28,30 @@ $module = $this->getModule();
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-4 btn-group">
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Category
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                            <li><a href="#">JavaScript</a></li>
-                        </ul>
+                <div class="col-md-6 ">
+                    <p>FILTER</p>
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle filter"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Category
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#">Category 1</a>
+                                <a class="dropdown-item" href="#">Category 2</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Category
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                            <li><a href="#">JavaScript</a></li>
-                        </ul>
+
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle filter"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Topic
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="#">Topic 1</a>
+                            <a class="dropdown-item" href="#">Topic 2</a>
+                        </div>
                     </div>
                 </div>
             </div>
