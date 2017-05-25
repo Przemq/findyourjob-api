@@ -10,7 +10,7 @@ $module = $this->getModule();
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container">
-        <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-29">EV-29</a>
+        <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-28">EV-28</a>
         <div class="row">
             <?php include_once('pageContent.php');?>
             <div class="flex-lg-row col-lg-6 col-sm-12" id="contacts">

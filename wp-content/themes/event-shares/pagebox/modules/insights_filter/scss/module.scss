@@ -3,8 +3,8 @@
 // Overall module styles
 @include overall_module() {
   $sub_nav_item: #55c2a2;
-  $circle_height: 15px;
-  $circle_width: 15px;
+  $circle_height: 20px;
+  $circle_width: 20px;
   $font_color: #002841;
   $circle_color: #CEECF5;
 
@@ -15,6 +15,7 @@
     .border-bottom {
       border-bottom: 1px solid black;
       position: relative;
+      padding-bottom: 3px;
     }
 
     .nav-link {
@@ -54,6 +55,7 @@
       color: $sub_nav_item;
       font-family: 'Merriweather', serif;
       font-style: italic;
+      font-size: 18px;
       padding-bottom: 15px;
       font-weight: bold;
     }
@@ -83,7 +85,8 @@
     .custom-dropdown {
       display: inline-block;
       margin: 10px;
-      width: 100%;
+      width: 185px;
+      height: 48px;
     }
 
     .custom-dropdown-menu {

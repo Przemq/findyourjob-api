@@ -18,6 +18,7 @@
             font-weight: 400;
             letter-spacing: 5px;
             color: $header-color;
+            text-transform: uppercase;
         }
         p {
             font-family: 'Merriweather', serif;
@@ -48,6 +49,9 @@
                 height: 17px;
                 width: 18px;
                 margin-right: 10px;
+            }
+            span {
+                text-transform: uppercase;
             }
         }
     }

@@ -9,6 +9,7 @@
 <body>
 <?php include_once('data/pageContent.php'); ?>
 <div class="container">
+    <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-21">EV-21</a>
     <div class="row" id="footer">
         <div class="col-lg-3 col-sm-12" id="left-column"><?php echo $pageContent['footer_left_text']; ?></div>
         <div class="col-lg-6 col-sm-12" id="right-column"><?php echo $pageContent['footer_right_text']; ?></div>
