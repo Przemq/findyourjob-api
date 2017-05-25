@@ -3,10 +3,10 @@
 // Overall module styles
 @include overall_module() {
 
-  $sub_nav_item: #55c2a2;
-  $circle_height: 15px;
-  $circle_width: 15px;
-  $active_link_color: #002841;
+  $sub_nav_item: rgb(166, 166, 166);;
+  $circle_height: 20px;
+  $circle_width: 20px;
+  $active_link_color: rgb(0, 40, 65);;
 
   #sub-nav {
     padding-top: 20px;
@@ -14,7 +14,7 @@
 
     .line {
       height: 1px;
-      background-color: black;
+      background-color: $active_link_color;
       position: relative;
       z-index: -2;
     }
@@ -35,7 +35,7 @@
         border: solid 2px black;
         border-radius: 50%;
         position: absolute;
-        top: 39.5px;
+        top: 40px;
         left: calc(50% - 5px);
         content: '';
       }
@@ -43,11 +43,11 @@
 
     }
     p {
-      padding-top: 20px;
+      padding-top: 43px;
       font-family: 'Merriweather', serif;
-      font-size: 20px;
+      font-size: 23px;
       color: black;
-      line-height: 22px;
+      line-height: 38px;
       text-align: center;
     }
 
@@ -56,11 +56,12 @@
       color: $sub_nav_item;
       font-family: 'Merriweather', serif;
       font-style: italic;
-      padding-bottom: 15px;
+      padding-bottom: 18px;
     }
 
     .single-li-item {
       margin-right: 12%;
+      margin-left: 2%;
     }
   }
 }
