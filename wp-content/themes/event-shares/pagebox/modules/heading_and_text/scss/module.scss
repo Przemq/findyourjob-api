@@ -1,0 +1,39 @@
+@import "module-variables";
+
+// Overall module styles
+@include overall_module() {
+
+  $header_color: rgb(30, 44, 50);
+  $background-color: #f4f4f4;
+
+  .second-background-color {
+    background-color:  $background-color;
+  }
+
+  #heading-and-text {
+    h4 {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-family: 'Roboto Condensed', sans-serif;
+      color: $header-color;
+      padding-top: 39px;
+      font-size: 25px;
+    }
+
+    p {
+      font-family: 'Merriweather', serif;
+      font-size: 14px;
+      color: black;
+      line-height: 24px;
+      padding-bottom: 40px;
+    }
+  }
+}
+
+// Styles for unique page/post module.
+// In this scope you can use special functions to get data from pageboxes:
+// - get( key )
+// - get_deep( keys... )
+@include specified_module_loop() {
+    //background-color: get('color');
+}
