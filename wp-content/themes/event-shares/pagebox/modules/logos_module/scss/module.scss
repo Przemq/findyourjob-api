@@ -3,49 +3,36 @@
 // Overall module styles
 @include overall_module() {
 
-    $header-color: #1e2c32;
+  $header-color: #1e2c32;
 
-    #in-the-media {
-        text-align: center;
-        padding-top: 10px;
-        h4 {
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-family: 'Roboto Condensed', sans-serif;
-            color: $header-color;
-            padding-bottom: 40px;
-        }
-
-        #media1 {
-            width: 208px;
-            height: 44px;
-        }
-        #media2 {
-            width: 186px;
-            height: 36px;
-        }
-        #media3 {
-            width: 142px;
-            height: 47px;
-        }
-        #media4 {
-            width: 160px;
-            height: 56px;
-        }
-
+  #in-the-media {
+    text-align: center;
+    padding-top: 10px;
+    h4 {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-family: 'Roboto Condensed', sans-serif;
+      color: $header-color;
+      padding-bottom: 40px;
     }
+
+  }
+  .image-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
 
     .media-image {
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-        opacity: 0.6;
-        height: 40px;
-        width: 189px;
-        margin-bottom: 45px;
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+      opacity: 0.6;
+      width: 100%;
+      padding: 30px;
+
     }
 
-    .image-container {
-    }
+  }
 }
 
 // Styles for unique page/post module.
@@ -53,5 +40,5 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    //background-color: get('color');
+  //background-color: get('color');
 }

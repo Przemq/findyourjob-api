@@ -14,7 +14,7 @@ $module = $this->getModule();
             <div class="row large-text-banner">
                 <div class="col-lg-8 offset-lg-2">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mollis pellentesque sodales.
-                    Vestibulum vel nunc sed nisi dapibus dictum.
+                    Vestibulum vel nunc.
                 </div>
             </div>
         </div>

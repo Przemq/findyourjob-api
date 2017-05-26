@@ -15,18 +15,12 @@ $module = $this->getModule();
             <div class="col-lg-12">
                 <h4>IN THE MEDIA</h4>
             </div>
-            <div class="col-lg-3 image-container">
-                <img class="media-image img-fluid" id="media1" src="<?= THEME_IMAGES_URI; ?>/logo_microsoft.svg">
+
+            <?php for ($i=0; $i<4; $i++): ?>
+            <div class="col-sm-6 col-6 col-lg-3 image-container">
+                <img class="media-image" src="<?= THEME_IMAGES_URI; ?>/<?=($i%2)?'logo_microsoft.svg':'logo_yahoo.svg'?>">
             </div>
-            <div class="col-lg-3 image-container">
-                <img class="media-image img-fluid" id="media2" src="<?= THEME_IMAGES_URI; ?>/logo_yahoo.svg">
-            </div>
-            <div class="col-lg-3 image-container">
-                <img class="media-image img-fluid" id="media3" src="<?= THEME_IMAGES_URI; ?>/logo_google.svg">
-            </div>
-            <div class="col-lg-3 image-container">
-                <img class="media-image img-fluid" id="media4" src="<?= THEME_IMAGES_URI; ?>/logo_amazon.svg">
-            </div>
+            <?php endfor; ?>
         </div>
     </div>
 </div>

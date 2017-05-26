@@ -9,8 +9,8 @@
 
   #home-banner {
     background-color: $background-color;
-    padding-top: 90px;
-    padding-bottom: 112px;
+    padding-top: 86px;
+    padding-bottom: 121px;
     h2 {
       font-family: 'Roboto Condensed', sans-serif;
       text-transform: uppercase;
@@ -18,12 +18,13 @@
       font-size: 54px;
       line-height: 64px;
       color: white;
+      padding-bottom: 4px;
     }
 
     p {
       color: white;
       font-family: 'Merriweather', serif;
-      padding-bottom: 20px;
+      padding-bottom: 17px;
       font-size: 14px;
       line-height: 27px;
     }
