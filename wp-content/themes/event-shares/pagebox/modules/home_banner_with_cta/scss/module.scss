@@ -11,6 +11,15 @@
     background-color: $background-color;
     padding-top: 86px;
     padding-bottom: 121px;
+    img {
+      max-width:500px;
+      position: absolute;
+      right:0;
+      top:0;
+      height:auto;
+      -webkit-clip-path: polygon(4% 0, 95% 0, 95% 11%, 67% 92%, 57% 100%, 40% 100%, 31% 92%, 4% 11%);
+      clip-path: polygon(4% 0, 95% 0, 95% 11%, 67% 92%, 57% 100%, 40% 100%, 31% 92%, 4% 11%);
+    }
     h2 {
       font-family: 'Roboto Condensed', sans-serif;
       text-transform: uppercase;
@@ -32,10 +41,12 @@
       color: $header_second_color;
     }
 
-    #learn-more-button {
+    .learn-more-button {
       padding: 11.5px 43px;
       background-color: $button_background_color;
-      border: none;
+      //border: none;
+      display: inline-block;
+      margin-bottom: 15px;
       color: $button-font-color;
       font-family: 'Roboto Condensed', sans-serif;
       letter-spacing: 3px;
@@ -44,6 +55,13 @@
       text-transform: uppercase;
       font-size: 16px;
       font-weight: 600;
+      transition: 0.5s all;
+      border:1px solid $button_background_color;
+      &:hover{
+        background: rgba(255, 255, 255, 0.14);
+        color:white;
+        border-color:white;
+      }
     }
 
   }
@@ -55,5 +73,19 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-  //background-color: get('color');
+  #home-banner{
+    background-color: get('backgroundColor');
+    h2{
+      font-size:get('titleSize');
+      color:get('titleColor');
+      #header-second-color{
+        color:get('titleInnerColor');
+      }
+    }
+    p{
+      font-size:get('descriptionSize');
+      color:get('descriptionColor');
+    }
+
+  }
 }
