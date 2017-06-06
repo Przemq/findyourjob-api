@@ -11,17 +11,24 @@
     background-color: $home-our-etfs-background-color;
     padding-top: 65px;
     padding-bottom: 44px;
-    .svg-image svg {
-      width: 78px;
-      height: 128px;
-      margin-top: 21px;
-      margin-bottom: 30px;
-      margin-right: 50px;
+    .svg-image {
+      text-align: center;
+      svg {
+        width: 78px;
+        height: 128px;
+        margin-top: 21px;
+        margin-bottom: 30px;
+        margin-right: 50px;
+        @include media-breakpoint-down(md) {
+          margin-right: auto;
+        }
 
-      path {
-        fill: #59C1A2;
+        path {
+          fill: #59C1A2;
+        }
       }
     }
+
     h4 {
       font-size: 25px;
       font-family: 'Roboto Condensed', sans-serif;

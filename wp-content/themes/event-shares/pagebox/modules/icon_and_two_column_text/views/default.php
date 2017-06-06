@@ -15,7 +15,7 @@ $table       = $this->getEditor( 'description' )->getContent();
     <div class="container"><?php include_once( 'pageContent.php' ); ?> <a class="task-number" target="_blank"
                                                                           href="https://nurture.atlassian.net/browse/EV-18">EV-18</a>
         <div class="row" id="home-page-our-etfs">
-            <div class="col-lg-2 offset-lg-1 col-sm-3 offset-sm-4 svg-image" style="text-align: center">
+            <div class="col-lg-2 offset-lg-1 col-sm-12 offset-sm-0 col-12 offset-0 svg-image">
                 <!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                      viewBox="-578 384.3 141.6 233.7" style="enable-background:new -578 384.3 141.6 233.7;"
