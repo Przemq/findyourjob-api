@@ -38,7 +38,7 @@ class HomeBanner extends AbstractModule implements StaticCacheInterface {
 			'titleColor'      => [
 				'type'    => 'input:color',
 				'label'   => 'Title color',
-				'default' => '#fffff',
+				'default' => '#ffffff',
 				'sass'    => true
 			],
 			'titleInner'      => [
