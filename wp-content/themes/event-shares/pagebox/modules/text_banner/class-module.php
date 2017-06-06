@@ -11,37 +11,68 @@ use Nurture\Pagebox\Module\View\StaticCacheInterface;
 
 class TextBanner extends AbstractModule implements StaticCacheInterface {
 
-    /**
-     * Module config
-     * @return array Module configuration.
-     */
-    protected function config()
-    {
-        return [
-        	'version'       => '1.0.0',
-            'title'         => 'Text Banner',
-            'description'   => 'Simple, plain text banner'
-        ];
-    }
+	/**
+	 * Module config
+	 * @return array Module configuration.
+	 */
+	protected function config() {
+		return [
+			'version'     => '1.0.0',
+			'title'       => 'Text Banner',
+			'description' => 'Simple, plain text banner'
+		];
+	}
 
-    /**
-     * @return array Fields configuration.
-     */
-    protected function fields()
-    {
-        return [
-	        //Title
-	        'title' => [
-		        'type' => 'input:text',
-		        'label' => 'Title',
-		        'description' => 'Please enter title'
-	        ],
-	        'titleColor' => [
-		        'type' => 'input:color',
-		        'label' => 'Title color',
-		        'default' => '#282780',
-		        'sass' => true
-	        ],
-        ];
-    }
+	/**
+	 * @return array Fields configuration.
+	 */
+	protected function fields() {
+		return [
+			//Title
+			'Text'            => [
+				'type'        => 'editor',
+				'label'       => 'Text Banner',
+				'description' => 'Please enter Banner text'
+			],
+			'bannerColor'     => [
+				'type'    => 'input:color',
+				'label'   => 'Text Banner color',
+				'default' => '#182328',
+				'sass'    => true
+			],
+			'bannerSize'      => [
+				'type'    => 'input:text',
+				'label'   => 'Text Banner size (px)',
+				'default' => '23px',
+				'sass'    => true
+			],
+			'backgroundColor' => [
+				'type'    => 'input:color',
+				'label'   => 'Background Color',
+				'default' => '#ffffff',
+				'sass'    => true
+			],
+			'buttonSwitch'    => [
+				'type'    => 'input:switch',
+				'label'   => 'Button Switch',
+				'default' => 0,
+			],
+			'button'          => [
+				'type'    => 'input:text',
+				'label'   => 'Button Text',
+				'default' => '',
+			],
+			'buttonUrl'       => [
+				'type'    => 'input:text',
+				'label'   => 'Button Url',
+				'default' => '#'
+			],
+			'buttonBlank'     => [
+				'type'    => 'input:switch',
+				'label'   => 'Button Url New target',
+				'default' => 1,
+			],
+
+		];
+	}
 }

@@ -2,18 +2,20 @@
 
 // Overall module styles
 @include overall_module() {
-    $text_banner_color: #182328;
+  $text_banner_color: #182328;
+  a {
 
-    .large-text-banner  {
-        font-size: 23px;
-        font-family: 'Merriweather', serif;
-        color: $text_banner_color;
-        text-align: center;
-        background-color: white;
-        height: 160px;
-        padding-top: 45px;
-        padding-bottom: 45px;
-    }
+  }
+  .large-text-banner {
+    font-size: 23px;
+    font-family: 'Merriweather', serif;
+    color: $text_banner_color;
+    background-color: white;
+    min-height: 160px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    text-align: center;
+  }
 }
 
 // Styles for unique page/post module.
@@ -21,5 +23,11 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    //background-color: get('color');
+  //background-color: get('color');
+  .large-text-banner {
+    font-size: get('bannerSize');
+    color: get(bannerColor);
+    background-color: get('backgroundColor');
+
+  }
 }

@@ -13,8 +13,19 @@ $module = $this->getModule();
         <div class="container">
             <div class="row large-text-banner">
                 <div class="col-lg-8 offset-lg-2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mollis pellentesque sodales.
-                    Vestibulum vel nunc.
+
+					<?= $this->getEditor( 'Text' )->getContent(); ?>
+
+					<?php
+					if ( $this->getInput( 'buttonSwitch' )->getValue() ):
+						$url = $this->getInput( 'buttonUrl' );
+						$blank = $this->getInput( 'buttonBlank' )->getValue() ? 'target=_blank' : "";
+						?>
+
+                        <a href="<?= $url ?>" <?= $blank ?> class="button">
+                            <span><?= $this->getInput( 'button' ) ?></span></a>
+					<?php endif;
+					?>
                 </div>
             </div>
         </div>
