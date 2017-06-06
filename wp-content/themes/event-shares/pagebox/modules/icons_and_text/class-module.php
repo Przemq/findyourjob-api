@@ -39,9 +39,32 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 	        'titleColor' => [
 		        'type' => 'input:color',
 		        'label' => 'Title color',
-		        'default' => '#282780',
+		        'default' => '#002842',
 		        'sass' => true
 	        ],
+//	        First Section
+	        'firstSectionSwitch'       => [
+		        'type'    => 'input:switch',
+		        'label'   => 'SVG(Marker) / Image:',
+		        'default' => 0,
+	        ],
+	        'firstSectionIconColor' => [
+		        'type' => 'input:color',
+		        'label' => 'Title color',
+		        'default' => '#002842',
+		        'sass' => true
+	        ],
+	        'firstSectionImage'          => [
+		        'type'        => 'media:image',
+		        'label'       => 'Set background image First Section',
+		        'multiple'    => false,
+		        'unique'      => false,
+		        'aspectRatio' => '16:9',
+	        ],
+	        'firstSectionEditor' =>[
+	        	'type'=>'editor',
+		        'label' =>'Set Text for first Section'
+	        ]
         ];
     }
 }
