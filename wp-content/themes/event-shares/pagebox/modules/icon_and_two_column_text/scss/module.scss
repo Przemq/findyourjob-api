@@ -3,62 +3,65 @@
 // Overall module styles
 @include overall_module() {
 
-    $header-color: #002842;
-    $home-our-etfs-background-color: #EBEBEB;
-    $td-Color: #1B1B1B;
+  $header-color: #002842;
+  $home-our-etfs-background-color: #EBEBEB;
+  $td-Color: #1B1B1B;
 
-    #home-page-our-etfs {
-        background-color: $home-our-etfs-background-color;
-        padding-top: 65px;
-        padding-bottom: 44px;
-        #home-firm-icon {
-            width: 78px;
-            height: 128px;
-            margin-top: 21px;
-            margin-bottom: 30px;
-            margin-right: 50px;
-        }
-        h4 {
-            font-size: 25px;
-            font-family: 'Roboto Condensed', sans-serif;
-            letter-spacing: 3px;
-            color: $header-color;
-            text-transform: uppercase;
-        }
+  #home-page-our-etfs {
+    background-color: $home-our-etfs-background-color;
+    padding-top: 65px;
+    padding-bottom: 44px;
+    .svg-image svg {
+      width: 78px;
+      height: 128px;
+      margin-top: 21px;
+      margin-bottom: 30px;
+      margin-right: 50px;
 
-        p {
-            font-family: 'Merriweather', serif;
-            color: black;
-            font-size: 14px;
-            line-height: 24px;
-        }
-
-        #left-column {
-           margin-right: 50px;
-        }
-
-
-        table {
-            margin-top: 40px;
-            font-family: 'Roboto Condensed', sans-serif;
-            font-size: 14px;
-            tbody {
-                tr {
-                    th {
-                        padding: 0 0 4px 0;
-                        border: none;
-                        letter-spacing: 1px;
-                    }
-                    td {
-                        letter-spacing: 1px;
-                        padding: 0 0 5px 0;
-                        border: none;
-                        color: $td-Color;
-                    }
-                }
-            }
-        }
+      path {
+        fill: #59C1A2;
+      }
     }
+    h4 {
+      font-size: 25px;
+      font-family: 'Roboto Condensed', sans-serif;
+      letter-spacing: 3px;
+      color: $header-color;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-family: 'Merriweather', serif;
+      color: black;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    #left-column {
+      margin-right: 50px;
+    }
+
+    table {
+      margin-top: 40px;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 14px;
+      tbody {
+        tr {
+          th {
+            padding: 0 0 4px 0;
+            border: none;
+            letter-spacing: 1px;
+          }
+          td {
+            letter-spacing: 1px;
+            padding: 0 0 5px 0;
+            border: none;
+            color: $td-Color;
+          }
+        }
+      }
+    }
+  }
 
 }
 
@@ -67,5 +70,35 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    //background-color: get('color');
+  //background-color: get('color');
+  #home-page-our-etfs {
+    background-color: get('backgroundColor');
+    .svg-image {
+      svg {
+        path {
+          fill: get('iconColor');
+        }
+      }
+    }
+    h4 {
+      font-size: get('titleSize');
+      color: get('titleColor');
+    }
+    p {
+      font-size: get('descriptionSize');
+      color: get('descriptionColor');
+    }
+    table {
+      tbody {
+        tr {
+          color: get('rowColor');
+          font-size: get('rowSize');
+          td {
+            color: get('rowColor');
+            font-size: get('rowSize');
+          }
+        }
+      }
+    }
+  }
 }
