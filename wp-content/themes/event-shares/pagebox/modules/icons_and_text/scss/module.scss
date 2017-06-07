@@ -1,55 +1,68 @@
 @import "module-variables";
 
 // Overall module styles
-@include overall_module()
-{
-    $header-color: #002842;
+@include overall_module() {
+  $header-color: #002842;
 
+  #three-column-boxes {
+    padding-top: 77px;
+    text-align: center;
+    padding-bottom: 90px;
+    h2 {
+      text-transform: uppercase;
+      padding-bottom: 58px;
+      font-size: 25px;
+      font-family: 'Roboto Condensed', sans-serif;
+      color: $header-color;
+      letter-spacing: 5px;
+    }
 
-
-    #three-column-boxes {
-        padding-top: 77px;
-        text-align: center;
-        padding-bottom: 90px;
-        #top-header {
-            text-transform: uppercase;
-            padding-bottom: 58px;
-            font-size: 25px;
-            font-family: 'Roboto Condensed', sans-serif;
-            color: $header-color;
-            letter-spacing: 5px;
+    .svg-wrapper {
+      //max-width: 160px;
+      width: auto;
+      max-height: 110px;
+      margin: 0 auto 20px;
+      transition: 0.5s all;
+      svg {
+        max-height: 110px;
+        transition: 0.5s all;
+        .st1,.st2 {
+          fill: #56C1A3;
+          transition: 0.5s all;
         }
 
-        #icon1 {
-            width: 137px;
-            height: 105px;
-        }
+      }
+      &:hover svg {
 
-        #icon2 {
-            width: 159px;
-            height: 89px;
-        }
-
-        #icon3 {
-            width: 132px;
-            height: 97px;
-        }
-
-        .sub-header {
-            text-transform: uppercase;
-            font-size: 25px;
-            font-family: 'Roboto Condensed', sans-serif;
-            color: $header-color;
-            letter-spacing: 5px;
+        .st1,.st2 {
+          fill: #002841;
 
         }
+      }
+      img {
+        max-height: 110px;
+        width: auto;
+      }
+    }
 
-        p {
-            font-family: 'Merriweather', serif;
-            font-size: 14px;
-        }
+
+    h4 {
+      text-transform: uppercase;
+      font-size: 25px;
+      font-family: 'Roboto Condensed', sans-serif;
+      color: $header-color;
+      letter-spacing: 5px;
 
     }
+
+    p {
+      font-family: 'Merriweather', serif;
+      font-size: 14px;
+    }
+    a {
+      font-size: 22px;
+    }
+  }
 }
 
 // Styles for unique page/post module.
@@ -57,5 +70,33 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    //background-color: get('color');
+  //background-color: get('color');
+  #three-column-boxes {
+    h2 {
+      font-size: get('titleSize');
+      color: get('titleColor');
+    }
+    .svg-wrapper {
+      svg {
+        .st1, .st2 {
+          fill: get('sectionIconColor');
+        }
+
+      }
+      &:hover svg {
+        .st1, .st2 {
+          fill: get('sectionIconColorHover');
+
+        }
+      }
+    }
+    h4{
+      font-size: get('titleInnerSize');
+      color: get('titleInnerColor');
+    }
+    p{
+      font-size: get('descriptionSize');
+      color: get('descriptionColor');
+    }
+  }
 }
