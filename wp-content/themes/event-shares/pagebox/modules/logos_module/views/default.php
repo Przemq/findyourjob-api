@@ -13,14 +13,25 @@ $module = $this->getModule();
         <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-49">EV-49</a>
         <div class="row" id="in-the-media">
             <div class="col-lg-12">
-                <h4>IN THE MEDIA</h4>
+				<?php if ( $this->getInput( 'titleSwitch' )->getValue() ) : ?>
+                    <h4><?=$this->getInput('title')?></h4>
+					<?php
+				endif;
+				?>
             </div>
+            <div class="col-lg-12 image-container">
+				<?php foreach ( $this->getRepeater( 'logos' ) as $index => $section ) :
+					$ImageID = $section->getMedia( 'logoImage' )->getImage()->getId();
+					$isBlank = $section->getInput( 'logoBlank' )->getValue() ? ' target=_blank ' : "";
+					?>
+                    <a <?= $isBlank ?> href="<?= $section->getInput( 'logoUrl' ) ?>">
+						<?php echo wp_get_attachment_image( $ImageID, 'full', false, [ 'class' => 'media-image' ] ) ?>
+                    </a>
+					<?php
+				endforeach;
+				?>
 
-            <?php for ($i=0; $i<4; $i++): ?>
-            <div class="col-sm-6 col-6 col-lg-3 image-container">
-                <img class="media-image" src="<?= THEME_IMAGES_URI; ?>/<?=($i%2)?'logo_microsoft.svg':'logo_yahoo.svg'?>">
             </div>
-            <?php endfor; ?>
         </div>
     </div>
 </div>

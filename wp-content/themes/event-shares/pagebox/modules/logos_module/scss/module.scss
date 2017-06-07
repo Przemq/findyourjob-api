@@ -4,7 +4,7 @@
 @include overall_module() {
 
   $header-color: #1e2c32;
-
+  padding: 15px 0;
   #in-the-media {
     text-align: center;
     padding-top: 10px;
@@ -18,19 +18,33 @@
 
   }
   .image-container {
-    display: flex;
     align-content: center;
     align-items: center;
     flex-direction: row;
-
     .media-image {
-      -webkit-filter: grayscale(100%);
-      filter: grayscale(100%);
-      opacity: 0.6;
-      width: 100%;
-      padding: 30px;
 
+      max-width: 24%;
+      padding: 30px;
+      width:auto;
     }
+    a {
+      .media-image{
+        -webkit-filter: grayscale(100%);
+        display: inline-flex;
+        filter: grayscale(100%);
+        opacity: 0.5;
+        @include transition(0.5s all);
+      }
+      &:hover {
+        text-decoration: none;
+        .media-image{
+          -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+          opacity: 1;
+        }
+      }
+    }
+
 
   }
 }
@@ -41,4 +55,11 @@
 // - get_deep( keys... )
 @include specified_module_loop() {
   //background-color: get('color');
+  #in-the-media {
+    background-color:get('background');
+    h4{
+      color:get('titleColor');
+      font-size:get('titleSize');
+    }
+  }
 }

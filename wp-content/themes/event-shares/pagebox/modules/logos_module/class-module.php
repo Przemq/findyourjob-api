@@ -31,6 +31,12 @@ class LogosModule extends AbstractModule implements StaticCacheInterface {
     {
         return [
 	        //Title
+	        'titleSwitch' => [
+		        'type'        => 'input:switch',
+		        'label'       => 'Title Off/On',
+		        'default' => 1
+	        ],
+
 	        'title' => [
 		        'type' => 'input:text',
 		        'label' => 'Title',
@@ -41,6 +47,41 @@ class LogosModule extends AbstractModule implements StaticCacheInterface {
 		        'label' => 'Title color',
 		        'default' => '#282780',
 		        'sass' => true
+	        ],
+	        'titleSize' => [
+		        'type' => 'input:text',
+		        'label' => 'Title size',
+		        'default' => '1.5rem',
+		        'sass' => true
+	        ],
+	        'background' => [
+		        'type' => 'input:color',
+		        'label' => 'Background color',
+		        'default' => '#ffffff',
+		        'sass' => true
+	        ],
+	        'logos' => [
+		        'type' => 'repeater',
+		        'label' => 'Logos',
+		        'fields' => [
+			        'logoUrl'        => [
+				        'type'        => 'input:text',
+				        'label'       => 'Set logo url',
+				        'default' => '#'
+			        ],
+			        'logoBlank'        => [
+				        'type'        => 'input:switch',
+				        'label'       => 'New Target Blank',
+						'default' => 1
+			        ],
+			        'logoImage'        => [
+				        'type'        => 'media:image',
+				        'label'       => 'Set image for logo',
+				        'multiple'    => false,
+				        'unique'      => false,
+				        'aspectRatio' => '16:9',
+			        ],
+		        ]
 	        ],
         ];
     }
