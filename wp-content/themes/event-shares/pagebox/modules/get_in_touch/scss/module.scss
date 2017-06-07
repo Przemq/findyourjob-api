@@ -6,14 +6,21 @@
     $font_white_color: #f0f2f4;
     $get_in_touch_color: #002841;
 
-    #get-in-touch {
+    .get-in-touch {
         font-family: 'Roboto Condensed', sans-serif;
-        height: 97px;
+        //height: 97px;
         background-color: $get_in_touch_color;
         color: $font_white_color;
-        font-size: 30px;
         text-align: center;
         padding-top: 25px;
+        padding-bottom: 25px;
+        a{
+            font-size: 30px;
+            @include transition(0.5s all);
+        &:hover{
+            text-decoration: none;
+        }
+        }
     }
 }
 
@@ -22,5 +29,9 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    //background-color: get('color');
+    background-color: get('backgroundColor');
+    .get-in-touch a{
+        color:get('titleColor');
+        font-size:get('titleSize');
+    }
 }
