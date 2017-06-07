@@ -7,6 +7,7 @@
 namespace Nurture\EventShares\Module;
 
 use Nurture\Pagebox\Module\AbstractModule;
+use Nurture\Pagebox\Module\Fields\Builder\Select;
 use Nurture\Pagebox\Module\View\StaticCacheInterface;
 
 class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterface {
@@ -71,7 +72,7 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 			],
 
 
-			'rows'            => [
+			'rows' => [
 				'type'   => 'repeater',
 				'label'  => 'Table',
 				'fields' => [
@@ -84,6 +85,41 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 						'label' => 'Enter row right text ',
 					],
 				],
+			],
+
+
+			'buttonTitle'     => [
+				'type'    => 'input:text',
+				'label'   => 'Button title',
+				'default' => ""
+			],
+			'buttonUrl'       => [
+				'type'     => 'select',
+				'label'    => 'Select page for button',
+				'multiple' => false,
+				'options'  => [
+					'allowClear' => true
+				],
+				'values'   => function () {
+					return Select::postFilter( get_pages( [ 'posts_per_page' => - 1 ] ), [
+						'postID'    => function ( \WP_Post $post ) {
+							return $post->ID;
+						},
+						'permalink' => function ( \WP_Post $post ) {
+							return get_permalink( $post->ID );
+						}
+					] );
+				}
+			],
+			'buttonBlankLink' => [
+				'type'    => 'input:switch',
+				'label'   => 'Link new target:',
+				'default' => 1,
+			],
+			'buttonOn'        => [
+				'type'    => 'input:switch',
+				'label'   => 'Display',
+				'default' => 1,
 			],
 			'rowColor'        => [
 				'type'    => 'input:color',

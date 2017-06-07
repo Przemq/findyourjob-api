@@ -27,6 +27,22 @@ $table       = $this->getEditor( 'description' )->getContent();
             <div class="col-lg-4" id="left-column">
                 <h4><?= $title ?></h4>
 				<?= $description ?>
+
+				<?php
+				if ( $this->getInput( 'buttonOn' )->getValue() ):
+
+					$url = $this->getSelect( 'buttonUrl' )->getValue()['permalink'];
+					$blank = $this->getInput( 'buttonBlankLink' )->getValue() ? 'target=_blank' : "";
+					$button = $this->getInput('buttonTitle');
+					?>
+                    <a href="<?= $url ?>" <?= $blank ?> class="button">
+                        <span class="align-middle"><?= $button ?></span>
+                    </a>
+					<?php
+				endif;
+				?>
+
+
             </div>
             <div class="col-lg-4">
                 <table class="table">

@@ -29,47 +29,45 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 	protected function fields() {
 		return [
 			//Title
-			'title'            => [
+			'title'      => [
 				'type'        => 'input:text',
 				'label'       => 'Title',
 				'description' => 'Please enter title'
 			],
-			'titleColor'       => [
+			'titleColor' => [
 				'type'    => 'input:color',
 				'label'   => 'Title color',
 				'default' => '#002842',
 				'sass'    => true
 			],
-			'titleSize'        => [
-				'type'        => 'input:text',
-				'label'       => 'Title size',
-				'description' => 'Please enter title size (px)',
-				'default'     => '25px',
-				'sass'    => true
-			],
 //	        Repeater
-			'sections'         => [
+			'sections'       => [
 				'type'   => 'repeater',
 				'label'  => 'Sections',
 				'fields' => [
-
-					'sectionImage'       => [
+					'sectionIconColor'    => [
+						'type'    => 'input:color',
+						'label'   => 'Icon (if exist) color',
+						'default' => '#002842',
+						'sass'    => true
+					],
+					'sectionImage'        => [
 						'type'        => 'media:image',
 						'label'       => 'Set background image First Section',
 						'multiple'    => false,
 						'unique'      => false,
 						'aspectRatio' => '16:9',
 					],
-					'sectionEditor'      => [
+					'sectionEditor'       => [
 						'type'  => 'editor',
 						'label' => 'Set Text for section'
 					],
-					'sectionButton'      => [
+					'sectionButton'       => [
 						'type'    => 'input:text',
 						'label'   => 'Button Text:',
 						'default' => '',
 					],
-					'sectionButtonUrl'   => [
+					'sectionButtonUrl'       => [
 						'type'    => 'input:text',
 						'label'   => 'Button Url Text:',
 						'default' => '#',
@@ -81,47 +79,6 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 					],
 				],
 			],
-//			End Repeater
-			'titleInnerSize'   => [
-				'type'        => 'input:text',
-				'label'       => 'Title Inner size',
-				'description' => 'Please enter title size (px)',
-				'default'     => '25px',
-				'sass'    => true
-			],
-			'titleInnerColor'  => [
-				'type'    => 'input:color',
-				'label'   => 'Title color',
-				'default' => '#002842',
-				'sass'    => true
-			],
-
-			'descriptionColor' => [
-				'type'    => 'input:color',
-				'label'   => 'Description color',
-				'default' => '#292b2c',
-				'sass'    => true
-			],
-			'descriptionSize'  => [
-				'type'        => 'input:text',
-				'label'       => 'Description size',
-				'description' => 'Please enter title size (px)',
-				'default'     => '14px',
-				'sass'    => true
-			],
-			'sectionIconColor'      => [
-				'type'    => 'input:color',
-				'label'   => 'Icon (if exist) color',
-				'default' => '#56C1A3',
-				'sass'    => true
-			],
-			'sectionIconColorHover' => [
-				'type'    => 'input:color',
-				'label'   => 'Icon color on hover',
-				'default' => '#002841',
-				'sass'    => true
-			],
-
 		];
 	}
 }
