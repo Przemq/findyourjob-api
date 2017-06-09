@@ -41,21 +41,88 @@
     <!--            }-->
     <!--        })();-->
     <!--    </script>-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<?php wp_head(); ?>
+	<?php
+	//  Get all style options from wpx_theme
+	$searchBackground            = ! empty( wpx_theme_get_option( 'wpx_theme_search_background' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background' ) : '#da8b00';
+	$searchBackgroundHover       = ! empty( wpx_theme_get_option( 'wpx_theme_search_background_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background_hover' ) : '#c17b01';
+	$menu_text_color             = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) : '#004a85';
+	$menu_text_color_hover       = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) : '';
+	$menu_sub_title_color        = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_title_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_title_color' ) : '';
+	$menu_sub_description_color  = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_description_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_description_color' ) : '';
+	$menu_sub_button_color       = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_button_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_button_color' ) : '';
+	$menu_sub_button_color_hover = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_button_color_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_button_color_hover' ) : '';
+	$menu_font_family            = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) : "";
+
+	//	Get available font family and assign it correct value
+	if ( $menu_font_family === "standard" ) {
+		$menu_font_family = '"Merriweather", serif';
+	} else if ( $menu_font_family === 'standard_italic' ) {
+		$menu_font_family = '"Merriweather Italic",serif';
+	} else if ( $menu_font_family === 'roboto' ) {
+		$menu_font_family = "'Roboto Condensed', sans-serif";
+	}
+
+	?>
+
+    <style>
+        header nav .wpx-search .desktop-search .search-submit svg path {
+            fill: <?=$searchBackground?>;
+        }
+
+        header nav .wpx-search .desktop-search .search-submit:hover svg path {
+            fill: <?=$searchBackgroundHover?>;
+        }
+
+        <?php
+            if ($menu_font_family !=='none') :?>
+
+        header nav ul li a {
+            font-family: <?=$menu_font_family?>;
+        }
+
+        <?php endif;
+        ?>
+
+        header nav ul > li > a {
+            color: <?=$menu_text_color?>;
+        }
+
+        /**/
+        header nav > ul.menu > li:hover:after,
+        {
+            background-color: <?=$menu_text_color_hover?>;
+        }
+
+        header nav > ul.menu > li > a:hover {
+            color: <?=$menu_text_color_hover?>;
+
+        }
+
+        body.wpx-desktop .wpx-main-header nav > ul > li:hover a {
+            color: <?=$menu_text_color_hover?>;
+        }
+
+        header nav ul li .sub-menu-flex li a h4 {
+            color: <?=$menu_sub_title_color?>;
+        }
+        .wpg-mobile header nav ul li .sub-menu-flex li a h4 {
+            color: #292b2c;
+        }
+        header nav ul li .sub-menu-flex li p {
+            color: <?=$menu_sub_description_color;?>;
+        }
+
+        header nav ul li .sub-menu-flex li .learn-description {
+            color: <?=$menu_sub_button_color;?>;
+        }
+
+        header nav ul li .sub-menu-flex li .learn-description:hover {
+            color: <?=$menu_sub_button_color_hover;?>;
+        }
+
+        }
+    </style>
 </head>
 <body class="<?= wpx_body_class() ?>">
 <?php
@@ -77,7 +144,7 @@
                         <a class="wpx-button-hamburger" href="#"><span></span><span></span><span></span></a>
                     </div>
                     <nav class="nav col row">
-						<div class="wpx-search-mobile">
+                        <div class="wpx-search-mobile">
                             <div class="mobile-search">
                                 <form role="search" method="get" class="search-form-mobile"
                                       action="<?php echo home_url( '/' ); ?>">
@@ -86,12 +153,13 @@
                                            value="<?php echo get_search_query() ?>" name="s"
                                            title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>"/>
                                     <button type="submit" class="search-submit search-mobile-button "
-                                            value=""><img src="<?= THEME_IMAGES_URI; ?>/white-cheveron-right.svg"></button>
+                                            value=""><img src="<?= THEME_IMAGES_URI; ?>/white-cheveron-right.svg">
+                                    </button>
                                 </form>
                             </div>
 
                         </div>
-                        <?php
+						<?php
 						if ( has_nav_menu( 'header' ) ) {
 							wp_nav_menu( array(
 								'theme_location'  => 'header',

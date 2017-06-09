@@ -81,13 +81,14 @@ header {
           }
           @include media-breakpoint-down(md) {
             width: map-get($container-max-widths, md);
-            padding: 0;
             opacity: 1;
             //padding-left: 30px;
             position: relative;
             left: 0;
             top: 0;
-            padding-top: 15px;
+            padding: 0;
+            background-color:#ececec;
+
 
           }
           @include media-breakpoint-down(sm) {
@@ -260,7 +261,7 @@ header {
         display: none;
       }
       .mobile-search {
-        margin-bottom: 15px;
+        margin-bottom: 5px;
 
         width: 100%;
         height: auto;
