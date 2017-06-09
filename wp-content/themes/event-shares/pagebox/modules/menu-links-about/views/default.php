@@ -31,7 +31,7 @@ if ( $this->getInput( 'isImage' )->getValue() ) {
 			?>
             <li class="col-lg-4 col-sm-12">
                 <div class="menu-special-hover">
-                    <h4><?= $box->getInput( 'buttonText' ) ?></h4>
+                    <h4><?= $box->getInput( 'title' ) ?></h4>
 					<?= $box->getEditor( 'description' )->getContent(); ?>
 					<?php if ( ! empty( $buttonText ) && $buttonText !== "" ) : ?>
                     <a href="<?= $box->getInput( 'permalink' ) ?>"
