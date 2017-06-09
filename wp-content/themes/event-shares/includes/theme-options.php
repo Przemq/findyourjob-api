@@ -135,57 +135,57 @@ class WPX_Theme_Options {
 		//SECTION: RIGHT PANEL
 		$section = 'panel_';
 
-		$tabs_setting['tabs'][] = [
-			'id'     => 'right-panel',
-			'title'  => __( 'Right Panel', 'cmb2' ),
-			'fields' => [
-				[
-					'name'         => 'First Icon',
-					'desc'         => 'Set first icon on Right Panel',
-					'id'           => $prefix . $section . 'icon',
-					'type'         => 'file',
-					'preview_size' => [ 100, 100 ],
-					'options'      => [
-						'url' => false,
-					],
-					'query_args'   => [ 'type' => 'image' ]
-				],
-				[
-					'name'         => 'Second Icon',
-					'desc'         => 'Set second icon on Right Panel',
-					'id'           => $prefix . $section . 'icon2',
-					'type'         => 'file',
-					'preview_size' => [ 100, 100 ],
-					'options'      => [
-						'url' => false,
-					],
-					'query_args'   => [ 'type' => 'image' ]
-				],
-				[
-					'name'         => 'Third Icon',
-					'desc'         => 'Set second icon on Right Panel',
-					'id'           => $prefix . $section . 'icon3',
-					'type'         => 'file',
-					'preview_size' => [ 100, 100 ],
-					'options'      => [
-						'url' => false,
-					],
-					'query_args'   => [ 'type' => 'image' ]
-				],
-				[
-					'name'    => 'Buttons Background',
-					'id'      => $prefix . $section . 'icons_bg',
-					'type'    => 'colorpicker',
-					'default' => '#d98c28',
-				],
-				[
-					'name'    => 'Buttons Background Hover',
-					'id'      => $prefix . $section . 'icons_bg_hover',
-					'type'    => 'colorpicker',
-					'default' => '#bf5700',
-				]
-			]
-		];
+//		$tabs_setting['tabs'][] = [
+//			'id'     => 'right-panel',
+//			'title'  => __( 'Right Panel', 'cmb2' ),
+//			'fields' => [
+//				[
+//					'name'         => 'First Icon',
+//					'desc'         => 'Set first icon on Right Panel',
+//					'id'           => $prefix . $section . 'icon',
+//					'type'         => 'file',
+//					'preview_size' => [ 100, 100 ],
+//					'options'      => [
+//						'url' => false,
+//					],
+//					'query_args'   => [ 'type' => 'image' ]
+//				],
+//				[
+//					'name'         => 'Second Icon',
+//					'desc'         => 'Set second icon on Right Panel',
+//					'id'           => $prefix . $section . 'icon2',
+//					'type'         => 'file',
+//					'preview_size' => [ 100, 100 ],
+//					'options'      => [
+//						'url' => false,
+//					],
+//					'query_args'   => [ 'type' => 'image' ]
+//				],
+//				[
+//					'name'         => 'Third Icon',
+//					'desc'         => 'Set second icon on Right Panel',
+//					'id'           => $prefix . $section . 'icon3',
+//					'type'         => 'file',
+//					'preview_size' => [ 100, 100 ],
+//					'options'      => [
+//						'url' => false,
+//					],
+//					'query_args'   => [ 'type' => 'image' ]
+//				],
+//				[
+//					'name'    => 'Buttons Background',
+//					'id'      => $prefix . $section . 'icons_bg',
+//					'type'    => 'colorpicker',
+//					'default' => '#d98c28',
+//				],
+//				[
+//					'name'    => 'Buttons Background Hover',
+//					'id'      => $prefix . $section . 'icons_bg_hover',
+//					'type'    => 'colorpicker',
+//					'default' => '#bf5700',
+//				]
+//			]
+//		];
 
 		//SECTION: Footer
 		$section = 'footer_';
@@ -245,58 +245,58 @@ class WPX_Theme_Options {
 			]
 		];
 
-		//FORMS
-		$section = 'form_';
-
-		$tabs_setting['tabs'][] = [
-			'id'     => 'form',
-			'title'  => __( 'Forms', 'cmb2' ),
-			'fields' => [
-				[
-					'name' => 'Shortcode: Contact Us',
-					'id'   => $prefix . $section . 'shortcode',
-					'type' => 'text'
-				],
-				[
-					'name' => 'Shortcode: Request Information',
-					'id'   => $prefix . $section . 'shortcode2',
-					'type' => 'text'
-				],
-			]
-		];
-
-		//REGISTER
-		$section = 'register_';
-
-		$tabs_setting['tabs'][] = [
-			'id'     => 'register',
-			'title'  => __( 'Register', 'cmb2' ),
-			'fields' => [
-				[
-					'id'      => $prefix . $section . 'emails',
-					'type'    => 'group',
-					'options' => [
-						'group_title'   => __( 'Email {#}', 'cmb2' ),
-						'add_button'    => __( 'Add email', 'cmb2' ),
-						'remove_button' => __( 'Remove email', 'cmb2' ),
-						'sortable'      => false
-					],
-					'fields'  => [
-						[
-							'name' => 'Email for new user pending notification',
-							'id'   => $prefix . $section . 'email',
-							'type' => 'text'
-						],
-					]
-				],
-				[
-					'name' => 'Email body',
-					'id'   => $prefix . $section . 'body',
-					'type' => 'wysiwyg'
-				],
-			],
-
-		];
+//		//FORMS
+//		$section = 'form_';
+//
+//		$tabs_setting['tabs'][] = [
+//			'id'     => 'form',
+//			'title'  => __( 'Forms', 'cmb2' ),
+//			'fields' => [
+//				[
+//					'name' => 'Shortcode: Contact Us',
+//					'id'   => $prefix . $section . 'shortcode',
+//					'type' => 'text'
+//				],
+//				[
+//					'name' => 'Shortcode: Request Information',
+//					'id'   => $prefix . $section . 'shortcode2',
+//					'type' => 'text'
+//				],
+//			]
+//		];
+//
+//		//REGISTER
+//		$section = 'register_';
+//
+//		$tabs_setting['tabs'][] = [
+//			'id'     => 'register',
+//			'title'  => __( 'Register', 'cmb2' ),
+//			'fields' => [
+//				[
+//					'id'      => $prefix . $section . 'emails',
+//					'type'    => 'group',
+//					'options' => [
+//						'group_title'   => __( 'Email {#}', 'cmb2' ),
+//						'add_button'    => __( 'Add email', 'cmb2' ),
+//						'remove_button' => __( 'Remove email', 'cmb2' ),
+//						'sortable'      => false
+//					],
+//					'fields'  => [
+//						[
+//							'name' => 'Email for new user pending notification',
+//							'id'   => $prefix . $section . 'email',
+//							'type' => 'text'
+//						],
+//					]
+//				],
+//				[
+//					'name' => 'Email body',
+//					'id'   => $prefix . $section . 'body',
+//					'type' => 'wysiwyg'
+//				],
+//			],
+//
+//		];
 
         //SEARCH
 		$section = 'search_';
@@ -315,58 +315,79 @@ class WPX_Theme_Options {
 					'name'    => 'Search Background Hover',
 					'id'      => $prefix . $section . 'background_hover',
 					'type'    => 'colorpicker',
-					'default' => '#c17b01',
+					'default' => '#bf5700',
 				],
 
 			]
 		];
 //		Navigation
 		$section                = 'navigation_';
+
+//		$cmb->add_field( array(
+//			'name'             => 'Test Select',
+//			'desc'             => 'Select an option',
+//			'id'               => 'wiki_test_select',
+//			'type'             => 'select',
+//			'show_option_none' => true,
+//			'default'          => 'custom',
+//			'options'          => array(
+//				'standard' => __( 'Option One', 'cmb2' ),
+//				'custom'   => __( 'Option Two', 'cmb2' ),
+//				'none'     => __( 'Option Three', 'cmb2' ),
+//			),
+//		) );
 		$tabs_setting['tabs'][] = [
 			'id'     => 'navigation',
 			'title'  => __( 'Navigation', 'cmb2' ),
 			'fields' => [
 				[
+			'name'             => 'Font family',
+			'desc'             => 'Select an option',
+			'id'               => $prefix . $section . 'font_family',
+			'type'             => 'select',
+			'default'          => 'Default',
+			'options'          => array(
+				'standard' => __( '\'Merriweather\', serif', 'cmb2' ),
+				'standard_italic'   => __( '"Merriweather Italic"', 'cmb2' ),
+				'roboto'     => __( '\'Roboto Condensed\', sans-serif', 'cmb2' ),
+				'none'     => __( 'Default', 'cmb2' ),
+			),
+				],
+				[
 					'name'    => 'Navigation text color',
 					'id'      => $prefix . $section . 'menu_text_color',
 					'type'    => 'colorpicker',
-					'default' => '#004a85',
+					'default' => '#000000',
 				],
 				[
 					'name'    => 'Navigation text color hover',
 					'id'      => $prefix . $section . 'menu_text_color_hover',
 					'type'    => 'colorpicker',
-					'default' => '#004a85',
+					'default' => '#002841',
 				],
 				[
-					'name'    => 'Navigation text hover background',
-					'id'      => $prefix . $section . 'menu_text_background_hover',
+					'name'    => 'Navigation Submenu Title color',
+					'id'      => $prefix . $section . 'menu_sub_title_color',
 					'type'    => 'colorpicker',
-					'default' => '#f5f5f5',
+					'default' => '#002841',
 				],
 				[
-					'name'    => 'Navigation Top button color',
-					'id'      => $prefix . $section . 'menu_button_color',
+					'name'    => 'Navigation text submenu color',
+					'id'      => $prefix . $section . 'menu_sub_description_color',
 					'type'    => 'colorpicker',
-					'default' => '#ffffff',
+					'default' => '#292b2c',
 				],
 				[
-					'name'    => 'Navigation Top button color hover',
-					'id'      => $prefix . $section . 'menu_button_color_hover',
+					'name'    => 'Navigation button submenu color',
+					'id'      => $prefix . $section . 'menu_sub_button_color',
 					'type'    => 'colorpicker',
-					'default' => '#f5f5f5',
+					'default' => '#56C1A3',
 				],
 				[
-					'name'    => 'Navigation Top button background',
-					'id'      => $prefix . $section . 'menu_button_background',
+					'name'    => 'Navigation button submenu color hover',
+					'id'      => $prefix . $section . 'menu_sub_button_hover_color',
 					'type'    => 'colorpicker',
-					'default' => '#0f8abc',
-				],
-				[
-					'name'    => 'Navigation Top button background hover',
-					'id'      => $prefix . $section . 'menu_button_background_hover',
-					'type'    => 'colorpicker',
-					'default' => '#0f8abc',
+					'default' => '#014c8c',
 				],
 			]
 		];
