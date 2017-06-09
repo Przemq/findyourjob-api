@@ -48,10 +48,6 @@
 	$searchBackgroundHover       = ! empty( wpx_theme_get_option( 'wpx_theme_search_background_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background_hover' ) : '#c17b01';
 	$menu_text_color             = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) : '#004a85';
 	$menu_text_color_hover       = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) : '';
-	$menu_sub_title_color        = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_title_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_title_color' ) : '';
-	$menu_sub_description_color  = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_description_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_description_color' ) : '';
-	$menu_sub_button_color       = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_button_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_button_color' ) : '';
-	$menu_sub_button_color_hover = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_button_color_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_sub_button_color_hover' ) : '';
 	$menu_font_family            = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) : "";
 
 	//	Get available font family and assign it correct value
@@ -103,22 +99,8 @@
             color: <?=$menu_text_color_hover?>;
         }
 
-        header nav ul li .sub-menu-flex li a h4 {
-            color: <?=$menu_sub_title_color?>;
-        }
         .wpg-mobile header nav ul li .sub-menu-flex li a h4 {
             color: #292b2c;
-        }
-        header nav ul li .sub-menu-flex li p {
-            color: <?=$menu_sub_description_color;?>;
-        }
-
-        header nav ul li .sub-menu-flex li .learn-description {
-            color: <?=$menu_sub_button_color;?>;
-        }
-
-        header nav ul li .sub-menu-flex li .learn-description:hover {
-            color: <?=$menu_sub_button_color_hover;?>;
         }
 
         }
@@ -159,18 +141,17 @@
                             </div>
 
                         </div>
-						<?php
-						if ( has_nav_menu( 'header' ) ) {
-							wp_nav_menu( array(
-								'theme_location'  => 'header',
-								'container'       => false,
-								'container_class' => 'nav col',
-								'menu_class'      => 'menu nav',
-								'walker'          => new Menu_With_Description()
-							) );
 
-						};
+
+						<?php
+						if ( function_exists( 'wpx_pagebox' ) ) {
+							foreach ( get_posts( [ 'post_type' => 'header_nav' ] ) as $headerPost ) {
+								/** @var WP_Post $headerPost */
+								wpx_pagebox( $headerPost->ID );
+							}
+						}
 						?>
+
 
                         <div class="wpx-search">
                             <div class="desktop-search">
@@ -190,29 +171,8 @@
                     </nav>
 
                 </div>
-                <div class="row noDisplay" id="about-sub-menu">
-                    <div class="col-lg-4 col-sm-12">
-                        <h4><?php echo $pageContent['about-us-sub1']; ?></h4>
-                        <p><?php echo $pageContent['lorem']; ?></p>
-                        <a href=""><?php echo $pageContent['learn-more']; ?></a>
-                    </div>
-                    <div class="col-lg-4 col-sm-12">
-                        <h4><?php echo $pageContent['about-us-sub2']; ?></h4>
-                        <p><?php echo $pageContent['lorem']; ?></p>
-                        <a href=""><?php echo $pageContent['learn-more']; ?></a>
 
-                    </div>
-                    <div class="col-lg-4 col-sm-12">
-                        <h4><?php echo $pageContent['about-us-sub3']; ?></h4>
-                        <p><?php echo $pageContent['lorem']; ?></p>
-                        <a href=""><?php echo $pageContent['learn-more']; ?></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                <!--nav>
 
-    <!--nav>
-
-    </nav-->
+				</nav-->
 </header>

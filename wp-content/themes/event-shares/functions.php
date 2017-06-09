@@ -161,8 +161,10 @@ function wpmudev_remove_version() {
 
 
 /**
- * Register Custom Post Type for Fly out menu (header_nav)
+ * Custom posts type header_nav
  */
+
+// Register Custom Post Type
 function flyout_menu() {
 
 	$labels = array(
@@ -213,4 +215,29 @@ function flyout_menu() {
 		'capability_type'     => 'page',
 	);
 	register_post_type( 'header_nav', $args );
+
 }
+
+add_action( 'init', 'flyout_menu', 0 );
+
+/**
+ * Add support for new post type
+ */
+add_filter( 'wpx_pre_get_config_post_types', function ( $post_types ) {
+	$post_types[] = 'header_nav';
+	$post_types[] = 'team_members';
+
+	return $post_types;
+} );
+
+/**
+ * Add header_nav post type to menu
+ */
+add_filter( 'wpx_used_post_contexts', function ( $contexts ) {
+	foreach ( get_posts( [ 'post_type' => 'header_nav' ] ) as $headerPost ) {
+		/** @var WP_Post $headerPost */
+		$contexts[] = new \Nurture\Pagebox\Post( $headerPost->ID );
+	}
+
+	return $contexts;
+} );

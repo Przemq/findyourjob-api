@@ -365,30 +365,6 @@ class WPX_Theme_Options {
 					'type'    => 'colorpicker',
 					'default' => '#002841',
 				],
-				[
-					'name'    => 'Navigation Submenu Title color',
-					'id'      => $prefix . $section . 'menu_sub_title_color',
-					'type'    => 'colorpicker',
-					'default' => '#002841',
-				],
-				[
-					'name'    => 'Navigation text submenu color',
-					'id'      => $prefix . $section . 'menu_sub_description_color',
-					'type'    => 'colorpicker',
-					'default' => '#292b2c',
-				],
-				[
-					'name'    => 'Navigation button submenu color',
-					'id'      => $prefix . $section . 'menu_sub_button_color',
-					'type'    => 'colorpicker',
-					'default' => '#56C1A3',
-				],
-				[
-					'name'    => 'Navigation button submenu color hover',
-					'id'      => $prefix . $section . 'menu_sub_button_hover_color',
-					'type'    => 'colorpicker',
-					'default' => '#014c8c',
-				],
 			]
 		];
 
