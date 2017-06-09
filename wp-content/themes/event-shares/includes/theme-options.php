@@ -1,121 +1,462 @@
 <?php
-/**
- * WPX Theme menu - this will be available in WordPress Dashboard. You can easily add more or remove unused parts.
- * Read all comments carefully.
- */
-$themename = "WPX";
-$shortname = "WPX";
-
-function WPX_theme_menu() {
-	add_menu_page( 'WPX Theme Menu', 'WPX Theme Options', 'edit_theme_options', 'WPX_options', 'theme_options_function', '', 200 );
-}
-
-add_action( 'admin_menu', 'WPX_theme_menu' );
 
 /**
- * get_option('setting_name')
- * or better one with if statement
- * $var = !empty (get_option('setting_name')) ? (get_option('setting_name')) : 'Placeholder if empty';
+ * CMB2 Theme Options
+ * @version 0.1.0
  */
-function register_theme_options() {
-	$settings = array(
-		'footer_line_1', // Footer first text line
-		'footer_line_2', // Footer second text line
-		'footer_line_3', // Footer third text line
-		'footer_disclaimer_link', // Footer disclaimer link
-		'modal_disclaimer', // Used in country-investor.php to add Disclaimer into modal
-		'modal_accept', // Used in country-investor.php to add accept text into modal
-		'modal_button', // Used in country-investor.php to add button text into modal
-	);
+class WPX_Theme_Options {
 
-	foreach ( $settings as $single ) {
-		register_setting( 'WPX-settings-group', $single );
+	/**
+	 * Holds an instance of the object
+	 *
+	 * @var WPX_Theme_Options
+	 */
+	protected static $instance = null;
+	/**
+	 * Option key, and option page slug
+	 * @var string
+	 */
+	protected $key = 'wpx_theme_options';
+	/**
+	 * Options page metabox id
+	 * @var string
+	 */
+	protected $metabox_id = 'wpx_theme_option_metabox';
+	/**
+	 * Options Page title
+	 * @var string
+	 */
+	protected $title = '';
+	/**
+	 * Options Page hook
+	 * @var string
+	 */
+	protected $options_page = '';
+
+	/**
+	 * Constructor
+	 * @since 0.1.0
+	 */
+	protected function __construct() {
+		// Set our title
+		$this->title = __( 'WPX Theme Options', 'wpx_theme' );
 	}
+
+	/**
+	 * Returns the running object
+	 *
+	 * @return WPX_Theme_Options
+	 */
+	public static function get_instance() {
+		if ( null === self::$instance ) {
+			self::$instance = new self();
+			self::$instance->hooks();
+		}
+
+		return self::$instance;
+	}
+
+	/**
+	 * Initiate our hooks
+	 * @since 0.1.0
+	 */
+	public function hooks() {
+		add_action( 'admin_init', [ $this, 'init' ] );
+		add_action( 'admin_menu', [ $this, 'add_options_page' ] );
+		add_action( 'cmb2_admin_init', [ $this, 'add_options_page_metabox' ] );
+	}
+
+
+	/**
+	 * Register our setting to WP
+	 * @since  0.1.0
+	 */
+	public function init() {
+		register_setting( $this->key, $this->key );
+	}
+
+	/**
+	 * Add menu options page
+	 * @since 0.1.0
+	 */
+	public function add_options_page() {
+		$this->options_page = add_menu_page( $this->title, $this->title, 'manage_options', $this->key, [
+			$this,
+			'admin_page_display'
+		] );
+
+		// Include CMB CSS in the head to avoid FOUC
+		add_action( "admin_print_styles-{$this->options_page}", [ 'CMB2_hookup', 'enqueue_cmb_css' ] );
+	}
+
+	/**
+	 * Admin page markup. Mostly handled by CMB2
+	 * @since  0.1.0
+	 */
+	public function admin_page_display() {
+		?>
+        <div class="wrap cmb2-options-page <?php echo $this->key; ?>">
+            <h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+			<?php cmb2_metabox_form( $this->metabox_id, $this->key ); ?>
+        </div>
+		<?php
+	}
+
+	/**
+	 * Add the options metabox to the array of metaboxes
+	 * @since  0.1.0
+	 */
+	function add_options_page_metabox() {
+
+		$box_options = [
+			'id'          => $this->metabox_id,
+			'title'       => __( 'Example tabs', 'cmb2' ),
+			'show_names'  => true,
+			'object_type' => 'options-page',
+			'show_on'     => [
+				// These are important, don't remove
+				'key'   => 'options-page',
+				'value' => [ $this->key, ]
+			],
+		];
+
+		// Setup meta box
+		$cmb = new_cmb2_box( $box_options );
+
+		// setting tabs
+		$tabs_setting = [
+			'config' => $box_options,
+			'layout' => 'vertical', // Default : horizontal
+			'tabs'   => []
+		];
+
+		$prefix = 'wpx_theme_';
+
+		//SECTION: RIGHT PANEL
+		$section = 'panel_';
+
+		$tabs_setting['tabs'][] = [
+			'id'     => 'right-panel',
+			'title'  => __( 'Right Panel', 'cmb2' ),
+			'fields' => [
+				[
+					'name'         => 'First Icon',
+					'desc'         => 'Set first icon on Right Panel',
+					'id'           => $prefix . $section . 'icon',
+					'type'         => 'file',
+					'preview_size' => [ 100, 100 ],
+					'options'      => [
+						'url' => false,
+					],
+					'query_args'   => [ 'type' => 'image' ]
+				],
+				[
+					'name'         => 'Second Icon',
+					'desc'         => 'Set second icon on Right Panel',
+					'id'           => $prefix . $section . 'icon2',
+					'type'         => 'file',
+					'preview_size' => [ 100, 100 ],
+					'options'      => [
+						'url' => false,
+					],
+					'query_args'   => [ 'type' => 'image' ]
+				],
+				[
+					'name'         => 'Third Icon',
+					'desc'         => 'Set second icon on Right Panel',
+					'id'           => $prefix . $section . 'icon3',
+					'type'         => 'file',
+					'preview_size' => [ 100, 100 ],
+					'options'      => [
+						'url' => false,
+					],
+					'query_args'   => [ 'type' => 'image' ]
+				],
+				[
+					'name'    => 'Buttons Background',
+					'id'      => $prefix . $section . 'icons_bg',
+					'type'    => 'colorpicker',
+					'default' => '#d98c28',
+				],
+				[
+					'name'    => 'Buttons Background Hover',
+					'id'      => $prefix . $section . 'icons_bg_hover',
+					'type'    => 'colorpicker',
+					'default' => '#bf5700',
+				]
+			]
+		];
+
+		//SECTION: Footer
+		$section = 'footer_';
+
+		$tabs_setting['tabs'][] = [
+			'id'     => 'footer_',
+			'title'  => __( 'Footer', 'cmb2' ),
+			'fields' => [
+				[
+					'name'    => 'Small text',
+					'id'      => $prefix . $section . 'small_text',
+					'type'    => 'wysiwyg',
+					'options' => [],
+				],
+				[
+					'name'    => 'Big text',
+					'id'      => $prefix . $section . 'big_text',
+					'type'    => 'wysiwyg',
+					'options' => [],
+				],
+				[
+					'name'    => 'Text color',
+					'id'      => $prefix . $section . 'text_color',
+					'type'    => 'colorpicker',
+					'default' => '#0d374b',
+				],
+				[
+					'name'    => 'Text size',
+					'id'      => $prefix . $section . 'text_size',
+					'type'    => 'text',
+					'default' => '14px',
+				],
+				[
+					'name'    => 'Link color',
+					'id'      => $prefix . $section . 'link_color',
+					'type'    => 'colorpicker',
+					'default' => '#0d374b',
+				],
+				[
+					'name'    => 'Link color hover',
+					'id'      => $prefix . $section . 'link_color_hover',
+					'type'    => 'colorpicker',
+					'default' => '#0d374b',
+				],
+				[
+					'name'    => 'Icon color',
+					'id'      => $prefix . $section . 'icon_color',
+					'type'    => 'colorpicker',
+					'default' => '#da8b00',
+				],
+				[
+					'name'    => 'Icon color hover',
+					'id'      => $prefix . $section . 'icon_color_hover',
+					'type'    => 'colorpicker',
+					'default' => '#0f8abc',
+				]
+			]
+		];
+
+		//FORMS
+		$section = 'form_';
+
+		$tabs_setting['tabs'][] = [
+			'id'     => 'form',
+			'title'  => __( 'Forms', 'cmb2' ),
+			'fields' => [
+				[
+					'name' => 'Shortcode: Contact Us',
+					'id'   => $prefix . $section . 'shortcode',
+					'type' => 'text'
+				],
+				[
+					'name' => 'Shortcode: Request Information',
+					'id'   => $prefix . $section . 'shortcode2',
+					'type' => 'text'
+				],
+			]
+		];
+
+		//REGISTER
+		$section = 'register_';
+
+		$tabs_setting['tabs'][] = [
+			'id'     => 'register',
+			'title'  => __( 'Register', 'cmb2' ),
+			'fields' => [
+				[
+					'id'      => $prefix . $section . 'emails',
+					'type'    => 'group',
+					'options' => [
+						'group_title'   => __( 'Email {#}', 'cmb2' ),
+						'add_button'    => __( 'Add email', 'cmb2' ),
+						'remove_button' => __( 'Remove email', 'cmb2' ),
+						'sortable'      => false
+					],
+					'fields'  => [
+						[
+							'name' => 'Email for new user pending notification',
+							'id'   => $prefix . $section . 'email',
+							'type' => 'text'
+						],
+					]
+				],
+				[
+					'name' => 'Email body',
+					'id'   => $prefix . $section . 'body',
+					'type' => 'wysiwyg'
+				],
+			],
+
+		];
+
+        //SEARCH
+		$section = 'search_';
+
+		$tabs_setting['tabs'][] = [
+			'id'     => 'search',
+			'title'  => __( 'Search', 'cmb2' ),
+			'fields' => [
+				[
+					'name'    => 'Search Background color',
+					'id'      => $prefix . $section . 'background',
+					'type'    => 'colorpicker',
+					'default' => '#da8b00',
+				],
+				[
+					'name'    => 'Search Background Hover',
+					'id'      => $prefix . $section . 'background_hover',
+					'type'    => 'colorpicker',
+					'default' => '#c17b01',
+				],
+
+			]
+		];
+//		Navigation
+		$section                = 'navigation_';
+		$tabs_setting['tabs'][] = [
+			'id'     => 'navigation',
+			'title'  => __( 'Navigation', 'cmb2' ),
+			'fields' => [
+				[
+					'name'    => 'Navigation text color',
+					'id'      => $prefix . $section . 'menu_text_color',
+					'type'    => 'colorpicker',
+					'default' => '#004a85',
+				],
+				[
+					'name'    => 'Navigation text color hover',
+					'id'      => $prefix . $section . 'menu_text_color_hover',
+					'type'    => 'colorpicker',
+					'default' => '#004a85',
+				],
+				[
+					'name'    => 'Navigation text hover background',
+					'id'      => $prefix . $section . 'menu_text_background_hover',
+					'type'    => 'colorpicker',
+					'default' => '#f5f5f5',
+				],
+				[
+					'name'    => 'Navigation Top button color',
+					'id'      => $prefix . $section . 'menu_button_color',
+					'type'    => 'colorpicker',
+					'default' => '#ffffff',
+				],
+				[
+					'name'    => 'Navigation Top button color hover',
+					'id'      => $prefix . $section . 'menu_button_color_hover',
+					'type'    => 'colorpicker',
+					'default' => '#f5f5f5',
+				],
+				[
+					'name'    => 'Navigation Top button background',
+					'id'      => $prefix . $section . 'menu_button_background',
+					'type'    => 'colorpicker',
+					'default' => '#0f8abc',
+				],
+				[
+					'name'    => 'Navigation Top button background hover',
+					'id'      => $prefix . $section . 'menu_button_background_hover',
+					'type'    => 'colorpicker',
+					'default' => '#0f8abc',
+				],
+			]
+		];
+
+// End of Navigation
+		$cmb->add_field( [
+			'id'   => '__tabs',
+			'type' => 'tabs',
+			'tabs' => $tabs_setting
+		] );
+
+	}
+
+	/**
+	 * Register settings notices for display
+	 *
+	 * @since  0.1.0
+	 *
+	 * @param  int $object_id Option key
+	 * @param  array $updated Array of updated fields
+	 *
+	 * @return void
+	 */
+	public function settings_notices( $object_id, $updated ) {
+		if ( $object_id !== $this->key || empty( $updated ) ) {
+			return;
+		}
+
+		add_settings_error( $this->key . '-notices', '', __( 'Settings updated.', 'wpx_theme' ), 'updated' );
+		settings_errors( $this->key . '-notices' );
+	}
+
+	/**
+	 * Public getter method for retrieving protected/private variables
+	 * @since  0.1.0
+	 *
+	 * @param  string $field Field to retrieve
+	 *
+	 * @return mixed Field value or exception is thrown
+	 * @throws Exception
+	 */
+	public function __get( $field ) {
+		// Allowed fields to retrieve
+		if ( in_array( $field, [ 'key', 'metabox_id', 'title', 'options_page' ], true ) ) {
+			return $this->{$field};
+		}
+
+		throw new Exception( 'Invalid property: ' . $field );
+	}
+
 }
 
-add_action( 'admin_init', 'register_theme_options' );
+/**
+ * Helper function to get/return the WPX_Theme_Options object
+ * @since  0.1.0
+ * @return WPX_Theme_Options object
+ */
+function wpx_theme_options() {
+	return WPX_Theme_Options::get_instance();
+}
 
-function theme_options_function() { ?>
-    <div class="theme-options-wrapper">
-        <h3>WPX Theme Options</h3>
+/**
+ * Wrapper function around cmb2_get_option
+ * @since  0.1.0
+ *
+ * @param  string $key Options array key
+ * @param  mixed $default Optional default value
+ *
+ * @return mixed           Option value
+ */
+function wpx_theme_get_option( $key = '', $default = null ) {
+	if ( function_exists( 'cmb2_get_option' ) ) {
+		// Use cmb2_get_option as it passes through some key filters.
+		return cmb2_get_option( wpx_theme_options()->key, $key, $default );
+	}
 
-        <form method="post" action="options.php">
-			<?php settings_fields( 'WPX-settings-group' ); ?>
-			<?php do_settings_sections( 'WPX-settings-group' ); ?>
-            <ul class="tab">
-                <li><a href="#" class="tablinks active" onclick="openTab(event, 'footer')">Footer settings</a></li>
-                <li><a href="#" class="tablinks" onclick="openTab(event, 'modal')">Modal settings</a></li>
-            </ul>
+	// Fallback to get_option if CMB2 is not loaded yet.
+	$opts = get_option( wpx_theme_options()->key, $key, $default );
 
-            <!-- Footer WPX Theme options -->
-            <div id="footer" class="tabcontent" style="display: block">
-                <table class="form-table">
-                    <tr valign="top">
-                        <th scope="row">Text line 1</th>
-                        <td><textarea name="footer_line_1" cols="30"
-                                      rows="5"><?= esc_attr( get_option( 'footer_line_1' ) );
-								?></textarea></td>
-                        </br>
-                    </tr>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row">Text line 2</th>
-                        <td><textarea name="footer_line_2" cols="30"
-                                      rows="5"><?= esc_attr( get_option( 'footer_line_2' ) );
-								?></textarea></td>
-                        </br>
-                    </tr>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row">Text line 3</th>
-                        <td><textarea name="footer_line_3" cols="30"
-                                      rows="5"><?= esc_attr( get_option( 'footer_line_3' ) ); ?></textarea>
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <th scope="row">Disclaimer link</th>
-                        <td>
-                            <input type="text" name="footer_disclaimer_link"
-                                   value="<?php echo esc_attr( get_option( 'footer_disclaimer_link' ) ); ?>"/>
-                            <span>( Default : /risk-factors )</span>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+	$val = $default;
 
-            <!-- Modal WPX Theme options: -->
-            <div id="modal" class="tabcontent">
-                <table class="form-table">
-                    <tr valign="top">
-                        <th scope="row">Disclaimer text</th>
-                        <td>
-                            <textarea name="modal_disclaimer" cols="30"
-                                      rows="5"><?= esc_attr( get_option( 'modal_disclaimer' ) ); ?></textarea>
-                        </td>
-                    </tr>
+	if ( 'all' == $key ) {
+		$val = $opts;
+	} elseif ( array_key_exists( $key, $opts ) && false !== $opts[ $key ] ) {
+		$val = $opts[ $key ];
+	}
 
-                    <tr valign="top">
-                        <th scope="row">Accept Terms</th>
-                        <td>
-                            <input type="text" name="modal_accept"
-                                   value="<?php echo esc_attr( get_option( 'modal_accept' ) ); ?>"/>
-                            <span>( Default: Accept Terms & Conditions )</span>
-                        </td>
-                    </tr>
+	return $val;
+}
 
-                    <tr valign="top">
-                        <th scope="row">Modal button</th>
-                        <td>
-                            <input type="text" name="modal_button"
-                                   value="<?php echo esc_attr( get_option( 'modal_button' ) ); ?>"/>
-                            <span>(Default: Accept and proceed)</span>
-                        </td>
-                    </tr>
-                </table>
-            </div>
 
-			<?php submit_button(); ?>
-
-        </form>
-    </div>
-<?php } ?>
+// Get it started
+wpx_theme_options();
