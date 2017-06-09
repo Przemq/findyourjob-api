@@ -6,6 +6,19 @@
 require_once 'functions/global-definitions.php';
 
 /**
+ * Init CMB2
+ */
+
+require_once 'includes/cmb2/init.php';
+require_once 'includes/cmb2-tabs/plugin.php';
+
+/**
+ * Init Menu Description Walker
+ */
+
+require_once 'includes/menu-with-description.php';
+
+/**
  * Import Theme Utils (Pagebox tools)
  */
 require_once 'functions/theme.php';
@@ -53,6 +66,15 @@ add_action( 'after_setup_theme', function () {
 	] );
 } );
 
+//Add nav-menu to nav
+
+function event_menu_classes($classes, $item, $args) {
+	if($args->theme_location == 'header') {
+		$classes[] = 'nav-item';
+	}
+	return $classes;
+}
+add_filter('nav_menu_css_class', 'event_menu_classes',1,3);
 
 /**
  * Hide WP version strings from scripts and styles

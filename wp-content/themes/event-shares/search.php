@@ -9,35 +9,50 @@ get_header(); ?>
                 <div class="search-results-title clearfix">
                     <h2 class="col-xs-12 col-sm-8 col-md-10 col-lg-8 auto-position"> search results </h2>
                 </div>
-                <div class="search-results-cont">
-                    <?php if ( have_posts() ) : ?>
-                    <ol>
-                        <?php
+				<?php
 
-                        $i = 1;
-                        while ( have_posts() ) : the_post();
-                            ?>
+				global $query_string;
+				$query_args = explode("&", $query_string);
+
+				$search_query = array();
+				//  Decode url
+				if( strlen($query_string) > 0 ) {
+					foreach($query_args as $key => $string) {
+						$query_split = explode("=", $string);
+						$search_query[$query_split[0]] = urldecode($query_split[1]);
+					} // foreach
+				} //if
+
+				$search = new WP_Query($search_query);
+				?>
+
+                <div class="search-results-cont">
+					<?php if ( $search  ->have_posts() ) : ?>
+                    <ol>
+						<?php
+
+						$i = 1;
+						while ( $search ->have_posts() ) : $search  ->the_post();
+							?>
                             <li class="title">
-                                <?php echo numberResultPagination( $paged, $i ); ?><a
-                                        href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                             </li>
                             <p class="excerpt">
-                                <?php echo wppb_excerpt( get_the_ID() ); ?>
+								<?php the_excerpt(); ?>
                             </p>
-                            <?php
-                            $i ++;
-                        endwhile;
-                        ?>
-                        <?php else : ?>
+							<?php
+							$i ++;
+						endwhile;
+						?>
+						<?php else : ?>
 
                             <div class="no-resoult">
                                 nothing to show.
                             </div>
 
-                        <?php endif; ?>
+						<?php endif; ?>
                     </ol>
                     <hr>
-                    <?php pagination(); ?>
                 </div>
             </div><!-- /.container -->
         </div> <!-- /.search-content -->

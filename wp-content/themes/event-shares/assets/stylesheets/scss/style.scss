@@ -31,3 +31,10 @@
     text-decoration: none;
   }
 }
+
+#wpadminbar {
+  top: auto !important;
+  bottom: 0;
+  opacity: 0.9;
+  position: fixed !important;
+}
