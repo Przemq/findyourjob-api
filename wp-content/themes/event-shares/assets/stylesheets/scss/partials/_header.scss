@@ -87,8 +87,7 @@ header {
             left: 0;
             top: 0;
             padding: 0;
-            background-color:#ececec;
-
+            background-color: #ececec;
 
           }
           @include media-breakpoint-down(sm) {
@@ -102,21 +101,18 @@ header {
                 display: none;
               }
             }
-            a {
+            padding-left: 0;
+            h4 {
+              font-size: 18px;
+              font-style: italic;
               padding-left: 0;
-              h4 {
-                font-size: 18px;
-                font-style: italic;
-                padding-left: 0;
-                padding-bottom: 0;
-                color: $top-menu-header-color;
-                @include media-breakpoint-down(md) {
-                  font-size: 14px;
-                  font-style: normal;
-                  margin-bottom: 0;
-                }
+              padding-bottom: 0;
+              color: $top-menu-header-color;
+              @include media-breakpoint-down(md) {
+                font-size: 14px;
+                font-style: normal;
+                margin-bottom: 0;
               }
-
             }
 
             .learn-description {
@@ -165,8 +161,8 @@ header {
             width: 0;
             background: transparent;
             transition: width .5s ease, background-color .5s ease;
-            &:hover:after{
-              width:100%;
+            &:hover:after {
+              width: 100%;
               background: #002841;
             }
           }
@@ -178,7 +174,7 @@ header {
         }
         &.current-menu-item:after, &:hover:after {
           @include media-breakpoint-up(lg) {
-            width:100%;
+            width: 100%;
             background: #002841;
           }
         }
