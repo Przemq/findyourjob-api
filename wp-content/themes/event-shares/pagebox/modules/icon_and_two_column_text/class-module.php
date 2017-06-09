@@ -76,6 +76,15 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 				'type'   => 'repeater',
 				'label'  => 'Table',
 				'fields' => [
+					'rowUrl' => [
+						'type'  => 'input:text',
+						'label' => 'Enter link if applicable',
+					],
+					'rowUrlBlank' => [
+						'type'  => 'input:switch',
+						'label' => 'Link new target',
+						'default' => 1
+					],
 					'rowBoldText' => [
 						'type'  => 'input:text',
 						'label' => 'Enter row left text',
@@ -131,6 +140,12 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 				'type'    => 'input:text',
 				'label'   => 'Row size px()',
 				'default' => '14px',
+				'sass'    => true
+			],
+			'etfsColorHover' => [
+				'type'    => 'input:color',
+				'label'   => 'ETFS hover color',
+				'default' => '#56c1a3',
 				'sass'    => true
 			],
 			'backgroundColor' => [

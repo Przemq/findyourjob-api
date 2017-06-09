@@ -33,7 +33,7 @@ $table       = $this->getEditor( 'description' )->getContent();
 
 					$url = $this->getSelect( 'buttonUrl' )->getValue()['permalink'];
 					$blank = $this->getInput( 'buttonBlankLink' )->getValue() ? 'target=_blank' : "";
-					$button = $this->getInput('buttonTitle');
+					$button = $this->getInput( 'buttonTitle' );
 					?>
                     <a href="<?= $url ?>" <?= $blank ?> class="button">
                         <span class="align-middle"><?= $button ?></span>
@@ -48,11 +48,21 @@ $table       = $this->getEditor( 'description' )->getContent();
                 <table class="table">
                     <tbody>
 					<?php
-					foreach ( $this->getRepeater( 'rows' ) as $index => $repeater ) : ?>
+					foreach ( $this->getRepeater( 'rows' ) as $index => $repeater )
+						:
+						$rowUrl = $repeater->getInput( 'rowUrl' );
+						$blank = $repeater->getInput( 'rowUrlBlank' )->getValue() ? 'target=_blank' : "";
+
+						?>
                         <tr>
-                            <th><?= $repeater->getInput( 'rowBoldText' ); ?></th>
-                            <td><?= $repeater->getInput( 'rowText' ); ?></td>
+
+
+                            <th><a href="<?= $rowUrl ?>" <?= $blank ?>>
+									<?= $repeater->getInput( 'rowBoldText' ); ?></a></th>
+                            <td><a href="<?= $rowUrl ?>" <?= $blank ?>><?= $repeater->getInput( 'rowText' ); ?></a></td>
+
                         </tr>
+
 
 						<?php
 					endforeach;
