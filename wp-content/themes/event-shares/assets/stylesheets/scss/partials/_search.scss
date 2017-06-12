@@ -1,0 +1,48 @@
+$primary-theme-color:#002841;
+$large-header-height:275px;
+$large-header-content-padd:84px 15px;
+$large-header-text-color:white;
+$font-family:'Roboto Condensed', sans-serif;
+$h1-size:54px;
+$p-size:14px;
+$highlight:#56c2a3;
+.search-results{
+  .large-header{
+    font-family: $font-family;
+    background: $primary-theme-color;
+    color:$large-header-text-color;
+    position: relative;
+    &:before{
+      content: "";
+      display: block;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      opacity: 0.9;
+      height:100%;
+    }
+    .large-header-inner{
+      //min-height: $large-header-height;
+      .large-header-content{
+        align-self: center;
+        padding: $large-header-content-padd;
+        h1{
+          display: block;
+          font-size: $h1-size;
+          text-transform: uppercase;
+          margin-bottom: 30px;
+        }
+        p{
+          font-size: $p-size;
+          strong{
+            color:$highlight;
+            font-weight:bold;
+          }
+        }
+      }
+
+    }
+  }
+
+}

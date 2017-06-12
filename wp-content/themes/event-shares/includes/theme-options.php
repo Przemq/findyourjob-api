@@ -243,21 +243,21 @@ class WPX_Theme_Options {
 					'default' => '#002841',
 				],
 				[
-					'name' => 'Url for Facebook',
-					'id'   => $prefix . $section . 'facebook',
-					'type' => 'text',
-                    'default' => "#"
-				],
-				[
-					'name' => 'Url for Twitter',
-					'id'   => $prefix . $section . 'twitter',
-					'type' => 'text',
+					'name'    => 'Url for Facebook',
+					'id'      => $prefix . $section . 'facebook',
+					'type'    => 'text',
 					'default' => "#"
 				],
 				[
-					'name' => 'Url for Linkedin',
-					'id'   => $prefix . $section . 'linkedin',
-					'type' => 'text',
+					'name'    => 'Url for Twitter',
+					'id'      => $prefix . $section . 'twitter',
+					'type'    => 'text',
+					'default' => "#"
+				],
+				[
+					'name'    => 'Url for Linkedin',
+					'id'      => $prefix . $section . 'linkedin',
+					'type'    => 'text',
 					'default' => "#"
 				],
 				[
@@ -294,25 +294,109 @@ class WPX_Theme_Options {
 			]
 		];
 
-//		//FORMS
-//		$section = 'form_';
-//
-//		$tabs_setting['tabs'][] = [
-//			'id'     => 'form',
-//			'title'  => __( 'Forms', 'cmb2' ),
-//			'fields' => [
-//				[
-//					'name' => 'Shortcode: Contact Us',
-//					'id'   => $prefix . $section . 'shortcode',
-//					'type' => 'text'
-//				],
-//				[
-//					'name' => 'Shortcode: Request Information',
-//					'id'   => $prefix . $section . 'shortcode2',
-//					'type' => 'text'
-//				],
-//			]
-//		];
+		//SEARCH RESULT PAGE
+		$section = 'search_results_';
+
+		$tabs_setting['tabs'][] = [
+			'id'     => 'search_results_',
+			'title'  => __( 'Search Page Results', 'cmb2' ),
+			'fields' => [
+				[
+					'name'    => 'Search results Text title',
+					'id'      => $prefix . $section . 'title',
+					'type'    => 'text',
+					'default' => "Search results"
+				],
+				[
+					'name'    => 'Search results Title size',
+					'id'      => $prefix . $section . 'title_size',
+					'type'    => 'text',
+					'default' => '54px',
+				],
+				[
+					'name'    => 'Search results Title color',
+					'id'      => $prefix . $section . 'title_color',
+					'type'    => 'colorpicker',
+					'default' => '#FFFFFF',
+				],
+				[
+					'name'        => 'Search results Text for one',
+					'id'          => $prefix . $section . 'one',
+					'type'        => 'text',
+					'description' => "%s is count of found posts",
+					'default'     => "There is %s results for"
+				],
+				[
+					'name'        => 'Search results Text for many',
+					'id'          => $prefix . $section . 'many',
+					'type'        => 'text',
+					'description' => "%s is count of found posts",
+					'default'     => "There are %s results for"
+				],
+				[
+					'name'    => 'Search results text size',
+					'id'      => $prefix . $section . 'text_size',
+					'type'    => 'text',
+					'default' => '14px',
+				],
+				[
+					'name'    => 'Search results text color',
+					'id'      => $prefix . $section . 'text_color',
+					'type'    => 'colorpicker',
+					'default' => '#FFFFFF',
+				],
+				[
+					'name'    => 'Highlight color',
+					'id'      => $prefix . $section . 'highlight',
+					'type'    => 'colorpicker',
+					'default' => '#56c2a3',
+				],
+				[
+					'name'        => 'Nothing Found Text',
+					'id'          => $prefix . $section . 'none',
+					'type'        => 'text',
+					'description' => "%s is count of found posts",
+					'default'     => "No results for %s Please try again using a different keyword."
+				],
+				[
+					'name'    => 'Search Nothing Found text size',
+					'id'      => $prefix . $section . 'none_size',
+					'type'    => 'text',
+					'default' => '1.5rem',
+				],
+				[
+					'name'    => 'Search Nothing Found text color',
+					'id'      => $prefix . $section . 'none_color',
+					'type'    => 'colorpicker',
+					'default' => '#FFFFFF',
+				],
+				[
+					'name'    => 'Background color',
+					'id'      => $prefix . $section . 'background_color',
+					'type'    => 'colorpicker',
+					'default' => '#002841',
+				],
+				[
+					'name'        => 'Background opacity',
+					'id'          => $prefix . $section . 'background_opacity',
+					'type'        => 'text',
+					'description' => "Pick value between 0-1",
+					'default'     => 1
+				],
+				[
+					'name'         => 'Background Image (if applicable)',
+					'desc'         => 'Set background Image in header',
+					'id'           => $prefix . $section . 'background_image',
+					'type'         => 'file',
+					'preview_size' => [ 100, 100 ],
+					'options'      => [
+						'url' => false,
+					],
+					'query_args'   => [ 'type' => 'image' ]
+				],
+
+			]
+		];
 //
 //		//REGISTER
 //		$section = 'register_';
