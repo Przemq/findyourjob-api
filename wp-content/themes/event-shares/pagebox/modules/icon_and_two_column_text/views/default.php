@@ -42,7 +42,7 @@ $table       = $this->getEditor( 'description' )->getContent();
 				?>
 
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 hidden-md-down">
                 <table class="table">
                     <tbody>
 					<?php
