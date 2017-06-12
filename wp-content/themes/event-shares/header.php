@@ -117,7 +117,6 @@
 <?= createTaskLink('EV-15') ?>
 <?= createTaskLink('EV-36') ?>
 <header id="wpx-eventshare-header">
-	<?php require_once( 'pageContent.php' ); ?>
     <div class="container-fluid">
         <div class="container">
             <div class="wpx-name-module-header">
@@ -174,7 +173,4 @@
 
                 </div>
 
-                <!--nav>
-
-				</nav-->
 </header>
