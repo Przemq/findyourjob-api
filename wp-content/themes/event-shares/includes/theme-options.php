@@ -243,6 +243,24 @@ class WPX_Theme_Options {
 					'default' => '#002841',
 				],
 				[
+					'name' => 'Url for Facebook',
+					'id'   => $prefix . $section . 'facebook',
+					'type' => 'text',
+                    'default' => "#"
+				],
+				[
+					'name' => 'Url for Twitter',
+					'id'   => $prefix . $section . 'twitter',
+					'type' => 'text',
+					'default' => "#"
+				],
+				[
+					'name' => 'Url for Instagram',
+					'id'   => $prefix . $section . 'instagram',
+					'type' => 'text',
+					'default' => "#"
+				],
+				[
 					'name'    => 'Icon color',
 					'id'      => $prefix . $section . 'icon_color',
 					'type'    => 'colorpicker',
@@ -258,10 +276,10 @@ class WPX_Theme_Options {
 					'name'    => 'Copyright text',
 					'id'      => $prefix . $section . 'copyright_text',
 					'type'    => 'wysiwyg',
-                    'default' => 'COPYRIGHT 2017. ALL RIGHTS RESERVED',
+					'default' => 'COPYRIGHT 2017. ALL RIGHTS RESERVED',
 					'options' => [],
 				],
-                [
+				[
 					'name'    => 'Copyrights color',
 					'id'      => $prefix . $section . 'copyright_color',
 					'type'    => 'colorpicker',
@@ -329,7 +347,7 @@ class WPX_Theme_Options {
 //
 //		];
 
-        //SEARCH
+		//SEARCH
 		$section = 'search_';
 
 		$tabs_setting['tabs'][] = [
@@ -352,37 +370,24 @@ class WPX_Theme_Options {
 			]
 		];
 //		Navigation
-		$section                = 'navigation_';
+		$section = 'navigation_';
 
-//		$cmb->add_field( array(
-//			'name'             => 'Test Select',
-//			'desc'             => 'Select an option',
-//			'id'               => 'wiki_test_select',
-//			'type'             => 'select',
-//			'show_option_none' => true,
-//			'default'          => 'custom',
-//			'options'          => array(
-//				'standard' => __( 'Option One', 'cmb2' ),
-//				'custom'   => __( 'Option Two', 'cmb2' ),
-//				'none'     => __( 'Option Three', 'cmb2' ),
-//			),
-//		) );
 		$tabs_setting['tabs'][] = [
 			'id'     => 'navigation',
 			'title'  => __( 'Navigation', 'cmb2' ),
 			'fields' => [
 				[
-			'name'             => 'Font family',
-			'desc'             => 'Select an option',
-			'id'               => $prefix . $section . 'font_family',
-			'type'             => 'select',
-			'default'          => 'Default',
-			'options'          => array(
-				'standard' => __( '\'Merriweather\', serif', 'cmb2' ),
-				'standard_italic'   => __( '"Merriweather Italic"', 'cmb2' ),
-				'roboto'     => __( '\'Roboto Condensed\', sans-serif', 'cmb2' ),
-				'none'     => __( 'Default', 'cmb2' ),
-			),
+					'name'    => 'Font family',
+					'desc'    => 'Select an option',
+					'id'      => $prefix . $section . 'font_family',
+					'type'    => 'select',
+					'default' => 'Default',
+					'options' => array(
+						'standard'        => __( '\'Merriweather\', serif', 'cmb2' ),
+						'standard_italic' => __( '"Merriweather Italic"', 'cmb2' ),
+						'roboto'          => __( '\'Roboto Condensed\', sans-serif', 'cmb2' ),
+						'none'            => __( 'Default', 'cmb2' ),
+					),
 				],
 				[
 					'name'    => 'Navigation text color',
