@@ -23,7 +23,6 @@ class TestNavigation extends AbstractModule implements StaticCacheInterface {
             'description'   => 'Navigation test'
         ];
     }
-
     /**
      * @return array Fields configuration.
      */

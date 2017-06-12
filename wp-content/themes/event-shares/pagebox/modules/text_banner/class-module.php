@@ -22,7 +22,6 @@ class TextBanner extends AbstractModule implements StaticCacheInterface {
 			'description' => 'Simple, plain text banner'
 		];
 	}
-
 	/**
 	 * @return array Fields configuration.
 	 */

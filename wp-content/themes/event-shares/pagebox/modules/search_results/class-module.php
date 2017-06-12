@@ -23,7 +23,6 @@ class SearchResults extends AbstractModule implements StaticCacheInterface {
             'description'   => 'Pages and articles search results'
         ];
     }
-
     /**
      * @return array Fields configuration.
      */

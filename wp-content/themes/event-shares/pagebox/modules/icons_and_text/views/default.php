@@ -26,7 +26,6 @@ $module = $this->getModule();
                     <p><?= $sectionEditor ?></p>
 
 					<?php
-
 					$buttonText = $section->getInput( 'sectionButton' );
 					$url        = $section->getInput( 'sectionButtonUrl' );
 					$blank      = $section->getInput( 'sectionButtonBlank' )->getValue() ? 'target=_blank' : "";

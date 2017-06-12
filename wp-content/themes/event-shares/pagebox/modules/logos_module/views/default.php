@@ -30,7 +30,6 @@ $module = $this->getModule();
 					<?php
 				endforeach;
 				?>
-
             </div>
         </div>
     </div>

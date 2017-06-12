@@ -23,7 +23,6 @@ class HeadingAndTExt extends AbstractModule implements StaticCacheInterface {
             'description'   => 'Simple header and text below'
         ];
     }
-
     /**
      * @return array Fields configuration.
      */

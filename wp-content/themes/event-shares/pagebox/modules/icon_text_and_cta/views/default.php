@@ -17,7 +17,7 @@ $module = $this->getModule();
                 <h4 class="">lorem ipsum</h4>
                 <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed leo nec nulla lobortis dignissim
                     sit amet at lorem. Morbi aliquam id velit id gravida. In massa nunc, pellentesque vitae ligula at, condimentum
-                    hendrerit ante.Morbi aliquam id velit id gravida. In massa nunc, pellentesque vitae ligula at, condimentum
+                    hendrerit ante.Morbi  aliquam id velit id gravida. In massa nunc, pellentesque vitae ligula at, condimentum
                     hendrerit ante.</p>
                 <a href="#" class="btn btn-primary" id="download-button">
                     <span><img id="download-icon" src="<?= THEME_IMAGES_URI; ?>/Download%20icon-01-01.svg"></span>

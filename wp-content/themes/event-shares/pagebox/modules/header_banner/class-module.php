@@ -23,7 +23,6 @@ class HeaderBanner extends AbstractModule implements StaticCacheInterface {
             'description'   => 'Header banner with text and image in background'
         ];
     }
-
     /**
      * @return array Fields configuration.
      */

@@ -23,7 +23,6 @@ class LogosModule extends AbstractModule implements StaticCacheInterface {
             'description'   => 'Logos module with text header'
         ];
     }
-
     /**
      * @return array Fields configuration.
      */

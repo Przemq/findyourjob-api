@@ -18,7 +18,7 @@ $module = $this->getModule();
             <div class="col-lg-6 offset-lg-3"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum
                     sapien sapien, vel efficitur dui vehicula laoreet. Sed facilisis ornare tellus a mattis. Mauris
                     volutpat enim eget nibh finibus, quis tempor orci pretium. Ut gravida vehicula dui, ac tincidunt
-                    arcu feugiat at. Nam varius eleifend risus ac aliquam. Sed semper.</p></div>
+                    arcu feugiat at. Nam varius eleifend risus ac aliquam. Sed  semper.</p></div>
         </div>
     </div>
 </div>

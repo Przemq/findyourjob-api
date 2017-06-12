@@ -38,6 +38,7 @@ $module = $this->getModule();
                         <p><?php echo $pageContent['lorem']; ?></p>
                         <a href=""><?php echo $pageContent['learn-more']; ?></a>
                     </div>
+
                     <div class="col-lg-4 col-sm-12">
                         <h4><?php echo $pageContent['about-us-sub2']; ?></h4>
                         <p><?php echo $pageContent['lorem']; ?></p>

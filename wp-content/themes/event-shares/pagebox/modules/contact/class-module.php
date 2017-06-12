@@ -23,7 +23,6 @@ class Contact extends AbstractModule implements StaticCacheInterface {
             'description'   => 'Contact module'
         ];
     }
-
     /**
      * @return array Fields configuration.
      */

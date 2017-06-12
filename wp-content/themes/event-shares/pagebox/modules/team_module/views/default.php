@@ -21,7 +21,6 @@ $module = $this->getModule();
             </div>
         </div>
 
-
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item col">
                 <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Joe Bloggs

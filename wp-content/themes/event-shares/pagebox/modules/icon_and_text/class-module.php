@@ -23,7 +23,6 @@ class IconAndText extends AbstractModule implements StaticCacheInterface {
             'description'   => 'One icon and text'
         ];
     }
-
     /**
      * @return array Fields configuration.
      */

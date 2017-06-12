@@ -23,7 +23,6 @@ class TeamModule extends AbstractModule implements StaticCacheInterface {
             'description'   => 'Team Module,'
         ];
     }
-
     /**
      * @return array Fields configuration.
      */

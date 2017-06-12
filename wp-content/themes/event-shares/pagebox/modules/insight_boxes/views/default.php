@@ -88,7 +88,6 @@ $module = $this->getModule();
                     </div>
                 </div>
 
-
                 <div class="col-lg-4 single-article">
                     <div class="tile-wrapper">
                         <img class="article-icon" src="<?= THEME_IMAGES_URI; ?>/ES Bags Money Icon-01-01.svg">

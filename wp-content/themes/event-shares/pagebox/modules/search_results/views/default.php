@@ -17,7 +17,6 @@ $module = $this->getModule();
                 <div id="single-result">
                     <div class="col-lg-12"><h4 id="search-top-header"><?php echo $pageContent['page_results']; ?></h4>
                     </div>
-
                     <div class="single-result col-lg-9">
                         <h4><?php echo $pageContent['result_header']; ?></h4>
                         <p><?php echo $pageContent['result_paragraph']; ?><a

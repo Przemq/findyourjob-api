@@ -42,7 +42,6 @@ $module = $this->getModule();
                             map: map
                         });
 
-
                     }
                 </script>
                 <script async defer

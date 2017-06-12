@@ -41,7 +41,6 @@ $table       = $this->getEditor( 'description' )->getContent();
 				endif;
 				?>
 
-
             </div>
             <div class="col-lg-4">
                 <table class="table">

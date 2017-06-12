@@ -26,7 +26,6 @@ class InsightsFilters extends AbstractModule implements StaticCacheInterface {
             ],
         ];
     }
-
     /**
      * @return array Fields configuration.
      */

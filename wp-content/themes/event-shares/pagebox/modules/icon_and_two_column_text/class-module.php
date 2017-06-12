@@ -96,7 +96,6 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 				],
 			],
 
-
 			'buttonTitle'     => [
 				'type'    => 'input:text',
 				'label'   => 'Button title',

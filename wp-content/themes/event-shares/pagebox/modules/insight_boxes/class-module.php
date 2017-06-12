@@ -23,7 +23,6 @@ class InsightsBoxes extends AbstractModule implements StaticCacheInterface {
             'description'   => 'Tiles with articles'
         ];
     }
-
     /**
      * @return array Fields configuration.
      */

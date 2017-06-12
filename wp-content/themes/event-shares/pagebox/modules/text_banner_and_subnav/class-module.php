@@ -26,7 +26,6 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
             ],
         ];
     }
-
     /**
      * @return array Fields configuration.
      */

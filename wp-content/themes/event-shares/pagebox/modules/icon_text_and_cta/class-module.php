@@ -23,7 +23,6 @@ class IconTextAndCTA extends AbstractModule implements StaticCacheInterface {
             'description'   => 'Icon, text and download button'
         ];
     }
-
     /**
      * @return array Fields configuration.
      */

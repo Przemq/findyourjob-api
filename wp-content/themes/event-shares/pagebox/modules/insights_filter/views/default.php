@@ -28,7 +28,6 @@ $module = $this->getModule();
                         </li>
                     </ul>
                 </div>
-
                 <div class="col-lg-2 col-sm-6 col-6 col-md-12"><p id="filter-by">filter by</p></div>
                 <div class="col-lg-2 col-sm-6 col-6">
                     <div class="custom-dropdown dropdown">

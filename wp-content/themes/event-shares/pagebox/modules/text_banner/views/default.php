@@ -22,7 +22,6 @@ $module = $this->getModule();
 						$url = $this->getInput( 'buttonUrl' );
 						$blank = $this->getInput( 'buttonBlank' )->getValue() ? 'target=_blank' : "";
 						?>
-
                         <a href="<?= $url ?>" <?= $blank ?> class="button">
                             <span><?= $this->getInput( 'button' ) ?></span></a>
 					<?php endif;

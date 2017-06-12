@@ -35,7 +35,6 @@ $module = $this->getModule();
                             </div>
                         </li>
                     </ul>
-
                     <div class="tab-content">
                         <div class="tab-pane active" id="our-firm" role="tabpanel"><p class="col-lg-8 offset-lg-2 offset-sm-0">1 Lorem ipsum dolor quam, sit amet, vitae et ullamcorper, vitae  netus neque morbi mauris sed vel tempor.</p></div>
                         <div class="tab-pane" id="the-team" role="tabpanel"><p class="col-lg-8 offset-lg-2 offset-sm-0">2 Lorem ipsum dolor sit amet, duis vitae et ullamcorper, quam, neque morbi mauris sed vel tempor.</p></div>

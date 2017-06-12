@@ -14,9 +14,10 @@ $module = $this->getModule();
         <div class="row" id="header-banner">
             <div class="col-lg-5">
                 <h2>about us</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien, vel efficitur
+                <p>Lorem ipsum dolor sit  amet, consectetur adipiscing elit. Nulla interdum sapien sapien, vel efficitur
                     dui vehicula laoreet. Sed facilisis ornare tellus a mattis. Mauris volutpat enim eget nibh finibus,
                     quis tempor orci pretium.</p>
+
             </div>
         </div>
     </div>

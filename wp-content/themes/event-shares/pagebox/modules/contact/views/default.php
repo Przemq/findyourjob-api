@@ -43,7 +43,6 @@ $module = $this->getModule();
                 </div>
             </div>
 
-
             <div id="contact-form" class="col-lg-6 col-sm-12">
                 <form class="row">
                     <div class="form-group col-lg-6">

@@ -22,7 +22,6 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 			'description' => 'Three columns with image and text'
 		];
 	}
-
 	/**
 	 * @return array Fields configuration.
 	 */

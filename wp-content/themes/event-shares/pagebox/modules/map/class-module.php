@@ -23,7 +23,6 @@ class Map extends AbstractModule implements StaticCacheInterface {
             'description'   => 'Contact Map'
         ];
     }
-
     /**
      * @return array Fields configuration.
      */
