@@ -129,7 +129,7 @@
                 <img src="<?= THEME_IMAGES_URI; ?>/Twitter%20Green%20Icon-01-01.svg">
                 <img src="<?= THEME_IMAGES_URI; ?>/Linkedin%20Green%20Icon-01-01.svg">
             </div>
-            <div class="col-md-9 col-sm-6 col-6" id="menu-items">
+            <div class="col-md-9 col-sm-8 col-6" id="menu-items">
                 <ul>
                     <li id="about-us">
                         <a href="#"><?php echo $pageContent['footer_menu_item1']; ?></a>
