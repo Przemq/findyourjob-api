@@ -65,7 +65,7 @@
       font-size: 14px;
     }
     a {
-      font-size: 22px;
+      font-size: 16px;
     }
   }
 }
@@ -102,13 +102,14 @@
       font-size: get('descriptionSize');
       color: get('descriptionColor');
     }
-    .button{
-      font-size: get('buttonLinkSize');
-      color: get('buttonLinkColor');
-      &:hover{
-        color: get('buttonLinkColorHover');
-
-      }
-    }
+    //In QUESTION
+    //.button{
+    //  font-size: get('buttonLinkSize');
+    //  color: get('buttonLinkColor');
+    //  &:hover{
+    //    color: get('buttonLinkColorHover');
+    //
+    //  }
+    //}
   }
 }

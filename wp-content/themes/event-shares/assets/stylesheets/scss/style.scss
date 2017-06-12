@@ -17,14 +17,25 @@
 //@import "partials/modal";
 
 .button {
-  color: #56c1a3;
-  text-transform: none;
-  font-family: 'Merriweather', serif;
-  font-size: 24px;
+  padding: 11.5px 43px;
+  background-color: #56C1A3;
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #002841;
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: 3px;
   text-decoration: none;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
   transition: 0.5s all;
+  border: 1px solid #56C1A3;
   &:hover {
     text-decoration: none;
+    background: transparent;
+    color: #56C1A3;
+    border-color: #56C1A3;
   }
 }
 

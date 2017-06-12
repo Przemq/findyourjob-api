@@ -112,25 +112,26 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 				'default' => '#292b2c',
 				'sass'    => true
 			],
-			'buttonLinkSize'      => [
-				'type'        => 'input:text',
-				'label'       => 'Button size',
-				'description' => 'Please enter button size px',
-				'default' => '22px',
-				'sass'  => true
-			],
-			'buttonLinkColor' => [
-				'type'    => 'input:color',
-				'label'   => 'Button color',
-				'default' => '#56c1a3',
-				'sass'    => true
-			],
-			'buttonLinkColorHover' => [
-				'type'    => 'input:color',
-				'label'   => 'Button hover color',
-				'default' => '#014c8c',
-				'sass'    => true
-			],
+//			In QUESTION
+//			'buttonLinkSize'      => [
+//				'type'        => 'input:text',
+//				'label'       => 'Button size',
+//				'description' => 'Please enter button size px',
+//				'default' => '16px',
+//				'sass'  => true
+//			],
+//			'buttonLinkColor' => [
+//				'type'    => 'input:color',
+//				'label'   => 'Button color',
+//				'default' => '#56c1a3',
+//				'sass'    => true
+//			],
+//			'buttonLinkColorHover' => [
+//				'type'    => 'input:color',
+//				'label'   => 'Button hover color',
+//				'default' => '#014c8c',
+//				'sass'    => true
+//			],
             'backgroundColor' => [
                 'type'    => 'input:color',
                 'label'   => 'Background color',
