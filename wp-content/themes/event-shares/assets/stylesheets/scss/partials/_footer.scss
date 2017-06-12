@@ -1,95 +1,109 @@
 footer {
-    $get_in_touch_color: #002841;
-    $font_white_color: #f0f2f4;
-    $footer_font_color: rgb(13, 55, 75);
-    $copyrightColor: #56c2a3;
-    $menu_item_color: #1e2c32;
-    $footer_right_color: rgba(13, 55, 75, 0.651);
-    $footer_border_color: rgb(73, 77, 105);
+  $get_in_touch_color: #002841;
+  $font_white_color: #f0f2f4;
+  $footer_font_color: rgb(13, 55, 75);
+  $copyrightColor: #56c2a3;
+  $menu_item_color: #002841;
+  $footer_right_color: #849199;
+  $footer_border_color: rgb(73, 77, 105);
 
-    #footer {
-        font-family: 'Merriweather', serif;
-        color: $footer_font_color;
-        font-size: 13px;
-        margin-top: 41px;
+  #footer {
+    font-family: 'Merriweather', serif;
+    color: $footer_font_color;
+    font-size: 13px;
+    margin-top: 41px;
 
+    #left-column {
+      line-height: 200%;
+      color: $footer_font_color;
+      font-size: 13px;
+      padding-bottom: 15px;
+    }
+    #right-column {
+      line-height: 180%;
+      color: $footer_right_color;
+      font-size: 12px;
+    }
+  }
 
-        #left-column {
-            line-height: 23px;
-            color: $footer_font_color;
-            font-size: 13px;
-            padding-bottom: 15px;
-        }
-        #right-column {
-            line-height: 23px;
-            color: $footer_right_color;
-            font-size: 12px;
-        }
+  #footer-nav {
+    margin-top: 41px;
+    border-top: 1px solid $footer_border_color;
+    border-bottom: 1px solid $footer_border_color;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
-    #footer-nav {
-        margin-top: 41px;
-        border-top: 1px solid $footer_border_color;
-        border-bottom: 1px solid $footer_border_color;
-        padding-top: 15px;
-        padding-bottom: 15px;
-
-        img {
-            height: 24px;
-            width: 24px;
-            margin-right: 13px;
-            margin-top: 3px;
+    svg {
+      cursor: pointer;
+      height: 24px;
+      width: 24px;
+      margin-right: 13px;
+      margin-top: 3px;
+      path, rect {
+        fill:$menu_item_color;
+        @include transition(300ms all);
+      }
+      &:hover {
+        path, rect {
+          fill: #00E5EE; // turqoise
         }
-        #social-wrapper {
-            margin-top: 1px;
-            margin-bottom: 1px;
+      }
 
-            @include media-breakpoint-up(md){
-                border-right: 1px solid $footer_border_color;
-            }
+    }
+    #social-wrapper {
+      margin-top: 1px;
+      margin-bottom: 1px;
+
+      @include media-breakpoint-up(md) {
+        border-right: 1px solid $footer_border_color;
+      }
+    }
+  }
+
+  #copyright {
+    font-size: 13px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #0d374b;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  #menu-items {
+    padding-left: 0;
+    ul {
+      list-style-type: none;
+      padding-left: 15px;
+      @include media-breakpoint-up(md) {
+        padding-left: 40px;
+      }
+      li {
+        //margin-left: 15px;
+
+        //margin-right: 33px;
+
+        @include media-breakpoint-up(sm) {
+          margin-right: 10px;
+          margin-left: 15px;
+          float: left;
         }
-    }
-
-    #copyright {
-        font-size: 13px;
-        font-family: 'Roboto Condensed', sans-serif;
-        color: #0d374b;
-        padding-top: 15px;
-        padding-bottom: 15px;
-    }
-
-
-    #menu-items {
-        padding-left: 0;
-        ul {
-            list-style-type: none;
-            padding-left: 15px;
-            @include media-breakpoint-up(md) {
-                padding-left: 40px;
-            }
-            li {
-                //margin-left: 15px;
-
-                //margin-right: 33px;
-
-                @include media-breakpoint-up(sm) {
-                    margin-right: 10px;
-                    margin-left: 15px;
-                    float: left;
-                }
-                @include media-breakpoint-up(lg) {
-                    margin-right: 33px;
-                    margin-left: 15px;
-                    float: left;
-                }
-                a {
-                    color: $menu_item_color;
-                    font-weight: 700;
-                    font-size: 13px;
-                    text-decoration: none;
-                    font-family: 'Roboto Condensed', sans-serif;
-                }
-            }
+        @include media-breakpoint-up(lg) {
+          margin-right: 33px;
+          margin-left: 15px;
+          float: left;
         }
+        a {
+          color: $menu_item_color;
+          font-weight: 700;
+          font-size: 13px;
+          text-decoration: none;
+          font-family: 'Roboto Condensed', sans-serif;
+        }
+      }
     }
+  }
 }
