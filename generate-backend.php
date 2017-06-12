@@ -18,7 +18,7 @@ echo '<pre>';
 createBackend( [
     [
         'name' => 'header',
-        'type' => [ 'input' => 'default', 'editor' => '13px', 'color' => '#000' ]
+        'type' => [ 'input' => 'default', 'size' => '13px', 'color' => '#000' ]
     ]
 ] );
 echo '</pre>';
