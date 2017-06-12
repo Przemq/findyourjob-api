@@ -20,11 +20,13 @@
     .svg-wrapper {
       //max-width: 160px;
       width: auto;
-      max-height: 110px;
       margin: 0 auto 20px;
       transition: 0.5s all;
       svg {
         max-height: 110px;
+        @include media-breakpoint-down(md){
+          max-height: 160px;
+        }
         transition: 0.5s all;
         .st1,.st2 {
           fill: #56C1A3;
@@ -42,6 +44,9 @@
       img {
         max-height: 110px;
         width: auto;
+        @include media-breakpoint-down(md){
+          max-height: 160px;
+        }
       }
     }
 
@@ -96,6 +101,14 @@
     p{
       font-size: get('descriptionSize');
       color: get('descriptionColor');
+    }
+    .button{
+      font-size: get('buttonLinkSize');
+      color: get('buttonLinkColor');
+      &:hover{
+        color: get('buttonLinkColorHover');
+
+      }
     }
   }
 }

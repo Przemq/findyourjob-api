@@ -11,7 +11,7 @@ $module = $this->getModule();
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container">
-        <?= createTaskLink('EV-19') ?>
+		<?= createTaskLink( 'EV-19' ) ?>
         <div class="row" id="three-column-boxes">
 
 
@@ -21,22 +21,24 @@ $module = $this->getModule();
 				$sectionEditor = $section->getEditor( 'sectionEditor' )->getValue();
 				$sectionImageID = $section->getMedia( 'sectionImage' )->getImage()->getId();
 				?>
-                <div class="col-lg-4">
+                <div class="col-lg-4 md-padd-bottom">
                     <div class="svg-wrapper first-svg"> <?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => 'style-svg' ] ) ?></div>
-                    <p><?= $sectionEditor ?></p>
-
-					<?php
-					$buttonText = $section->getInput( 'sectionButton' );
-					$url        = $section->getInput( 'sectionButtonUrl' );
-					$blank      = $section->getInput( 'sectionButtonBlank' )->getValue() ? 'target=_blank' : "";
-//
-					if ( ! empty( $buttonText ) && isset( $buttonText ) ) :
-						?>
-                        <a href="<?= $url ?>" class="button " <?= $blank ?> ><?= $buttonText ?></a>
+                    <div class="md-padd-top">
+                        <p><?= $sectionEditor ?></p>
 
 						<?php
-					endif;
-					?>
+						$buttonText = $section->getInput( 'sectionButton' );
+						$url        = $section->getInput( 'sectionButtonUrl' );
+						$blank      = $section->getInput( 'sectionButtonBlank' )->getValue() ? 'target=_blank' : "";
+						//
+						if ( ! empty( $buttonText ) && isset( $buttonText ) ) :
+							?>
+                            <a href="<?= $url ?>" class="button " <?= $blank ?> ><?= $buttonText ?></a>
+
+							<?php
+						endif;
+						?>
+                    </div>
                 </div>
 
 				<?php

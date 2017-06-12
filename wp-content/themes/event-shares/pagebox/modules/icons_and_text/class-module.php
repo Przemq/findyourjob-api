@@ -39,6 +39,13 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 				'default' => '#002842',
 				'sass'    => true
 			],
+			'titleSize'      => [
+				'type'        => 'input:text',
+				'label'       => 'Title size',
+				'description' => 'Please enter title size px',
+				'default' => '25px',
+				'sass'  => true
+			],
 //	        Repeater
 			'sections'       => [
 				'type'   => 'repeater',
@@ -77,6 +84,52 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 						'default' => 1,
 					],
 				],
+			],
+			'titleInnerSize'      => [
+				'type'        => 'input:text',
+				'label'       => 'Description Title size',
+				'description' => 'Please enter description Title size px',
+				'default' => '25px',
+				'sass'  => true
+			],
+			'titleInnerColor' => [
+				'type'    => 'input:color',
+				'label'   => 'Description description Title color',
+				'default' => '#002842',
+				'sass'    => true
+			],
+
+			'descriptionSize'      => [
+				'type'        => 'input:text',
+				'label'       => 'Description  size',
+				'description' => 'Please enter title size px',
+				'default' => '14px',
+				'sass'  => true
+			],
+			'descriptionColor' => [
+				'type'    => 'input:color',
+				'label'   => 'Description Title color',
+				'default' => '#292b2c',
+				'sass'    => true
+			],
+			'buttonLinkSize'      => [
+				'type'        => 'input:text',
+				'label'       => 'Button size',
+				'description' => 'Please enter button size px',
+				'default' => '22px',
+				'sass'  => true
+			],
+			'buttonLinkColor' => [
+				'type'    => 'input:color',
+				'label'   => 'Button color',
+				'default' => '#56c1a3',
+				'sass'    => true
+			],
+			'buttonLinkColorHover' => [
+				'type'    => 'input:color',
+				'label'   => 'Button hover color',
+				'default' => '#014c8c',
+				'sass'    => true
 			],
             'backgroundColor' => [
                 'type'    => 'input:color',
