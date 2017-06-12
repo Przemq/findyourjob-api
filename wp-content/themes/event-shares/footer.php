@@ -117,7 +117,7 @@
     , 'result_paragraph' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum sapien sapien. Sed facilisis ornare tellus a mattis. Ut gravida vehicula dui, ac tincidunt arcu feugiat at... '
     , 'read_more' => 'read more'
     );
-    ?>
+//    ?>
     <div class="container">
         <div class="row" id="footer">
             <div class="col-md-3 col-sm-10" id="left-column"><?php echo $pageContent['footer_left_text']; ?></div>

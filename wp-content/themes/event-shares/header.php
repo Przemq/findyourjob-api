@@ -44,11 +44,11 @@
 	<?php wp_head(); ?>
 	<?php
 	//  Get all style options from wpx_theme
-	$searchBackground      = ! empty( wpx_theme_get_option( 'wpx_theme_search_background' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background' ) : '#da8b00';
-	$searchBackgroundHover = ! empty( wpx_theme_get_option( 'wpx_theme_search_background_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background_hover' ) : '#c17b01';
-	$menu_text_color       = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) : '#004a85';
-	$menu_text_color_hover = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) : '';
-	$menu_font_family      = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) : "";
+	$searchBackground            = ! empty( wpx_theme_get_option( 'wpx_theme_search_background' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background' ) : '#da8b00';
+	$searchBackgroundHover       = ! empty( wpx_theme_get_option( 'wpx_theme_search_background_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background_hover' ) : '#c17b01';
+	$menu_text_color             = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) : '#004a85';
+	$menu_text_color_hover       = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) : '';
+	$menu_font_family            = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) : "";
 
 	//	Get available font family and assign it correct value
 	if ( $menu_font_family === "standard" ) {
@@ -113,8 +113,11 @@
  * Country & investor modal - simply uncomment this if you want to use modal on your site.
  */
 // include 'includes/modal/country-investor.php'; ?>
-<?= createTaskLink('EV-15') ;?>
+
+<?= createTaskLink('EV-15') ?>
+<?= createTaskLink('EV-36') ?>
 <header id="wpx-eventshare-header">
+	<?php require_once( 'pageContent.php' ); ?>
     <div class="container-fluid">
         <div class="container">
             <div class="wpx-name-module-header">
@@ -143,11 +146,8 @@
 
 
 						<?php
-
 						if ( function_exists( 'wpx_pagebox' ) ) {
-						echo createTaskLink('EV-36');
-
-                        foreach ( get_posts( [ 'post_type' => 'header_nav' ] ) as $headerPost ) {
+							foreach ( get_posts( [ 'post_type' => 'header_nav' ] ) as $headerPost ) {
 								/** @var WP_Post $headerPost */
 								wpx_pagebox( $headerPost->ID );
 							}
@@ -173,3 +173,8 @@
                     </nav>
 
                 </div>
+
+                <!--nav>
+
+				</nav-->
+</header>
