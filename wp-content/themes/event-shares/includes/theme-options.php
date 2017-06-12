@@ -255,8 +255,8 @@ class WPX_Theme_Options {
 					'default' => "#"
 				],
 				[
-					'name' => 'Url for Instagram',
-					'id'   => $prefix . $section . 'instagram',
+					'name' => 'Url for Linkedin',
+					'id'   => $prefix . $section . 'linkedin',
 					'type' => 'text',
 					'default' => "#"
 				],
