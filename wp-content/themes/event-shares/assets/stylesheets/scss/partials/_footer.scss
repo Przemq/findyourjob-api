@@ -74,6 +74,7 @@ footer {
   }
 
   #menu-items {
+    align-self: center;
     padding-left: 0;
     ul {
       list-style-type: none;
@@ -95,6 +96,12 @@ footer {
           margin-right: 33px;
           margin-left: 15px;
           float: left;
+        }
+        @include media-breakpoint-down(sm) {
+          display: block;
+          float: none;
+          text-align: left;
+          padding: 5px 0;
         }
         a {
           color: $menu_item_color;
