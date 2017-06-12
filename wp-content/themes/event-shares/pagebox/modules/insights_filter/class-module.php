@@ -45,6 +45,12 @@ class InsightsFilters extends AbstractModule implements StaticCacheInterface {
 		        'default' => '#282780',
 		        'sass' => true
 	        ],
+            'backgroundColor' => [
+                'type' => 'input:color',
+                'label' => 'background color',
+                'default' => '#ffffff',
+                'sass' => true
+            ],
         ];
     }
 }

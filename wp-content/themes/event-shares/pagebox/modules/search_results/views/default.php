@@ -9,7 +9,7 @@
 $module = $this->getModule();
 ?>
 <div class="<?= $module->getClass() ?>">
-    <div class="container-fluid">
+    <div class="container-fluid" id="page-result-background">
         <div class="container">
             <?= createTaskLink('EV-37') ?>
             <?php include_once('pageContent.php'); ?>

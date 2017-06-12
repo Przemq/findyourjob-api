@@ -11,6 +11,7 @@ $module = $this->getModule();
 <div class="<?= $module->getClass() ?>">
     <div class="container-fluid">
         <div class="container">
+            <?= createTaskLink('EV-17') ?>
             <div class="row large-text-banner">
                 <div class="col-lg-8 offset-lg-2">
 

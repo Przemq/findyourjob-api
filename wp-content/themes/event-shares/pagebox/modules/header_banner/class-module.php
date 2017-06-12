@@ -42,6 +42,12 @@ class HeaderBanner extends AbstractModule implements StaticCacheInterface {
 		        'default' => '#282780',
 		        'sass' => true
 	        ],
+            'backgroundColor' => [
+                'type' => 'input:color',
+                'label' => 'Background color',
+                'default' => '#002841',
+                'sass' => true
+            ],
         ];
     }
 }

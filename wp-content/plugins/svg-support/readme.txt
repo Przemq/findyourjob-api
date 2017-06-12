@@ -1,10 +1,10 @@
 === SVG Support ===
 Contributors: Benbodhi
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z9R7JERS82EQQ
-Tags: svg, vector, css, style, mime, mime type, embed, img, inline, animation, animate
+Tags: svg, vector, css, style, mime, mime type, embed, img, inline, animation, animate, js
 Requires at least: 4.0
-Tested up to: 4.8-alpha-40609
-Stable tag: 2.3.8
+Tested up to: 4.8
+Stable tag: 2.3.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -163,6 +163,17 @@ or
 
 == Changelog ==
 
+= 2.3.10 =
+
+* Fixed missing links in settings page.
+
+= 2.3.9 =
+
+* Modified plugin action meta link for settings page.
+* Changed some language throughout the plugin.
+* Added recommendation for ShortPixel Image Optimization.
+* Added conditional to check post type supports thumbnail before setting meta data.
+
 = 2.3.8 =
 
 * Added some CSS to make sure featured images show on WooCommerce products, Sensei Courses and Lessons.
@@ -315,6 +326,14 @@ or
 * Initial Release.
 
 == Upgrade Notice ==
+
+= 2.3.10 =
+
+* Fixed missing links in settings page.
+
+= 2.3.9 =
+
+* Cleaned up some code and language, now stores less meta when not needed and added a plugin recommendation for Image Optimization.
 
 = 2.3.8 =
 

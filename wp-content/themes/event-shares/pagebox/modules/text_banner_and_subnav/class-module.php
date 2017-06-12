@@ -45,6 +45,12 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
 		        'default' => '#282780',
 		        'sass' => true
 	        ],
+            'backgroundColor' => [
+                'type' => 'input:color',
+                'label' => 'Background color',
+                'default' => '#ffffff',
+                'sass' => true
+            ],
         ];
     }
 }

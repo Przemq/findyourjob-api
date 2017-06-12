@@ -42,6 +42,18 @@ class SearchResults extends AbstractModule implements StaticCacheInterface {
 		        'default' => '#282780',
 		        'sass' => true
 	        ],
+            'topBackground' => [
+                'type' => 'input:color',
+                'label' => 'Page results background color',
+                'default' => '#ffffff',
+                'sass' => true
+            ],
+            'bottomBackground' => [
+                'type' => 'input:color',
+                'label' => 'Article results background color',
+                'default' => '#EBEBEB',
+                'sass' => true
+            ],
         ];
     }
 }

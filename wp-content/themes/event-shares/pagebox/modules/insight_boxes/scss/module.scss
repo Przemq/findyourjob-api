@@ -4,7 +4,6 @@
 @include overall_module() {
 
   $paragraph-color: #002841;
-  $background-color: #EBEBEB;
   $article_info_color: #B3B3B3;
   $header-color: #002842;
   $learn-more-color: #55c2a2;
@@ -16,7 +15,6 @@
       text-align: center;
       padding-top: 20px;
       padding-bottom: 10px;
-      background-color: $background-color;
 
       .article-icon {
         height: 105px;
@@ -66,9 +64,7 @@
       padding-bottom: 10px;
     }
   }
-  #insights-boxes-container {
-    background-color: $background-color;
-  }
+
 }
 
 // Styles for unique page/post module.
@@ -76,5 +72,13 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-  //background-color: get('color');
+  background-color: get('backgroundColor');
+  #insights-boxes-container {
+    background-color:  get('backgroundColor');
+  }
+  .article-boxes{
+    .single-article{
+      background-color:  get('backgroundColor');
+    }
+  }
 }

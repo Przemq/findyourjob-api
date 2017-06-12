@@ -3,10 +3,8 @@
 // Overall module styles
 @include overall_module() {
 
-    $background-color: #F4F4F4;
 
     #top-page-image-with-text {
-        background-color: $background-color;
         padding-top: 60px;
         padding-bottom: 65px;
         text-align: center;
@@ -31,5 +29,5 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    //background-color: get('color');
+    background-color: get('backgroundColor');
 }

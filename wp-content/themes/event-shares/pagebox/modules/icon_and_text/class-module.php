@@ -42,6 +42,12 @@ class IconAndText extends AbstractModule implements StaticCacheInterface {
 		        'default' => '#282780',
 		        'sass' => true
 	        ],
+            'backgroundColor' => [
+                'type' => 'input:color',
+                'label' => 'Background color',
+                'default' => '#F4F4F4',
+                'sass' => true
+            ],
         ];
     }
 }

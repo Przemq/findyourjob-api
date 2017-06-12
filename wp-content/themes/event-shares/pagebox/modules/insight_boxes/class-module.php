@@ -42,6 +42,12 @@ class InsightsBoxes extends AbstractModule implements StaticCacheInterface {
 		        'default' => '#282780',
 		        'sass' => true
 	        ],
+            'backgroundColor' => [
+                'type' => 'input:color',
+                'label' => 'Background color',
+                'default' => '#EBEBEB',
+                'sass' => true
+            ],
         ];
     }
 }

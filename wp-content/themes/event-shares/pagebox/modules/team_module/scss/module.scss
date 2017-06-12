@@ -2,8 +2,6 @@
 
 // Overall module styles
 @include overall_module() {
-    background-color: #f4f4f4;
-
     .container {
         padding-top: 60px;
         padding-bottom: 60px;
@@ -87,5 +85,5 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    //background-color: get('color');
+    background-color: get('backgroundColor');
 }

@@ -58,6 +58,9 @@
       font-size: 18px;
       padding-bottom: 15px;
       font-weight: bold;
+      &.active{
+        background-color: transparent;
+      }
     }
 
     .single-li-item {
@@ -168,5 +171,5 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-  //background-color: get('color');
+  background-color: get('backgroundColor');
 }

@@ -6,10 +6,6 @@
   $header_color: rgb(30, 44, 50);
   $background-color: #f4f4f4;
 
-  .second-background-color {
-    background-color:  $background-color;
-  }
-
   #heading-and-text {
     h4 {
       text-transform: uppercase;
@@ -35,5 +31,5 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    //background-color: get('color');
+    background-color: get('backgroundColor');
 }

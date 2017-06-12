@@ -31,5 +31,5 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    //background-color: get('color');
+    background-color: get('backgroundColor');
 }

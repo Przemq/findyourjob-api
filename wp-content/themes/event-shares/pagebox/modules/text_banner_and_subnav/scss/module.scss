@@ -26,6 +26,7 @@
     .single-link.active {
       color: $active_link_color;
 
+
       &:after {
         display: inline-block;
         vertical-align: middle;
@@ -39,7 +40,6 @@
         left: calc(50% - 5px);
         content: '';
       }
-
 
     }
     p {
@@ -57,6 +57,10 @@
       font-family: 'Merriweather', serif;
       font-style: italic;
       padding-bottom: 18px;
+
+      &.active{
+        background-color: transparent;
+      }
     }
 
     .single-li-item {
@@ -71,5 +75,6 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-  //background-color: get('color');
+  background-color: get('backgroundColor');
 }
+
