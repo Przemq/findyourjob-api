@@ -1,17 +1,13 @@
 // This file is used only for import other partials. Do not add anything else here.
 // Pagebox theme configuration
 @import "theme-config";
-
 // Bourbon (http://bourbon.io)
 @import "vendor/bourbon/bourbon";
-
 // Register global mixins (pagebox tools)
 @import "mixins/utils";
-
 // Bootstrap mixins
 @import "vendor/bootstrap/mixins/breakpoints";
 @import "mixins/bootstrap-backward";
-
 // Register partials
 @import "partials/header";
 @import "partials/footer";
@@ -20,15 +16,26 @@
 // Modal
 //@import "partials/modal";
 
-.button{
-  color:#56c1a3;
+.button {
+  color: #56c1a3;
   text-transform: none;
   font-family: 'Merriweather', serif;
-  font-size:24px;
+  font-size: 24px;
   text-decoration: none;
   transition: 0.5s all;
-    &:hover{
+  &:hover {
     text-decoration: none;
+  }
+}
+
+.md-padd-top {
+  @include media-breakpoint-down(md) {
+    padding-top: 35px;
+  }
+}
+.md-padd-bottom {
+  @include media-breakpoint-down(md) {
+    padding-bottom: 60px;
   }
 }
 
