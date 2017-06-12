@@ -22,10 +22,15 @@
     align-items: center;
     flex-direction: row;
     .media-image {
-
       max-width: 24%;
       padding: 30px;
       width:auto;
+      @include media-breakpoint-down(md){
+        max-width: 49%;
+      }
+      @include media-breakpoint-down(xs){
+        max-width: 285px;
+      }
     }
     a {
       .media-image{
