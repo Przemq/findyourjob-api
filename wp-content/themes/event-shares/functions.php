@@ -105,6 +105,23 @@ function wpmudev_remove_version() {
 
 
 /**
+ * Create JIRA task link
+ *
+ * @param $task string Enter JIRA task number (for ex. OMGI-1)
+ *
+ * @return string Returning <a> element with JIRA task link
+ */
+
+function createTaskLink( $task ) {
+    if ( defined( 'WP_ENVIRONMENT' ) && WP_ENVIRONMENT === 'dev' ) {
+        return '<a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/' . $task . '">' . $task . '</a>';
+    }
+
+    return '';
+}
+
+
+/**
  * Makes correct links to minified styles while you are using that on Multisite website and BWP minify plugin.
  * It changes links from SITE_DOMAIN/country/investor/ to main SITE_DOMAIN (without any additional parts).
  * Uncomment filter if you want to use it.

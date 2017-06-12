@@ -10,7 +10,7 @@ $module = $this->getModule();
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container">
-        <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-16">EV-27</a>
+        <?= createTaskLink('EV-27') ?>
         <div class="row" id="banner-with-download-button">
             <div class="col-lg-8 offset-lg-2 offset-sm-0">
                 <div class="mx-auto" id="magnifier-icon"><img src="<?= THEME_IMAGES_URI; ?>/ES%20Magnifyglass-Graph%20Icon-01-01.svg"></div>

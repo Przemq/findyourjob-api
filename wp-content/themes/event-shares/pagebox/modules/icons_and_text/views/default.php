@@ -11,7 +11,7 @@ $module = $this->getModule();
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container"><?php include_once( 'pageContent.php' ) ?>
-        <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-19">EV-19</a>
+        <?= createTaskLink('EV-19') ?>
         <div class="row" id="three-column-boxes">
 
 

@@ -12,7 +12,7 @@ $module = $this->getModule();
     <div class="container-fluid" id="insights-boxes-container">
         <?php include_once('pageContent.php')?>
         <div class="container">
-            <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-31">EV-31</a>
+            <?= createTaskLink('EV-31') ?>
             <div class="row article-boxes">
 
                 <div class="col-lg-4 single-article">

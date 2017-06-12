@@ -10,7 +10,7 @@ $module = $this->getModule();
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container">
-        <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-23">EV-23</a>
+        <?= createTaskLink('EV-23') ?>
         <div class="row" id="header-banner">
             <div class="col-lg-5">
                 <h2>about us</h2>

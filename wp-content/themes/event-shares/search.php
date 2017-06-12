@@ -3,6 +3,7 @@
 get_header(); ?>
 
     <div class="search-content" role="main">
+        <?= createTaskLink('EV-37') ?>
         <div class="container-fluid">
             <div class="transparency"></div>
             <div class="container">

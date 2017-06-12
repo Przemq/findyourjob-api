@@ -10,7 +10,7 @@ $module = $this->getModule();
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container">
-        <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-49">EV-49</a>
+        <?= createTaskLink('EV-49') ?>
         <div class="row" id="in-the-media">
             <div class="col-lg-12">
 				<?php if ( $this->getInput( 'titleSwitch' )->getValue() ) : ?>

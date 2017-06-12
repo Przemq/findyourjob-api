@@ -11,7 +11,7 @@ $module = $this->getModule();
 <div class="<?= $module->getClass() ?>">
     <div class="container-fluid">
         <div class="container" id="insights-filter">
-            <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-32">EV-32</a>
+            <?= createTaskLink('EV-32') ?>
             <div class="row border-bottom">
                 <div class="col-lg-6 col-md-12">
                     <ul class="nav nav-tabs hidden-sm-down no-border" role="tablist" style="border-bottom-color: black">

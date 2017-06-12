@@ -12,8 +12,7 @@ $description = $this->getEditor( 'description' )->getContent();
 $table       = $this->getEditor( 'description' )->getContent();
 ?>
 <div class="<?= $module->getClass() ?>">
-    <div class="container"><?php include_once( 'pageContent.php' ); ?> <a class="task-number" target="_blank"
-                                                                          href="https://nurture.atlassian.net/browse/EV-18">EV-18</a>
+    <div class="container"><?php include_once( 'pageContent.php' ); ?> <?= createTaskLink('EV-18') ?>
         <div class="row" id="home-page-our-etfs">
             <div class="col-lg-2 offset-lg-1 col-sm-12 offset-sm-0 col-12 offset-0 svg-image">
                 <!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->

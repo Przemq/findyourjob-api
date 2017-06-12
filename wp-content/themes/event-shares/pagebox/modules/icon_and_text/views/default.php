@@ -10,7 +10,7 @@ $module = $this->getModule();
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container">
-        <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-22">EV-22</a>
+        <?= createTaskLink('EV-22') ?>
         <div class="row" id="top-page-image-with-text">
             <div class="col-lg-12">
                 <img class="img-fluid" id="firm-icon" src="<?= THEME_IMAGES_URI; ?>/Event%20Shares%20Icon-01-01.svg">

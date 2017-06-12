@@ -11,7 +11,7 @@ $module = $this->getModule();
 <div class="<?= $module->getClass() ?>">
     <div class="container-fluid">
         <div class="container" id="sub-nav">
-            <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-33">EV-33</a>
+            <?= createTaskLink('EV-33') ?>
             <div class="row">
                 <div class="col-lg-12">
 

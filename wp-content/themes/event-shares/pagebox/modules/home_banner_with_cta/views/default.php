@@ -18,7 +18,7 @@ $buttonRight  = $this->getInput( 'buttonRightTitle' );
 <div class="<?= $module->getClass() ?>">
     <div class="container">
 
-        <a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/EV-16">EV-16</a>
+        <?= createTaskLink('EV-16') ?>
         <div class="row" id="home-banner">
             <img src="<?= $bgImage ?>">
 
