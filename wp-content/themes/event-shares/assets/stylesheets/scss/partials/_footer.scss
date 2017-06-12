@@ -37,7 +37,7 @@ footer {
         img {
             height: 24px;
             width: 24px;
-            margin-right: 16px;
+            margin-right: 13px;
             margin-top: 3px;
         }
         #social-wrapper {
@@ -53,19 +53,35 @@ footer {
     #copyright {
         font-size: 13px;
         font-family: 'Roboto Condensed', sans-serif;
-        color: $copyrightColor;
+        color: #0d374b;
         padding-top: 15px;
         padding-bottom: 15px;
     }
 
 
     #menu-items {
+        padding-left: 0;
         ul {
             list-style-type: none;
+            padding-left: 15px;
+            @include media-breakpoint-up(md) {
+                padding-left: 40px;
+            }
             li {
-                margin-left: 15px;
-                float: left;
-                margin-right: 33px;
+                //margin-left: 15px;
+
+                //margin-right: 33px;
+
+                @include media-breakpoint-up(sm) {
+                    margin-right: 10px;
+                    margin-left: 15px;
+                    float: left;
+                }
+                @include media-breakpoint-up(lg) {
+                    margin-right: 33px;
+                    margin-left: 15px;
+                    float: left;
+                }
                 a {
                     color: $menu_item_color;
                     font-weight: 700;
