@@ -19,7 +19,9 @@ if ( $this->getInput( 'isImage' )->getValue() ) {
 	$backgroundImage = 'style="background-image:url(' . $bgImageUrl . ')"';
 }
 ?>
+<?= createTaskLink('EV-36') ?>
 <li class="<?= $module->getClass() ?> <?=$module->isActive($link)?>">
+
     <a href="<?= $link ?>" <?= $newTarget ?>>
 		<?= $title ?>
     </a>

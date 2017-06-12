@@ -15,7 +15,7 @@ $newTarget  = $isBlank ? 'target=_blank' : '';
 $link =  $this->getInput( 'isPermalink' )->getValue()? $permalink :$pageLink;
 
 ?>
-
+<?= createTaskLink('EV-36') ?>
 <li class="<?= $module->getClass() ?> <?=$module->isActive($link)?>">
     <a href="<?=$link?>" <?=$newTarget?>>
         <?=$title?>
