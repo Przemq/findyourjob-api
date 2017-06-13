@@ -6,23 +6,60 @@
  * @var \Nurture\EventShares\Module\IconTextAndCTA $module
  */
 
-$module = $this->getModule();
+$module      = $this->getModule();
+$title       = $this->getInput( 'title' );
+$description = $this->getEditor( 'description' )->getContent();
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container">
-        <?= createTaskLink('EV-27') ?>
-        <div class="row" id="banner-with-download-button">
+		<?= createTaskLink( 'EV-27' ) ?>
+        <div class="row banner-with-download-button">
             <div class="col-lg-8 offset-lg-2 offset-sm-0">
-                <div class="mx-auto" id="magnifier-icon"><img src="<?= THEME_IMAGES_URI; ?>/ES%20Magnifyglass-Graph%20Icon-01-01.svg"></div>
-                <h4 class="">lorem ipsum</h4>
-                <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed leo nec nulla lobortis dignissim
-                    sit amet at lorem. Morbi aliquam id velit id gravida. In massa nunc, pellentesque vitae ligula at, condimentum
-                    hendrerit ante.Morbi  aliquam id velit id gravida. In massa nunc, pellentesque vitae ligula at, condimentum
-                    hendrerit ante.</p>
-                <a href="#" class="btn btn-primary" id="download-button">
-                    <span><img id="download-icon" src="<?= THEME_IMAGES_URI; ?>/Download%20icon-01-01.svg"></span>
-                    <span class="align-middle">download pdf</span>
-                </a>
+                <div class="mx-auto magnifier-icon">
+					<?php $sectionImageID = $this->getMedia( 'sectionImage' )->getImage()->getId(); ?>
+					<?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => 'style-svg' ] ) ?>
+
+                </div>
+                <h4 class="title"><?= $title ?></h4>
+				<?= $description ?>
+				<?php foreach ( $this->getRepeater( 'buttons' ) as $index => $button ):
+
+					?>
+					<?php
+					$buttonText = $button->getInput( 'buttonTitle' );
+					$blank      = $button->getInput( 'buttonBlankLink' )->getValue() ? 'target=_blank' : "";
+					if ( $button->getInput( 'isPermalink' )->getValue() ) {
+						$url = $button->getInput( 'buttonPermalink' );
+					} else {
+						$url = $button->getSelect( 'buttonUrl' )->getValue()['permalink'];
+
+					}
+
+
+					if ( $button->getInput( 'buttonHasImage' )->getValue() ) :
+						$buttonID = $button->getMedia( 'buttonImage' )->getImage()->getId();
+						?>
+
+                        <a href="<?= $url ?>" <?= $blank ?> class="btn btn-primary download-button">
+                            <span><?php echo wp_get_attachment_image( $buttonID, 'full', false, [ 'class' => 'style-svg download-icon' ] ) ?></span>
+                            <span class="align-middle"><?= $buttonText ?></span>
+                        </a>
+					<?php else: ?>
+                        <a href="<?= $url ?>" <?= $blank ?> class="btn btn-primary download-button">
+                            <span class="align-middle"><?= $buttonText ?></span>
+                        </a>
+
+						<?php
+
+					endif;
+					?>
+
+
+					<?php
+				endforeach;
+				?>
+
+
             </div>
         </div>
     </div>

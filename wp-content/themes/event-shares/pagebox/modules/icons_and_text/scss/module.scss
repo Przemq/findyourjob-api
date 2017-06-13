@@ -40,14 +40,16 @@
           fill: #56C1A3;
           transition: 0.5s all;
         }
+        .st0{
+          fill:#EBEBEB;
+        }
 
       }
       &:hover svg {
-
         .st1,.st2 {
           fill: #002841;
-
         }
+
       }
       img {
         max-height: 110px;
@@ -98,7 +100,6 @@
       &:hover svg {
         .st1, .st2 {
           fill: get('sectionIconColorHover');
-
         }
       }
     }

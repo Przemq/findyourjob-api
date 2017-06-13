@@ -7,13 +7,13 @@
     $button-font-color: #002841;
     $header-color: #002842;
 
-    #banner-with-download-button {
+    .banner-with-download-button {
         text-align: center;
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: 45px;
+        padding-bottom: 45px;
         h4 {
             margin: auto;
-            padding-bottom: 22px;
+            padding-bottom: 30px;
             font-family: 'Roboto Condensed', sans-serif;
             font-weight: 400;
             letter-spacing: 5px;
@@ -24,19 +24,29 @@
             font-family: 'Merriweather', serif;
             font-size: 14px;
             line-height: 24px;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
             padding-left: 20px;
             padding-right: 20px;
         }
-        #magnifier-icon {
+        .magnifier-icon {
             text-align: center;
             padding-bottom: 30px;
-            img {
+
+            svg,img {
                 height: 89px;
                 width: 159px;
+                @include transition(300ms all);
+
+                .st0{
+                        fill:#cec5c5;
+                    }
+                path{
+                    @include transition(300ms all);
+                }
             }
         }
-        #download-button {
+        .download-button {
+            display: inline-block;
             padding: 13px 22px;
             background-color: $button_background_color;
             border: none;
@@ -45,10 +55,13 @@
             letter-spacing: 3px;
             text-decoration: none;
             border-radius: 3px;
-            #download-icon {
-                height: 17px;
+            margin: 5px 10px;
+            .download-icon {
+                height: 18px;
                 width: 18px;
                 margin-right: 10px;
+                top: 3px;
+                position: relative;
             }
             span {
                 text-transform: uppercase;
@@ -63,4 +76,49 @@
 // - get_deep( keys... )
 @include specified_module_loop() {
     background-color: get('backgroundColor');
+    .banner-with-download-button{
+        h4 {
+            color:get('titleColor');
+            font-size:get('titleSize');
+        }
+        p {
+            color:get('descriptionColor');
+            font-size:get('descriptionSize');
+        }
+
+        .magnifier-icon {
+            text-align: center;
+            padding-bottom: 30px;
+
+            svg,img {
+                height: 89px;
+                width: 159px;
+                path{
+                    fill:get('iconColor')
+                }
+            }
+        }
+
+        .download-button {
+            color:get('buttonTextColor');
+            background: get('buttonBackgroundColor');
+            @include transition(300ms all);
+            svg {
+                @include transition(300ms all);
+                path, polygon {
+                    @include transition(300ms all);
+                    fill: get('buttonTextColor');
+                }
+            }
+            &:hover{
+                color:get('buttonTextColorHover');
+                background: get('buttonBackgroundColorHover');
+                svg{
+                    path,polygon{
+                        fill:get('buttonTextColorHover');
+                    }
+                }
+            }
+        }
+    }
 }
