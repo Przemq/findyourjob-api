@@ -126,12 +126,12 @@ if ( $search_query->have_posts() ) {
 
                 <div class="row">
 
-                    <div class="top d-inline-block">
+                    <div class="col-12 top d-inline-block">
                         <div class="title">
                             <h2>Page results</h2>
                         </div>
                     </div>
-                    <div class="all-results">
+                    <div class="col-12 all-results">
 						<?php while ( $search_query->have_posts() ) :
 							$search_query->the_post();
 							global $post;
@@ -188,13 +188,13 @@ if ( $search_query->have_posts() ) {
                 <div class="container">
                     <div class="row">
 
-                        <div class="top d-inline-block">
+                        <div class="col-12 top d-inline-block">
                             <div class="title">
                                 <h2>ARTICLE RESULTS</h2>
                             </div>
                         </div>
                         <div class="all-results row">
-                            <div class="col-md-4 col-6 single-result">
+                            <div class="col-md-4 col-sm-6 col-12 single-result">
                                 <div class="single-background">
                                     <div class="image">
                                     <img class="style-svg" src="<?=THEME_IMAGES_URI?>/ES Bags Money Icon-01-01.svg" />
@@ -218,7 +218,7 @@ if ( $search_query->have_posts() ) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-6 single-result">
+                            <div class="col-md-4 col-sm-6 col-12 single-result">
                                 <div class="single-background">
                                     <div class="image">
                                     <img class="style-svg" src="<?=THEME_IMAGES_URI?>/ES Piggy Bank Icon-01-01.svg" />
@@ -242,7 +242,7 @@ if ( $search_query->have_posts() ) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-6 single-result">
+                            <div class="col-md-4 col-sm-6 col-12 single-result">
                                 <div class="single-background">
                                     <div class="image">
                                     <img class="style-svg" src="<?=THEME_IMAGES_URI?>/ES Laptop Icon-01-01.svg" />
