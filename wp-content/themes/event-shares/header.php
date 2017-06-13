@@ -126,7 +126,7 @@
                         <a href="<?= HOME_URL ?>"><img src="<?= THEME_IMAGES_URI; ?>/logo.jpg"></a>
                         <a class="wpx-button-hamburger" href="#"><span></span><span></span><span></span></a>
                     </div>
-                    <nav class="nav col row">
+                    <nav id="main-nav" class="nav col row">
                         <div class="wpx-search-mobile">
                             <div class="mobile-search">
                                 <form role="search" method="get" class="search-form-mobile"

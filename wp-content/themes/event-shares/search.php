@@ -53,7 +53,7 @@ $opacity             = wpx_theme_get_option( 'wpx_theme_search_results_backgroun
         }
     </style>
 
-
+<?= createTaskLink( 'EV-37' ) ?>
 <?php
 // Get Custom styles/images
 
@@ -85,13 +85,12 @@ $args  = array(
 	's'              => $s,
 	'post_type'      => array( 'post', 'page' ),
 	'date_query'     => array( $date ),
-	'posts_per_page' => 3,
+	'posts_per_page' => 5,
 	'paged'          => $paged,
 	'category_name'  => $category
 );
 ?>
     <div class="search-results search-content pb-4" role="main">
-<?= createTaskLink( 'EV-37' ) ?>
     <div class="large-header">
     <div class="overlay"></div>
     <div class="container">
@@ -120,27 +119,37 @@ if ( $search_query->have_posts() ) {
     </div>
     </div>
 
-    <div class="pt-4">
-        <div class="SearchResults">
+    <div class="search-results-content-wrapper">
+        <div class="search-results-content">
 
-            <div class="col results page-results">
+            <div class="container page-post-results">
 
-                <div class="container">
+                <div class="row">
 
                     <div class="top d-inline-block">
-                        <div class="title float-left">
-                            <h2><strong>Page</strong> results</h2>
+                        <div class="title">
+                            <h2>Page results</h2>
                         </div>
                     </div>
-                    <div>
+                    <div class="all-results">
 						<?php while ( $search_query->have_posts() ) :
 							$search_query->the_post();
 							global $post;
-							$post_id = $post->ID;
-							$link    = get_permalink( $post_id );
-							$more    = 'Read more';
-							$target  = '';
-							$excerpt = get_the_excerpt( $post_id );
+							$excerptExample = "Lorem ipsum dolor sit amet,
+                                    consectetur
+                                    adipiscing elit.
+                                    Nullam pulvinar euismod eros, a laoreet leo. Quisque ac turpis id mi
+                                    euismod
+                                    tristique. In sit amet urna sed leo semper iaculis sit amet vitae
+                                    lectus.
+                                    Aenean
+                                    feugiat imperdiet sollicitudin.";
+							$post_id        = $post->ID;
+							$link           = get_permalink( $post_id );
+							$more           = ! empty( wpx_theme_get_option( 'wpx_theme_search_results_readme' ) ) ?
+								wpx_theme_get_option( 'wpx_theme_search_results_readme' ) : 'Read more';
+							$target         = '';
+							$excerpt        = get_the_excerpt( $post_id );
 							if ( strlen( $excerpt ) > 200 ) {
 								$excerpt = substr( $excerpt, 0, 200 ) . '...';
 							}
@@ -154,306 +163,145 @@ if ( $search_query->have_posts() ) {
 							?>
                             <div class="single-result">
                                 <h4><?php echo $title; ?></h4>
-                                <p class="d-inline"><?php echo $excerpt; ?>Lorem ipsum dolor sit amet,
-                                    consectetur
-                                    adipiscing elit.
-                                    Nullam pulvinar euismod eros, a laoreet leo. Quisque ac turpis id mi
-                                    euismod
-                                    tristique. In sit amet urna sed leo semper iaculis sit amet vitae
-                                    lectus.
-                                    Aenean
-                                    feugiat imperdiet sollicitudin.</p>
+                                <p class="d-inline"><?php echo ! empty( $excerpt ) ? $excerpt : $excerptExample; ?></p>
                                 <a class="d-inline" href="<?php echo $link; ?>"<?php echo $target; ?>>
-                                    READ MORE
+									<?= $more ?>
                                 </a>
                             </div>
 						<?php endwhile; ?>
                     </div>
+                    <!--See more button -->
+                    <!--                    <div class="container">-->
+                    <!--                        <div class="see-more">-->
+                    <!--                            <a data-post-type="posts,pages" class="see-more-button float-right" href="#">See more<i></i></a>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+
                 </div>
 
-                <!--See more button -->
-                <div class="container">
-                    <div class="see-more">
-                        <a class="float-right" href="#">See more<i></i></a>
-                    </div>
-                </div>
 
             </div>
 
-            <div class="col results insights-results pb-4">
-                <div class="container">
 
+            <div class="container-fluid articles-results">
+                <div class="container">
                     <div class="row">
+
                         <div class="top d-inline-block">
-                            <div class="title float-left">
-                                <h2><strong>Article</strong> results</h2>
+                            <div class="title">
+                                <h2>ARTICLE RESULTS</h2>
                             </div>
                         </div>
-
-                        <div class="row">
-
-                            <a href="#" class="outline insights col-12 col-md-4 pt-3">
-                                <div class="tag"><h6>Equities</h6></div>
-                                <img src="<?= THEME_IMAGES_URI; ?>/Image.png">
-                                <div class="description">
-                                    <div class="date">
-                                        <h5>23 Nov 2016 <span>| By Ian Ormiston</span></h5>
+                        <div class="all-results row">
+                            <div class="col-md-4 col-6 single-result">
+                                <div class="single-background">
+                                    <div class="image">
+                                    <img class="style-svg" src="<?=THEME_IMAGES_URI?>/ES Bags Money Icon-01-01.svg" />
                                     </div>
-                                    <div class="text">
-                                        <h4> Nulla purus nunc, tur lacus id</h4>
-                                        <p>Duis hendrerit luctus velit, vitae tincidunt purus condimentum
-                                            at. </p>
+                                    <div class="author">
+                                        <span>21.10.2016 | Joe Bloggs</span>
                                     </div>
-                                </div>
-                            </a>
-
-                            <a href="#" class="outline insights col-12 col-md-4 pt-3">
-                                <div class="tag"><h6>Equities</h6></div>
-                                <img src="<?= THEME_IMAGES_URI; ?>/Layer2.png">
-                                <div class="description">
-                                    <div class="date">
-                                        <h5>23 Nov 2016 <span>| By Ian Ormiston</span></h5>
-                                    </div>
-                                    <div class="text">
-                                        <h4> Nulla purus nunc, tur lacus id</h4>
-                                        <p>Duis hendrerit luctus velit, vitae tincidunt purus condimentum
-                                            at. </p>
+                                    <h4>consectetur adipisAliquam commodo</h4>
+                                    <p class="d-inline">Lorem ipsum dolor sit amet,
+                                        consectetur
+                                        adipiscing elit.
+                                        Nullam pulvinar euismod eros, a laoreet leo. Quisque ac turpis id mi
+                                        euismod
+                                        tristique. In sit amet urna sed leo semper iaculis lsit amet vitae
+                                        lectus.
+                                        Aenean
+                                        feugiat imperdiet sollicitudin.</p>
+                                    <div class="see_more">
+                                    <a class="d-inline" href="http://event-share.dev/page/">
+                                            READNOW </a>
                                     </div>
                                 </div>
-                            </a>
-
-                            <a href="#" class="outline insights col-12 col-md-4 pt-3">
-                                <div class="tag"><h6>Equities</h6></div>
-                                <img src="<?= THEME_IMAGES_URI; ?>/Layer103.png">
-                                <div class="description">
-                                    <div class="date">
-                                        <h5>23 Nov 2016 <span>| By Ian Ormiston</span></h5>
+                            </div>
+                            <div class="col-md-4 col-6 single-result">
+                                <div class="single-background">
+                                    <div class="image">
+                                    <img class="style-svg" src="<?=THEME_IMAGES_URI?>/ES Piggy Bank Icon-01-01.svg" />
                                     </div>
-                                    <div class="text">
-                                        <h4> Nulla purus nunc, tur lacus id</h4>
-                                        <p>Duis hendrerit luctus velit, vitae tincidunt purus condimentum
-                                            at. </p>
+                                    <div class="author">
+                                        <span>21.10.2016 | Joe Bloggs</span>
+                                    </div>
+                                    <h4>consectetur adipisAliquam commodo</h4>
+                                    <p class="d-inline">Lorem ipsum dolor sit amet,
+                                        consectetur
+                                        adipiscing elit.
+                                        Nullam pulvinar euismod eros, a laoreet leo. Quisque ac turpis id mi
+                                        euismod
+                                        tristique. In sit amet urna sed leo semper iaculis lsit amet vitae
+                                        lectus.
+                                        Aenean
+                                        feugiat imperdiet sollicitudin.</p>
+                                    <div class="see_more">
+                                    <a class="d-inline" href="http://event-share.dev/page/">
+                                            READNOW </a>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
+                            <div class="col-md-4 col-6 single-result">
+                                <div class="single-background">
+                                    <div class="image">
+                                    <img class="style-svg" src="<?=THEME_IMAGES_URI?>/ES Laptop Icon-01-01.svg" />
+                                    </div>
+                                    <div class="author">
+                                        <span>21.10.2016 | Joe Bloggs</span>
+                                    </div>
+                                    <h4>consectetur adipisAliquam commodo</h4>
+                                    <p class="d-inline">Lorem ipsum dolor sit amet,
+                                        consectetur
+                                        adipiscing elit.
+                                        Nullam pulvinar euismod eros, a laoreet leo. Quisque ac turpis id mi
+                                        euismod
+                                        tristique. In sit amet urna sed leo semper iaculis lsit amet vitae
+                                        lectus.
+                                        Aenean
+                                        feugiat imperdiet sollicitudin.</p>
+                                    <div class="see_more">
+                                    <a class="d-inline" href="http://event-share.dev/page/">
+                                            READNOW </a>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="border-bottom"></div>
-                    </div>
-                </div>
-
-                <!--See more button -->
-                <div class="container">
-                    <div class="see-more">
-                        <a class="float-right" href="#">See more<i></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col results video-results pb-3">
-                <div class="container">
-
-                    <div class="top d-inline-block">
-                        <div class="title float-left">
-                            <h2><strong>Video</strong> results</h2>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <a href="#" class="insights col-12 col-md-4 pb-3">
-                            <div class="tag"><h6>Equities</h6></div>
-                            <img src="<?= THEME_IMAGES_URI; ?>/Layer2.png">
-                            <div class="description">
-                                <div class="date">
-                                    <h5>23 Nov 2016 <span>| By Ian Ormiston</span></h5>
-                                </div>
-                                <div class="text">
-                                    <h4> Nulla purus nunc, tur lacus id</h4>
-                                    <p>Duis hendrerit luctus velit, vitae tincidunt purus condimentum
-                                        at. </p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#" class="insights col-12 col-md-4 pb-3">
-                            <div class="tag"><h6>Equities</h6></div>
-                            <img src="<?= THEME_IMAGES_URI; ?>/Layer103.png">
-                            <div class="description">
-                                <div class="date">
-                                    <h5>23 Nov 2016 <span>| By Ian Ormiston</span></h5>
-                                </div>
-                                <div class="text">
-                                    <h4> Nulla purus nunc, tur lacus id</h4>
-                                    <p>Duis hendrerit luctus velit, vitae tincidunt purus condimentum
-                                        at. </p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#" class="insights col-12 col-md-4 pb-3">
-                            <div class="tag"><h6>Equities</h6></div>
-                            <img src="<?= THEME_IMAGES_URI; ?>/Image.png">
-                            <div class="description">
-                                <div class="date">
-                                    <h5>23 Nov 2016 <span>| By Ian Ormiston</span></h5>
-                                </div>
-                                <div class="text">
-                                    <h4> Nulla purus nunc, tur lacus id</h4>
-                                    <p>Duis hendrerit luctus velit, vitae tincidunt purus condimentum
-                                        at. </p>
-                                </div>
-                            </div>
-                        </a>
 
                     </div>
 
-                    <div class="border-bottom"></div>
-                    <div class="see-more">
-                        <a class="float-right" href="#">See more<i></i></a>
-                    </div>
                 </div>
             </div>
 
-            <div class="col results events-results">
-                <div class="container">
+
+            <!--Pagination-->
+			<?php if ( $search_query->max_num_pages > 1 ): ; ?>
+                <div class="container pagePagination">
                     <div class="row">
 
-                        <div class="top d-inline-block mb-4">
-                            <div class="title float-left">
-                                <h2><strong>Events</strong> results</h2>
-                            </div>
+						<?php
+						$pagination = array(
+							'end_size'           => 1,
+							'mid_size'           => 5,
+							'total'              => $search_query->max_num_pages,
+							'prev_next'          => false,
+							'before_page_number' => '<strong>',
+							'after_page_number'  => '</strong>'
+						);
+						?>
+                        <span class="prev-link"><?php previous_posts_link( 'Previous' ) ?></span>
+                        <div class="numbered">
+							<?php echo paginate_links( $pagination ); ?>
                         </div>
-
-                        <div class="row margin-fix mb-4">
-                            <a href="#" class="outline col-12 col-md-3 col-lg-3 mb-3">
-                                <div class="box col">
-                                    <span style="color: black;">London, UK</span>
-                                    <div class="text">
-                                        <h6>UK Finance Awards 2016</h6>
-                                        <p>Duis hendrerit luctus velit, vitae tincidunt purus condimentum
-                                            at. </p>
-                                    </div>
-                                    <div class="date">
-                                        <p>Oct 23 2017</p>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="#" class="outline col-12 col-md-3 col-lg-3 mb-3">
-                                <div class="box col">
-                                    <span style="color: black;">London, UK</span>
-                                    <div class="text">
-                                        <h6>UK Finance Awards 2016</h6>
-                                        <p>Duis hendrerit luctus velit, vitae tincidunt purus condimentum
-                                            at. </p>
-                                    </div>
-                                    <div class="date">
-                                        <p>Oct 23 2017</p>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="#" class="outline col-12 col-md-3 col-lg-3 mb-3">
-                                <div class="box col">
-                                    <span style="color: black;">London, UK</span>
-                                    <div class="text">
-                                        <h6>UK Finance Awards 2016</h6>
-                                        <p>Duis hendrerit luctus velit, vitae tincidunt purus condimentum
-                                            at. </p>
-                                    </div>
-                                    <div class="date">
-                                        <p>Oct 23 2017</p>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="#" class="outline col-12 col-md-3 col-lg-3">
-                                <div class="box col">
-                                    <span style="color: black;">London, UK</span>
-                                    <div class="text">
-                                        <h6>UK Finance Awards 2016</h6>
-                                        <p>Duis hendrerit luctus velit, vitae tincidunt purus condimentum
-                                            at. </p>
-                                    </div>
-                                    <div class="date">
-                                        <p>Oct 23 2017</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="border-bottom"></div>
-
-
+                        <span class="next-link"><?php next_posts_link( 'Next', $search_query->max_num_pages ) ?></span>
                     </div>
                 </div>
+			<?php endif; ?>
 
-                <!--See more button -->
-                <div class="container">
-                    <div class="see-more">
-                        <a class="float-right" href="#">See more<i></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--Pagination-->
-        <!--				<?php /*if ( $search_query->max_num_pages > 1 ): ; */ ?>
-					<div class="pagePagination">
-						<div class="container">
-							<div class="row">
-								<?php /*$pagination = array(
-									'end_size'           => 1,
-									'mid_size'           => 3,
-									'total'              => $search_query->max_num_pages,
-									'prev_next'          => false,
-									'before_page_number' => '<strong>',
-									'after_page_number'  => '</strong>'
-								); */ ?>
-								<li class="prev-link"><?php /*previous_posts_link( '<i class="arrow-black"></i>', $search_query->max_num_pages ) */ ?></li>
-								<div class="numbered">
-									<?php /*echo paginate_links( $pagination ); */ ?>
-								</div>
-								<li class="next-link"><?php /*next_posts_link( '<i class="arrow-black"></i>', $search_query->max_num_pages ) */ ?></li>
-							</div>
-						</div>
-					</div>
-				--><?php /*endif; */ ?>
-
-    </div>
-
-    <div class="container">
-		<?= createTaskLink( 'OMGI-74' ) ?>
-        <div>
-            <div class="box s12 m5 l5">
-                <form>
-                    <div class="title text-center">Contact <b>Us</b></div>
-                    <div class="col-12 mb-4">
-                        <p class="text-center"> Duis hendrerit luctus velit, vitae tincidunt purus condimentum
-                            at. </p>
-                    </div>
-
-                    <div class="input-field col-12 col-md-6 col-lg-6 pt-1 pr-1 pl-0">
-                        <input id="first_name" type="text" class="validate">
-                        <label for="first_name">First Name</label>
-                    </div>
-                    <div class="input-field col-12 col-md-6 col-lg-6 pt-1 pl-1 pr-0">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Surname</label>
-                    </div>
-                    <div class="input-field col-12 px-0 mt-1 pt-1">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email address</label>
-                    </div>
-                    <div class="text-right">
-                        <a class="button more full waves-effect font-weight-bold initialism" href="#">Get in
-                            touch</a>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
-    </div>
-    </div>
+
     <!--If no results found-->
 <?php } else { ?>
 

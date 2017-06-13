@@ -45,4 +45,120 @@ $highlight:#56c2a3;
     }
   }
 
+  .search-results-content{
+    //.search-highlight{
+    //  color:$highlight;
+    //}
+    font-family:$font-family;
+    padding-top: 70px;
+      .title{
+        h2{
+          font-size:25px;
+          font-weight:normal;
+          color:$primary-theme-color;
+        }
+
+      }
+
+    .page-post-results{
+      .all-results{
+        padding-top: 35px;
+        padding-bottom: 65px;
+        .single-result{
+          padding-bottom: 45px;
+          h4{
+            font-size:24px;
+            font-weight:bold;
+            color:$primary-theme-color;
+            margin-bottom: 20px;
+          }
+          p{
+            margin: 0;
+            font-size:14px;
+            font-family: Merriweather, serif;
+            font-weight:300;
+          }
+          a{
+            cursor: pointer;
+            color:$highlight;
+            font-family: $font-family;
+            font-weight:bold;
+            font-size:16px;
+          }
+        }
+      }
+    }
+
+    .articles-results{
+      background: #ececec;
+      padding-top: 60px;
+      padding-bottom: 60px;
+      h2{
+        color:#1e2c32;
+        margin-bottom: 35px;
+      }
+      .single-result{
+        margin-bottom: 10px;
+        .single-background{
+          background: white;
+          padding: 15px;
+        }
+        .image {
+          svg{
+            height: 100px;
+            width:auto;
+            display: block;
+            margin: 0 auto;
+          }
+          padding: 15px;
+        }
+        .author{
+          color:#ababab;
+          font-size: 15px;
+          margin-bottom: 15px;
+        }
+        h4{
+          color: $primary-theme-color;
+          font-size: 25px;
+          margin-bottom: 15px;
+          text-transform: uppercase;
+          font-weight:bold;
+        }
+        p{
+            font-size:14px;
+          line-height:200%;
+          color: $primary-theme-color;
+        }
+        .see_more{
+          a{
+            cursor: pointer;
+            color:$highlight;
+            font-family: $font-family;
+            font-weight:bold;
+            font-size:16px;
+            letter-spacing:2px;
+          }
+        }
+      }
+    }
+  }
+
+
+  .pagePagination{
+    padding: 25px 0;
+    .page-numbers{
+      &.current{
+        color: $highlight;
+        font-size: 18px;
+        padding:5px;}
+    }
+      a{
+        color:$primary-theme-color;
+        font-size: 18px;
+        padding:5px;
+        &:hover{
+          color: $highlight;
+        }
+      }
+  }
 }

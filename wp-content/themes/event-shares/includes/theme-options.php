@@ -395,6 +395,15 @@ class WPX_Theme_Options {
 					'query_args'   => [ 'type' => 'image' ]
 				],
 
+				[
+					'name'        => 'Button README :',
+					'id'          => $prefix . $section . 'readme',
+					'type'        => 'text',
+					'description' => "Enter other text for button",
+					'default'     => "README"
+				],
+
+
 			]
 		];
 //
