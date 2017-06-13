@@ -9,11 +9,33 @@
     width: 100%;
   }
 
+  .text-wrapper {
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  #description{
+    font-size: 14px;
+    font-family: 'Merriweather', serif;
+    line-height: 27px;
+    color: black;
+  }
+
+  #title{
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 5px;
+    font-weight: 400;
+  }
 }
 // Styles for unique page/post module.
 // In this scope you can use special functions to get data from pageboxes:
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    //background-color: get('color');
+    #title{
+      font-size: get('titleSize');
+      color: get('titleColor');
+    }
 }

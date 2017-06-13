@@ -30,17 +30,49 @@ class Map extends AbstractModule implements StaticCacheInterface {
     {
         return [
 	        //Title
-	        'title' => [
+
+	        'latitude' => [
 		        'type' => 'input:text',
-		        'label' => 'Title',
-		        'description' => 'Please enter title'
+		        'label' => 'Enter latitude',
+		        'default' => '51.5069479',
 	        ],
-	        'titleColor' => [
-		        'type' => 'input:color',
-		        'label' => 'Title color',
-		        'default' => '#282780',
-		        'sass' => true
-	        ],
+            'longitude' => [
+                'type' => 'input:text',
+                'label' => 'Enter Longitude',
+                'default' => '-0.1507966',
+            ],
+            'address' => [
+                'type' => 'editor',
+                'label' => 'Enter address',
+            ],
+            'enableTitle' => [
+                'type' => 'input:switch',
+                'label' => 'Enable title? (NO/YES)',
+                'default' => false,
+            ],
+            'title' => [
+                'type' => 'input:text',
+                'label' => 'Map title',
+                'description' => 'Please enter title'
+            ],
+            'description' => [
+                'type' => 'editor',
+                'label' => 'Map description',
+                'description' => 'Please enter description'
+            ],
+            'titleColor' => [
+                'type' => 'input:color',
+                'label' => 'Title color',
+                'default' => '#002842',
+                'sass' => true
+            ],
+            'titleSize' => [
+                'type' => 'input:text',
+                'label' => 'Title size',
+                'default' => '30px',
+                'sass' => true
+            ],
+
         ];
     }
 }
