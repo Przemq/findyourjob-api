@@ -95,7 +95,13 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 					],
 				],
 			],
-
+			'sectionImage'       => [
+				'type'        => 'media:image',
+				'label'       => 'Set background image First Section',
+				'multiple'    => false,
+				'unique'      => false,
+				'aspectRatio' => '16:9',
+			],
 			'buttonTitle'     => [
 				'type'    => 'input:text',
 				'label'   => 'Button title',
