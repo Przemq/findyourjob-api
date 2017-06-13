@@ -8,19 +8,27 @@
     padding-top: 77px;
     text-align: center;
     padding-bottom: 90px;
+    @include media-breakpoint-down(md){
+      padding-top: 60px;
+      padding-bottom: 10px;
+    }
     h2 {
       text-transform: uppercase;
-      padding-bottom: 58px;
+      padding-bottom: 35px;
       font-size: 25px;
       font-family: 'Roboto Condensed', sans-serif;
       color: $header-color;
       letter-spacing: 5px;
+      @include media-breakpoint-down(md){
+        display: none;
+      }
     }
 
     .svg-wrapper {
       //max-width: 160px;
       width: auto;
-      margin: 0 auto 20px;
+      margin: 0 auto;
+
       transition: 0.5s all;
       svg {
         max-height: 110px;

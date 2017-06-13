@@ -28,9 +28,13 @@ $module = $this->getModule();
 
 						<?php
 						$buttonText = $section->getInput( 'sectionButton' );
-						$url        = $section->getInput( 'sectionButtonUrl' );
 						$blank      = $section->getInput( 'sectionButtonBlank' )->getValue() ? 'target=_blank' : "";
-						//
+						if ( $section->getInput( 'isPermalink' )->getValue() ) {
+							$url = $section->getInput( 'sectionButtonUrl' );
+						} else {
+							$url = $section->getSelect( 'pageLink' )->getValue()['permalink'];
+
+						}
 						if ( ! empty( $buttonText ) && isset( $buttonText ) ) :
 							?>
                             <a href="<?= $url ?>" class="button " <?= $blank ?> ><?= $buttonText ?></a>
