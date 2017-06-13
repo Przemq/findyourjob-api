@@ -7,6 +7,7 @@
 namespace Nurture\EventShares\Module;
 
 use Nurture\Pagebox\Module\AbstractModule;
+use Nurture\Pagebox\Module\Fields\Builder\Select;
 use Nurture\Pagebox\Module\View\StaticCacheInterface;
 
 class TextBanner extends AbstractModule implements StaticCacheInterface {
@@ -61,10 +62,33 @@ class TextBanner extends AbstractModule implements StaticCacheInterface {
 				'label'   => 'Button Text',
 				'default' => '',
 			],
+			'isPermalink' => [
+				'type'  => 'input:switch',
+				'label' => 'Use Permalink Link',
+				'default' => 1
+			],
 			'buttonUrl'       => [
 				'type'    => 'input:text',
 				'label'   => 'Button Url',
 				'default' => '#'
+			],
+			'pageLink'       => [
+				'type'     => 'select',
+				'label'    => 'Select pagelink for button',
+				'multiple' => false,
+				'options'  => [
+					'allowClear' => true
+				],
+				'values'   => function () {
+					return Select::postFilter( get_pages( [ 'posts_per_page' => - 1 ] ), [
+						'postID'    => function ( \WP_Post $post ) {
+							return $post->ID;
+						},
+						'permalink' => function ( \WP_Post $post ) {
+							return get_permalink( $post->ID );
+						}
+					] );
+				}
 			],
 			'buttonBlank'     => [
 				'type'    => 'input:switch',

@@ -11,7 +11,7 @@ $module = $this->getModule();
 <div class="<?= $module->getClass() ?>">
     <div class="container-fluid">
         <div class="container">
-            <?= createTaskLink('EV-17') ?>
+			<?= createTaskLink( 'EV-17' ) ?>
             <div class="row large-text-banner">
                 <div class="col-lg-8 offset-lg-2">
 
@@ -19,7 +19,13 @@ $module = $this->getModule();
 
 					<?php
 					if ( $this->getInput( 'buttonSwitch' )->getValue() ):
-						$url = $this->getInput( 'buttonUrl' );
+						if ( $this->getInput( 'isPermalink' )->getValue() ) {
+							$url = $this->getInput( 'buttonUrl' );
+						} else {
+							$url = $this->getSelect( 'pageLink' )->getValue()['permalink'];
+
+						}
+
 						$blank = $this->getInput( 'buttonBlank' )->getValue() ? 'target=_blank' : "";
 						?>
                         <a href="<?= $url ?>" <?= $blank ?> class="button">
