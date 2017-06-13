@@ -217,7 +217,7 @@ header {
         border: none;
         cursor: pointer;
         height: 42px;
-        padding: 11px 5px;
+        padding: 8px 5px 11px 5px;
         svg path {
           fill: #e0403e;
           @include transition(0.5s all);
