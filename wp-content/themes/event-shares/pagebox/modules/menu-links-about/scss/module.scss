@@ -3,17 +3,16 @@
 // Overall module styles
 @include overall_module() {
   .sub-menu-flex {
-    top:75px;
+    top:105px;
     &:before {
       content: '';
       display: block;
       width: 100%;
-      height: 25px;
+      height: 33px;
       position: absolute;
-      top: -25px;
+      top: -33px;
       left: 0;
     }
-
   }
 }
 

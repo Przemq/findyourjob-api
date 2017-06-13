@@ -49,6 +49,16 @@ header {
         }
       }
     }
+    .sub-menu-flex {
+      top: 75px;
+      &:hover {
+        :before {
+          height:20px;
+          top:-20px;
+        }
+      }
+    }
+
   }
 
   // Navigation
@@ -306,6 +316,7 @@ header {
           }
         }
       }
+
     }
   }
 
