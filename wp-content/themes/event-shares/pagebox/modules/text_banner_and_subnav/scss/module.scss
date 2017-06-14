@@ -2,143 +2,148 @@
 
 // Overall module styles
 @include overall_module() {
-    background: #fff;
-    padding: 30px 0 0;
+  background: #fff;
+  padding: 30px 0 0;
 
-    .nav-tabs-dropdown {
-        display: none;
-        font-family: 'Merriweather', serif;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom: 1px solid #002841;
-        font-size: 18px;
-        text-transform: uppercase;
+  .nav-tabs-dropdown {
+    display: none;
+    font-family: 'Merriweather', serif;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 1px solid #002841;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #002841;
+    font-weight: 700;
+    padding: 15px 25px;
+    position: relative;
+    font-style: italic;
+    text-align: center;
+
+    &:after {
+      content: '';
+      background: url($template-url + '/assets/images/Black-Down-Chevron-01-01.svg');
+      width: 15px;
+      height: 8px;
+      display: block;
+      background-size: cover;
+      @include position (absolute, 22px null null 22px);
+    }
+    @include media-breakpoint-down(md) {
+      display: block !important;
+    }
+    &.nav-hidden {
+      display: none;
+    }
+
+    &.nav-show {
+      display: block;
+    }
+  }
+  .show {
+    &:after {
+      @include transition(all .3s ease-in-out);
+      @include transform(rotate(180deg));
+      &:hover {
+        @include animation (pulse 2s infinite);
+      }
+    }
+  }
+  .custom-nav-item {
+    border-bottom: 1px solid #002841;
+    @include media-breakpoint-up(lg) {
+      margin: 0 -2px;
+      border-bottom: none;
+    }
+    @include media-breakpoint-down(md) {
+      text-align: left;
+    }
+    .active {
+      @include media-breakpoint-up(lg) {
+        &:after {
+          display: inline-block;
+          vertical-align: middle;
+          width: 20px;
+          height: 20px;
+          background-color: white;
+          border: solid 2px #002841;
+          border-radius: 50%;
+          position: absolute;
+          top: 45px;
+          left: calc(50% - 5px);
+          content: '';
+        }
+      }
+    }
+    a {
+      border: none;
+      color: #a6a6a6;
+      font-family: 'Merriweather', serif;
+      font-style: italic;
+      text-align: center;
+      line-height: 55px;
+      font-size: 18px;
+
+      @include media-breakpoint-down(md) {
+        margin: 0;
+      }
+    }
+
+  }
+  .nav-tabs-wrapper {
+    display: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom: 1px solid #002841;
+
+    &.nav-hidden {
+      display: none;
+    }
+    &.nav-show {
+      &.big-resolutions {
+        @include media-breakpoint-up(lg) {
+          display: block !important;
+        }
+      }
+    }
+  }
+  .nav-tabs-horizontal {
+    margin-bottom: 20px;
+
+    > li {
+      float: none;
+      background: transparent;
+
+      & > a {
+        display: block;
+      }
+
+      & > a.active {
         color: #002841;
-        font-weight: 700;
-        padding: 15px 25px;
-        position: relative;
-        font-style: italic;
-        text-align: center;
 
-        &:after {
-            content: '';
-            background: url($template-url + '/assets/images/Black-Down-Chevron-01-01.svg');
-            width: 15px;
-            height: 8px;
-            display: block;
-            background-size: cover;
-            @include position (absolute, 22px null null 22px);
+        &:hover, &:focus {
+          color: #002841;
         }
-        @include media-breakpoint-down(md) {
-            display: block !important;
-        }
-        &.nav-hidden {
-            display: none;
-        }
-
-        &.nav-show {
-            display: block;
-        }
+      }
     }
-    .show {
-        &:after {
-            @include transition(all .3s ease-in-out);
-            @include transform(rotate(180deg));
-            &:hover {
-                @include animation (pulse 2s infinite);
-            }
-        }
+  }
+  p {
+    padding: 43px 0 23px 0;
+    font-family: 'Merriweather', serif;
+    font-size: 17px;
+    color: black;
+    line-height: 38px;
+    text-align: center;
+    margin: 0 auto;
+    @include media-breakpoint-up(lg) {
+      font-size: 23px;
+      max-width: 650px;
     }
-    .custom-nav-item {
-        border-bottom: 1px solid #002841;
-        @include media-breakpoint-up(lg) {
-            margin: 0 -2px;
-            border-bottom: none;
-        }
-        @include media-breakpoint-down(md) {
-            text-align: left;
-        }
-        .active {
-            @include media-breakpoint-up(lg) {
-                &:after {
-                    display: inline-block;
-                    vertical-align: middle;
-                    width: 20px;
-                    height: 20px;
-                    background-color: white;
-                    border: solid 2px #002841;
-                    border-radius: 50%;
-                    position: absolute;
-                    top: 45px;
-                    left: calc(50% - 5px);
-                    content: '';
-                }
-            }
-        }
-        a {
-            border: none;
-            color: #a6a6a6;
-            font-family: 'Merriweather', serif;
-            font-style: italic;
-            text-align: center;
-            line-height: 55px;
-            font-size: 18px;
-
-            @include media-breakpoint-down(md) {
-                margin: 0;
-            }
-        }
-    }
-    .nav-tabs-wrapper {
-        display: none;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        border-bottom: 1px solid #002841;
-
-        &.nav-hidden {
-            display: none;
-        }
-        &.nav-show {
-            &.big-resolutions {
-                @include media-breakpoint-up(lg) {
-                    display: block !important;
-                }
-            }
-        }
-    }
-    .nav-tabs-horizontal {
-        margin-bottom: 20px;
-
-        > li {
-            float: none;
-            background: transparent;
-
-            & > a {
-                display: block;
-            }
-
-            & > a.active {
-                color: #002841;
-
-                &:hover, &:focus {
-                    color: #002841;
-                }
-            }
-        }
-    }
-    p {
-        padding: 43px 0;
-        font-family: 'Merriweather', serif;
-        font-size: 17px;
-        color: black;
-        line-height: 38px;
-        text-align: center;
-        margin: 0 auto;
-        @include media-breakpoint-up(lg) {
-            font-size: 23px;
-            max-width: 650px;
-        }
-    }
+  }
+  .button-wrapper {
+    text-align: center;
+    padding-bottom: 20px;
+  }
 }
 
 // Styles for unique page/post module.
@@ -146,6 +151,45 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    background-color: get('backgroundColor');
+  background-color: get('backgroundColor');
+
+  .nav-tabs-dropdown{
+    color: get('titleColorHover');
+    border-color:get('titleColorHover');
+  }
+  .nav-tabs-horizontal {
+
+    > li {
+      & > a.active {
+        color: get('titleColorHover');
+
+        &:hover, &:focus {
+          color: get('titleColorHover');
+        }
+      }
+    }
+  }
+  .custom-nav-item {
+    border-color:get('titleColorHover');
+    a{
+      color:get('titleColor');
+      font-size:get('titleSize');
+      &.active,:hover,:active{
+        color:get('titleColorHover');
+        &:after{
+          border-color:get('titleColorHover');
+        }
+      }
+    }
+
+  }
+  .nav-tabs-wrapper{
+    border-color:get('titleColorHover');
+  }
+  p{
+    color:get('descriptionColor');
+    font-size:get('descriptionSize');
+  }
+
 }
 
