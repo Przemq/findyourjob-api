@@ -30,6 +30,12 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 	protected function fields() {
 		return [
 			//Title
+            'typeOfHeader'       => [
+                'type'        => 'input:switch',
+                'label'       => 'Type of header (Title/Description)',
+                'description' => 'Please select type of header',
+                'default'     => false
+            ],
 			'title'           => [
 				'type'        => 'input:text',
 				'label'       => 'Title',
@@ -80,6 +86,11 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 						'label'   => 'Button Url Text:',
 						'default' => '#',
 					],
+                    'enableButton' => [
+                        'type'    => 'input:switch',
+                        'label'   => 'Enable button (NO/YES)',
+                        'default' => false,
+                    ],
 					'sectionButtonBlank' => [
 						'type'    => 'input:switch',
 						'label'   => 'Target Blank:',

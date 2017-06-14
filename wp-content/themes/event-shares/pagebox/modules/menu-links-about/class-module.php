@@ -84,10 +84,38 @@ class MenuAboutFlyout extends AbstractModule implements StaticCacheInterface {
 					    'type'        => 'input:text',
 					    'label'       => 'Add button text',
 				    ],
+				    'isPermalink' => [
+					    'type'  => 'input:switch',
+					    'label' => 'Use Permalink Link',
+					    'default' => 1
+				    ],
+				    'isBlank' => [
+					    'type'  => 'input:switch',
+					    'label' => 'Link new target',
+					    'default' => 1
+				    ],
 				    'permalink'     => [
 					    'type'  => 'input:text',
 					    'label' => 'Set link'
-				    ]
+				    ],
+				    'pageLink'       => [
+					    'type'     => 'select',
+					    'label'    => 'Select pagelink for button',
+					    'multiple' => false,
+					    'options'  => [
+						    'allowClear' => true
+					    ],
+					    'values'   => function () {
+						    return Select::postFilter( get_pages( [ 'posts_per_page' => - 1 ] ), [
+							    'postID'    => function ( \WP_Post $post ) {
+								    return $post->ID;
+							    },
+							    'permalink' => function ( \WP_Post $post ) {
+								    return get_permalink( $post->ID );
+							    }
+						    ] );
+					    }
+				    ],
 			    ],
 		    ],
 

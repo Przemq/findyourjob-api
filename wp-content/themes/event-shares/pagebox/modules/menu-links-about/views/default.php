@@ -19,8 +19,8 @@ if ( $this->getInput( 'isImage' )->getValue() ) {
 	$backgroundImage = 'style="background-image:url(' . $bgImageUrl . ')"';
 }
 ?>
-<?= createTaskLink('EV-36') ?>
-<li class="<?= $module->getClass() ?> <?=$module->isActive($link)?>">
+<?= createTaskLink( 'EV-36' ) ?>
+<li class="<?= $module->getClass() ?> <?= $module->isActive( $link ) ?>">
 
     <a href="<?= $link ?>" <?= $newTarget ?>>
 		<?= $title ?>
@@ -28,7 +28,14 @@ if ( $this->getInput( 'isImage' )->getValue() ) {
     <ul class="row sub-menu-flex sub-menu" <?= $backgroundImage ?>>
 		<?php
 		foreach ( $this->getRepeater( 'boxes' ) as $index => $box )
+
+//		    Links for buttons
 			:
+			$permalink = $box->getInput( 'permalink' )->getValue();
+			$pageLink = $box->getSelect( 'pageLink' )->getValue()['permalink'];
+			$isBlank = $box->getInput( 'isBlank' )->getValue();
+			$newTarget = $isBlank ? 'target=_blank' : '';
+			$link = $box->getInput( 'isPermalink' )->getValue() ? $permalink : $pageLink;
 			$buttonText = $box->getInput( 'buttonText' );
 			?>
             <li class="col-lg-4 col-sm-12">
@@ -36,7 +43,7 @@ if ( $this->getInput( 'isImage' )->getValue() ) {
                     <h4><?= $box->getInput( 'title' ) ?></h4>
 					<?= $box->getEditor( 'description' )->getContent(); ?>
 					<?php if ( ! empty( $buttonText ) && $buttonText !== "" ) : ?>
-                    <a href="<?= $box->getInput( 'permalink' ) ?>"
+                    <a href="<?= $link ?>" <?=$isBlank?>
                        class="learn-description"><?= $buttonText ?></a>
                 </div>
 				<?php
