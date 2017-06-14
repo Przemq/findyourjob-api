@@ -20,6 +20,7 @@ $module = $this->getModule();
 
 				$sectionEditor = $section->getEditor( 'sectionEditor' )->getValue();
 				$sectionImageID = $section->getMedia( 'sectionImage' )->getImage()->getId();
+                $isButtonEnable = $section->getInput( 'enableButton' )->getValue();
 				?>
                 <div class="col-lg-4 md-padd-bottom">
                     <div class="svg-wrapper first-svg"> <?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => 'style-svg' ] ) ?></div>
@@ -37,7 +38,7 @@ $module = $this->getModule();
 						}
 						if ( ! empty( $buttonText ) && isset( $buttonText ) ) :
 							?>
-                            <a href="<?= $url ?>" class="button " <?= $blank ?> ><?= $buttonText ?></a>
+                            <a href="<?= $url ?>" class="button " <?= $blank ?> <?php if(!$isButtonEnable) echo 'style="display:none;"' ?> ><?= $buttonText ?></a>
 
 							<?php
 						endif;

@@ -80,6 +80,11 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 						'label'   => 'Button Url Text:',
 						'default' => '#',
 					],
+                    'enableButton' => [
+                        'type'    => 'input:switch',
+                        'label'   => 'Enable button (NO/YES)',
+                        'default' => false,
+                    ],
 					'sectionButtonBlank' => [
 						'type'    => 'input:switch',
 						'label'   => 'Target Blank:',
