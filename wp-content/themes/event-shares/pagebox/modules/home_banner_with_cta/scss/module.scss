@@ -7,19 +7,12 @@
   $button_background_color: #56C1A3;
   $button-font-color: #002841;
 
-  #home-banner {
-    background-color: $background-color;
+  background-color: $background-color;
+
+  .text-content {
     padding-top: 86px;
     padding-bottom: 121px;
-    img {
-      max-width:500px;
-      position: absolute;
-      right:0;
-      top:0;
-      height:auto;
-      -webkit-clip-path: polygon(4% 0, 95% 0, 95% 11%, 67% 92%, 57% 100%, 40% 100%, 31% 92%, 4% 11%);
-      clip-path: polygon(4% 0, 95% 0, 95% 11%, 67% 92%, 57% 100%, 40% 100%, 31% 92%, 4% 11%);
-    }
+
     h2 {
       font-family: 'Roboto Condensed', sans-serif;
       text-transform: uppercase;
@@ -56,16 +49,34 @@
       font-size: 16px;
       font-weight: 600;
       transition: 0.5s all;
-      border:1px solid $button_background_color;
-      &:hover{
+      border: 1px solid $button_background_color;
+      &:hover {
         background: rgba(255, 255, 255, 0.14);
-        color:white;
-        border-color:white;
+        color: white;
+        border-color: white;
       }
     }
 
   }
 
+  .shapes {
+    display: flex;
+    justify-content: flex-end;
+
+    .shape-image {
+      width: 415px;
+      height: 360px;
+      position: relative;
+      overflow: hidden;
+
+      .image-punch {
+        width: 415px;
+        height: 361px;
+        @include position (absolute, 0 0 0 0);
+        fill: $background-color;
+      }
+    }
+  }
 }
 
 // Styles for unique page/post module.
@@ -74,19 +85,19 @@
 // - get_deep( keys... )
 @include specified_module_loop() {
   background-color: get('backgroundColor');
-  #home-banner{
+  #home-banner {
     background-color: get('backgroundColor');
-    h2{
-      font-size:get('titleSize');
-      color:get('titleColor');
-      #header-second-color{
-        color:get('titleInnerColor');
+    h2 {
+      font-size: get('titleSize');
+      color: get('titleColor');
+      #header-second-color {
+        color: get('titleInnerColor');
 
       }
     }
-    p{
-      font-size:get('descriptionSize');
-      color:get('descriptionColor');
+    p {
+      font-size: get('descriptionSize');
+      color: get('descriptionColor');
     }
 
   }
