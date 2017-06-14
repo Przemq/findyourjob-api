@@ -7,41 +7,39 @@
  */
 
 $module = $this->getModule();
+$hash = $module->getHash();
+$uniqID = uniqid(rand(1, 999));
 ?>
 <div class="<?= $module->getClass() ?>">
-    <div class="container-fluid">
-        <div class="container" id="sub-nav">
-            <?= createTaskLink('EV-33') ?>
-            <div class="row">
-                <div class="col-lg-12">
 
-                    <ul class="nav nav-tabs hidden-sm-down" role="tablist" style="border-bottom-color: black">
-                        <li class="nav-item single-li-item">
-                            <a class="nav-link active single-link" data-toggle="tab" href="#our-firm" role="tab" >Our Firm</a>
-                            <div class="line">
 
-                            </div>
-                        </li>
-                        <li class="nav-item single-li-item">
-                            <a class="nav-link single-link" data-toggle="tab" href="#the-team" role="tab">The Team</a>
-                            <div class="line hidden">
+    <div class="container" id="sub-nav">
+        <?= createTaskLink('EV-33') ?>
+        <a href="#" class="nav-tabs-dropdown <?= $module->changeNav() ?>">Dropdown-nav</a>
+        <ul class="nav-tabs-wrapper nav-tabs nav-tabs-horizontal list-inline row no-gutters <?= $module->changeNavTabs() ?>"
+            role="tablist">
+            <?php for ($i = 0; $i < 3; $i++) : ?>
+                <li class="nav-item custom-nav-item list-inline-item <?= $module->colsTabs() ?>">
 
-                            </div>
-                        </li>
-                        <li class="nav-item single-li-item">
-                            <a class="nav-link single-link" data-toggle="tab" href="#etf-education" role="tab">ETF Education</a>
-                            <div class="line">
+                    <a <?php echo ($i == 0) ? 'class="active"' : '' ?>
+                            href="#htab-<?= $i ?>-<?= $uniqID ?>" data-toggle="tab" aria-expanded="true">CI
+                        Financial’s
+                        Board of Directors <?= $i ?></a></li><!--  -->
 
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="our-firm" role="tabpanel"><p class="col-lg-8 offset-lg-2 offset-sm-0">1 Lorem ipsum dolor quam, sit amet, vitae et ullamcorper, vitae  netus neque morbi mauris sed vel tempor.</p></div>
-                        <div class="tab-pane" id="the-team" role="tabpanel"><p class="col-lg-8 offset-lg-2 offset-sm-0">2 Lorem ipsum dolor sit amet, duis vitae et ullamcorper, quam, neque morbi mauris sed vel tempor.</p></div>
-                        <div class="tab-pane" id="etf-education" role="tabpanel"><p class="col-lg-8 offset-lg-2 offset-sm-0">3 Lorem ipsum dolor si quam,t amet, duis vitae et ullamquam, corper, morbi mauris sed vel tempor.</p></div>
-                    </div>
+            <?php endfor ?>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <?php for ($i = 0; $i < 3; $i++) : ?>
+            <div role="tabpanel"
+                 class="tab-pane<?php echo ($i == 0) ? ' active' : '' ?> <?= $module->paddingControl() ?>"
+                 id="htab-<?= $i ?>-<?= $uniqID ?>">
+                <div class="container text-content justify-content-center">
+                    <p>Lorem ipsum dolor quam, sit amet, vitae et
+                        ullamcorper,
+                        vitae netus neque morbi mauris <?= $i ?></p>
                 </div>
             </div>
-        </div>
+        <?php endfor ?>
     </div>
 </div>

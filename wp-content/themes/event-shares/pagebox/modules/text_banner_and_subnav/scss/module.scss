@@ -2,71 +2,136 @@
 
 // Overall module styles
 @include overall_module() {
+    background: #fff;
+    padding: 30px 0 0;
 
-  $sub_nav_item: rgb(166, 166, 166);;
-  $circle_height: 20px;
-  $circle_width: 20px;
-  $active_link_color: rgb(0, 40, 65);;
+    .nav-tabs-dropdown {
+        display: none;
+        font-family: 'Merriweather', serif;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom: 1px solid #111;
+        font-size: 15px;
+        text-transform: uppercase;
+        color: #002841;
+        font-weight: 700;
+        padding: 15px 25px;
+        position: relative;
+        font-style: italic;
+        text-align: center;
 
-  #sub-nav {
-    padding-top: 20px;
-    padding-bottom: 30px;
+        &:after {
+            content: '';
+            background: url($template-url + '/assets/images/Black Down Chevron-01-01.svg');
+            width: 15px;
+            height: 8px;
+            display: block;
+            background-size: cover;
+            @include position (absolute, 22px null null 0);
+        }
+        @include media-breakpoint-down(md) {
+            display: block !important;
+        }
+        &.nav-hidden {
+            display: none;
+        }
 
-    .line {
-      height: 1px;
-      background-color: $active_link_color;
-      position: relative;
-      z-index: -2;
+        &.nav-show {
+            display: block;
+        }
     }
+    .custom-nav-item {
+        border-bottom: 1px solid #111;
+        @include media-breakpoint-up(lg) {
+            margin: 0 -2px;
+        }
+        @include media-breakpoint-down(md) {
+            text-align: left;
+        }
+        .active {
+            @include media-breakpoint-up(lg) {
+                &:after {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 20px;
+                    height: 20px;
+                    background-color: white;
+                    border: solid 2px black;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 35px;
+                    left: calc(50% - 5px);
+                    content: '';
+                }
+            }
+        }
+        a {
+            border: none;
+            color: #a6a6a6;
+            font-family: 'Merriweather', serif;
+            font-style: italic;
+            text-align: center;
+            line-height: 45px;
 
-    .nav-link {
-      position: relative;
+            @include media-breakpoint-down(md) {
+                margin: 0;
+            }
+        }
+        @include media-breakpoint-down(md) {
+            display: block;
+        }
     }
+    .nav-tabs-wrapper {
+        display: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        text-align: center;
 
-    .single-link.active {
-      color: $active_link_color;
+        &.nav-hidden {
+            display: none;
+        }
 
-      &:after {
-        display: inline-block;
-        vertical-align: middle;
-        width: $circle_width;
-        height: $circle_height;
-        background-color: white;
-        border: solid 2px black;
-        border-radius: 50%;
-        position: absolute;
-        top: 40px;
-        left: calc(50% - 5px);
-        content: '';
-      }
+        &.nav-show {
+            &.big-resolutions {
+                @include media-breakpoint-up(lg) {
+                    display: block !important;
+                }
+            }
 
+        }
+    }
+    .nav-tabs-horizontal {
+        margin-bottom: 20px;
+
+        > li {
+            float: none;
+            background: transparent;
+
+            & > a {
+                display: block;
+            }
+
+            & > a.active {
+                color: #002841;
+
+                &:hover, &:focus {
+                    color: #002841;
+                }
+            }
+        }
     }
     p {
-      padding-top: 43px;
-      font-family: 'Merriweather', serif;
-      font-size: 23px;
-      color: black;
-      line-height: 38px;
-      text-align: center;
+        padding: 43px 0;
+        font-family: 'Merriweather', serif;
+        font-size: 23px;
+        color: black;
+        line-height: 38px;
+        text-align: center;
+        margin: 0 auto;
+        @include media-breakpoint-up(lg) {
+            min-width: 600px;
+        }
     }
-
-    .single-link {
-      border: none;
-      color: $sub_nav_item;
-      font-family: 'Merriweather', serif;
-      font-style: italic;
-      padding-bottom: 18px;
-
-      &.active{
-        background-color: transparent;
-      }
-    }
-
-    .single-li-item {
-      margin-right: 12%;
-      margin-left: 2%;
-    }
-  }
 }
 
 // Styles for unique page/post module.
@@ -74,6 +139,6 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-  background-color: get('backgroundColor');
+    background-color: get('backgroundColor');
 }
 
