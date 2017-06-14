@@ -12,16 +12,6 @@
       padding-top: 60px;
       padding-bottom: 10px;
     }
-    h2 {
-      padding-bottom: 35px;
-      font-size: 25px;
-      font-family: 'Roboto Condensed', sans-serif;
-      color: $header-color;
-      letter-spacing: 5px;
-      @include media-breakpoint-down(md){
-        display: none;
-      }
-    }
 
     .svg-wrapper {
       //max-width: 160px;
@@ -75,6 +65,30 @@
     }
     a {
       font-size: 16px;
+    }
+
+    .paragraph-header {
+      font-size: 23px;
+      font-family: 'Merriweather', serif;
+      color: #182328;
+      background-color: white;
+      min-height: 160px;
+      padding-top: 34px;
+      padding-bottom: 45px;
+      text-align: center;
+      @include media-breakpoint-down(md){
+        display: none;
+      }
+    }
+    .title-header {
+      padding-bottom: 35px;
+      font-size: 25px;
+      font-family: 'Roboto Condensed', sans-serif;
+      color: $header-color;
+      letter-spacing: 5px;
+      @include media-breakpoint-down(md){
+        display: none;
+      }
     }
   }
 }

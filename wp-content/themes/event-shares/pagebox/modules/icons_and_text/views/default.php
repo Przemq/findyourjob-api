@@ -7,6 +7,7 @@
  */
 
 $module = $this->getModule();
+$titleHeader = $this->getInput('typeOfHeader')->getValue();
 
 ?>
 <div class="<?= $module->getClass() ?>">
@@ -15,7 +16,7 @@ $module = $this->getModule();
         <div class="row" id="three-column-boxes">
 
 
-            <div class="col-lg-12"><h2 id="top-header"><?= $this->getInput( 'title' ) ?></h2></div>
+            <div class="col-12 <?php if(!$titleHeader) echo 'title-header'; else echo 'paragraph-header';?>"><?= $this->getInput( 'title' ) ?></div>
 			<?php foreach ( $this->getRepeater( 'sections' ) as $index => $section ) :
 
 				$sectionEditor = $section->getEditor( 'sectionEditor' )->getValue();
