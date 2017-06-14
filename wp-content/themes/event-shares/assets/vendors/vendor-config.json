@@ -40,5 +40,11 @@
     "src": ["js.cookie.js"],
     "cwd": "assets/bower_components/js-cookie/src/",
     "dest": "assets/vendors/js-cookie"
+  },
+  {
+    "expand": true,
+    "src"   : ["*.min.js"],
+    "cwd"   : "assets/bower_components/parallax.js/",
+    "dest"  : "assets/vendors/parallax.js/"
   }
 ]
