@@ -2,7 +2,7 @@ $top-menu-header-color: rgb(0, 40, 65);
 $learn-more-color: #56C1A3;
 $menu-negative-margin: -400px;
 body {
-  padding-top: 73px;
+  padding-top: 95px;
 }
 
 a:hover {
@@ -243,6 +243,7 @@ header {
         font-family: "Merriweather Italic", serif;
         display: block;
         position: absolute;
+
         font-style: italic;
         font-weight: bold;
         width: 0;
@@ -316,7 +317,6 @@ header {
           }
         }
       }
-
     }
   }
 
@@ -463,7 +463,7 @@ header {
 }
 
 #top-menu {
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   padding-top: 30px;
 }
 

@@ -16,17 +16,13 @@ $buttonMiddle = $this->getInput( 'buttonMiddleTitle' );
 $buttonRight  = $this->getInput( 'buttonRightTitle' );
 ?>
 <div class="<?= $module->getClass() ?>">
+
     <div class="container">
-
         <?= createTaskLink('EV-16') ?>
-        <div class="row" id="home-banner">
-            <img src="<?= $bgImage ?>">
-
-            <div class="col-lg-6">
+        <div class="row"">
+            <div class="col-lg-6 text-content">
                 <h2><?= $title ?><span id="header-second-color"><?= $titleInner ?></span></h2>
-            </div>
-            <div class="col-lg-12"></div>
-            <div class="col-lg-5">
+
 				<?= $description ?>
 				<?php
 //                Left button
@@ -72,6 +68,14 @@ $buttonRight  = $this->getInput( 'buttonRightTitle' );
 	            endif;
 	            ?>
             </div>
+            <div class="col-lg-6 shapes">
+                <div class="shape-image">
+                    <img src="<?= THEME_IMAGES_URI ?>/sample-image.jpg">
+                    <img class="svg-image image-punch" src="<?= THEME_IMAGES_URI ?>/punch-01.svg" alt="">
+                </div>
+
+            </div>
+
         </div>
     </div>
 </div>
