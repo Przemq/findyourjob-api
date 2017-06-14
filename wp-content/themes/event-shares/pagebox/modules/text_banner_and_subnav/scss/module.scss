@@ -10,8 +10,8 @@
         font-family: 'Merriweather', serif;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        border-bottom: 1px solid #111;
-        font-size: 15px;
+        border-bottom: 1px solid #002841;
+        font-size: 18px;
         text-transform: uppercase;
         color: #002841;
         font-weight: 700;
@@ -27,7 +27,7 @@
             height: 8px;
             display: block;
             background-size: cover;
-            @include position (absolute, 22px null null 0);
+            @include position (absolute, 22px null null 22px);
         }
         @include media-breakpoint-down(md) {
             display: block !important;
@@ -41,9 +41,10 @@
         }
     }
     .custom-nav-item {
-        border-bottom: 1px solid #111;
+        border-bottom: 1px solid #002841;
         @include media-breakpoint-up(lg) {
             margin: 0 -2px;
+            border-bottom: none;
         }
         @include media-breakpoint-down(md) {
             text-align: left;
@@ -56,10 +57,10 @@
                     width: 20px;
                     height: 20px;
                     background-color: white;
-                    border: solid 2px black;
+                    border: solid 2px #002841;
                     border-radius: 50%;
                     position: absolute;
-                    top: 35px;
+                    top: 45px;
                     left: calc(50% - 5px);
                     content: '';
                 }
@@ -71,33 +72,29 @@
             font-family: 'Merriweather', serif;
             font-style: italic;
             text-align: center;
-            line-height: 45px;
+            line-height: 55px;
+            font-size: 18px;
 
             @include media-breakpoint-down(md) {
                 margin: 0;
             }
-        }
-        @include media-breakpoint-down(md) {
-            display: block;
         }
     }
     .nav-tabs-wrapper {
         display: none;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-        text-align: center;
+        border-bottom: 1px solid #111;
 
         &.nav-hidden {
             display: none;
         }
-
         &.nav-show {
             &.big-resolutions {
                 @include media-breakpoint-up(lg) {
                     display: block !important;
                 }
             }
-
         }
     }
     .nav-tabs-horizontal {
@@ -123,13 +120,14 @@
     p {
         padding: 43px 0;
         font-family: 'Merriweather', serif;
-        font-size: 23px;
+        font-size: 17px;
         color: black;
         line-height: 38px;
         text-align: center;
         margin: 0 auto;
         @include media-breakpoint-up(lg) {
-           max-width: 600px;
+            font-size: 23px;
+            max-width: 600px;
         }
     }
 }

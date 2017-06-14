@@ -22,9 +22,7 @@ $uniqID = uniqid(rand(1, 999));
                 <li class="nav-item custom-nav-item list-inline-item <?= $module->colsTabs() ?>">
 
                     <a <?php echo ($i == 0) ? 'class="active"' : '' ?>
-                            href="#htab-<?= $i ?>-<?= $uniqID ?>" data-toggle="tab" aria-expanded="true">CI
-                        Financial’s
-                        Board of Directors <?= $i ?></a></li><!--  -->
+                            href="#htab-<?= $i ?>-<?= $uniqID ?>" data-toggle="tab" aria-expanded="true">Our Team <?= $i ?></a></li><!--  -->
 
             <?php endfor ?>
         </ul>

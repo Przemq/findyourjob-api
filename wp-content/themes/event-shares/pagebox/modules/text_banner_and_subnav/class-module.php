@@ -42,15 +42,15 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
 
     public function colsTabs()
     {
-        $colsize = 'col-lg-4'; //default
+        $colsize = 'col-lg-2'; //default
         $widthCol = $this->getSection()['width'];
 
         switch ($widthCol) {
             case 100:
-                $colsize = 'col-lg-4';
+                $colsize = 'col-lg-2';
                 break;
             case 75:
-                $colsize = 'col-lg-4';
+                $colsize = 'col-lg-2';
                 break;
             case 50:
                 $colsize = 'col-12';
