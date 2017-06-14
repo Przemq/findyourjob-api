@@ -144,20 +144,23 @@ $highlight:#56c2a3;
   }
 
 
-  .pagePagination{
-    .page-numbers{
-      &.current{
-        color: $highlight;
-        font-size: 18px;
-        padding:5px;}
+}
+.pagePagination{
+  .pagination-wrapper{
+    margin: 25px 0;
+  }
+  .page-numbers{
+    &.current{
+      color: $highlight;
+      font-size: 18px;
+      padding:5px;}
+  }
+  a{
+    color:$primary-theme-color;
+    font-size: 18px;
+    padding:5px;
+    &:hover{
+      color: $highlight;
     }
-      a{
-        color:$primary-theme-color;
-        font-size: 18px;
-        padding:5px;
-        &:hover{
-          color: $highlight;
-        }
-      }
   }
 }

@@ -83,7 +83,7 @@ $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 $s     = get_search_query();
 $args  = array(
 	's'              => $s,
-	'post_type'      => array( 'post', 'page' ),
+	'post_type'      => array( 'page' ),
 	'date_query'     => array( $date ),
 	'posts_per_page' => 5,
 	'paged'          => $paged,
@@ -146,8 +146,6 @@ if ( $search_query->have_posts() ) {
                                     feugiat imperdiet sollicitudin.";
 							$post_id        = $post->ID;
 							$link           = get_permalink( $post_id );
-							$more           = ! empty( wpx_theme_get_option( 'wpx_theme_search_results_readme' ) ) ?
-								wpx_theme_get_option( 'wpx_theme_search_results_readme' ) : 'Read more';
 							$target         = '';
 							$excerpt        = get_the_excerpt( $post_id );
 							if ( strlen( $excerpt ) > 200 ) {
@@ -160,6 +158,8 @@ if ( $search_query->have_posts() ) {
 							$content = get_the_content( $post_id );
 							$keys    = implode( '|', explode( ' ', get_search_query() ) );
 							$title   = preg_replace( '/(' . $keys . ')/iu', '<strong class="search-highlight">\0</strong>', $title );
+							$more    = ! empty( wpx_theme_get_option( 'wpx_theme_search_results_readme' ) ) ?
+								wpx_theme_get_option( 'wpx_theme_search_results_readme' ) : 'Read more';
 							?>
                             <div class="single-result">
                                 <h4><?php echo $title; ?></h4>
@@ -182,8 +182,22 @@ if ( $search_query->have_posts() ) {
 
 
             </div>
+			<?php
+			$argsArticles = array(
+				's'              => $s,
+				'post_type'      => array( 'post' ),
+				'date_query'     => array( $date ),
+				'posts_per_page' => 5,
+				'paged'          => $paged,
+				'category_name'  => $category
+			);
 
+			?>
+			<?php
+			$search_article = new WP_Query( $argsArticles );
+			if ( $search_article->have_posts() ) :
 
+			?>
             <div class="container-fluid articles-results">
                 <div class="container">
                     <div class="row">
@@ -194,83 +208,34 @@ if ( $search_query->have_posts() ) {
                             </div>
                         </div>
                         <div class="all-results row">
-                            <div class="col-md-4 col-sm-6 col-12 single-result">
-                                <div class="single-background">
-                                    <div class="image">
-                                    <img class="style-svg" src="<?=THEME_IMAGES_URI?>/ES Bags Money Icon-01-01.svg" />
-                                    </div>
-                                    <div class="author">
-                                        <span>21.10.2016 | Joe Bloggs</span>
-                                    </div>
-                                    <h4>consectetur adipisAliquam commodo</h4>
-                                    <p class="d-inline">Lorem ipsum dolor sit amet,
-                                        consectetur
-                                        adipiscing elit.
-                                        Nullam pulvinar euismod eros, a laoreet leo. Quisque ac turpis id mi
-                                        euismod
-                                        tristique. In sit amet urna sed leo semper iaculis lsit amet vitae
-                                        lectus.
-                                        Aenean
-                                        feugiat imperdiet sollicitudin.</p>
-                                    <div class="see_more">
-                                    <a class="d-inline" href="http://event-share.dev/page/">
-                                            READNOW </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-12 single-result">
-                                <div class="single-background">
-                                    <div class="image">
-                                    <img class="style-svg" src="<?=THEME_IMAGES_URI?>/ES Piggy Bank Icon-01-01.svg" />
-                                    </div>
-                                    <div class="author">
-                                        <span>21.10.2016 | Joe Bloggs</span>
-                                    </div>
-                                    <h4>consectetur adipisAliquam commodo</h4>
-                                    <p class="d-inline">Lorem ipsum dolor sit amet,
-                                        consectetur
-                                        adipiscing elit.
-                                        Nullam pulvinar euismod eros, a laoreet leo. Quisque ac turpis id mi
-                                        euismod
-                                        tristique. In sit amet urna sed leo semper iaculis lsit amet vitae
-                                        lectus.
-                                        Aenean
-                                        feugiat imperdiet sollicitudin.</p>
-                                    <div class="see_more">
-                                    <a class="d-inline" href="http://event-share.dev/page/">
-                                            READNOW </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6 col-12 single-result">
-                                <div class="single-background">
-                                    <div class="image">
-                                    <img class="style-svg" src="<?=THEME_IMAGES_URI?>/ES Laptop Icon-01-01.svg" />
-                                    </div>
-                                    <div class="author">
-                                        <span>21.10.2016 | Joe Bloggs</span>
-                                    </div>
-                                    <h4>consectetur adipisAliquam commodo</h4>
-                                    <p class="d-inline">Lorem ipsum dolor sit amet,
-                                        consectetur
-                                        adipiscing elit.
-                                        Nullam pulvinar euismod eros, a laoreet leo. Quisque ac turpis id mi
-                                        euismod
-                                        tristique. In sit amet urna sed leo semper iaculis lsit amet vitae
-                                        lectus.
-                                        Aenean
-                                        feugiat imperdiet sollicitudin.</p>
-                                    <div class="see_more">
-                                    <a class="d-inline" href="http://event-share.dev/page/">
-                                            READNOW </a>
-                                    </div>
-                                </div>
-                            </div>
+							<?php endif;
+							?>
+							<?php while ( $search_article->have_posts() ) :
+								$more_article = ! empty( wpx_theme_get_option( 'wpx_theme_search_results_readme' ) ) ?
+									wpx_theme_get_option( 'wpx_theme_search_results_readme' ) : 'Read more';
+								$search_article->the_post(); ?>
 
+                                <div class="col-md-4 col-sm-6 col-12 single-result">
+                                    <div class="single-background">
+                                        <div class="image">
+											<?php the_post_thumbnail( 'large', array( 'class' => 'style-svg' ) ); ?>
+                                        </div>
+                                        <div class="author">
+                                            <span><?php the_date( 'd.m.Y', '', '' ); ?> | <?php the_author() ?></span>
+                                        </div>
+                                        <h4><?php the_title() ?></h4>
+                                        <p class="d-inline"><?php the_excerpt() ?></p>
+                                        <div class="see_more">
+                                            <a class="d-inline" href="<?php the_permalink() ?> ">
+												<?= $more_article ?></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+							<?php endwhile;
+							?>
                         </div>
-
                     </div>
-
                 </div>
             </div>
 
@@ -279,7 +244,6 @@ if ( $search_query->have_posts() ) {
 			<?php if ( $search_query->max_num_pages > 1 ): ; ?>
                 <div class="container pagePagination">
                     <div class="row">
-
 						<?php
 						$pagination = array(
 							'end_size'           => 1,
@@ -290,11 +254,13 @@ if ( $search_query->have_posts() ) {
 							'after_page_number'  => '</strong>'
 						);
 						?>
-                        <span class="prev-link"><?php previous_posts_link( 'Previous' ) ?></span>
-                        <div class="numbered">
-							<?php echo paginate_links( $pagination ); ?>
+                        <div class="pagination-wrapper">
+                            <span class="prev-link"><?php previous_posts_link( 'Previous' ) ?></span>
+                            <div class="numbered">
+								<?php echo paginate_links( $pagination ); ?>
+                            </div>
+                            <span class="next-link"><?php next_posts_link( 'Next', $search_query->max_num_pages ) ?></span>
                         </div>
-                        <span class="next-link"><?php next_posts_link( 'Next', $search_query->max_num_pages ) ?></span>
                     </div>
                 </div>
 			<?php endif; ?>
