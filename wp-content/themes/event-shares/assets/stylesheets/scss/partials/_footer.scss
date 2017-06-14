@@ -47,7 +47,9 @@ footer {
       path, rect {
         fill:$menu_item_color;
         @include transition(300ms all);
+        stroke: none;
       }
+
       &:hover {
         path, rect {
           fill: #00E5EE; // turqoise
@@ -58,7 +60,9 @@ footer {
     #social-wrapper {
       margin-top: 1px;
       margin-bottom: 1px;
-
+      a:hover{
+        text-decoration: none;
+      }
       @include media-breakpoint-up(md) {
         border-right: 1px solid $footer_border_color;
       }

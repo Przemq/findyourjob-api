@@ -24,6 +24,7 @@
         }
         path {
           fill: #59C1A2;
+          stroke: #59C1A2;
         }
       }
     }
@@ -88,6 +89,7 @@
       svg {
         path {
           fill: get('iconColor');
+          stroke: get('iconColor');
         }
       }
     }

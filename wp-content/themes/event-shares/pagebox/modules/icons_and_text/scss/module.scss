@@ -29,9 +29,9 @@
           fill: #56C1A3;
           transition: 0.5s all;
         }
-        .st0{
-          fill:#EBEBEB;
-        }
+        //.st0{
+        //  fill:#EBEBEB;
+        //}
 
       }
       &:hover svg {
@@ -107,14 +107,15 @@
       svg {
         .st1, .st2 {
           fill: get('sectionIconColor');
+          stroke:get('sectionIconColor');
         }
 
       }
-      &:hover svg {
-        .st1, .st2 {
-          fill: get('sectionIconColorHover');
-        }
-      }
+      //&:hover svg {
+      //  .st0,.st1, .st2 {
+      //    fill: get('sectionIconColorHover');
+      //  }
+      //}
     }
     h4{
       font-size: get('titleInnerSize');

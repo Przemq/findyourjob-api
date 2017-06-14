@@ -108,6 +108,8 @@
                 path, polygon {
                     @include transition(300ms all);
                     fill: get('buttonTextColor');
+                    stroke:get('buttonTextColor') ;
+
                 }
             }
             &:hover{
@@ -116,6 +118,7 @@
                 svg{
                     path,polygon{
                         fill:get('buttonTextColorHover');
+                        stroke:get('buttonTextColorHover') ;
                     }
                 }
             }

@@ -148,12 +148,12 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 	            'default' => '#56c1a3',
 	            'sass'    => true
             ],
-            'sectionIconColorHover'   => [
-	            'type'    => 'input:color',
-	            'label'   => 'Icon (if exist) color',
-	            'default' => '#56c1a3',
-	            'sass'    => true
-            ],
+//            'sectionIconColorHover'   => [
+//	            'type'    => 'input:color',
+//	            'label'   => 'Icon (if exist) color',
+//	            'default' => '#56c1a3',
+//	            'sass'    => true
+//            ],
 			'backgroundColor'  => [
 				'type'    => 'input:color',
 				'label'   => 'Background color',
