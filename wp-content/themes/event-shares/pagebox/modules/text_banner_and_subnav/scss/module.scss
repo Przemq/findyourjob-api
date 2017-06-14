@@ -154,8 +154,10 @@
   background-color: get('backgroundColor');
 
   .nav-tabs-dropdown{
-    color: get('titleColorHover');
     border-color:get('titleColorHover');
+    a {
+      color: get('titleColorHover');
+    }
   }
   .nav-tabs-horizontal {
 
