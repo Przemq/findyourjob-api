@@ -30,6 +30,12 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 	protected function fields() {
 		return [
 			//Title
+            'typeOfHeader'       => [
+                'type'        => 'input:switch',
+                'label'       => 'Type of header (Title/Description)',
+                'description' => 'Please select type of header',
+                'default'     => false
+            ],
 			'title'           => [
 				'type'        => 'input:text',
 				'label'       => 'Title',
