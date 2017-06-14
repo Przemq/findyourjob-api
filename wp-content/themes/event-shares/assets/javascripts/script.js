@@ -42,7 +42,7 @@ jQuery(function ($) {
 
 
         var sizeBar = function () {
-            if ($window.scrollTop() > 400) {
+            if ($window.scrollTop() > 100) {
                 $wpgMainHeader.addClass("wpx-small-header");
             } else {
                 $wpgMainHeader.removeClass("wpx-small-header");
