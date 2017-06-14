@@ -40,6 +40,15 @@
             display: block;
         }
     }
+    .show {
+        &:after {
+            @include transition(all .3s ease-in-out);
+            @include transform(rotate(180deg));
+            &:hover {
+                @include animation (pulse 2s infinite);
+            }
+        }
+    }
     .custom-nav-item {
         border-bottom: 1px solid #002841;
         @include media-breakpoint-up(lg) {
