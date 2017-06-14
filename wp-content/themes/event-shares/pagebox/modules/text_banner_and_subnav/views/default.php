@@ -25,7 +25,7 @@ $uniqID = uniqid( rand( 1, 999 ) );
                 <li class="nav-item custom-nav-item list-inline-item <?= $module->colsTabs() ?>">
                     <a <?php echo ( $index == 0 ) ? 'class="active"' : '' ?>
                             href="#htab-<?= $index ?>-<?= $uniqID ?>" data-toggle="tab"
-                            aria-expanded="true"><?= $title ?>asdsad</a></li>
+                            aria-expanded="true"><?= $title ?></a></li>
 
 				<?php
 			endforeach;
