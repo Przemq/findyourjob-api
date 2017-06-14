@@ -33,9 +33,7 @@ $uniqID = uniqid(rand(1, 999));
                  class="tab-pane<?php echo ($i == 0) ? ' active' : '' ?> <?= $module->paddingControl() ?>"
                  id="htab-<?= $i ?>-<?= $uniqID ?>">
                 <div class="container text-content justify-content-center">
-                    <p>Lorem ipsum dolor quam, sit amet, vitae et
-                        ullamcorper,
-                        vitae netus neque morbi mauris <?= $i ?></p>
+                    <p>Lorem ipsum dolor amet, consectetur elit. Integer neq cursus at. Quisque id tincidunt, in venenatis nisi. <?= $i ?></p>
                 </div>
             </div>
         <?php endfor ?>
