@@ -59,12 +59,6 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 				'type'   => 'repeater',
 				'label'  => 'Sections',
 				'fields' => [
-					'sectionIconColor'   => [
-						'type'    => 'input:color',
-						'label'   => 'Icon (if exist) color',
-						'default' => '#002842',
-						'sass'    => true
-					],
 					'sectionImage'       => [
 						'type'        => 'media:image',
 						'label'       => 'Set background image First Section',
@@ -148,27 +142,18 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 				'default' => '#292b2c',
 				'sass'    => true
 			],
-
-//			In QUESTION
-//			'buttonLinkSize'      => [
-//				'type'        => 'input:text',
-//				'label'       => 'Button size',
-//				'description' => 'Please enter button size px',
-//				'default' => '16px',
-//				'sass'  => true
-//			],
-//			'buttonLinkColor' => [
-//				'type'    => 'input:color',
-//				'label'   => 'Button color',
-//				'default' => '#56c1a3',
-//				'sass'    => true
-//			],
-//			'buttonLinkColorHover' => [
-//				'type'    => 'input:color',
-//				'label'   => 'Button hover color',
-//				'default' => '#014c8c',
-//				'sass'    => true
-//			],
+            'sectionIconColor'   => [
+	            'type'    => 'input:color',
+	            'label'   => 'Icon (if exist) color',
+	            'default' => '#56c1a3',
+	            'sass'    => true
+            ],
+            'sectionIconColorHover'   => [
+	            'type'    => 'input:color',
+	            'label'   => 'Icon (if exist) color',
+	            'default' => '#56c1a3',
+	            'sass'    => true
+            ],
 			'backgroundColor'  => [
 				'type'    => 'input:color',
 				'label'   => 'Background color',

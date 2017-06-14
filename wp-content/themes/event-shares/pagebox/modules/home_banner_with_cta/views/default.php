@@ -71,7 +71,7 @@ $buttonRight  = $this->getInput( 'buttonRightTitle' );
             <div class="col-lg-6 shapes">
                 <div class="shape-image">
                     <img src="<?= THEME_IMAGES_URI ?>/sample-image.jpg">
-                    <img class="svg-image image-punch" src="<?= THEME_IMAGES_URI ?>/punch-01.svg" alt="">
+                    <img class="style-svg image-punch" src="<?= THEME_IMAGES_URI ?>/punch-01.svg" alt="">
                 </div>
 
             </div>
