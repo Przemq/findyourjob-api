@@ -21,7 +21,7 @@ class Contact extends AbstractModule implements StaticCacheInterface {
 			'title'       => 'Contact Form',
 			'description' => 'Contact module',
 			'js' => [
-				'depends' => ['']
+				'depends' => ['jquery']
 			],
 
 		];
