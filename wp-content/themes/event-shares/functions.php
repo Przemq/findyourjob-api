@@ -258,3 +258,22 @@ add_filter( 'wpx_used_post_contexts', function ( $contexts ) {
 
 	return $contexts;
 } );
+
+/*
+    Prevent the email sending step for specific form
+*/
+//add_action("wpcf7_before_send_mail", "wpcf7_do_something_else");
+//function wpcf7_do_something_else($cf7) {
+//	// get the contact form object
+//	$wpcf = WPCF7_ContactForm::get_current();
+////	dump($wpcf);
+//	// if you wanna check the ID of the Form $wpcf->iddump($wpcf->id);
+////	if (/*Perform check here*/) {
+////		// If you want to skip mailing the data, you can do it...
+////	}
+//
+//
+//	$wpcf->skip_mail = true;
+//
+//	return $wpcf;
+//}
