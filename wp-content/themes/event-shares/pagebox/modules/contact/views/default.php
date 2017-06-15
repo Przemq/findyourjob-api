@@ -39,10 +39,22 @@ $module = $this->getModule();
 						echo do_shortcode( $this->getInput( 'contactFormShortCode' ) );
 					}
 					?>
+                    <div>
+                        Sesja <?=session_id()?>
+<!--                   </br>-->
+                        <?php
+                        $id = unserialize($_SESSION['form_id']);
+//                        dump($id->id);
+                        ?>
+<!--                        Tu bedzie form ::::::: --><?php //dump(unserialize($_SESSION['form_data']))?>
+
+                        Name: <?=$_SESSION['193_your-select']?>
+<!--                        Lastname: --><?//=$_SESSION['surname']?>
+                    </div>
                 </div>
             </div>
             <div class="row back">
-                <h2>Thank you for message</h2>
+                <h2>Thank you for your message. A relevant representative will get back to you soon</h2>
         </div>
     </div>
 </div>

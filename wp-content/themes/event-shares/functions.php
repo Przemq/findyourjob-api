@@ -22,7 +22,7 @@ require_once 'includes/menu-with-description.php';
  * Import Theme Utils (Pagebox tools)
  */
 require_once 'functions/theme.php';
-require_once ('includes/theme-options.php');
+require_once( 'includes/theme-options.php' );
 
 /**
  * Theme styles (CSS) and scripts (JavaScript)
@@ -68,13 +68,15 @@ add_action( 'after_setup_theme', function () {
 
 //Add nav-menu to nav
 
-function event_menu_classes($classes, $item, $args) {
-	if($args->theme_location == 'header') {
+function event_menu_classes( $classes, $item, $args ) {
+	if ( $args->theme_location == 'header' ) {
 		$classes[] = 'nav-item';
 	}
+
 	return $classes;
 }
-add_filter('nav_menu_css_class', 'event_menu_classes',1,3);
+
+add_filter( 'nav_menu_css_class', 'event_menu_classes', 1, 3 );
 
 /**
  * Hide WP version strings from scripts and styles
@@ -113,11 +115,11 @@ function wpmudev_remove_version() {
  */
 
 function createTaskLink( $task ) {
-    if ( defined( 'WP_ENVIRONMENT' ) && WP_ENVIRONMENT === 'dev' ) {
-        return '<a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/' . $task . '">' . $task . '</a>';
-    }
+	if ( defined( 'WP_ENVIRONMENT' ) && WP_ENVIRONMENT === 'dev' ) {
+		return '<a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/' . $task . '">' . $task . '</a>';
+	}
 
-    return '';
+	return '';
 }
 
 
@@ -259,21 +261,135 @@ add_filter( 'wpx_used_post_contexts', function ( $contexts ) {
 	return $contexts;
 } );
 
+
+add_action( 'init', 'addGetInTouchSession' );
+function addGetInTouchSession() {
+	if ( empty( session_id() ) || ( session_id() === "" ) ) {
+		session_start();
+	}
+}
+
 /*
     Prevent the email sending step for specific form
 */
-//add_action("wpcf7_before_send_mail", "wpcf7_do_something_else");
-//function wpcf7_do_something_else($cf7) {
-//	// get the contact form object
-//	$wpcf = WPCF7_ContactForm::get_current();
-////	dump($wpcf);
-//	// if you wanna check the ID of the Form $wpcf->iddump($wpcf->id);
-////	if (/*Perform check here*/) {
-////		// If you want to skip mailing the data, you can do it...
-////	}
+//Allow Contact Form 7 render shortcodes
+add_filter( 'wpcf7_form_elements', 'do_shortcode' );
+
+add_action( 'wpcf7_before_send_mail', 'my_custom_function' );
+
+function my_custom_function( $cf7 ) {
+
+	$title       = $cf7->title();
+	$submission  = WPCF7_Submission::get_instance();
+	$id          = $cf7->id();
+	$posted_data = "";
+	if ( $submission ) {
+		$posted_data = $submission->get_posted_data();
+	}
+	if ( 'Contact Form' == $title ) {
+
+		foreach ( $posted_data as $key => $data ) {
+			$_SESSION[ $id . '_' . $key ] = $data;
+		}
+	}
+	$_SESSION['form_data'] = serialize( $submission );
+	$_SESSION['form_id']   = serialize( $cf7 );
+}
+
+
+add_filter( 'wpcf7_form_input', 'do_shortcode' );
+function wpx_form_input( $attr ) {
+	$attr = ( shortcode_atts( array(
+		'form_id'     => 0,
+		'type'        => '',
+		'name'        => '',
+		'id'          => '',
+		'size'        => 40,
+		'class'       => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control small-input rounded-0',
+		'placeholder' => '',
+		'required'    => 'false'
+
+	), $attr ) );
+
+	$key = $attr['form_id'] . '_' . $attr['name'];
+	$val = '';
+	if ( isset( $_SESSION[ $key ] ) ) {
+		$val = $_SESSION[ $key ];
+	}
+	$input = '<span class="wpcf7-form-control-wrap '.$attr['name'].'"/>';
+	$input .= '<input type="' . $attr['type'] . '" name="' . $attr['name'] . '" value="' . $val . '" size="' . $attr['size'] . '" 
+	class="' . $attr['class'] . '" id="' . $attr['id'] . '" placeholder="' .
+	         $attr['placeholder'] . '" aria-required="' . $attr['required'] . '" aria-invalid="false" />';
+	$input .= '</span>';
+
+	return $input;
+}
+add_shortcode( 'WPX_FORM_INPUT', 'wpx_form_input' );
+
+
+add_filter( 'getSessionInput', 'do_shortcode' );
+function getSessionInput( $attr ) {
+	$attr = ( shortcode_atts( array(
+		'name'        => '',
+		'form_id'        => ''
+
+	), $attr ) );
+
+	$key = $attr['form_id'] . '_' . $attr['name'];
+	$val = '';
+	if ( isset( $_SESSION[ $key ] ) ) {
+		$val = $_SESSION[ $key ];
+	}
+	return $val;
+}
+add_shortcode( 'GET_INPUT', 'getSessionInput' );
+
+
+
+
+function wpx_form_select( $attr ) {
+	$attr = ( shortcode_atts( array(
+		'form_id'     => 0,
+		'name'        => '',
+		'id'          => '',
+		'class'       => 'wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control small-input rounded-0',
+		'placeholder' => '',
+		'required'    => 'false',
+		'options' => ""
+
+	), $attr ) );
+
+	$sessionKey = $attr['form_id'] . '_' . $attr['name'];
+	$val = '';
+	if ( isset( $_SESSION[ $sessionKey ] ) ) {
+		$val = $_SESSION[ $sessionKey ];
+	}
+	$options = explode(",",$attr["options"]);
+	$output = "";
+	$output  = '<option value="" disabled selected>Select your option</option>';
+
+	foreach ($options as $key => $value){
+		if($val === $value){
+			$output.= '<option value="'.$value.'" selected>'.$value.'</option>';
+		}else{
+			$output.= '<option value="'.$value.'">'.$value.'</option>';
+		}
+	};
+	$select = '<select name="' . $attr['name'] . '" class="' . $attr['class'] . '" id="' . $attr['id'] .
+	          '" aria-required="' . $attr['required'] . '" aria-invalid="false" />';
+	$select .= $output;
+	$select .= '</select>';
+
+	return $select;
+}
+
+add_shortcode( 'WPX_FORM_SELECT', 'wpx_form_select' );
+
+
+//add_action( 'wpcf7_init', 'wpcf7_add_form_tag_text_session' );
 //
-//
-//	$wpcf->skip_mail = true;
-//
-//	return $wpcf;
+//function wpcf7_add_form_tag_text_session() {
+//	wpcf7_add_form_tag(
+//		array( 'text', 'text*', 'email', 'email*', 'url', 'url*', 'tel', 'tel*' ),
+//		'wpcf7_text_form_tag_handler', array( 'name-attr' => true ) );
 //}
