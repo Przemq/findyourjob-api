@@ -3,24 +3,42 @@
 // Overall module styles
 @include overall_module() {
 
+  #top-page-image-with-text {
+    padding-top: 60px;
+    padding-bottom: 65px;
+    text-align: center;
 
-    #top-page-image-with-text {
-        padding-top: 60px;
-        padding-bottom: 65px;
-        text-align: center;
-
-        #firm-icon {
-            height: 84px;
-            width: 51px;
-        }
-        p {
-            padding-top: 40px;
-            font-family: 'Merriweather', serif;
-            font-size: 14px;
-            color: black;
-            line-height: 22px;
-        }
+    #firm-icon {
+      height: 84px;
+      width: 51px;
+      .st0 {
+        fill: yellow;
+      }
     }
+    p {
+      padding-top: 40px;
+      font-family: 'Merriweather', serif;
+      font-size: 14px;
+      color: black;
+      line-height: 22px;
+    }
+    .button {
+      padding: 11.5px 43px;
+      background-color: #56c1a3;
+      display: inline-block;
+      margin-bottom: 15px;
+      color: #002841;
+      font-family: 'Roboto Condensed', sans-serif;
+      letter-spacing: 3px;
+      text-decoration: none;
+      border-radius: 3px;
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: 600;
+      transition: 0.5s all;
+      border: 1px solid #56c1a3;
+    }
+  }
 }
 
 // Styles for unique page/post module.
@@ -28,5 +46,16 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    background-color: get('backgroundColor');
+  background-color: get('backgroundColor');
+
+  #top-page-image-with-text {
+    p {
+      font-size: get('fontSize');
+    }
+    #firm-icon {
+      .st0 {
+        fill: get('imageColor');
+      }
+    }
+  }
 }
