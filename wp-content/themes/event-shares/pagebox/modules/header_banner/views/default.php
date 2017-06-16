@@ -11,7 +11,7 @@ $module = $this->getModule();
 <div class="<?= $module->getClass() ?>">
     <div class="container">
         <?= createTaskLink('EV-23') ?>
-        <div class="row" id="header-banner">
+        <div class="row header-banner">
             <div class="col-lg-5">
                 <h2>about us</h2>
                 <p>Lorem ipsum dolor sit  amet, consectetur adipiscing elit. Nulla interdum sapien sapien, vel efficitur
