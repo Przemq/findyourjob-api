@@ -1,25 +1,25 @@
 @import "module-variables";
 
 // Overall module styles
-@include overall_module()
-{
+@include overall_module() {
     $font_white_color: #f0f2f4;
     $get_in_touch_color: #002841;
 
     .get-in-touch {
-        font-family: 'Roboto Condensed', sans-serif;
-        //height: 97px;
         background-color: $get_in_touch_color;
         color: $font_white_color;
         text-align: center;
-        padding-top: 25px;
-        padding-bottom: 25px;
-        a{
+
+        a {
             font-size: 30px;
             @include transition(0.5s all);
-        &:hover{
-            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+            }
         }
+        h2 {
+            line-height: 97px;
+            font-size: 30px;
         }
     }
 }
@@ -30,8 +30,8 @@
 // - get_deep( keys... )
 @include specified_module_loop() {
     background-color: get('backgroundColor');
-    .get-in-touch a{
-        color:get('titleColor');
-        font-size:get('titleSize');
+    .get-in-touch a {
+        color: get('titleColor');
+        font-size: get('titleSize');
     }
 }
