@@ -332,13 +332,11 @@ header {
     }
     @include media-breakpoint-down(md) {
       display: block;
-      float: right;
       @include size(40px);
       background-color: transparent;
       border-radius: 10px;
-
+      @include position(absolute, null 0 null null);
       @include transition(all 300ms ease-in-out);
-      position: relative;
       span {
         display: block;
         @include position(absolute, null null null 7px);

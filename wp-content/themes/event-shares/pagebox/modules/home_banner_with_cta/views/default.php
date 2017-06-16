@@ -17,8 +17,13 @@ $buttonRight = $this->getInput('buttonRightTitle');
 ?>
 <div class="<?= $module->getClass() ?>">
 
-    <div class="container">
+    <div class="container header-container">
         <?= createTaskLink('EV-16') ?>
+
+        <div class="bottom-shape">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119 93.4"><defs><style>.a{fill:#56c1a2;}</style></defs><title>header-shape</title><path class="a" d="M65.1,1.3c7.2,2.6,10.1,8.1,13.4,14.8,6,12.1,12.5,23.8,18.8,35.8L119,93.4H85L59.8,45.1c-1.3.3-1.6,1.2-1.9,1.9L35,90.6a4.6,4.6,0,0,0-.9,2.8H0c-.2-1.5.8-2.5,1.4-3.7L9.5,74.2Q25.8,43.1,42.1,11.9c2.3-4.5,6.6-8.9,11.4-10.5C54.1,1.2,59.8-1.6,65.1,1.3Z"/></svg>
+        </div>
+
         <div class="row">
             <div class="col-lg-6 text-content">
                 <h2><?= $title ?><span id="header-second-color"><?= $titleInner ?></span></h2>
@@ -68,12 +73,11 @@ $buttonRight = $this->getInput('buttonRightTitle');
                 endif;
                 ?>
             </div>
-            <div class="col-lg-6 shapes">
+            <div class="col-lg-6 shape">
                 <div class="shape-image">
                     <img src="<?= THEME_IMAGES_URI ?>/sample-image.jpg">
                     <svg class="image-punch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 183.65 159.67">
-                        <title>punch</title>
-                        <path class="a"
+                        <path
                               d="M182.12,0A10.1,10.1,0,0,1,181,5.76L104.55,151c-4.8,9.12-19.91,9.15-24.75,0L2.71,5.79A10.11,10.11,0,0,1,1.53,0H0V159.67H183.65V0Z"/>
                     </svg>
                 </div>

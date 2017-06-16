@@ -8,60 +8,74 @@
   $button-font-color: #002841;
 
   background-color: $background-color;
+  .header-container {
+    position: relative;
+    .bottom-shape {
+      width: 415px;
+      height: 92px;
+      text-align: center;
+      @include position(absolute, null 20px 0 null);
 
-  .text-content {
-    padding-top: 86px;
-    padding-bottom: 121px;
-    p {
-      color: white;
-      padding-bottom: 17px;
-      line-height: 27px;
-    }
-
-    #header-second-color {
-      color: $header_second_color;
-    }
-    .learn-more-button {
-      padding: 11.5px 43px;
-      background-color: $button_background_color;
-      //border: none;
-      display: inline-block;
-      margin-bottom: 15px;
-      color: $button-font-color;
-      font-family: 'Roboto Condensed', sans-serif;
-      letter-spacing: 3px;
-      text-decoration: none;
-      border-radius: 3px;
-      text-transform: uppercase;
-      font-size: 16px;
-      font-weight: 600;
-      transition: 0.5s all;
-      border: 1px solid $button_background_color;
-      &:hover {
-        background: rgba(255, 255, 255, 0.14);
-        color: white;
-        border-color: white;
+      svg {
+        height: 92px;
       }
     }
-  }
 
-  .shapes {
-    display: flex;
-    justify-content: flex-end;
+    .text-content {
+      padding-top: 86px;
+      padding-bottom: 121px;
+      p {
+        color: white;
+        padding-bottom: 17px;
+        line-height: 27px;
+      }
 
-    .shape-image {
-      width: 416px;
-      height: 362px;
-      position: relative;
-      overflow: hidden;
+      #header-second-color {
+        color: $header_second_color;
+      }
+      .learn-more-button {
+        padding: 11.5px 43px;
+        background-color: $button_background_color;
+        //border: none;
+        display: inline-block;
+        margin-bottom: 15px;
+        color: $button-font-color;
+        font-family: 'Roboto Condensed', sans-serif;
+        letter-spacing: 3px;
+        text-decoration: none;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 600;
+        transition: 0.5s all;
+        border: 1px solid $button_background_color;
+        &:hover {
+          background: rgba(255, 255, 255, 0.14);
+          color: white;
+          border-color: white;
+        }
+      }
 
-      .image-punch {
+
+    }
+
+    .shape {
+
+      .shape-image {
         width: 415px;
         height: 361px;
-        @include position (absolute, 0 0 0 0);
-        fill: $background-color;
+        overflow: hidden;
+        @include position(absolute, 0 20px null null);
+
+        .image-punch {
+          width: 416px;
+          height: 363px;
+          @include position (absolute, 0 0 0 0);
+          fill: $background-color;
+        }
       }
     }
+
   }
 }
 
