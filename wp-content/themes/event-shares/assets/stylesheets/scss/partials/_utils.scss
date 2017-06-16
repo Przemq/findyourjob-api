@@ -9,9 +9,7 @@
 p {
   font-family: 'Merriweather', serif;
   font-size: 14px;
-}
-a {
-  font-family: 'Merriweather', serif;
+  line-height: 27px;
 }
 h2 {
   font-family: 'Roboto Condensed', sans-serif;
@@ -20,5 +18,10 @@ h2 {
   font-size: 54px;
   line-height: 64px;
   color: white;
-  padding-bottom: 4px;
+  padding-bottom: 5px;
+}
+h4 {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
