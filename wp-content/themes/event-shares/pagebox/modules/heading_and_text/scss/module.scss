@@ -2,24 +2,18 @@
 
 // Overall module styles
 @include overall_module() {
+    $header_color: rgb(30, 44, 50);
+    $background-color: #f4f4f4;
 
-  $header_color: rgb(30, 44, 50);
-  $background-color: #f4f4f4;
-
-  .heading-and-text {
-    h4 {
-      color: $header-color;
-      padding-top: 39px;
-      font-size: 25px;
+    padding: 46px 0 54px 0;
+    h3 {
+        color: $header-color;
     }
-
     p {
-      color: black;
-      line-height: 24px;
-      padding-bottom: 40px;
+        color: #111;
     }
-  }
 }
+
 // Styles for unique page/post module.
 // In this scope you can use special functions to get data from pageboxes:
 // - get( key )
