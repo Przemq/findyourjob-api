@@ -7,58 +7,44 @@
  */
 
 $module = $this->getModule();
-$titleHeader = $this->getInput('typeOfHeader')->getValue();
+$headerText = $this->getInput('headerText')->getValue();
+$description = $this->getEditor('description')->getValue();
+$isImageBackground = $this->getInput('isImageBackground')->getValue();
+$imageBackground = $this->getMedia('imageBackground')->getImage()->getUrl();
 
 ?>
 <div class="<?= $module->getClass() ?>">
-    <div class="container">
+    <div class="container"<?php if ($isImageBackground) echo 'style="background-image:url(' . $imageBackground . ');background-size:cover"' ?>>
         <?= createTaskLink('EV-63') ?>
         <div class="row">
-            <div class="col-12 header"><h4>our history</h4></div>
-            <div class="col-6 mx-auto description">Our founders envisioned a sophisticated, tailored approach to
-                investing around mutli-dimensional events and themes. In August 2016,we filed our first documents with
-                the SEC and started building what is now EventShares.
-            </div>
+            <div class="col-12 header"><h4><?= $headerText ?></h4></div>
+            <div class="col-6 mx-auto description"><?= $description ?></div>
         </div>
 
         <!-- timeline -->
         <div class="row">
             <div class="timeline hidden-sm-down">
                 <ul class="days">
-                    <li class="day">
-                        <div class="events">
-                            <h4>In the Beginning..</h4>
-                            <p>Financial industry veterans noticed that no on was doing frictionless, in-experience
-                                trading execution - and they saw an opportunity.</p>
-                        </div>
-                    </li>
+                    <?php foreach ($this->getRepeater('eventRepeater') as $key => $single):
+                        /* @var \Nurture\Pagebox\Module\Scope $single */
+                        $eventHeader = $single->getInput('eventHeader')->getValue();
+                        $eventDescription = $single->getEditor('eventDescription')->getValue();
+                        $enableInternalLink = $single->getInput('enableInternalLink')->getValue();
+                        $internalUrl = $single->getSelect('internalUrl')->getValue()['permalink'];
+                        $externalUrl = $single->getInput('externalUrl')->getValue();
+                        $enableButton = $single->getInput('enableButton')->getValue();
+                        $buttonText = $single->getInput('buttonText')->getValue();
+                        ?>
+                        <li class="day">
+                            <div class="events">
+                                <h4><?= $eventHeader ?></h4>
+                                <div class="col-12"><?= $eventDescription ?></div>
+                                <a href="<?= $enableInternalLink ? $internalUrl : $externalUrl; ?>"
+                                   class="button" <?php if (!$enableButton) echo 'style="display:none;"' ?>><?= $buttonText ?></a>
+                            </div>
+                        </li>
 
-                    <li class="day">
-                        <div class="events">
-                            <h4>And then We Created TRADEIT</h4>
-                            <p>We hired a few designers and developers and created a mobile first way of placing orders
-                                and managing your accounts in app.</p>
-                        </div>
-                    </li>
-
-
-                    <li class="day">
-                        <div class="events">
-                            <h4>Hard Work Pays Off</h4>
-                            <p>Tradelt in now partnered with over 90 financial mobile apps, sites, and social media
-                                platforms. The company has quickly linked over $10BN in assets and processed over $3.7BN
-                                in orders.</p>
-                        </div>
-                    </li>
-
-                    <li class="day">
-                        <div class="events">
-                            <h4>And Here We Are Now</h4>
-                            <p>Our headcount has doubled since the summer, and we are looking for great (and easy to
-                                use) investment products we have in the pipeline.</p>
-                        </div>
-                    </li>
-
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>

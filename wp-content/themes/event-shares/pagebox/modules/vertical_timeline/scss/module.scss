@@ -1,7 +1,6 @@
 @import "module-variables";
 
 $header-color: #1e2c32;
-;
 $circle-color: #1e2c32;
 $line-color: #A6A6A6;
 $background-color: white;
@@ -14,11 +13,8 @@ $background-color: white;
   color: $line-color;
   background-color: white;
 
-
   .header {
-    font-size: 25px;
     font-family: 'Roboto Condensed', sans-serif;
-    color: $header-color;
     text-transform: uppercase;
     padding-bottom: 15px;
     text-align: center;
@@ -26,21 +22,27 @@ $background-color: white;
     font-weight: 500;
   }
   .description {
-    font-size: 14px;
-    text-align: center;
-    padding-bottom: 70px;
-    font-family: 'Merriweather', serif;
-    color: $header-color;
+    P {
+      font-size: 14px;
+      text-align: center;
+      padding-bottom: 70px;
+      font-family: 'Merriweather', serif;
+      color: $header-color;
+    }
   }
 
   .timeline {
     text-align: center;
-    line-height: 24px;
+    p {
+      color: $line-color;
+    }
+    color: $line-color;
     h4 {
       color: $header-color;
       font-weight: bold;
       letter-spacing: normal;
       text-transform: none;
+      padding: 0 15px;
     }
 
     .days {
@@ -59,7 +61,9 @@ $background-color: white;
           padding: 15px 30px;
           text-align: right;
           width: 50%;
-
+          .button {
+            margin: 10px 15px;
+          }
         }
         &:nth-child(even) {
           .events {
@@ -125,9 +129,9 @@ $background-color: white;
           .events {
             border-color: $background-color;
             padding-top: 0;
-            h4{
-              &:after{
-                top:0;
+            h4 {
+              &:after {
+                top: 0;
               }
             }
           }
@@ -143,5 +147,30 @@ $background-color: white;
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-  //background-color: get('backgroundColor');
+  background-color: get('backgroundColor');
+  .header {
+    color: get('headerColor');
+    font-size: get('headerSize');
+  }
+  .timeline {
+    .days {
+      .day {
+        &:last-child {
+          .events {
+            border-color: get('backgroundColor');
+          }
+        }
+        .events {
+          .button {
+            background-color: get('buttonColor');
+            color: get('buttonTextColor');
+            &:hover {
+              background-color: get('buttonHoverColor');
+              color: get('buttonHoverTextColor');
+            }
+          }
+        }
+      }
+    }
+  }
 }
