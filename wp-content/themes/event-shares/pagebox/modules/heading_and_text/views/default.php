@@ -9,7 +9,7 @@
 $module = $this->getModule();
 ?>
 <div class="<?= $module->getClass() ?>">
-    <div class="container" id="heading-and-text">
+    <div class="container heading-and-text">
         <?= createTaskLink('EV-20') ?>
         <div class="row">
             <div class="col-lg-12">
