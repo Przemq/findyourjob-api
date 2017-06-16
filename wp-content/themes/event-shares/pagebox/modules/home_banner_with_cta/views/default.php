@@ -25,7 +25,19 @@ $buttonRight = $this->getInput('buttonRightTitle');
         </div>
 
         <div class="row">
-            <div class="col-lg-6 text-content">
+
+            <div class="col-lg-6 push-lg-6 shape">
+                <div class="shape-image">
+<!--                    <img src="--><?//= THEME_IMAGES_URI ?><!--/sample-image.jpg">-->
+
+                    <div class="parallax-window" data-parallax="scroll" data-image-src="<?= THEME_IMAGES_URI ?>/sample-image.jpg"></div>
+
+                    <svg class="image-punch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 183.6 219.7"><title>punch-01</title><path d="M182.1,0A10.1,10.1,0,0,1,181,5.8L104.6,151c-4.8,9.1-19.9,9.1-24.8,0L2.7,5.8A10.1,10.1,0,0,1,1.5,0H0V219.7H183.6V0Z"/></svg>
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 pull-lg-6 text-content">
                 <h2><?= $title ?><span id="header-second-color"><?= $titleInner ?></span></h2>
 
                 <?= $description ?>
@@ -73,16 +85,7 @@ $buttonRight = $this->getInput('buttonRightTitle');
                 endif;
                 ?>
             </div>
-            <div class="col-lg-6 shape">
-                <div class="shape-image">
-                    <img src="<?= THEME_IMAGES_URI ?>/sample-image.jpg">
-                    <svg class="image-punch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 183.65 159.67">
-                        <path
-                              d="M182.12,0A10.1,10.1,0,0,1,181,5.76L104.55,151c-4.8,9.12-19.91,9.15-24.75,0L2.71,5.79A10.11,10.11,0,0,1,1.53,0H0V159.67H183.65V0Z"/>
-                    </svg>
-                </div>
 
-            </div>
 
         </div>
     </div>

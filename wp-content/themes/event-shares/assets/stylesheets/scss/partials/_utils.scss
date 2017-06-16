@@ -6,7 +6,6 @@
   right: 5px;
   z-index: 1;
 }
-
 p {
   font-family: 'Merriweather', serif;
   //color: #fff;
@@ -14,7 +13,6 @@ p {
   line-height: 25px;
   margin: 0;
 }
-
 h2 {
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
@@ -39,3 +37,7 @@ h3 {
 //  letter-spacing: 5px;
 //  margin: 0;
 //}
+
+.parallax-mirror {
+  z-index: 0 !important;
+}

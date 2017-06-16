@@ -7,23 +7,42 @@
   $button_background_color: #56C1A3;
   $button-font-color: #002841;
 
+  //triangle sizes
+  //mobile
+  $shape-image-width-m: 195px;
+  $shape-image-height-m: 170px;
+
+  //destkop
+  $shape-image-width: 415px;
+  $shape-image-height: 361px;
+
   background-color: $background-color;
+
   .header-container {
     position: relative;
+
     .bottom-shape {
-      width: 415px;
+      width: 196px;
       height: 92px;
       text-align: center;
       @include position(absolute, null 20px 0 null);
-
       svg {
         height: 92px;
       }
+      @include media-breakpoint-up(md) {
+
+        width: 415px;
+      }
+
     }
 
     .text-content {
-      padding-top: 86px;
-      padding-bottom: 121px;
+      @include padding (null null 115px);
+
+      @include media-breakpoint-up(md) {
+        @include padding (86px null 121px);
+      }
+
       p {
         color: white;
         padding-bottom: 17px;
@@ -56,26 +75,46 @@
         }
       }
 
-
     }
 
     .shape {
+      padding-top: $shape-image-height-m;
+      @include media-breakpoint-up(lg) {
+        padding-top: $shape-image-height;
+      }
 
       .shape-image {
-        width: 415px;
-        height: 361px;
+        @include size ($shape-image-width-m $shape-image-height-m);
         overflow: hidden;
         @include position(absolute, 0 20px null null);
+        @include media-breakpoint-up(lg) {
+          @include size (415px 450px);
+        }
 
         .image-punch {
-          width: 416px;
-          height: 363px;
+          //width: 416px;
+          //height: 363px;
+          @include size ($shape-image-width-m+1px $shape-image-height-m+1px);
           @include position (absolute, 0 0 0 0);
           fill: $background-color;
+          @include media-breakpoint-up(lg) {
+            @include size ($shape-image-width+1px 500px);
+          }
+        }
+
+        .parallax-window {
+          width: 100%;
+          min-height: $shape-image-height-m;
+          background: transparent;
+          z-index: 1;
+          overflow: hidden;
+          position: relative;
+          @include media-breakpoint-up(lg) {
+            min-height: $shape-image-height;
+          }
         }
       }
     }
-
   }
 }
 
