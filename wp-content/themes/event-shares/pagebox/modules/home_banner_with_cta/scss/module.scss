@@ -12,29 +12,15 @@
   .text-content {
     padding-top: 86px;
     padding-bottom: 121px;
-
-    h2 {
-      font-family: 'Roboto Condensed', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 54px;
-      line-height: 64px;
-      color: white;
-      padding-bottom: 4px;
-    }
-
     p {
       color: white;
-      font-family: 'Merriweather', serif;
       padding-bottom: 17px;
-      font-size: 14px;
       line-height: 27px;
     }
 
     #header-second-color {
       color: $header_second_color;
     }
-
     .learn-more-button {
       padding: 11.5px 43px;
       background-color: $button_background_color;
