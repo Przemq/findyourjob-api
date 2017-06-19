@@ -8,6 +8,7 @@ License: GPL2
 
 require_once 'wpx_number.php';
 require_once 'wpx_select.php';
+require_once 'wpx_contact-form-7-extension-utils.php';
 
 add_action( 'plugins_loaded', 'wpcf7dtx_init', 20 );
 
