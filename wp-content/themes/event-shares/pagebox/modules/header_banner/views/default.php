@@ -7,17 +7,31 @@
  */
 
 $module = $this->getModule();
+$headerText = $this->getInput('headerText')->getValue();
+$paragraphText = $this->getEditor('paragraphText')->getValue();
+$isImageBackground = $this->getInput('isImageBackground')->getValue();
+$imageBackground = $this->getMedia('imageBackground')->getImage()->getUrl();
 ?>
 <div class="<?= $module->getClass() ?>">
-    <div class="container">
+    <div class="container"<?php if ($isImageBackground) echo 'style="background-image:url(' . $imageBackground . ');background-size:cover;"' ?>>
         <?= createTaskLink('EV-23') ?>
         <div class="row header-banner">
             <div class="col-lg-5">
-                <h2>about us</h2>
-                <p>Lorem ipsum dolor sit  amet, consectetur adipiscing elit. Nulla interdum sapien sapien, vel efficitur
-                    dui vehicula laoreet. Sed facilisis ornare tellus a mattis. Mauris volutpat enim eget nibh finibus,
-                    quis tempor orci pretium.</p>
+                <h2><?= $headerText ?></h2>
+               <?= $paragraphText ?>
             </div>
+            <div class="col-8 buttons">
+                <?php foreach ($this->getRepeater('buttonRepeater') as $key => $button):
+                /* @var \Nurture\Pagebox\Module\Scope $button */
+                $buttonText = $button->getInput('buttonText')->getValue();
+                    $enableInternalLink = $button->getInput('enableInternalLink')->getValue();
+                    $internalUrl = $button->getSelect('internalUrl')->getValue()['permalink'];
+                    $externalUrl = $button->getInput('externalUrl')->getValue();
+                ?>
+                <a href="<?= $enableInternalLink ? $internalUrl : $externalUrl; ?>" class="button header-button"><?= $buttonText ?></a>
+                <?php endforeach; ?>
+            </div>
+
         </div>
     </div>
 </div>
