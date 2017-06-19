@@ -42,7 +42,6 @@
 
     $(document).on('invalid.wpcf7', function () {
         console.log('invalid.wpcf7 was triggered!');
-        $thisModule.find('form').replaceWith($form.html());
         addHeight();
 
     });

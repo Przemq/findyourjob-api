@@ -12,16 +12,15 @@ function my_custom_function( $cf7 ) {
 	$title       = $cf7->title();
 	$submission  = WPCF7_Submission::get_instance();
 	$id          = $cf7->id();
-	$posted_data = "";
 	if ( $submission ) {
 		$posted_data = $submission->get_posted_data();
-	}
-	if ( 'Contact Form' == $title ) {
-
 		foreach ( $posted_data as $key => $data ) {
 			$_SESSION[ $id . '_' . $key ] = $data;
+
 		}
 	}
+
+
 }
 
 //Shortcode to retrive input data from Session
