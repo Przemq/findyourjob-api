@@ -40,7 +40,7 @@
     .text-content {
       @include padding (null null 115px);
 
-      @include media-breakpoint-up(md) {
+      @include media-breakpoint-up(lg) {
         @include padding (86px null 121px);
       }
 
@@ -86,7 +86,7 @@
         padding-top: $shape-image-height;
       }
       @include media-breakpoint-down(lg) {
-        height: 240px;
+        height: 200px;
       }
 
       .shape-image {
