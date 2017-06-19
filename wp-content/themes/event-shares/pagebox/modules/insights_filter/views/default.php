@@ -41,7 +41,8 @@ $uniqID = uniqid(rand(1, 999));
                 </div>
             <?php endfor ?>
         </div>
-        <div class="filter justify-content-center">
+
+        <div class="filter">
             <div class="filter-by">filter by</div>
             <div class="custom-dropdown dropdown">
                 <a class="dropdown-button " data-toggle="dropdown">

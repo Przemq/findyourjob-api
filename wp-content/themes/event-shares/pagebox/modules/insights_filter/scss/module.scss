@@ -148,7 +148,19 @@
     padding-bottom: 20px;
   }
 
-//
+//dropdown
+
+  .filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    @include media-breakpoint-up(lg) {
+      position: absolute;
+      top: -15px;
+      right: 15px;
+      flex-direction: row;
+    }
 
     .filter-by {
       text-transform: uppercase;
@@ -156,24 +168,13 @@
       letter-spacing: 2px;
       font-size: 14px;
       text-align: right;
-      padding-top: 25px;
+      line-height: 70px;
       font-weight: bold;
       color: $font_color;
 
       @include media-breakpoint-down(md){
         text-align: left;
       }
-    }
-  .filter {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    @include media-breakpoint-up(lg) {
-      position: absolute;
-      top: -15px;
-      right: 15px;
-      flex-direction: row;
     }
   }
     .custom-dropdown {
