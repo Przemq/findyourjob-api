@@ -20,9 +20,9 @@ $module = $this->getModule();
                 }
 	            $blank = $this->getInput( 'buttonBlankLink' )->getValue() ? 'target=_blank' : "";
 	            ?>
-                <h2><a href="<?=$url?>" <?=$blank?>>
+                <h3><a href="<?=$url?>" <?=$blank?>>
                 <?=$this->getInput('title')?>
-                </a></h2>
+                </a></h3>
             </div>
         </div>
     </div>
