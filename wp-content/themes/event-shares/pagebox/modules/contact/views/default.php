@@ -26,8 +26,23 @@ $module = $this->getModule();
 								<?php else: ?>
                                     <div style="padding-top: 26px"></div>
 								<?php endif; ?>
-
 								<?= $address->getEditor( 'description' )->getContent(); ?>
+								<?php
+								$permalink   = $address->getInput( 'permalink' )->getValue();
+								$buttonText  = $address->getInput( 'button' );
+								$description = $address->getEditor( 'description' )->getContent();
+								$pageLink    = $address->getSelect( 'pageLink' )->getValue()['permalink'];
+								$isBlank     = $address->getInput( 'isBlank' )->getValue();
+								$newTarget   = $isBlank ? 'target=_blank' : '';
+								$link        = $address->getInput( 'isPermalink' )->getValue() ? $permalink : $pageLink;
+								?>
+								<?php if ( $buttonText != "" && ! empty( $buttonText ) ): ?>
+                                    <div class="button-wrapper">
+                                        <a class="button" <?= $newTarget ?> href="<?= $link ?>"><?= $buttonText ?></a>
+                                    </div>
+								<?php endif
+								?>
+
                             </div>
 						<?php endforeach; ?>
 
@@ -39,10 +54,11 @@ $module = $this->getModule();
 						echo do_shortcode( $this->getInput( 'contactFormShortCode' ) );
 					}
 					?>
+					<?= $this->getEditor( 'subscriptionDescription' )->getContent(); ?>
                 </div>
             </div>
             <div class="row back">
-                <h2>Thank you for message</h2>
+                <?= $this->getEditor( 'messageAfterSentOK' )->getContent(); ?>
+            </div>
         </div>
     </div>
-</div>

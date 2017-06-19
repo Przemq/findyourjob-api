@@ -275,11 +275,12 @@
 
 			wpcf7.triggerEvent( data.into, 'submit', detail );
 
-			if ( 'mail_sent' == data.status ) {
-				$form.each( function() {
-					this.reset();
-				} );
-			}
+			//
+			// if ( 'mail_sent' == data.status ) {
+			// 	$form.each( function() {
+			// 		this.reset();
+			// 	} );
+			// }
 
 			$form.find( '[placeholder].placeheld' ).each( function( i, n ) {
 				$( n ).val( $( n ).attr( 'placeholder' ) );

@@ -18,11 +18,12 @@ require_once 'includes/cmb2-tabs/plugin.php';
 
 require_once 'includes/menu-with-description.php';
 
+
 /**
  * Import Theme Utils (Pagebox tools)
  */
 require_once 'functions/theme.php';
-require_once ('includes/theme-options.php');
+require_once( 'includes/theme-options.php' );
 
 /**
  * Theme styles (CSS) and scripts (JavaScript)
@@ -68,13 +69,15 @@ add_action( 'after_setup_theme', function () {
 
 //Add nav-menu to nav
 
-function event_menu_classes($classes, $item, $args) {
-	if($args->theme_location == 'header') {
+function event_menu_classes( $classes, $item, $args ) {
+	if ( $args->theme_location == 'header' ) {
 		$classes[] = 'nav-item';
 	}
+
 	return $classes;
 }
-add_filter('nav_menu_css_class', 'event_menu_classes',1,3);
+
+add_filter( 'nav_menu_css_class', 'event_menu_classes', 1, 3 );
 
 /**
  * Hide WP version strings from scripts and styles
@@ -113,11 +116,11 @@ function wpmudev_remove_version() {
  */
 
 function createTaskLink( $task ) {
-    if ( defined( 'WP_ENVIRONMENT' ) && WP_ENVIRONMENT === 'dev' ) {
-        return '<a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/' . $task . '">' . $task . '</a>';
-    }
+	if ( defined( 'WP_ENVIRONMENT' ) && WP_ENVIRONMENT === 'dev' ) {
+		return '<a class="task-number" target="_blank" href="https://nurture.atlassian.net/browse/' . $task . '">' . $task . '</a>';
+	}
 
-    return '';
+	return '';
 }
 
 
@@ -259,21 +262,10 @@ add_filter( 'wpx_used_post_contexts', function ( $contexts ) {
 	return $contexts;
 } );
 
-/*
-    Prevent the email sending step for specific form
-*/
-//add_action("wpcf7_before_send_mail", "wpcf7_do_something_else");
-//function wpcf7_do_something_else($cf7) {
-//	// get the contact form object
-//	$wpcf = WPCF7_ContactForm::get_current();
-////	dump($wpcf);
-//	// if you wanna check the ID of the Form $wpcf->iddump($wpcf->id);
-////	if (/*Perform check here*/) {
-////		// If you want to skip mailing the data, you can do it...
-////	}
-//
-//
-//	$wpcf->skip_mail = true;
-//
-//	return $wpcf;
-//}
+
+add_action( 'init', 'addGetInTouchSession' );
+function addGetInTouchSession() {
+	if ( empty( session_id() ) || ( session_id() === "" ) ) {
+		session_start();
+	}
+}
