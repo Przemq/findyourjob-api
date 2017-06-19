@@ -25,6 +25,7 @@
       width: 196px;
       height: 92px;
       text-align: center;
+      z-index: 3;
       @include position(absolute, null 20px 0 null);
       svg {
         height: 92px;
@@ -52,6 +53,7 @@
       #header-second-color {
         color: $header_second_color;
       }
+
       .learn-more-button {
         padding: 11.5px 43px;
         background-color: $button_background_color;
@@ -78,6 +80,7 @@
     }
 
     .shape {
+      overflow: hidden;
       padding-top: $shape-image-height-m;
       @include media-breakpoint-up(lg) {
         padding-top: $shape-image-height;
@@ -89,16 +92,18 @@
         @include position(absolute, 0 20px null null);
         @include media-breakpoint-up(lg) {
           @include size (415px 450px);
+          box-shadow: 0px 0px 0px 20px $background-color;
         }
 
         .image-punch {
           //width: 416px;
           //height: 363px;
           @include size ($shape-image-width-m+1px $shape-image-height-m+1px);
-          @include position (absolute, 0 0 0 0);
+          @include position (absolute, 0 0 0 -92px);
+          z-index: 2;
           fill: $background-color;
           @include media-breakpoint-up(lg) {
-            @include size ($shape-image-width+1px 500px);
+            @include size (600px 500px);
           }
         }
 
@@ -113,6 +118,14 @@
             min-height: $shape-image-height;
           }
         }
+      }
+
+      .parallax-mask-fix {
+        background-color: $background-color;
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        min-height: 100px;
       }
     }
   }
