@@ -2,17 +2,23 @@
 
 // Overall module styles
 @include overall_module() {
-    $header-banner-color: #002841;
+  $header-banner-color: #002841;
 
-    .header-banner {
-        background-color: $header-banner-color;
-        padding-top: 90px;
-        padding-bottom: 39px;
+  .header-banner {
+    padding-top: 90px;
+    padding-bottom: 39px;
 
-        p {
-            color: #fff;
-        }
+    p {
+      color: #fff;
     }
+
+    .buttons {
+      padding-top: 17px;
+      .header-button {
+        margin-right: 5px;
+      }
+    }
+  }
 }
 
 // Styles for unique page/post module.
@@ -20,5 +26,22 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    background-color: get('backgroundColor');
+  background-color: get('backgroundColor');
+
+  .header-banner {
+    h2 {
+      color: get('headerColor');
+      font-size: get('headerSize');
+    }
+    .buttons {
+      .button {
+        background-color: get('buttonColor');
+        color: get('buttonTextColor');
+        &:hover {
+          background-color: get('buttonHoverColor');
+          color: get('buttonHoverTextColor');
+        }
+      }
+    }
+  }
 }
