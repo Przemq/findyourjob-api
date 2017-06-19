@@ -23,7 +23,7 @@ $imageBackground = $this->getMedia('imageBackground')->getImage()->getUrl();
 
         <!-- timeline -->
         <div class="row">
-            <div class="timeline hidden-sm-down">
+            <div class="timeline">
                 <ul class="days">
                     <?php foreach ($this->getRepeater('eventRepeater') as $key => $single):
                         /* @var \Nurture\Pagebox\Module\Scope $single */
