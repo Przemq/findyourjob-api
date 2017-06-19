@@ -7,10 +7,11 @@
 namespace Nurture\EventShares\Module;
 
 use Nurture\Pagebox\Module\AbstractModule;
-use Nurture\Pagebox\Module\View\StaticCacheInterface;
 use Nurture\Pagebox\Module\Fields\Builder\Select;
+use Nurture\Pagebox\Module\View\StaticCacheInterface;
 
-class HeaderBanner extends AbstractModule implements StaticCacheInterface {
+class VerticalTimeLine extends AbstractModule implements StaticCacheInterface
+{
 
     /**
      * Module config
@@ -19,49 +20,74 @@ class HeaderBanner extends AbstractModule implements StaticCacheInterface {
     protected function config()
     {
         return [
-        	'version'       => '1.0.0',
-            'title'         => 'Header Banner',
-            'description'   => 'Header banner with text and image in background'
+            'version' => '1.0.0',
+            'title' => 'Vertical timeline',
+            'description' => 'Vertical timeline with events'
         ];
     }
+
     /**
      * @return array Fields configuration.
      */
     protected function fields()
     {
         return [
-	        'headerText' => [
-		        'type' => 'input:text',
-		        'label' => 'Header title',
-		        'description' => 'Please enter title'
-	        ],
-	        'headerColor' => [
-		        'type' => 'input:color',
-		        'label' => 'Header color',
-		        'default' => '#ffffff',
-		        'sass' => true
-	        ],
+            'headerText' => [
+                'type' => 'input:text',
+                'label' => 'Header text',
+            ],
             'headerSize' => [
                 'type' => 'input:text',
                 'label' => 'Header font size',
-                'description' => 'Please enter font size ',
-                'default' => '54px',
+                'default' => '25px',
+                'sass' => true
+
+            ],
+            'headerColor' => [
+                'type' => 'input:color',
+                'label' => 'Header color',
+                'default' => '#1e2c32',
                 'sass' => true
             ],
-            'paragraphText' => [
+            'description' => [
                 'type' => 'editor',
-                'label' => 'Text under header',
-                'description' => 'Please enter text'
+                'label' => 'Module description'
             ],
-            'buttonRepeater' => [
+
+            'eventRepeater' => [
                 'type' => 'repeater',
-                'label' => 'Buttons',
-                'maxItems' => 3,
+                'label' => 'Events',
                 'fields' => [
+                    'eventHeader' => [
+                        'type' => 'input:text',
+                        'label' => 'Header text',
+                    ],
+                    'headerSize' => [
+                        'type' => 'input:text',
+                        'label' => 'Header font size',
+                        'default' => '25px',
+                        'sass' => true
+                    ],
+                    'headerColor' => [
+                        'type' => 'input:color',
+                        'label' => 'Header color',
+                        'default' => '#1e2c32',
+                        'sass' => true
+                    ],
+                    'eventDescription' => [
+                        'type' => 'editor',
+                        'label' => 'Event description',
+                        'description' => 'Please enter event description'
+                    ],
+                    'enableButton' => [
+                        'type' => 'input:switch',
+                        'label' => 'Enable button?',
+                        'description' => 'Please select option',
+                        'default' => false,
+                    ],
                     'buttonText' => [
                         'type' => 'input:text',
                         'label' => 'Button text',
-                        'default' => 'Learn more'
                     ],
                     'enableInternalLink' => [
                         'type' => 'input:switch',
@@ -91,6 +117,24 @@ class HeaderBanner extends AbstractModule implements StaticCacheInterface {
 
                 ],
             ],
+            'backgroundColor' => [
+                'type' => 'input:color',
+                'label' => 'Background color',
+                'description' => 'Please select color',
+                'default' => '#F4F4F4',
+                'sass' => true
+            ],
+            'isImageBackground' => [
+                'type' => 'input:switch',
+                'label' => 'Enable image background? (NO/YES)',
+                'description' => 'Please select option',
+                'default' => false,
+            ],
+            'imageBackground' => [
+                'type' => 'media:image',
+                'label' => 'Select background image',
+                'description' => 'Please select background image',
+            ],
             'buttonColor'           => [
                 'type'        => 'input:color',
                 'label'       => 'Button color',
@@ -119,23 +163,21 @@ class HeaderBanner extends AbstractModule implements StaticCacheInterface {
                 'default' => '#56C1A3',
                 'sass' => true
             ],
-            'isImageBackground' => [
-                'type' => 'input:switch',
-                'label' => 'Enable image background? (NO/YES)',
-                'description' => 'Please select option',
-                'default' => false,
-            ],
-            'imageBackground' => [
-                'type' => 'media:image',
-                'label' => 'Select background image',
-                'description' => 'Please select background image',
-            ],
-            'backgroundColor' => [
-                'type' => 'input:color',
-                'label' => 'Background color',
-                'default' => '#002841',
+            'lineColor'           => [
+                'type'        => 'input:color',
+                'label'       => 'Timeline color',
+                'description' => 'Please select color',
+                'default' => '#A6A6A6',
                 'sass' => true
             ],
+            'dotColor'           => [
+                'type'        => 'input:color',
+                'label'       => 'Dot color',
+                'description' => 'Please select color',
+                'default' => '#1e2c32',
+                'sass' => true
+            ],
+
         ];
     }
 }

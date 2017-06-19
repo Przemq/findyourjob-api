@@ -20,7 +20,10 @@ class HomeBanner extends AbstractModule implements StaticCacheInterface {
 		return [
 			'version'     => '1.0.0',
 			'title'       => 'Home Banner With CTA',
-			'description' => 'Home Banner'
+			'description' => 'Home Banner',
+            'js' => [
+                'depends' => [ 'parallax.js' ]
+            ]
 		];
 	}
 

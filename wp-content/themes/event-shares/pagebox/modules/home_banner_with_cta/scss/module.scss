@@ -7,73 +7,130 @@
   $button_background_color: #56C1A3;
   $button-font-color: #002841;
 
+  //triangle sizes
+  //mobile
+  $shape-image-width-m: 195px;
+  $shape-image-height-m: 170px;
+
+  //destkop
+  $shape-image-width: 415px;
+  $shape-image-height: 361px;
+
   background-color: $background-color;
 
-  .text-content {
-    padding-top: 86px;
-    padding-bottom: 121px;
+  .header-container {
+    position: relative;
 
-    h2 {
-      font-family: 'Roboto Condensed', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 54px;
-      line-height: 64px;
-      color: white;
-      padding-bottom: 4px;
-    }
-
-    p {
-      color: white;
-      font-family: 'Merriweather', serif;
-      padding-bottom: 17px;
-      font-size: 14px;
-      line-height: 27px;
-    }
-    #header-second-color {
-      color: $header_second_color;
-    }
-
-    .learn-more-button {
-      padding: 11.5px 43px;
-      background-color: $button_background_color;
-      //border: none;
-      display: inline-block;
-      margin-bottom: 15px;
-      color: $button-font-color;
-      font-family: 'Roboto Condensed', sans-serif;
-      letter-spacing: 3px;
-      text-decoration: none;
-      border-radius: 3px;
-      text-transform: uppercase;
-      font-size: 16px;
-      font-weight: 600;
-      transition: 0.5s all;
-      border: 1px solid $button_background_color;
-      &:hover {
-        background: rgba(255, 255, 255, 0.14);
-        color: white;
-        border-color: white;
+    .bottom-shape {
+      width: 196px;
+      height: 92px;
+      text-align: center;
+      z-index: 4;
+      @include position(absolute, null 20px 0 null);
+      svg {
+        height: 92px;
       }
+      @include media-breakpoint-up(md) {
+
+        width: 415px;
+      }
+
     }
 
-  }
+    .text-content {
+      @include padding (null null 115px);
 
-  .shapes {
-    display: flex;
-    justify-content: flex-end;
+      @include media-breakpoint-up(lg) {
+        @include padding (86px null 121px);
+      }
 
-    .shape-image {
-      width: 415px;
-      height: 360px;
-      position: relative;
+      p {
+        color: white;
+        padding-bottom: 17px;
+        line-height: 27px;
+      }
+
+      #header-second-color {
+        color: $header_second_color;
+      }
+
+      .learn-more-button {
+        padding: 11.5px 43px;
+        background-color: $button_background_color;
+        //border: none;
+        display: inline-block;
+        margin-bottom: 15px;
+        color: $button-font-color;
+        font-family: 'Roboto Condensed', sans-serif;
+        letter-spacing: 3px;
+        text-decoration: none;
+        border-radius: 3px;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 600;
+        transition: 0.5s all;
+        border: 1px solid $button_background_color;
+        &:hover {
+          background: rgba(255, 255, 255, 0.14);
+          color: white;
+          border-color: white;
+        }
+      }
+
+    }
+
+    .shape {
       overflow: hidden;
+      padding-top: $shape-image-height-m;
+      @include media-breakpoint-up(lg) {
+        padding-top: $shape-image-height;
+      }
+      @include media-breakpoint-down(lg) {
+        height: 200px;
+      }
 
-      .image-punch {
-        width: 415px;
-        height: 361px;
-        @include position (absolute, 0 0 0 0);
-        fill: $background-color;
+      .shape-image {
+        @include size ($shape-image-width-m $shape-image-height-m);
+        overflow: hidden;
+        @include position(absolute, 0 20px null null);
+        @include media-breakpoint-up(lg) {
+          @include size (415px 450px);
+          box-shadow: 0px 0px 0px 20px $background-color;
+        }
+
+        .image-punch {
+          //width: 416px;
+          //height: 363px;
+          height: 235px;
+          width: 385px;
+          //@include size ($shape-image-width-m+1px $shape-image-height-m+1px);
+          @include position (absolute, 0 0 0 -92px);
+          z-index: 2;
+          fill: $background-color;
+          @include media-breakpoint-up(lg) {
+            @include size (600px 500px);
+          }
+        }
+
+        .parallax-window {
+          width: 100%;
+          min-height: $shape-image-height-m;
+          background: transparent;
+          z-index: 1;
+          overflow: hidden;
+          position: relative;
+          @include media-breakpoint-up(lg) {
+            min-height: $shape-image-height;
+          }
+        }
+      }
+
+      .parallax-mask-fix {
+        background-color: $background-color;
+        width: 100%;
+        position: absolute;
+        z-index: 3;
+        min-height: 200px;
       }
     }
   }

@@ -3,24 +3,23 @@
 // Overall module styles
 @include overall_module() {
 
+  #top-page-image-with-text {
+    padding-top: 60px;
+    padding-bottom: 65px;
+    text-align: center;
 
-    #top-page-image-with-text {
-        padding-top: 60px;
-        padding-bottom: 65px;
-        text-align: center;
-
-        #firm-icon {
-            height: 84px;
-            width: 51px;
-        }
-        p {
-            padding-top: 40px;
-            font-family: 'Merriweather', serif;
-            font-size: 14px;
-            color: black;
-            line-height: 22px;
-        }
+    #firm-icon {
+      height: 84px;
+      width: 51px;
+      .st0 {
+        fill: yellow;
+      }
     }
+    p {
+      padding-top: 40px;
+      color: #111;
+    }
+  }
 }
 
 // Styles for unique page/post module.
@@ -28,5 +27,16 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    background-color: get('backgroundColor');
+  background-color: get('backgroundColor');
+
+  #top-page-image-with-text {
+    p {
+      font-size: get('fontSize');
+    }
+    #firm-icon {
+      .st0 {
+        fill: get('imageColor');
+      }
+    }
+  }
 }
