@@ -26,8 +26,23 @@ $module = $this->getModule();
 								<?php else: ?>
                                     <div style="padding-top: 26px"></div>
 								<?php endif; ?>
-
 								<?= $address->getEditor( 'description' )->getContent(); ?>
+								<?php
+								$permalink   = $address->getInput( 'permalink' )->getValue();
+								$buttonText  = $address->getInput( 'button' );
+								$description = $address->getEditor( 'description' )->getContent();
+								$pageLink    = $address->getSelect( 'pageLink' )->getValue()['permalink'];
+								$isBlank     = $address->getInput( 'isBlank' )->getValue();
+								$newTarget   = $isBlank ? 'target=_blank' : '';
+								$link        = $address->getInput( 'isPermalink' )->getValue() ? $permalink : $pageLink;
+								?>
+								<?php if ( $buttonText != "" && ! empty( $buttonText ) ): ?>
+                                    <div class="button-wrapper">
+                                        <a class="button" <?= $newTarget ?> href="<?= $link ?>"><?= $buttonText ?></a>
+                                    </div>
+								<?php endif
+								?>
+
                             </div>
 						<?php endforeach; ?>
 
@@ -39,22 +54,11 @@ $module = $this->getModule();
 						echo do_shortcode( $this->getInput( 'contactFormShortCode' ) );
 					}
 					?>
-                    <div>
-                        Sesja <?=session_id()?>
-<!--                   </br>-->
-                        <?php
-                        $id = unserialize($_SESSION['form_id']);
-//                        dump($id->id);
-                        ?>
-<!--                        Tu bedzie form ::::::: --><?php //dump(unserialize($_SESSION['form_data']))?>
-
-                        Name: <?=$_SESSION['193_your-select']?>
-<!--                        Lastname: --><?//=$_SESSION['surname']?>
-                    </div>
+					<?= $this->getEditor( 'subscriptionDescription' )->getContent(); ?>
                 </div>
             </div>
             <div class="row back">
-                <h2>Thank you for your message. A relevant representative will get back to you soon</h2>
+                <?= $this->getEditor( 'messageAfterSentOK' )->getContent(); ?>
+            </div>
         </div>
     </div>
-</div>

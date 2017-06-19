@@ -8,29 +8,26 @@
   $primary-theme-color: #002842;
   $placeholder-color: #919191;
   $header-color: #1e2c32;
-.flip-container,.front,.back{
-  height:1200px;
-}
-.front,.back{
-  width:100%;
-}
+
+  .front, .back {
+    width: 100%;
+
+  }
   .flip-container {
     @include perspective(1000px);
     @include backface-visibility(hidden);
     @include transform-style(preserve-3d);
     position: relative;
     z-index: 1;
-    //&:hover {
-    //  .flipper {
-    //    @include transform(rotateY(180deg));
-    //  }
-    //}
+
     &.hover {
       .flipper {
         @include transform(rotateY(180deg));
+        .back{
+        }
       }
     }
-    .flipper{
+    .flipper {
       backface-visibility: hidden;
       transition: 0.6s;
       transform-style: preserve-3d;
@@ -38,7 +35,7 @@
       @include perspective(1000px);
       @include backface-visibility(hidden);
       @include transition(0.6s);
-      .front{
+      .front {
         @include transition(0.6s);
         z-index: 2;
         /* for firefox 31 */
@@ -49,16 +46,29 @@
         left: 0;
         @include perspective(1000px);
         @include backface-visibility(hidden);
+        .button{
+          margin-top: 25px;
+          cursor: pointer;
+        }
       }
-      .back{
+      .back {
         background: $primary-theme-color;
-          transform: rotateY(180deg);
+        padding: 50px;
+        text-align: center;
+        transform: rotateY(180deg);
         position: absolute;
+        height:100%;
         top: 0;
         left: 0;
         @include perspective(1000px);
         @include backface-visibility(hidden);
         @include transition(0.6s);
+        @include media-breakpoint-down(md){
+          height:auto;
+          h2{
+            font-size:32px;
+          }
+        }
       }
     }
 
@@ -84,16 +94,11 @@
       resize: none;
     }
 
-    #submit-button {
-      width: 147px;
-      height: 48px;
+    .button {
       text-transform: uppercase;
       font-family: 'Roboto Condensed', sans-serif;
       font-size: 16px;
       letter-spacing: 3px;
-      background-color: $send-button-color;
-      border: none;
-      color: $send-button-text-color;
       margin-left: 4px;
       font-weight: 600;
       margin-top: 11px;
@@ -122,7 +127,12 @@
       color: $placeholder-color;
 
     }
-
+    span.wpcf7-list-item:first-child {
+    margin-left: 0;
+    }
+    .wpcf7-mail-sent-ok{
+      display: none!important;
+    }
   }
 
   #contacts {
@@ -147,7 +157,7 @@
     span, p {
       font-size: 14px;
       font-family: 'Merriweather', serif;
-      color: black;
+      //color: black;
     }
 
     .padding-bottom {
@@ -163,4 +173,21 @@
 // - get_deep( keys... )
 @include specified_module_loop() {
   background-color: get('backgroundColor');
+
+  .button{
+    background-color: get('buttonBackgroundColor');
+    color: get('buttonTextColor');
+    border-color:get('buttonBorderColor');
+    &:hover{
+      @if get('buttonBackgroundHoverColorTransparent') == 1 {
+        background-color:transparent;
+      }
+    @else {
+        background-color: get('buttonBackgroundHoverColor');
+      }
+      color: get('buttonTextHoverColor');
+      border-color:get('buttonBorderHoverColor');
+    }
+
+  }
 }
