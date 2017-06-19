@@ -15,7 +15,6 @@ $uniqID = uniqid(rand(1, 999));
 <div class="<?= $module->getClass() ?>">
     <div class="container" id="sub-nav">
         <?= createTaskLink('EV-32') ?>
-
         <a href="#" class="nav-tabs-dropdown <?= $module->changeNav() ?>">Dropdown-nav</a>
         <ul class="nav-tabs-wrapper nav-tabs nav-tabs-horizontal list-inline row no-gutters <?= $module->changeNavTabs() ?>"
             role="tablist">
@@ -25,9 +24,7 @@ $uniqID = uniqid(rand(1, 999));
                     <a <?php echo ($i == 0) ? 'class="active"' : '' ?>
                             href="#htab-<?= $i ?>-<?= $uniqID ?>" data-toggle="tab" aria-expanded="true">Our
                         Team <?= $i ?></a></li><!--  -->
-
             <?php endfor ?>
-
         </ul>
         <div class="tab-content">
             <?php for ($i = 0; $i < 6; $i++) : ?>
@@ -41,9 +38,9 @@ $uniqID = uniqid(rand(1, 999));
                 </div>
             <?php endfor ?>
         </div>
-        <div class="row column">
+        <div class="row filter">
             <div class="filter-by col-5 col-lg-2">filter by</div>
-            <div class="wrapper col-7 col-lg-10">
+            <div class="buttons col-7 col-lg-10">
                 <div class="custom-dropdown dropdown">
                     <a class="dropdown-button " data-toggle="dropdown">
                         Category
@@ -56,12 +53,12 @@ $uniqID = uniqid(rand(1, 999));
                 </div>
                 <div class="custom-dropdown dropdown">
                     <a class="dropdown-button " data-toggle="dropdown">
-                        Category
+                        Topic
                     </a>
                     <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Category 1</a>
-                        <a class="dropdown-item" href="#">Category 2</a>
-                        <a class="dropdown-item" href="#">Category 3</a>
+                        <a class="dropdown-item" href="#">Topic 1</a>
+                        <a class="dropdown-item" href="#">Topic 2</a>
+                        <a class="dropdown-item" href="#">Topic 3</a>
                     </div>
                 </div>
             </div>
