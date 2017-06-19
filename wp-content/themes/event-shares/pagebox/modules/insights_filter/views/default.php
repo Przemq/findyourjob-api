@@ -19,7 +19,7 @@ $uniqID = uniqid(rand(1, 999));
         <a href="#" class="nav-tabs-dropdown <?= $module->changeNav() ?>">Dropdown-nav</a>
         <ul class="nav-tabs-wrapper nav-tabs nav-tabs-horizontal list-inline row no-gutters <?= $module->changeNavTabs() ?>"
             role="tablist">
-            <?php for ($i = 0; $i < 2; $i++) : ?>
+            <?php for ($i = 0; $i < 6; $i++) : ?>
                 <li class="nav-item custom-nav-item list-inline-item <?= $module->colsTabs() ?>">
 
                     <a <?php echo ($i == 0) ? 'class="active"' : '' ?>
@@ -30,7 +30,7 @@ $uniqID = uniqid(rand(1, 999));
 
         </ul>
         <div class="tab-content">
-            <?php for ($i = 0; $i < 2; $i++) : ?>
+            <?php for ($i = 0; $i < 6; $i++) : ?>
                 <div role="tabpanel"
                      class="tab-pane<?php echo ($i == 0) ? ' active' : '' ?> <?= $module->paddingControl() ?>"
                      id="htab-<?= $i ?>-<?= $uniqID ?>">
@@ -41,27 +41,28 @@ $uniqID = uniqid(rand(1, 999));
                 </div>
             <?php endfor ?>
         </div>
-
-        <div class="filter">
-            <div class="filter-by">filter by</div>
-            <div class="custom-dropdown dropdown">
-                <a class="dropdown-button " data-toggle="dropdown">
-                    Category
-                </a>
-                <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Category 1</a>
-                    <a class="dropdown-item" href="#">Category 2</a>
-                    <a class="dropdown-item" href="#">Category 3</a>
+        <div class="row column">
+            <div class="filter-by col-5 col-lg-2">filter by</div>
+            <div class="wrapper col-7 col-lg-10">
+                <div class="custom-dropdown dropdown">
+                    <a class="dropdown-button " data-toggle="dropdown">
+                        Category
+                    </a>
+                    <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Category 1</a>
+                        <a class="dropdown-item" href="#">Category 2</a>
+                        <a class="dropdown-item" href="#">Category 3</a>
+                    </div>
                 </div>
-            </div>
-            <div class="custom-dropdown dropdown">
-                <a class="dropdown-button " data-toggle="dropdown">
-                    Category
-                </a>
-                <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Category 1</a>
-                    <a class="dropdown-item" href="#">Category 2</a>
-                    <a class="dropdown-item" href="#">Category 3</a>
+                <div class="custom-dropdown dropdown">
+                    <a class="dropdown-button " data-toggle="dropdown">
+                        Category
+                    </a>
+                    <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Category 1</a>
+                        <a class="dropdown-item" href="#">Category 2</a>
+                        <a class="dropdown-item" href="#">Category 3</a>
+                    </div>
                 </div>
             </div>
         </div>
