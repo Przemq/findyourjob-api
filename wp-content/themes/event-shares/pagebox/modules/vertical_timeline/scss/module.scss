@@ -32,7 +32,6 @@ $background-color: white;
   }
 
   .timeline {
-    text-align: center;
     p {
       color: $line-color;
     }
@@ -54,37 +53,58 @@ $background-color: white;
         width: 100%;
         float: left;
 
+        @include media-breakpoint-down(sm) {
+          margin-left: 2%;
+        }
+
         .events {
           position: relative;
-          float: left;
-          border-right: 4px solid $line-color;
           padding: 15px 30px;
-          text-align: right;
-          width: 50%;
-          .button {
-            margin: 10px 15px;
-          }
-        }
-        &:nth-child(even) {
-          .events {
-            width: calc(50% + 1px);
-            float: right;
-            border-right: 0;
-            border-left: 4px solid $line-color;
-            text-align: left;
-            margin-right: 3px;
 
-            &:after {
-              right: auto;
-              left: 0;
-            }
+          @include media-breakpoint-down(sm) {
+            border-left: 4px solid;
+            border-right: none !important;
+            width: 100% !important;
+            text-align: left !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
             h4 {
               &:after {
                 display: inline-block;
                 vertical-align: middle;
                 width: 20px;
                 height: 20px;
-                background-color: $circle-color;
+                border: solid 3px white;
+                border-radius: 50%;
+                position: absolute;
+                top: 18px;
+                left: calc(-1% - 7px) !important;
+                content: '';
+                margin-right: 0 !important;
+              }
+            }
+
+          }
+          .button {
+            margin: 10px 15px;
+          }
+
+        }
+        &:nth-child(even) {
+          .events {
+            width: calc(50% + 1px);
+            float: right;
+            border-right: 0;
+            border-left: 4px solid;
+            text-align: left;
+            margin-right: 3px;
+
+            h4 {
+              &:after {
+                display: inline-block;
+                vertical-align: middle;
+                width: 20px;
+                height: 20px;
                 border: solid 3px white;
                 border-radius: 50%;
                 @include position (absolute, 18px null null calc(-1% - 6px));
@@ -103,13 +123,16 @@ $background-color: white;
 
         &:nth-child(odd) {
           .events {
+            width: 50%;
+            float: left;
+            border-right: 4px solid;
+            text-align: right;
             h4 {
               &:after {
                 display: inline-block;
                 vertical-align: middle;
                 width: 20px;
                 height: 20px;
-                background-color: $circle-color;
                 border: solid 3px white;
                 border-radius: 50%;
                 @include position (absolute, 18px null null calc(98% + 4px));
@@ -127,7 +150,7 @@ $background-color: white;
 
         &:last-child {
           .events {
-            border-color: $background-color;
+            border-color: transparent !important;
             padding-top: 0;
             h4 {
               &:after {
@@ -157,16 +180,21 @@ $background-color: white;
       .day {
         &:last-child {
           .events {
-            border-color: get('backgroundColor');
           }
         }
         .events {
+          border-color: get('lineColor');
           .button {
             background-color: get('buttonColor');
             color: get('buttonTextColor');
             &:hover {
               background-color: get('buttonHoverColor');
               color: get('buttonHoverTextColor');
+            }
+          }
+          h4 {
+            &:after {
+              background-color: get('dotColor');
             }
           }
         }
