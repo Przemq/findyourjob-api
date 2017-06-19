@@ -6,3 +6,40 @@
   right: 5px;
   z-index: 1;
 }
+
+p {
+  font-family: 'Merriweather', serif;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0;
+}
+
+h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 54px;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 63px;
+}
+
+h3 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 25px;
+  line-height: 50px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+//h4 {
+//  font-family: 'Roboto Condensed', sans-serif;
+//  text-transform: uppercase;
+//  letter-spacing: 5px;
+//  margin: 0;
+//}
+
+.parallax-mirror {
+  z-index: 0 !important;
+}

@@ -7,18 +7,22 @@
  */
 
 $module = $this->getModule();
+$internalUrl = $this->getSelect( 'linkUrl' )->getValue()['permalink'];
+$externalLink = $this->getInput('externalLink')->getValue();
+$linkText = $this->getInput('linkText')->getValue();
+$showLink = $this->getInput('isLinkEnable')->getValue();
+$enableInternalLinks = $this->getInput('enableInternalLink')->getValue();
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container">
         <?= createTaskLink('EV-22') ?>
         <div class="row" id="top-page-image-with-text">
             <div class="col-lg-12">
-                <img class="img-fluid" id="firm-icon" src="<?= THEME_IMAGES_URI; ?>/Event%20Shares%20Icon-01-01.svg">
+                <img class="img-fluid style-svg" id="firm-icon" src="<?= $this->getMedia('imageUrl')->getImage()->getUrl()?>">
             </div>
-            <div class="col-lg-6 offset-lg-3"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum
-                    sapien sapien, vel efficitur dui vehicula laoreet. Sed facilisis ornare tellus a mattis. Mauris
-                    volutpat enim eget nibh finibus, quis tempor orci pretium. Ut gravida vehicula dui, ac tincidunt
-                    arcu feugiat at. Nam varius eleifend risus ac aliquam. Sed  semper.</p></div>
+            <div class="col-lg-6 offset-lg-3"><?= $this->getEditor('textUnderImage')->getValue(); ?>
+                <a href="<?php if($enableInternalLinks) echo $internalUrl; else echo $externalLink; ?>" class="button" <?php if(!$showLink) echo 'style="display:none;"' ?>><?= $linkText ?></a>
+            </div>
         </div>
     </div>
 </div>

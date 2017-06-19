@@ -14,7 +14,7 @@ $module = $this->getModule();
 
         <div class="top col-6">
             <div class="row">
-                <h2 class="title">The Management</h2>
+                <h3 class="title">The Management</h3>
                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa excepturi magni
                     voluptatem! Architecto blanditiis, doloribus dolorum enim libero minus optio porro quisquam quo quos
                     recusandae reiciendis repellat sapiente velit voluptatum?</p>
