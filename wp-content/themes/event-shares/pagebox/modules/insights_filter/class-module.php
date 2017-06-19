@@ -32,24 +32,101 @@ class InsightsFilters extends AbstractModule implements StaticCacheInterface {
     protected function fields()
     {
         return [
-	        //Title
-	        'title' => [
-		        'type' => 'input:text',
-		        'label' => 'Title',
-		        'description' => 'Please enter title'
-	        ],
-	        'titleColor' => [
-		        'type' => 'input:color',
-		        'label' => 'Title color',
-		        'default' => '#282780',
-		        'sass' => true
-	        ],
-            'backgroundColor' => [
-                'type' => 'input:color',
-                'label' => 'background color',
-                'default' => '#ffffff',
-                'sass' => true
+            'title' => [
+                'type' => 'input:text',
+                'label' => 'title'
             ],
         ];
+    }
+
+    public function colsTabs()
+    {
+        $colsize = 'col-lg-2'; //default
+        $widthCol = $this->getSection()['width'];
+
+        switch ($widthCol) {
+            case 100:
+                $colsize = 'col-lg-2';
+                break;
+            case 75:
+                $colsize = 'col-lg-2';
+                break;
+            case 50:
+                $colsize = 'col-12';
+                break;
+            case 25:
+                $colsize = 'col-12';
+                break;
+        }
+
+        return $colsize;
+    }
+
+    public function changeNav()
+    {
+        $display = 'nav-hidden'; //default
+        $widthCol = $this->getSection()['width'];
+
+        switch ($widthCol) {
+//            case 100:
+//                $display = 'nav-hidden';
+//                break;
+//            case 75:
+//                $display  = 'nav-hidden';
+//                break;
+            case 50:
+                $display = 'nav-show';
+                break;
+            case 25:
+                $display = 'nav-show';
+                break;
+        }
+
+        return $display;
+    }
+
+    public function changeNavTabs()
+    {
+        $display = 'nav-hidden'; //default
+        $widthCol = $this->getSection()['width'];
+
+        switch ($widthCol) {
+            case 100:
+                $display = 'nav-show big-resolutions';
+                break;
+            case 75:
+                $display = 'nav-show big-resolutions';
+                break;
+            case 50:
+                $display = 'nav-hidden';
+                break;
+            case 25:
+                $display = 'nav-hidden';
+                break;
+        }
+
+        return $display;
+    }
+
+    public function paddingControl()
+    {
+        $display = ''; //default
+        $widthCol = $this->getSection()['width'];
+
+        switch ($widthCol) {
+            case 100:
+                $display = '';
+                break;
+            case 75:
+                $display = '';
+                break;
+            case 50:
+                $display = 'small-padding';
+                break;
+            case 25:
+                $display = 'small-padding';
+                break;
+        }
+        return $display;
     }
 }
