@@ -99,4 +99,10 @@
 </footer>
 <?php wp_footer(); ?>
 </body>
+<?php
+/**
+ * Google Analytics
+ */
+include_once 'includes/analyticstracking.php';
+?>
 </html>
