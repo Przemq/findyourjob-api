@@ -5,15 +5,15 @@
   color: #000;
   right: 5px;
   z-index: 1;
-}
 
+}
 p {
   font-family: 'Merriweather', serif;
   font-size: 14px;
   line-height: 24px;
   margin: 0;
-}
 
+}
 h2 {
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
@@ -22,14 +22,19 @@ h2 {
   color: #fff;
   margin-bottom: 16px;
   line-height: 63px;
-}
+  @include media-breakpoint-down(md) {
+    font-size: 34px;
+    line-height: 43px;
 
+  }
+}
 h3 {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 25px;
   letter-spacing: 4px;
   text-transform: uppercase;
   margin: 0;
+
 }
 
 //h4 {
