@@ -9,7 +9,10 @@
     $circle_color: #CEECF5;
     background: #fff;
     padding: 60px 0 0;
+    @include media-breakpoint-down(md) {
+        padding: 15px 0 15px 0;
 
+    }
     .nav-tabs-dropdown {
         display: none;
         font-family: 'Merriweather', serif;
@@ -77,7 +80,7 @@
                     vertical-align: middle;
                     width: 20px;
                     height: 20px;
-                    background-color: white;
+                    background-color: #ebebeb;
                     border: solid 2px #002841;
                     border-radius: 50%;
                     position: absolute;
@@ -93,7 +96,6 @@
             color: #a6a6a6;
             font-family: 'Merriweather', serif;
             font-style: italic;
-            font-weight: bold;
             text-align: center;
             line-height: 55px;
             font-size: 18px;
@@ -144,29 +146,20 @@
             }
         }
     }
-    p {
-        padding: 43px 0 23px 0;
-        font-size: 17px;
-        color: black;
-        line-height: 38px;
-        text-align: center;
-        margin: 0 auto;
-        @include media-breakpoint-up(lg) {
-            font-size: 23px;
-            max-width: 650px;
-        }
-    }
     .button-wrapper {
         text-align: center;
         padding-bottom: 20px;
 
     }
     .filter {
+        margin-top: 20px;
+
         @include media-breakpoint-up(lg) {
             position: absolute;
             top: -55px;
             right: 15px;
             min-width: 650px;
+            margin-top: 0;
 
         }
         .buttons {

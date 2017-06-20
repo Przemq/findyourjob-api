@@ -22,7 +22,7 @@ $uniqID = uniqid(rand(1, 999));
                 <li class="nav-item custom-nav-item list-inline-item <?= $module->colsTabs() ?>">
 
                     <a <?php echo ($i == 0) ? 'class="active"' : '' ?>
-                            href="#htab-<?= $i ?>-<?= $uniqID ?>" data-toggle="tab" aria-expanded="true">In the media <?= $i ?></a></li>
+                            href="#htab-<?= $i ?>-<?= $uniqID ?>" data-toggle="tab" aria-expanded="true">In the Media <?= $i ?></a></li>
             <?php endfor ?>
         </ul>
         <div class="tab-content">
@@ -31,7 +31,7 @@ $uniqID = uniqid(rand(1, 999));
                      class="tab-pane<?php echo ($i == 0) ? ' active' : '' ?> <?= $module->paddingControl() ?>"
                      id="htab-<?= $i ?>-<?= $uniqID ?>">
                     <div class="text-content justify-content-center">
-                        <p><?= $i ?></p>
+<!--                      PLACE FOR CONTENT  -->
                     </div>
                 </div>
             <?php endfor ?>
