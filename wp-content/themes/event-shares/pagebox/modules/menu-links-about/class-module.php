@@ -193,6 +193,23 @@ class MenuAboutFlyout extends AbstractModule implements StaticCacheInterface {
 			    'default' => '14px',
 			    'sass' => true
 		    ],
+		    'grid-number'       => [
+			    'type'     => 'select',
+			    'label'    => 'Select grid for sub-menu items',
+			    'multiple' => false,
+			    'options'  => [
+				    'allowClear' => true
+			    ],
+			    'default' => 3,
+			    'values'   => [
+			    	[ 'id' => 12, 'name' => "1 item per row"],
+				    [ 'id' => 6, 'name' => "2 items per row"],
+				    [ 'id' => 4, 'name' => "3 items per row"],
+				    [ 'id' => 3, 'name' => "4 items per row"],
+				    [ 'id' => 2, 'name' => "6 items per row"],
+			    ]
+
+		    ],
 	    ];
 
     }

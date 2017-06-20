@@ -14,6 +14,7 @@ $isBlank         = $this->getInput( 'isBlank' )->getValue();
 $newTarget       = $isBlank ? 'target=_blank' : '';
 $link            = $this->getInput( 'isPermalink' )->getValue() ? $permalink : $pageLink;
 $backgroundImage = "";
+$gridNumber = $this->getSelect('grid-number')->getValue()['id'];
 if ( $this->getInput( 'isImage' )->getValue() ) {
 	$bgImageUrl      = $this->getMedia( 'backgroundImage' )->getImage()->getUrl( 'full' );
 	$backgroundImage = 'style="background-image:url(' . $bgImageUrl . ')"';
@@ -38,7 +39,7 @@ if ( $this->getInput( 'isImage' )->getValue() ) {
 			$link = $box->getInput( 'isPermalink' )->getValue() ? $permalink : $pageLink;
 			$buttonText = $box->getInput( 'buttonText' );
 			?>
-            <li class="col-lg-4 col-sm-12">
+            <li class="col-lg-<?=$gridNumber?> col-sm-12">
                 <div class="menu-special-hover">
                     <h4><?= $box->getInput( 'title' ) ?></h4>
 					<?= $box->getEditor( 'description' )->getContent(); ?>

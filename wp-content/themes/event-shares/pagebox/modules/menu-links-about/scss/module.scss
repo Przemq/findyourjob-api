@@ -43,6 +43,7 @@
         a {
           font-size: get('boxDescriptionSize');
           color: get('boxButtonColor');
+          padding-left: 0;
           &:hover {
             color: get('boxButtonColorHover');
           }
