@@ -22,7 +22,7 @@
     position: relative;
 
     .bottom-shape {
-      width: 196px;
+      width: 190px;
       height: 92px;
       text-align: center;
       z-index: 4;
@@ -30,13 +30,10 @@
       svg {
         height: 92px;
       }
-      @include media-breakpoint-up(md) {
-
+      @include media-breakpoint-up(lg) {
         width: 415px;
       }
-
     }
-
     .text-content {
       @include padding (null null 115px);
 
@@ -85,7 +82,7 @@
       @include media-breakpoint-up(lg) {
         padding-top: $shape-image-height;
       }
-      @include media-breakpoint-down(lg) {
+      @include media-breakpoint-down(md) {
         height: 200px;
       }
 
