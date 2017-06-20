@@ -149,11 +149,14 @@
 
     }
     .filter {
+        margin-top: 20px;
+
         @include media-breakpoint-up(lg) {
             position: absolute;
             top: -55px;
             right: 15px;
             min-width: 650px;
+            margin-top: 0;
 
         }
         .buttons {
