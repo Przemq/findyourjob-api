@@ -5,7 +5,7 @@
     $sub_nav_item: #55c2a2;
     $circle_height: 20px;
     $circle_width: 20px;
-    $font_color: #002841;
+    $font_color: #1e2c32;
     $circle_color: #CEECF5;
     background: #fff;
     padding: 60px 0 0;
@@ -178,11 +178,11 @@
         .filter-by {
             text-transform: uppercase;
             font-family: 'Roboto Condensed', sans-serif;
-            letter-spacing: 2px;
-            font-size: 14px;
+            font-size: 16px;
             text-align: right;
             line-height: 70px;
             font-weight: bold;
+            letter-spacing: 3px;
             color: $font_color;
 
             @include media-breakpoint-down(md) {
@@ -229,7 +229,8 @@
             display: block;
             padding: 0 40px 0 15px;
             color: #013140;
-            font-size: 13px;
+            font-size: 14px;
+            font-weight: 600;
             position: relative;
             @include transition(all 0.2s ease-in-out);
             text-align: left;
