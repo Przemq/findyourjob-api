@@ -262,10 +262,15 @@ add_filter( 'wpx_used_post_contexts', function ( $contexts ) {
 	return $contexts;
 } );
 
-
+// Init session for Contact Form
 add_action( 'init', 'addGetInTouchSession' );
 function addGetInTouchSession() {
 	if ( empty( session_id() ) || ( session_id() === "" ) ) {
 		session_start();
 	}
+}
+// Add custom image size for theme
+add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
+function wpdocs_theme_setup() {
+	add_image_size( 'banner-cta', 370, 370, array('center','center') ); // (cropped)
 }

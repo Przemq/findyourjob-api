@@ -7,7 +7,7 @@
  */
 
 $module = $this->getModule();
-$bgImage = $this->getMedia('bgImage')->getImage()->getUrl('normal');
+$bgImage = $this->getMedia('bgImage')->getImage()->getUrl('banner-cta');
 $title = $this->getInput('title');
 $titleInner = $this->getInput('titleInner');
 $description = $this->getEditor('description')->getContent();
@@ -29,7 +29,7 @@ $buttonRight = $this->getInput('buttonRightTitle');
             <div class="col-lg-6 push-lg-6 shape">
                 <div class="shape-image">
 
-                    <div class="parallax-window" data-parallax="scroll" data-image-src="<?= THEME_IMAGES_URI ?>/sample-image.jpg"></div>
+                    <div class="parallax-window" data-parallax="scroll" data-image-src="<?= $bgImage?>"></div>
                     <svg class="image-punch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 263.6 219.7"><title>pu01</title><path d="M222.1,0A10.1,10.1,0,0,1,221,5.8L144.6,151c-4.8,9.1-19.9,9.1-24.7,0L42.7,5.8A10.1,10.1,0,0,1,41.5,0H0V219.7H263.6V0Z"/></svg>
                 </div>
                 <div class="parallax-mask-fix"></div>
