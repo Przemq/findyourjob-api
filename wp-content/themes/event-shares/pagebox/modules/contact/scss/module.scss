@@ -48,7 +48,7 @@
         /* for firefox 31 */
         transform: rotateY(0deg);
         background: white;
-        position: absolute;
+        //position: absolute;
         top: 0;
         left: 0;
         @include perspective(1000px);
