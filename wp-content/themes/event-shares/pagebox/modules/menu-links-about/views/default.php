@@ -10,18 +10,21 @@ $module          = $this->getModule();
 $title           = $this->getInput( 'title' )->getValue();
 $permalink       = $this->getInput( 'permalink' )->getValue();
 $pageLink        = $this->getSelect( 'pageLink' )->getValue()['permalink'];
+$postID          = $this->getSelect( 'pageLink' )->getValue()['postID'];
 $isBlank         = $this->getInput( 'isBlank' )->getValue();
 $newTarget       = $isBlank ? 'target=_blank' : '';
 $link            = $this->getInput( 'isPermalink' )->getValue() ? $permalink : $pageLink;
 $backgroundImage = "";
-$gridNumber = $this->getSelect('grid-number')->getValue()['id'];
+$gridNumber      = $this->getSelect( 'grid-number' )->getValue()['id'];
+
+
 if ( $this->getInput( 'isImage' )->getValue() ) {
 	$bgImageUrl      = $this->getMedia( 'backgroundImage' )->getImage()->getUrl( 'full' );
 	$backgroundImage = 'style="background-image:url(' . $bgImageUrl . ')"';
 }
 ?>
 <?= createTaskLink( 'EV-36' ) ?>
-<li class="<?= $module->getClass() ?> <?= $module->isActive( $link ) ?>">
+<li class="<?= $module->getClass() ?> <?= $module->isParent( $postID ) ?> <?= $module->isActive( $link ) ?>">
 
     <a href="<?= $link ?>" <?= $newTarget ?>>
 		<?= $title ?>
@@ -39,12 +42,12 @@ if ( $this->getInput( 'isImage' )->getValue() ) {
 			$link = $box->getInput( 'isPermalink' )->getValue() ? $permalink : $pageLink;
 			$buttonText = $box->getInput( 'buttonText' );
 			?>
-            <li class="col-lg-<?=$gridNumber?> col-sm-12">
+            <li class="col-lg-<?= $gridNumber ?> col-sm-12">
                 <div class="menu-special-hover">
                     <h4><?= $box->getInput( 'title' ) ?></h4>
 					<?= $box->getEditor( 'description' )->getContent(); ?>
 					<?php if ( ! empty( $buttonText ) && $buttonText !== "" ) : ?>
-                    <a href="<?= $link ?>" <?=$isBlank?>
+                    <a href="<?= $link ?>" <?= $isBlank ?>
                        class="learn-description"><?= $buttonText ?></a>
                 </div>
 				<?php
