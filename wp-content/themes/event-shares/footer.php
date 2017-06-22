@@ -65,7 +65,7 @@
                  id="right-column">
 	            <?php
                 $content = wpx_theme_get_option( 'wpx_theme_footer_big_text' ) ;
-                echo wpx_add_blankline($content);
+	            echo apply_filters('the_content',$content);
                 ?>
             </div>
         </div>
