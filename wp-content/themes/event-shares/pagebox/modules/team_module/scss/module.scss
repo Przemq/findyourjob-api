@@ -2,81 +2,110 @@
 
 // Overall module styles
 @include overall_module() {
-    .container {
-        padding-top: 60px;
-        padding-bottom: 60px;
+  .container {
+    padding-top: 60px;
+    padding-bottom: 60px;
 
-        h2.title {
-            font-family: "Roboto Condensed";
-            font-size: 25px;
-            color: #1E2C32;
-            text-transform: uppercase;
-            letter-spacing: 4px;
+    .title {
+      font-family: "Roboto Condensed", serif;
+      font-size: 25px;
+      color: #1E2C32;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 25px;
 
-        }
-
-        p.description {
-            font-family: "Merriweather";
-            font-size: 14px;
-            color: #000;
-            text-align: left;
-
-        }
-
-        .nav-link {
-            border: none;
-            text-align: center;
-            font-style: italic;
-            font-size: 18px;
-            font-family: "Merriweather Italic";
-            color: #002841;
-            line-height: 1.333;
-            -moz-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
-            -webkit-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
-            -ms-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
-
-            span {
-                font-style: normal;
-                display: block;
-                font-size: 14px;
-                font-family: "Merriweather Light";
-                color: #000;
-                line-height: 1.714;
-                -moz-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
-                -webkit-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
-                -ms-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
-
-            }
-
-            &.active {
-                background-color: transparent;
-                border: none;
-            }
-
-            &:hover {
-                border-color: transparent;
-            }
-
-        }
-
-        .tab-content {
-            font-size: 14px;
-            font-family: "Merriweather Light";
-            line-height: 1.714;
-            text-align: left;
-            padding: 43px 23px 27px 23px;
-            color: #fff;
-            background-color: #002841;
-
-            .quote {
-                color: #56c2a3;
-                font-size: 18px;
-                font-family: "Merriweather Light";
-                font-style: italic;
-                margin-bottom: 38px;
-            }
-        }
     }
+
+    .description {
+      font-family: "Merriweather", serif;
+      font-size: 14px;
+      color: #000;
+      text-align: left;
+
+    }
+    .nav-tabs {
+      border-bottom: none;
+    }
+
+    .nav-link {
+      border: none;
+      text-align: center;
+      font-style: italic;
+      font-size: 18px;
+      font-family: "Merriweather Italic", serif;
+      color: #002841;
+      line-height: 1.333;
+      -moz-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+      -webkit-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+      -ms-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+
+      span {
+        font-style: normal;
+        display: block;
+        font-size: 14px;
+        font-family: "Merriweather Light";
+        color: #000;
+        line-height: 1.714;
+        -moz-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+        -webkit-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+        -ms-transform: matrix(1.00006491745936, 0, 0, 1.00013173494928, 0, 0);
+
+      }
+
+      &.active {
+        background-color: transparent;
+        border: none;
+        padding-bottom: 20px;
+        &:after {
+          content: '';
+          width: 0;
+          height: 0;
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          border-bottom: 20px solid #002841;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          @include transform(translateX(-20px));
+        }
+      }
+
+      &:hover {
+        border-color: transparent;
+      }
+
+    }
+
+    .tab-content {
+      font-size: 14px;
+      font-family: "Merriweather Light";
+      .tab-pane {
+        line-height: 1.714;
+        text-align: left;
+        padding: 43px 23px 27px 23px;
+        color: #fff;
+        background-color: #002841;
+        img{
+          max-width: 100%;
+          width:100%;
+          display: block;
+          height:auto;
+        }
+      }
+
+      .quote {
+        color: #56c2a3;
+        font-size: 18px;
+        font-family: "Merriweather Light";
+        font-style: italic;
+        margin-bottom: 38px;
+      }
+      .tab-pane {
+        position: relative;
+        @include transition(300ms all);
+      }
+    }
+  }
 }
 
 // Styles for unique page/post module.
@@ -84,5 +113,35 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    background-color: get('backgroundColor');
+  background-color: get('backgroundColor');
+
+  .container {
+    .title {
+      font-size: get('titleSize');
+      color: get('titleColor');
+    }
+    .description {
+      font-size: get('descriptionUnderTitleSize');
+      color: get('descriptionUnderTitleColor');
+    }
+    .nav-link {
+      color: get('teamTitleColor');
+      font-size: get('teamTitleSize');
+      span {
+        color: get('jobTitleColor');
+        font-size: get('jobTitleSize');
+      }
+
+    }
+    .tab-pane {
+      color: get('innerDescriptionColor');
+      font-size: get('innerDescriptionSize');
+      background-color: get('tabBackgroundColor');
+      .quote {
+        font-size: get('quoteSize');
+        color: get('quoteColor');
+      }
+    }
+  }
+
 }

@@ -7,196 +7,94 @@
  */
 
 $module = $this->getModule();
+
+?>
+<?php
+$numberOfSections = count( $this->getRepeater( 'tabs' ) );
+
+// Sort new tab for repeater
+$sectionArray = array();
+$tempArray    = array();
+foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
+	array_push( $tempArray, $value );
+	if ( ( $index + 1 ) % 3 === 0 || $index === $numberOfSections - 1 ) {
+
+		array_push( $sectionArray, $tempArray );
+		$tempArray = array();
+	}
+}
 ?>
 <div class="<?= $module->getClass() ?>">
+
     <div class="container">
-        <?= createTaskLink('EV-24') ?>
+		<?= createTaskLink( 'EV-24' ) ?>
 
         <div class="top col-6">
             <div class="row">
-                <h3 class="title">The Management</h3>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa excepturi magni
-                    voluptatem! Architecto blanditiis, doloribus dolorum enim libero minus optio porro quisquam quo quos
-                    recusandae reiciendis repellat sapiente velit voluptatum?</p>
+                <h3 class="title"><?= $this->getInput( 'title' ) ?></h3>
+				<?php if ( $this->getInput( 'isDescriptionUnderTitleSwitch' )->getValue() ): ?>
+                    <div class="description">
+						<?= $this->getEditor( 'descriptionUnderTitle' )->getValue() ?>
+                    </div>
+				<?php endif; ?>
             </div>
         </div>
 
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item col">
-                <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Joe Bloggs
-                    <span>Senior Advisor</span></a>
-            </li>
-            <li class="nav-item col">
-                <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Joseph Baratta
-                    <span>Senior Advisor</span></a>
-            </li>
-            <li class="nav-item col">
-                <a class="nav-link" data-toggle="tab" href="#messages" role="tab">David Calhoun
-                    <span>Senior Advisor</span></a>
-            </li>
-            <li class="nav-item col">
-                <a class="nav-link" data-toggle="tab" href="#settings" role="tab">David S. Blitzer
-                    <span>Senior Advisor</span></a>
-            </li>
-        </ul>
+        <!--        First Loop to dispaly first row-->
+		<?php
+		for ( $i = 0; $i < sizeof( $sectionArray ); $i ++ ): ?>
+            <ul class="team-nav nav nav-tabs row" role="tablist">
+				<?php $uniqeID = uniqid(); ?>
+				<?php foreach ( $sectionArray[ $i ] as $index => $value ): ?>
+					<?php
+					$startElementClass = "";
+					if ( $i == 0 && $index == 0 ) {
+						$startElementClass = "active";
+					}
+					?>
+                    <li class="nav-item col-4">
+                        <a class="nav-link <?= $startElementClass ?>" data-toggle="tab"
+                           href="#tab-<?= $uniqeID . '' . $index ?>"
+                           role="tab"><?= $value->getInput( 'teamTitle' ); ?>
+                            <span><?= $value->getInput( 'jobTitle' ); ?></span></a>
+                    </li>
 
-        <div class="tab-content">
-            <div class="tab-pane active" id="home" role="tabpanel">
-                <div class="quote">
-                    "Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus at.
-                    Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum dolor
-                    amet, consectetur adipiscing elit..." 1
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
-                            Quisque
-                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit.</p>
+				<?php endforeach;
+				?>
+
+            </ul>
+
+            <div class="tab-content">
+				<?php foreach ( $sectionArray[ $i ] as $index => $value ): ?>
+					<?php
+					$startElementClass = "";
+					if ( $i == 0 && $index == 0 ) {
+						$startElementClass = "active show";
+					}
+					?>
+                    <div class="tab-pane fade <?= $startElementClass ?> " id="tab-<?= $uniqeID . '' . $index ?>"
+                         role="tabpanel">
+                        <div class="quote">
+							<?= $value->getEditor( 'quote' )->getValue(); ?>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+								<?= $value->getEditor( 'leftDescriptionPanel' )->getValue(); ?>
+                            </div>
+                            <div class="col-6">
+								<?= $value->getEditor( 'rightDescriptionPanel' )->getValue(); ?>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
-                            Quisque
-                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
+
+				<?php endforeach;
+				?>
+
             </div>
-            <div class="tab-pane" id="profile" role="tabpanel">
-                <div class="quote">
-                    "Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus at.
-                    Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum dolor
-                    amet, consectetur adipiscing elit..." 2
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
-                            Quisque
-                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
+		<?php endfor ?>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit.</p>
-                    </div>
-                    <div class="col-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
-                            Quisque
-                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane" id="messages" role="tabpanel">
-                <div class="quote">
-                    "Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus at.
-                    Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum dolor
-                    amet, consectetur adipiscing elit..." 3
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
-                            Quisque
-                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit.</p>
-                    </div>
-                    <div class="col-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
-                            Quisque
-                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane" id="settings" role="tabpanel">
-                <div class="quote">
-                    "Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus at.
-                    Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum dolor
-                    amet, consectetur adipiscing elit..." 4
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
-                            Quisque
-                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit.</p>
-                    </div>
-                    <div class="col-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit. Integer bibendum neque, sit amet cursus dui cursus at.
-                            Quisque
-                            tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate.</p>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur elit. Integer bibendum dui neque, sit amet cursus
-                            at.
-                            Quisque id tincidunt elit, in venenatis nisi. Sed non libero blandit vulputate. Lorem ipsum
-                            dolor
-                            amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+
 </div>
