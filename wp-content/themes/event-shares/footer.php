@@ -62,7 +62,12 @@
             <div class="col-md-3 col-sm-10"
                  id="left-column"><?=wpx_theme_get_option( 'wpx_theme_footer_small_text' ); ?></div>
             <div class="col-md-6 col-sm-10"
-                 id="right-column"><?=wpx_theme_get_option( 'wpx_theme_footer_big_text' ) ?></div>
+                 id="right-column">
+	            <?php
+                $content = wpx_theme_get_option( 'wpx_theme_footer_big_text' ) ;
+                echo wpx_add_blankline($content);
+                ?>
+            </div>
         </div>
         <div class="row" id="footer-nav">
             <div class="col-md-3 col-sm-4 col-6" id="social-wrapper">

@@ -274,3 +274,8 @@ add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
 function wpdocs_theme_setup() {
 	add_image_size( 'banner-cta', 370, 370, array('center','center') ); // (cropped)
 }
+
+// Add replace $nbsp and add blank line instead (used for cmb2 wyswig)
+function wpx_add_blankline( $content ) {
+	return str_ireplace( '&nbsp;', '</br></br>', $content );
+}
