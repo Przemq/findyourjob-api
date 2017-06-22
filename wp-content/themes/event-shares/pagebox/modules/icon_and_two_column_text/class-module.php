@@ -53,6 +53,12 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 				'default' => '#59C1A2',
 				'sass'    => true
 			],
+			'iconColorHover'        => [
+				'type'    => 'input:color',
+				'label'   => 'Icon color Hover',
+				'default' => '#16a57a',
+				'sass'    => true
+			],
 			'description'      => [
 				'type'    => 'editor',
 				'label'   => 'Description',

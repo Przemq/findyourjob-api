@@ -53,6 +53,12 @@ class IconAndText extends AbstractModule implements StaticCacheInterface {
 		        'default' => '#59c1a2',
 		        'sass' => true
 	        ],
+	        'imageColorHover' => [
+		        'type' => 'input:color',
+		        'label' => 'Image color on hover',
+		        'default' => '#16a57a',
+		        'sass' => true
+	        ],
             'isLinkEnable' => [
                 'type' => 'input:switch',
                 'label' => 'Enable link? (NO/YES)',

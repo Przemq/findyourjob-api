@@ -53,6 +53,12 @@ class IconTextAndCTA extends AbstractModule implements StaticCacheInterface {
 				'default' => '#59C1A2',
 				'sass'    => true
 			],
+			'iconColorHover'        => [
+				'type'    => 'input:color',
+				'label'   => 'Icon color on hover',
+				'default' => '#16a57a',
+				'sass'    => true
+			],
 			'description'      => [
 				'type'    => 'editor',
 				'label'   => 'Description',

@@ -18,16 +18,16 @@
       width: auto;
       margin: 0 auto;
 
-      transition: 0.5s all;
+      @include transition(0.3s all);
       svg {
         max-height: 110px;
         @include media-breakpoint-down(md){
           max-height: 160px;
         }
-        transition: 0.5s all;
-        .st1,.st2 {
+        @include transition(0.3s all);
+        path,polygon,circle{
           fill: #56C1A3;
-          transition: 0.5s all;
+          @include transition(0.3s all);
         }
         //.st0{
         //  fill:#EBEBEB;
@@ -35,8 +35,8 @@
 
       }
       &:hover svg {
-        .st1,.st2 {
-          fill: #002841;
+        path,polygon,circle {
+          fill: #56C1A3;
         }
 
       }
@@ -105,17 +105,18 @@
     }
     .svg-wrapper {
       svg {
-        .st1, .st2 {
+        path,polygon,circle {
           fill: get('sectionIconColor');
           stroke:get('sectionIconColor');
         }
 
       }
-      //&:hover svg {
-      //  .st0,.st1, .st2 {
-      //    fill: get('sectionIconColorHover');
-      //  }
-      //}
+      &:hover svg {
+        path,polygon,circle{
+          fill: get('sectionIconColorHover');
+          stroke: get('sectionIconColorHover');
+        }
+      }
     }
     h4{
       font-size: get('titleInnerSize');

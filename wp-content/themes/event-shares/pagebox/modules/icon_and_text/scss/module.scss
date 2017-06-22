@@ -34,8 +34,16 @@
       font-size: get('fontSize');
     }
     #firm-icon {
-      .st0 {
+      path,polygon,circle {
         fill: get('imageColor');
+        stroke: get('imageColor');
+        @include transition(300ms all);
+      }
+      &:hover{
+        path,polygon,circle {
+          fill: get('imageColorHover');
+          stroke: get('imageColorHover');
+        }
       }
     }
   }

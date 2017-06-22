@@ -58,15 +58,15 @@
             padding: 0 0 4px 0;
             border: none;
             letter-spacing: 1px;
-            a{
-              color:#1B1B1B;
+            a {
+              color: #1B1B1B;
             }
           }
           td {
             letter-spacing: 1px;
             padding: 0 0 5px 0;
             border: none;
-            a{
+            a {
               color: $td-Color;
             }
           }
@@ -90,6 +90,13 @@
         path {
           fill: get('iconColor');
           stroke: get('iconColor');
+          @include transition(300ms all);
+        }
+        &:hover {
+          path {
+            fill: get('iconColorHover');
+            stroke: get('iconColorHover');
+          }
         }
       }
     }
@@ -103,20 +110,20 @@
     }
     table {
       tbody {
-        tr{
-        @include transition(500ms all);
-        a{
-          color: get('rowColor');
-          font-size: get('rowSize');
+        tr {
           @include transition(500ms all);
-        }
-          td a{
+          a {
+            color: get('rowColor');
+            font-size: get('rowSize');
+            @include transition(500ms all);
+          }
+          td a {
             color: get('rowColor');
             font-size: get('rowSize');
           }
-          &:hover{
+          &:hover {
             a {
-                color:get('etfsColorHover');
+              color: get('etfsColorHover');
             }
           }
         }
