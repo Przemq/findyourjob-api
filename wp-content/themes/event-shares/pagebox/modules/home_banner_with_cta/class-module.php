@@ -33,10 +33,15 @@ class HomeBanner extends AbstractModule implements StaticCacheInterface {
 	protected function fields() {
 		return [
 			//Title
-			'title'           => [
-				'type'        => 'input:text',
-				'label'       => 'Title',
-				'description' => 'Please enter title'
+//			'title'           => [
+//				'type'        => 'input:text',
+//				'label'       => 'Title',
+//				'description' => 'Please enter title'
+//			],
+				'title'           => [
+				'type'        => 'editor',
+				'label'       => 'Title (stacked)',
+				'description' => 'Please enter title (use h2 tag)'
 			],
 			'titleColor'      => [
 				'type'    => 'input:color',

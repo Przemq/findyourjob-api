@@ -36,8 +36,8 @@ $buttonRight = $this->getInput('buttonRightTitle');
             </div>
 
             <div class="col-lg-6 pull-lg-6 text-content">
-                <h2><?= $title ?><span class="header-second-color"><?= $titleInner ?></span></h2>
-
+<!--                <h2>--><?//= $title ?><!--<span class="header-second-color">--><?//= $titleInner ?><!--</span></h2>-->
+                <?= $this->getEditor('title')->getValue();?>
                 <?= $description ?>
                 <?php
                 //                Left button
