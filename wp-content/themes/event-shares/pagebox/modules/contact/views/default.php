@@ -14,7 +14,7 @@ $module = $this->getModule();
         <div class="flipper">
             <div class="row front">
 				<?php include_once( 'pageContent.php' ); ?>
-                <div class="flex-lg-row col-lg-6 col-sm-12" id="contacts">
+                <div class="flex-lg-row col-lg-6 col-sm-12 contacts">
                     <div class="row">
                         <div class="col-lg-12"><h4><?= $this->getInput( 'title' ); ?></h4></div>
 						<?php foreach ( $this->getRepeater( 'addresses' ) as $index => $address ) : ?>
@@ -48,7 +48,7 @@ $module = $this->getModule();
 
                     </div>
                 </div>
-                <div id="contact-form" class="col-lg-6 col-sm-12">
+                <div class="col-lg-6 col-sm-12 contact-form">
 
 					<?php if ( shortcode_exists( 'contact-form-7' ) ) {
 						echo do_shortcode( $this->getInput( 'contactFormShortCode' ) );
@@ -57,8 +57,9 @@ $module = $this->getModule();
 					<?= $this->getEditor( 'subscriptionDescription' )->getContent(); ?>
                 </div>
             </div>
-            <div class="row back">
-                <?= $this->getEditor( 'messageAfterSentOK' )->getContent(); ?>
+            <div class="back">
+                <div class="message"><?= $this->getEditor( 'messageAfterSentOK' )->getContent(); ?></div>
             </div>
         </div>
     </div>
+</div>

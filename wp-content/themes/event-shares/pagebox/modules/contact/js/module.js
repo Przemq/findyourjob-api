@@ -78,7 +78,7 @@
         var $containerHeight = $flipContainer.height() + additionalHeight;
         if (failCounter === 0) {
             $thisModule.css({
-                'min-height': $containerHeight + "px"
+                // 'min-height': $containerHeight + "px"
             })
         }
     }

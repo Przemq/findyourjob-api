@@ -17,6 +17,7 @@
   $shape-image-height: 361px;
 
   background-color: $background-color;
+  overflow: hidden;
 
   .header-container {
     position: relative;
@@ -47,7 +48,7 @@
         line-height: 27px;
       }
 
-      #header-second-color {
+      .header-second-color {
         color: $header_second_color;
       }
 
