@@ -2,8 +2,9 @@
 
 $header-color: #1e2c32;
 $circle-color: #1e2c32;
-$line-color: #A6A6A6;
+$line-color: #1e2c32;
 $background-color: white;
+$timeline-color:#56c1a3;
 
 // Overall module styles
 @include overall_module() {
@@ -38,7 +39,7 @@ $background-color: white;
     color: $line-color;
     h4 {
       color: $header-color;
-      font-weight: bold;
+      font-weight: 500;
       letter-spacing: normal;
       text-transform: none;
       padding: 0 15px;
@@ -63,6 +64,7 @@ $background-color: white;
 
           @include media-breakpoint-down(sm) {
             border-left: 4px solid;
+            border-color:$timeline-color;
             border-right: none !important;
             width: 100% !important;
             text-align: left !important;

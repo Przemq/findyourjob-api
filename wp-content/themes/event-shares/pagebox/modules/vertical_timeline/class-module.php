@@ -167,7 +167,7 @@ class VerticalTimeLine extends AbstractModule implements StaticCacheInterface
                 'type'        => 'input:color',
                 'label'       => 'Timeline color',
                 'description' => 'Please select color',
-                'default' => '#A6A6A6',
+                'default' => '#56c1a3',
                 'sass' => true
             ],
             'dotColor'           => [
