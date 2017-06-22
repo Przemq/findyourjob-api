@@ -7,6 +7,12 @@
   },
   {
     "expand": true,
+    "src": ["aos.js", "aos.css"],
+    "cwd": "assets/bower_components/aos/dist/",
+    "dest": "assets/vendors/aos"
+  },
+  {
+    "expand": true,
     "src"   : ["bootstrap.min.js"],
     "cwd"   : "assets/bower_components/bootstrap/dist/js/",
     "dest"  : "assets/vendors/bootstrap/"
@@ -41,6 +47,7 @@
     "cwd": "assets/bower_components/js-cookie/src/",
     "dest": "assets/vendors/js-cookie"
   },
+
   {
     "expand": true,
     "src"   : ["*.min.js"],

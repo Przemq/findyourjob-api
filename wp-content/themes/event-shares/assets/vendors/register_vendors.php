@@ -21,9 +21,10 @@ wp_register_script( 'bootstrap', THEME_VENDORS_URI . '/bootstrap/bootstrap.min.j
 wp_register_script( 'slick', THEME_VENDORS_URI . '/slick/slick.min.js', [ 'jquery' ], '1.6.0', true );
 wp_register_script( 'js-cookie', THEME_VENDORS_URI . '/js-cookie/js.cookie.js', [ 'jquery' ], '2.1.3', true);
 wp_register_script( 'parallax.js', THEME_VENDORS_URI . '/parallax.js/parallax.min.js', [ 'jquery' ], '1.4.2', true );
-
+wp_register_script( 'aos.js', THEME_VENDORS_URI . '/aos/aos.js', [ 'jquery' ], '2.1.1', true);
 /**
  * CSS files
  */
 wp_register_style( 'slick', THEME_VENDORS_URI . '/slick/slick.css', [], '1.6.0' );
 wp_register_style( 'slick-theme', THEME_VENDORS_URI . '/slick/slick-theme.css', [ 'slick' ], '1.6.0' );
+wp_register_style( 'aos', THEME_VENDORS_URI . '/aos/aos.css', [], '2.1.1' );
