@@ -9,6 +9,8 @@
 $module = $this->getModule();
 $hash   = $module->getHash();
 $uniqID = uniqid( rand( 1, 999 ) );
+ $openTab = (integer)$this->getInput('activeTab')->getValue();
+
 ?>
 <div class="<?= $module->getClass() ?>">
 
@@ -19,14 +21,28 @@ $uniqID = uniqid( rand( 1, 999 ) );
         <ul class="nav-tabs-wrapper nav-tabs nav-tabs-horizontal list-inline row no-gutters <?= $module->changeNavTabs() ?>"
             role="tablist">
 			<?php foreach ( $this->getRepeater( 'timeline' ) as $index => $timeLine ):
-
+				$permalinkTitle = $timeLine->getInput( 'titleURL' )->getValue();
+				$pageLinkTitle = $timeLine->getSelect( 'pageLinkTitle' )->getValue()['permalink'];
+				$isBlankTitle = $timeLine->getInput( 'titleBlank' )->getValue();
+				$isTab = $timeLine->getInput( 'isTab' )->getValue();
+				$newTargetTitle = $isBlankTitle ? 'target=_blank' : '';
+				$linkTitle = $timeLine->getInput( 'isPermalinkTitle' )->getValue() ? $permalinkTitle : $pageLinkTitle;
 				$title = $timeLine->getInput( 'title' )->getValue();
 				?>
-                <li class="nav-item custom-nav-item list-inline-item <?= $module->colsTabs() ?>">
-                    <a <?php echo ( $index == 0 ) ? 'class="active"' : '' ?>
+            <li class="nav-item custom-nav-item list-inline-item <?= $module->colsTabs() ?>">
+
+				<?php if ($isTab) :?>
+
+                    <a <?php echo ( ($index+1) === $openTab ) ? 'class="active"' : '' ?>
                             href="#htab-<?= $index ?>-<?= $uniqID ?>" data-toggle="tab"
                             aria-expanded="true"><?= $title ?></a></li>
+                <?php else: ?>
 
+                <a <?php echo ( ($index+1) === $openTab ) ? 'class="active"' : '' ?>
+                        href="<?=$linkTitle?>" <?=$newTargetTitle?>><?= $title ?></a>
+                <?php endif?>
+
+                </li>
 				<?php
 			endforeach;
 			?>

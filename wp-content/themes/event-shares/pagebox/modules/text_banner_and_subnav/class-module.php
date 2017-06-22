@@ -43,6 +43,44 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
 			            'label' => 'Title',
 			            'description' => 'Please enter title'
 		            ],
+		            'isTab' => [
+			            'type'  => 'input:switch',
+			            'label' => 'Is Tab?',
+			            'default' => 0
+		            ],
+		            'isPermalinkTitle' => [
+			            'type'  => 'input:switch',
+			            'label' => 'Use Permalink Link Title',
+			            'default' => 1
+		            ],
+		            'titleURL'       => [
+			            'type'    => 'input:text',
+			            'label'   => 'Title Url ',
+			            'default' => '#'
+		            ],
+		            'pageLinkTitle'       => [
+			            'type'     => 'select',
+			            'label'    => 'Select pagelink for title',
+			            'multiple' => false,
+			            'options'  => [
+				            'allowClear' => true
+			            ],
+			            'values'   => function () {
+				            return Select::postFilter( get_pages( [ 'posts_per_page' => - 1 ] ), [
+					            'postID'    => function ( \WP_Post $post ) {
+						            return $post->ID;
+					            },
+					            'permalink' => function ( \WP_Post $post ) {
+						            return get_permalink( $post->ID );
+					            }
+				            ] );
+			            }
+		            ],
+		            'titleBlank'     => [
+			            'type'    => 'input:switch',
+			            'label'   => 'Title Url New target',
+			            'default' => 0,
+		            ],
 		            'description' => [
 			            'type' => 'editor',
 			            'label' => 'Description',
@@ -89,6 +127,11 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
 		            ],
 	            ],
 
+            ],
+            'activeTab' => [
+	            'type'    => 'input:text',
+	            'label'   => 'Active tab number (please enter desired tab number)',
+	            'default' => '1',
             ],
             'backgroundColor' => [
 	            'type'    => 'input:color',
