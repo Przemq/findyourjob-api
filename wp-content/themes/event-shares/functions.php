@@ -13,6 +13,12 @@ require_once 'includes/cmb2/init.php';
 require_once 'includes/cmb2-tabs/plugin.php';
 
 /**
+ * Init Insights Filters Options
+ */
+
+require_once 'includes/insights-filters-options.php';
+
+/**
  * Init Menu Description Walker
  */
 
@@ -31,6 +37,8 @@ require_once( 'includes/theme-options.php' );
  */
 add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_script( 'scripts', THEME_JS_URI . '/script.js', array( 'jquery', 'bootstrap' ), null, true );
+	wp_localize_script( 'scripts', 'Ajax', [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ] );
+
 } );
 
 /**
@@ -279,3 +287,5 @@ function wpdocs_theme_setup() {
 function wpx_add_blankline( $content ) {
 	return str_ireplace( '&nbsp;', '</br></br>', $content );
 }
+
+
