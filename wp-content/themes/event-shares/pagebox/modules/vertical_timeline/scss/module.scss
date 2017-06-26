@@ -4,7 +4,7 @@ $header-color: #1e2c32;
 $circle-color: #1e2c32;
 $line-color: #1e2c32;
 $background-color: white;
-$timeline-color:#56c1a3;
+$timeline-color: #56c1a3;
 
 // Overall module styles
 @include overall_module() {
@@ -23,7 +23,7 @@ $timeline-color:#56c1a3;
     font-weight: 500;
   }
   .description {
-    P {
+    p {
       font-size: 14px;
       text-align: center;
       padding-bottom: 70px;
@@ -64,7 +64,7 @@ $timeline-color:#56c1a3;
 
           @include media-breakpoint-down(sm) {
             border-left: 4px solid;
-            border-color:$timeline-color;
+            border-color: $timeline-color;
             border-right: none !important;
             width: 100% !important;
             text-align: left !important;
@@ -172,6 +172,31 @@ $timeline-color:#56c1a3;
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
+  .description {
+    p {
+      @if (get_deep('align', 'id') == 'left') {
+        position: relative;
+        left: 0;
+        text-align: left !important;
+      }
+      @if (get_deep('align', 'id') == 'center') {
+        left: 50%;
+        position: relative;
+        text-align: center ! important;
+        @include media-breakpoint-down(sm) {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  .header {
+    @if (get_deep('align', 'id') == 'left') {
+      position: relative;
+      left: 0;
+      text-align: left !important;
+    }
+  }
   background-color: get('backgroundColor');
   .header {
     color: get('headerColor');

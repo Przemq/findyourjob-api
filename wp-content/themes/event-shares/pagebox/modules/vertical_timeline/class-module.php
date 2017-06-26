@@ -53,6 +53,17 @@ class VerticalTimeLine extends AbstractModule implements StaticCacheInterface
                 'type' => 'editor',
                 'label' => 'Module description'
             ],
+            'align'        => [
+                'type'     => 'select',
+                'label'    => 'Description align',
+                'multiple' => false,
+                'values'   => [
+                    [ 'id' => 'center', 'name' => 'Center' ],
+                    [ 'id' => 'left', 'name' => 'Left' ]
+                ],
+                'default'  => 'center',
+                'sass'     => true
+            ],
 
             'eventRepeater' => [
                 'type' => 'repeater',
