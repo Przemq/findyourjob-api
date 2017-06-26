@@ -13,6 +13,7 @@ use WP_Query;
 
 class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCacheInterface {
 
+
 	public function colsTabs() {
 		$colsize  = 'col-lg-2'; //default
 		$widthCol = $this->getSection()['width'];
@@ -101,7 +102,6 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 		return $display;
 	}
 
-
 	/**
 	 * This function runs only for AJAX request.
 	 * Use this function to register AJAX WP action.
@@ -128,9 +128,13 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 		} else {
 			$topic = null;
 		}
-
+		if ( isset( $_POST['nothingFoundText'] ) && ! empty( $_POST['nothingFoundText'] ) ) {
+			$nothingFound = $_POST['nothingFoundText'];
+		} else {
+			$nothingFound = 'Nothing Found';
+		}
 		$args         = [
-			'posts_per_page' => '3',
+			'posts_per_page' => '9',
 			'category_name'  => $postCategory,
 			'tag'            => $topic,
 			'orderby'        => 'date',
@@ -148,19 +152,30 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 				?>
                 <div class="col-lg-4 single-article">
                     <div class="content-wrapper">
-						<?php the_post_thumbnail('full',array('class'=>'article-icon'))?>
+						<?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
                         <div class="publication-info col-lg-12">
-							<?php the_date('d.m.Y')?> | <?php the_author()?>
+							<?php the_date( 'd.m.Y' ) ?> | <?php the_author() ?>
                         </div>
                         <div class="col-lg-12"><h3><?= get_the_title() ?></h3></div>
-                        <div class="col-lg-12"><p><?php the_excerpt()?></p></div>
-                        <div class="col-lg-12" style="text-align: left"><a href="<?=get_the_permalink()?>">READ NOW</a></div>
+                        <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>
+						<?php
+						$readButton = ( ! empty( get_post_meta( get_the_ID(), 'button_text', true ) )
+							? get_post_meta( get_the_ID(), 'button_text', true ) : 'READ NOW' );
+
+						$link = ( ! empty( get_post_meta( get_the_ID(), 'link', true ) )
+							? get_post_meta( get_the_ID(), 'link', true ) : get_the_permalink() );
+
+						?>
+
+                        <div class="col-lg-12 buttons"><a href="<?= $link ?>"><?= $readButton ?></a>
+                        </div>
                     </div>
                 </div>
 			<?php endwhile;
 
 		else :?>
-            <h3>No Insights Found</h3>
+
+            <h3 class="nothingfound"><?= $nothingFound ?></h3>
 		<?php endif; ?>
         </div>
 		<?php
@@ -174,14 +189,14 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 						'end_size'           => 1,
 						'mid_size'           => 5,
 						'total'              => $insightQuery->max_num_pages,
-						'prev_next'          => false,
+						'prev_next'          => true,
 						'before_page_number' => '<strong>',
 						'after_page_number'  => '</strong>'
 					);
 					?>
                     <div class="pagination-wrapper">
                         <div class="numbered">
-							<?php echo paginate_links( $pagination ); ?>
+							<?php echo $this->paginate_links_ajax( $pagination ); ?>
                         </div>
                     </div>
                 </div>
@@ -190,6 +205,161 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 		die();
 	}
 
+	/**
+	 * Retrieve paginated links for ajax  (few changes paginate_links).
+	 */
+	function paginate_links_ajax( $args = '' ) {
+		global $wp_query, $wp_rewrite;
+
+		// Setting up default values based on the current URL.
+		$pagenum_link = html_entity_decode( 'http://event-share.dev/news-insights/' );
+		$url_parts    = explode( '?', $pagenum_link );
+
+		// Get max pages and current page out of the current query, if available.
+		$total   = isset( $wp_query->max_num_pages ) ? $wp_query->max_num_pages : 1;
+		$current = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
+
+		// Append the format placeholder to the base URL.
+		$pagenum_link = trailingslashit( $url_parts[0] ) . '%_%';
+
+		// URL base depends on permalink settings.
+		$format = $wp_rewrite->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
+		$format .= $wp_rewrite->using_permalinks() ? user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' ) : '?paged=%#%';
+
+		$defaults = array(
+			'base'               => $pagenum_link,
+			// http://example.com/all_posts.php%_% : %_% is replaced by format (below)
+			'format'             => $format,
+			// ?page=%#% : %#% is replaced by the page number
+			'total'              => $total,
+			'current'            => $current,
+			'show_all'           => false,
+			'prev_next'          => true,
+			'prev_text'          => __( '&laquo; Previous' ),
+			'next_text'          => __( 'Next &raquo;' ),
+			'end_size'           => 1,
+			'mid_size'           => 2,
+			'type'               => 'plain',
+			'add_args'           => array(),
+			// array of query args to add
+			'add_fragment'       => '',
+			'before_page_number' => '',
+			'after_page_number'  => ''
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+
+		if ( ! is_array( $args['add_args'] ) ) {
+			$args['add_args'] = array();
+		}
+
+		// Merge additional query vars found in the original URL into 'add_args' array.
+		if ( isset( $url_parts[1] ) ) {
+			// Find the format argument.
+			$format       = explode( '?', str_replace( '%_%', $args['format'], $args['base'] ) );
+			$format_query = isset( $format[1] ) ? $format[1] : '';
+			wp_parse_str( $format_query, $format_args );
+
+			// Find the query args of the requested URL.
+			wp_parse_str( $url_parts[1], $url_query_args );
+
+			// Remove the format argument from the array of query arguments, to avoid overwriting custom format.
+			foreach ( $format_args as $format_arg => $format_arg_value ) {
+				unset( $url_query_args[ $format_arg ] );
+			}
+
+			$args['add_args'] = array_merge( $args['add_args'], urlencode_deep( $url_query_args ) );
+		}
+
+		// Who knows what else people pass in $args
+		$total = (int) $args['total'];
+		if ( $total < 2 ) {
+			return;
+		}
+		$current  = (int) $args['current'];
+		$end_size = (int) $args['end_size']; // Out of bounds?  Make it the default.
+		if ( $end_size < 1 ) {
+			$end_size = 1;
+		}
+		$mid_size = (int) $args['mid_size'];
+		if ( $mid_size < 0 ) {
+			$mid_size = 2;
+		}
+		$add_args   = $args['add_args'];
+		$r          = '';
+		$page_links = array();
+		$dots       = false;
+
+		if ( $args['prev_next'] && $current && 1 < $current ) :
+			$link = str_replace( '%_%', 2 == $current ? '' : $args['format'], $args['base'] );
+			$link = str_replace( '%#%', $current - 1, $link );
+			if ( $add_args ) {
+				$link = add_query_arg( $add_args, $link );
+			}
+			$link .= $args['add_fragment'];
+
+			/**
+			 * Filters the paginated links for the given archive pages.
+			 *
+			 * @since 3.0.0
+			 *
+			 * @param string $link The paginated link URL.
+			 */
+			$prevNumber   = $current - 1;
+			$page_links[] = '<a class="page-numbers" href="/' . $prevNumber . '">' . $args['prev_text'] . '</a>';
+		endif;
+		for ( $n = 1; $n <= $total; $n ++ ) :
+			if ( $n == $current ) :
+				$page_links[] = "<span class='page-numbers current'>" . $args['before_page_number'] . number_format_i18n( $n ) . $args['after_page_number'] . "</span>";
+				$dots         = true;
+			else :
+				if ( $args['show_all'] || ( $n <= $end_size || ( $current && $n >= $current - $mid_size && $n <= $current + $mid_size ) || $n > $total - $end_size ) ) :
+					$link = str_replace( '%_%', 1 == $n ? '' : $args['format'], $args['base'] );
+					$link = str_replace( '%#%', $n, $link );
+					if ( $add_args ) {
+						$link = add_query_arg( $add_args, $link );
+					}
+					$link .= $args['add_fragment'];
+
+					/** This filter is documented in wp-includes/general-template.php */
+					$page_links[] = "<a class='page-numbers' href='/" . $n . "'>" . $args['before_page_number'] . number_format_i18n( $n ) . $args['after_page_number'] . "</a>";
+					$dots         = true;
+                elseif ( $dots && ! $args['show_all'] ) :
+					$page_links[] = '<span class="page-numbers dots">' . __( '&hellip;' ) . '</span>';
+					$dots         = false;
+				endif;
+			endif;
+		endfor;
+		if ( $args['prev_next'] && $current && $current < $total ) :
+			$link = str_replace( '%_%', $args['format'], $args['base'] );
+			$link = str_replace( '%#%', $current + 1, $link );
+			if ( $add_args ) {
+				$link = add_query_arg( $add_args, $link );
+			}
+			$link .= $args['add_fragment'];
+
+			/** This filter is documented in wp-includes/general-template.php */
+			$page_links[] = '<a class="page-numbers" href="/' . ( $current + 1 ) . '">' . $args['next_text'] . '</a>';
+		endif;
+		switch ( $args['type'] ) {
+			case 'array' :
+				return $page_links;
+
+			case 'list' :
+				$r .= "<ul class='page-numbers'>\n\t<li>";
+				$r .= join( "</li>\n\t<li>", $page_links );
+				$r .= "</li>\n</ul>\n";
+				break;
+
+			default :
+				$r = join( "\n", $page_links );
+				break;
+		}
+
+		return $r;
+	}
+
+//	Filter when user use buttons filters
 
 	public function filterInsightsNoPagination() {
 
@@ -203,14 +373,19 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 		} else {
 			$topic = null;
 		}
+		if ( isset( $_POST['nothingFoundText'] ) && ! empty( $_POST['nothingFoundText'] ) ) {
+			$nothingFound = $_POST['nothingFoundText'];
+		} else {
+			$nothingFound = 'Nothing Found';
+		}
 		if ( isset( $_POST['paginationNumber'] ) && ! empty( $_POST['paginationNumber'] ) ) {
 			$paginationNumber = $_POST['paginationNumber'];
 		} else {
 			$paginationNumber = null;
 		}
 		$args         = [
-			'posts_per_page' => '3',
-            'paged' => $paginationNumber,
+			'posts_per_page' => '9',
+			'paged'          => $paginationNumber,
 			'category_name'  => $postCategory,
 			'tag'            => $topic,
 			'orderby'        => 'date',
@@ -223,55 +398,67 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 
 		if ( $insightQuery->have_posts() ) : ?>
             <div class="article-boxes row">
-            <?php
-			while ( $insightQuery->have_posts() ) : $insightQuery->the_post();
-				?>
-                <div class="col-lg-4 single-article">
-                    <div class="content-wrapper">
-						<?php the_post_thumbnail('full',array('class'=>'article-icon'))?>
-                        <div class="publication-info col-lg-12">
-							<?php the_date('d.m.Y')?> | <?php the_author()?>
+				<?php
+				while ( $insightQuery->have_posts() ) : $insightQuery->the_post();
+					?>
+                    <div class="col-lg-4 single-article">
+                        <div class="content-wrapper">
+							<?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
+                            <div class="publication-info col-lg-12">
+								<?php the_date( 'd.m.Y' ) ?> | <?php the_author() ?>
+                            </div>
+                            <div class="col-lg-12"><h3><?= get_the_title() ?></h3></div>
+                            <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>
+							<?php
+							$readButton = ( ! empty( get_post_meta( get_the_ID(), 'button_text', true ) )
+								? get_post_meta( get_the_ID(), 'button_text', true ) : 'READ NOW' );
+
+							$link = ( ! empty( get_post_meta( get_the_ID(), 'link', true ) )
+								? get_post_meta( get_the_ID(), 'link', true ) : get_the_permalink() );
+
+							?>
+
+                            <div class="col-lg-12 buttons"><a
+                                        href="<?= $link ?>"><?= $readButton ?></a></div>
                         </div>
-                        <div class="col-lg-12"><h3><?= get_the_title() ?></h3></div>
-                        <div class="col-lg-12"><p><?php the_excerpt()?></p></div>
-                        <div class="col-lg-12" style="text-align: left"><a href="<?=get_the_permalink()?>">READ NOW</a></div>
                     </div>
-                </div>
-			<?php endwhile;
-			?>
+				<?php endwhile;
+				?>
             </div>
-            <?php
+			<?php
 
 		else :?>
-            <h3>No Insights Found</h3>
+            <h3 class="nothingfound"><?= $nothingFound ?></h3>
 		<?php endif; ?>
-        <?php
+		<?php
 
 		if ( $insightQuery->max_num_pages > 1 ): ; ?>
             <div class="container pagePagination">
                 <div class="row">
 					<?php
 					$pagination = array(
-                        'current' => $paginationNumber,
+						'current'            => $paginationNumber,
 						'end_size'           => 1,
 						'mid_size'           => 5,
 						'total'              => $insightQuery->max_num_pages,
-						'prev_next'          => false,
+						'prev_next'          => true,
 						'before_page_number' => '<strong>',
 						'after_page_number'  => '</strong>'
 					);
 					?>
                     <div class="pagination-wrapper">
                         <div class="numbered">
-							<?php echo paginate_links( $pagination ); ?>
+							<?php echo $this->paginate_links_ajax( $pagination ); ?>
                         </div>
                     </div>
                 </div>
             </div>
-		<?php endif;?>
+		<?php endif; ?>
 		<?php
 		die();
 	}
+
+//	Use when user use pagination filter
 
 	/**
 	 * Module config
@@ -294,23 +481,135 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 	protected function fields() {
 		return [
 			//Title
-			'title'           => [
+			'filterBy'                   => [
 				'type'        => 'input:text',
-				'label'       => 'Title',
-				'description' => 'Please enter title'
+				'label'       => 'Filter By Text',
+				'description' => 'Enter text for filter by:',
+				'default'     => 'Filter By'
 			],
-			'titleColor'      => [
-				'type'    => 'input:color',
-				'label'   => 'Title color',
-				'default' => '#282780',
-				'sass'    => true
+			'textforAll'                 => [
+				'type'    => 'input:text',
+				'label'   => 'Filter text for all categorys/topics',
+				'default' => 'All'
 			],
-			'backgroundColor' => [
+			'nothingFound'               => [
+				'type'    => 'input:text',
+				'label'   => 'Text where no posts/articles found',
+				'default' => 'Nothing Found'
+			],
+			'backgroundColor'            => [
 				'type'    => 'input:color',
 				'label'   => 'Background color',
 				'default' => '#EBEBEB',
 				'sass'    => true
 			],
+			'filterText'                 => [
+				'type'     => 'repeater',
+				'label'    => 'Filter Text',
+				'maxItems' => 6,
+				'fields'   => [
+					'title'       => [
+						'type'        => 'input:text',
+						'label'       => 'Title',
+						'description' => 'Please enter title'
+					],
+					'description' => [
+						'type'        => 'editor',
+						'label'       => 'Text below filter',
+						'description' => 'Please enter text under filter'
+					],
+				]
+			],
+			'filterTextColor'            => [
+				'type'    => 'input:color',
+				'label'   => 'Title filter color',
+				'default' => '#002841',
+				'sass'    => true
+			],
+			'filterTextColorHover'       => [
+				'type'    => 'input:color',
+				'label'   => 'Title filter color',
+				'default' => '#a6a6a6',
+				'sass'    => true
+			],
+			'filterTextSize'             => [
+				'type'    => 'input:text',
+				'label'   => 'Title filter size',
+				'default' => '18px',
+				'sass'    => true
+			],
+			'filterDescriptionTextColor' => [
+				'type'    => 'input:color',
+				'label'   => 'Text under filter color',
+				'default' => '#292b2c',
+				'sass'    => true
+			],
+			'filterDescriptionTextSize'  => [
+				'type'    => 'input:text',
+				'label'   => 'Text under filter size',
+				'default' => '16px',
+				'sass'    => true
+			],
+
+			'iconColor' => [
+				'type'    => 'input:color',
+				'label'   => 'Icons color',
+				'default' => '#55c2a2',
+				'sass'    => true
+			],
+
+			'iconColorHover' => [
+				'type'    => 'input:color',
+				'label'   => 'Icons color',
+				'default' => '#16a57a',
+				'sass'    => true
+			],
+
+			'buttonColor' => [
+				'type'    => 'input:color',
+				'label'   => 'Button color',
+                'description' => 'Button "Read Now" color',
+				'default' => '#55c2a2',
+				'sass'    => true
+			],
+
+			'buttonColorHover' => [
+				'type'    => 'input:color',
+				'label'   => 'Button color hover',
+				'description' => 'Button "Read Now" color hover',
+				'default' => '#292b2c',
+				'sass'    => true
+			],
+
+			'isButtonColorBackgroundTransparent' => [
+				'type'    => 'input:switch',
+				'label'   => 'Enable Transparent Background',
+				'default' => 1,
+				'sass'    => true
+			],
+			'buttonColorBackground'              => [
+				'type'    => 'input:color',
+				'label'   => 'Button background color',
+				'description' => 'Button "Read Now" background color',
+				'default' => '#16a57a',
+				'sass'    => true
+			],
+			'isButtonColorBackgroundTransparentHover' => [
+				'type'    => 'input:switch',
+				'label'   => 'Enable Transparent Background on Hover',
+				'default' => 1,
+				'sass'    => true
+			],
+			'buttonColorBackgroundHover'         => [
+				'type'    => 'input:color',
+				'label'   => 'Button background hover color',
+				'default' => '#16a57a',
+				'sass'    => true
+			],
+
+
 		];
 	}
+
+
 }

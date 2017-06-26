@@ -11,9 +11,8 @@ $hash   = $module->getHash();
 $uniqID = uniqid( rand( 1, 999 ) );
 
 $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-dump( $paged );
 $args = [
-	'posts_per_page' => '3',
+	'posts_per_page' => '9',
 	'orderby'        => 'date',
 	'order'          => 'DESC',
 	'post_type'      => 'post',
@@ -24,40 +23,41 @@ $args = [
 $categorys    = get_categories();
 $topics       = get_tags();
 $insightQuery = new WP_Query( $args );
-
-//dump( $insightQuery );
-dump( $insightQuery );
 ?>
 <div class="insight-wrapper <?= $module->getClass() ?>">
 
     <!-- Filter Wrapper  -->
     <div class="filter-wrapper">
+	    <?= createTaskLink( 'EV-45' ) ?>
+
         <div class="container" id="sub-nav">
+
 			<?= createTaskLink( 'EV-32' ) ?>
             <a href="#" class="nav-tabs-dropdown <?= $module->changeNav() ?>">Dropdown-nav</a>
             <ul class="nav-tabs-wrapper nav-tabs nav-tabs-horizontal list-inline row no-gutters <?= $module->changeNavTabs() ?>"
                 role="tablist">
-				<?php for ( $i = 0; $i < 6; $i ++ ) : ?>
+				<?php foreach ( $this->getRepeater( 'filterText' ) as $index => $filter ) : ?>
                     <li class="nav-item custom-nav-item list-inline-item <?= $module->colsTabs() ?>">
 
-                        <a <?php echo ( $i == 0 ) ? 'class="active"' : '' ?>
-                                href="#htab-<?= $i ?>-<?= $uniqID ?>" data-toggle="tab" aria-expanded="true">In the
-                            Media <?= $i ?></a></li>
-				<?php endfor ?>
+                        <a <?php echo ( $index == 0 ) ? 'class="active"' : '' ?>
+                                href="#htab-<?= $index ?>-<?= $uniqID ?>" data-toggle="tab" aria-expanded="true">
+							<?= $filter->getInput( 'title' ) ?>
+                        </a></li>
+				<?php endforeach; ?>
             </ul>
             <div class="tab-content">
-				<?php for ( $i = 0; $i < 6; $i ++ ) : ?>
+				<?php foreach ( $this->getRepeater( 'filterText' ) as $index => $filter ) : ?>
                     <div role="tabpanel"
-                         class="tab-pane<?php echo ( $i == 0 ) ? ' active' : '' ?> <?= $module->paddingControl() ?>"
-                         id="htab-<?= $i ?>-<?= $uniqID ?>">
+                         class="tab-pane<?php echo ( $index == 0 ) ? ' active' : '' ?> <?= $module->paddingControl() ?>"
+                         id="htab-<?= $index ?>-<?= $uniqID ?>">
                         <div class="text-content justify-content-center">
-                            <!--                      PLACE FOR CONTENT  --> <?= $i ?>
+							<?= $filter->getEditor( 'description' )->getValue(); ?>
                         </div>
                     </div>
-				<?php endfor ?>
+				<?php endforeach; ?>
             </div>
             <div class="row filter">
-                <div class="filter-by col-5 col-lg-3">filter by</div>
+                <div class="filter-by col-5 col-lg-3"><?= $this->getInput( 'filterBy' ) ?></div>
                 <div class="buttons col-7 col-lg-9">
                     <div class="custom-dropdown dropdown category-dropdown">
 
@@ -66,7 +66,7 @@ dump( $insightQuery );
                         </a>
 
                         <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" data-value="" href="#">All</a>
+                            <a class="dropdown-item" data-value="" href="#"><?= $this->getInput( 'textforAll' ) ?></a>
 							<?php foreach ( $categorys as $index => $cat ) : ?>
                                 <a class="dropdown-item" data-value="<?= $cat->slug ?>" href="#"><?= $cat->name ?></a>
 							<?php endforeach; ?>
@@ -77,7 +77,7 @@ dump( $insightQuery );
                             Topic
                         </a>
                         <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" data-value="" href="#">All</a>
+                            <a class="dropdown-item" data-value="" href="#"><?= $this->getInput( 'textforAll' ) ?></a>
 							<?php foreach ( $topics as $index => $topic ) : ?>
                                 <a class="dropdown-item" data-value="<?= $topic->slug ?>"
                                    href="#"><?= $topic->name ?></a>
@@ -98,59 +98,77 @@ dump( $insightQuery );
     <!-- Boxes -->
 
     <div class="container-fluid" id="insights-post-wrapper">
-		<?php include_once( 'pageContent.php' ) ?>
+
         <div class="container">
 			<?= createTaskLink( 'EV-31' ) ?>
+            <?php
+            // Declare variable and send its also to ajax
+            $nothingFound = $this->getInput( 'nothingFound' );
+
+            ?>
+            <input id="nothingFound" type="hidden" name="nothingFound" value="<?=$nothingFound?>">
 			<?php if ( $insightQuery->have_posts() ) : ?>
-            <div class="article-boxes-wrapper">
-                <div class="article-boxes row">
-				<?php while ( $insightQuery->have_posts() ) : $insightQuery->the_post() ?>
+                <div class="article-boxes-wrapper">
+                    <div class="article-boxes row">
+						<?php while ( $insightQuery->have_posts() ) : $insightQuery->the_post() ?>
 
-                    <div class="col-lg-4 single-article">
-                        <div class="content-wrapper">
-                            <?php the_post_thumbnail('full',array('class'=>'article-icon'))?>
-                            <div class="publication-info col-lg-12">
-								<?php the_date('d.m.Y')?> | <?php the_author()?>
+                            <div class="col-lg-4 single-article">
+                                <div class="content-wrapper">
+									<?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
+                                    <div class="publication-info col-lg-12">
+										<?php the_date( 'd.m.Y' ) ?> | <?php the_author() ?>
+                                    </div>
+                                    <div class="col-lg-12"><h3><?= get_the_title() ?></h3></div>
+                                    <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>
+
+									<?php
+									$readButton = ( ! empty( get_post_meta( get_the_ID(), 'button_text', true ) )
+										? get_post_meta( get_the_ID(), 'button_text', true ) : 'READ NOW' );
+
+									$link = ( ! empty( get_post_meta( get_the_ID(), 'link', true ) )
+										? get_post_meta( get_the_ID(), 'link', true ) : get_the_permalink() );
+
+									?>
+
+                                    <div class="col-lg-12 buttons"><a
+                                                href="<?= $link ?>"><?= $readButton ?></a></div>
+                                </div>
                             </div>
-                            <div class="col-lg-12"><h3><?= get_the_title() ?></h3></div>
-                            <div class="col-lg-12"><p><?php the_excerpt()?></p></div>
-                            <div class="col-lg-12" style="text-align: left"><a href="<?=get_the_permalink()?>">READ NOW</a></div>
-                        </div>
+						<?php endwhile; ?>
                     </div>
-				<?php endwhile; ?>
-            </div>
-            <!--Pagination-->
-			<?php if ( $insightQuery->max_num_pages > 1 ): ; ?>
-                <div class="container pagePagination">
-                    <div class="row">
-						<?php
-						$pagination = array(
-							'end_size'           => 1,
-							'mid_size'           => 5,
-							'total'              => $insightQuery->max_num_pages,
-							'prev_next'          => false,
-							'before_page_number' => '<strong>',
-							'after_page_number'  => '</strong>'
-						);
-						?>
-                        <div class="pagination-wrapper">
-                            <span class="prev-link"><?php previous_posts_link( 'Previous' ) ?></span>
-                            <div class="numbered">
+                    <!--Pagination-->
+					<?php if ( $insightQuery->max_num_pages > 1 ): ; ?>
+                        <div class="container pagePagination">
+                            <div class="row">
 								<?php
+								$pagination = array(
+									'base' => str_replace( 999, '%#%', esc_url( get_pagenum_link( 999 ) ) ),
+									'format' => '?paged=%#%',
+									'end_size'           => 1,
+									'mid_size'           => 5,
+									'total'              => $insightQuery->max_num_pages,
+									'prev_next'          => true,
+									'before_page_number' => '<strong>',
+									'after_page_number'  => '</strong>'
+								);
 								?>
-								<?php echo paginate_links( $pagination ); ?>
+                                <div class="pagination-wrapper">
+                                    <div class="numbered">
+	                                    <?php echo $module->paginate_links_ajax( $pagination ); ?>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+					<?php endif; ?>
                 </div>
-			<?php endif; ?>
+
+				<?php
+			else:?>
+                <h3 class="nothingfound"><?= $nothingFound ?></h3>
+				<?php
+			endif;
+			wp_reset_postdata();
+			?>
         </div>
-
-
-	<?php
-	endif;
-	wp_reset_postdata();
-	?>
     </div>
-</div>
 </div>
