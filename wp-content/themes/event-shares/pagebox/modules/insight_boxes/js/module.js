@@ -23,7 +23,7 @@ let moduleClass = '.wpx-mcee07026';
 
     });
 
-    $('#insights-post-wrapper').delegate(".pagination-wrapper .page-numbers", 'click', function (event) {
+    $('#insights-post-wrapper').delegate(".pagination-wrapper a ", 'click', function (event) {
         event.preventDefault();
         if (!$(this).hasClass('current')) {
             $(this).parent().find('.page-numbers').removeClass('current');

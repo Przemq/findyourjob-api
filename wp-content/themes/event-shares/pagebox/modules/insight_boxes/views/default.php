@@ -107,14 +107,14 @@ dump( $insightQuery );
 				<?php while ( $insightQuery->have_posts() ) : $insightQuery->the_post() ?>
 
                     <div class="col-lg-4 single-article">
-                        <div class="tile-wrapper">
-                            <img class="article-icon" src="<?= THEME_IMAGES_URI; ?>/ES Bags Money Icon-01-01.svg">
+                        <div class="content-wrapper">
+                            <?php the_post_thumbnail('full',array('class'=>'article-icon'))?>
                             <div class="publication-info col-lg-12">
-								<?php echo $pageContent['article_date'] . ' | ' . $pageContent['article_author']; ?>
+								<?php the_date('d.m.Y')?> | <?php the_author()?>
                             </div>
                             <div class="col-lg-12"><h3><?= get_the_title() ?></h3></div>
-                            <div class="col-lg-12"><p><?php echo $pageContent['article_paragraph']; ?></p></div>
-                            <div class="col-lg-12" style="text-align: left"><a href="#">READ NOW</a></div>
+                            <div class="col-lg-12"><p><?php the_excerpt()?></p></div>
+                            <div class="col-lg-12" style="text-align: left"><a href="<?=get_the_permalink()?>">READ NOW</a></div>
                         </div>
                     </div>
 				<?php endwhile; ?>
