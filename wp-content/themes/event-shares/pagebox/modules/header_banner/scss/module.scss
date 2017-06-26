@@ -3,13 +3,11 @@
 // Overall module styles
 @include overall_module() {
   $header-banner-color: #002841;
-  background: url($template-url + '/assets/images/background-banner-x.png') no-repeat;
-  background-size: cover;
+  background: url($template-url + '/assets/images/background-x.svg') no-repeat;
+  background-position-x: 85%;
   @include media-breakpoint-up(sm) {
-    background-position-x: 90%;
     background-size: contain;
     min-height: 328px;
-
   }
 
   .header-banner {
