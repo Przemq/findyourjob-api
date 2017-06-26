@@ -19,7 +19,7 @@ $imageBackground   = $this->getMedia( 'imageBackground' )->getImage()->getUrl();
 		<?= createTaskLink( 'EV-63' ) ?>
         <div class="row">
             <div class="col-12 header"><h4><?= $headerText ?></h4></div>
-            <div class="col-6 mx-auto description"><?= $description ?></div>
+            <div class="col-12 col-md-6 description"><?= $description ?></div>
         </div>
 
         <!-- timeline -->
