@@ -284,10 +284,21 @@
       padding-top: 20px;
       padding-bottom: 10px;
 
-      .article-icon {
-        height: 105px;
-        width: 90px;
+      .image-container{
+        svg{
+          height: 105px;
+          width: 90px;
+        }
+        img{
+          width:100%;
+          height:auto;
+          max-width:100%;
+          display: block;
+          margin:0 auto;
+        }
       }
+
+
       .publication-info {
         text-align: left;
         font-family: 'Merriweather', serif;

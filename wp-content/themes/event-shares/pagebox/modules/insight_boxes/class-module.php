@@ -154,7 +154,11 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
                     <div class="content-wrapper">
 						<?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
                         <div class="publication-info col-lg-12">
-							<?php the_date( 'd.m.Y' ) ?> | <?php the_author() ?>
+	                        <?php
+	                        $author = ( ! empty( get_post_meta( get_the_ID(), 'author', true ) )
+		                        ? get_post_meta( get_the_ID(), 'author', true ) : '' );
+	                        ?>
+	                        <?php the_date( 'd.m.Y' ) ?> <?= '| '. $author ?>
                         </div>
                         <div class="col-lg-12"><h3><?= get_the_title() ?></h3></div>
                         <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>
@@ -405,7 +409,11 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
                         <div class="content-wrapper">
 							<?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
                             <div class="publication-info col-lg-12">
-								<?php the_date( 'd.m.Y' ) ?> | <?php the_author() ?>
+	                            <?php
+	                            $author = ( ! empty( get_post_meta( get_the_ID(), 'author', true ) )
+		                            ? get_post_meta( get_the_ID(), 'author', true ) : '' );
+	                            ?>
+	                            <?php the_date( 'd.m.Y' ) ?> <?= '| '. $author ?>
                             </div>
                             <div class="col-lg-12"><h3><?= get_the_title() ?></h3></div>
                             <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>

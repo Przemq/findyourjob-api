@@ -11,7 +11,7 @@ $hash   = $module->getHash();
 $uniqID = uniqid( rand( 1, 999 ) );
 
 $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-$args = [
+$args  = [
 	'posts_per_page' => '9',
 	'orderby'        => 'date',
 	'order'          => 'DESC',
@@ -28,7 +28,7 @@ $insightQuery = new WP_Query( $args );
 
     <!-- Filter Wrapper  -->
     <div class="filter-wrapper">
-	    <?= createTaskLink( 'EV-45' ) ?>
+		<?= createTaskLink( 'EV-45' ) ?>
 
         <div class="container" id="sub-nav">
 
@@ -101,12 +101,12 @@ $insightQuery = new WP_Query( $args );
 
         <div class="container">
 			<?= createTaskLink( 'EV-31' ) ?>
-            <?php
-            // Declare variable and send its also to ajax
-            $nothingFound = $this->getInput( 'nothingFound' );
+			<?php
+			// Declare variable and send it also to ajax req
+			$nothingFound = $this->getInput( 'nothingFound' );
 
-            ?>
-            <input id="nothingFound" type="hidden" name="nothingFound" value="<?=$nothingFound?>">
+			?>
+            <input id="nothingFound" type="hidden" name="nothingFound" value="<?= $nothingFound ?>">
 			<?php if ( $insightQuery->have_posts() ) : ?>
                 <div class="article-boxes-wrapper">
                     <div class="article-boxes row">
@@ -114,9 +114,15 @@ $insightQuery = new WP_Query( $args );
 
                             <div class="col-lg-4 single-article">
                                 <div class="content-wrapper">
-									<?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
+                                    <div class="image-container">
+										<?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
+                                    </div>
                                     <div class="publication-info col-lg-12">
-										<?php the_date( 'd.m.Y' ) ?> | <?php the_author() ?>
+										<?php
+										$author = ( ! empty( get_post_meta( get_the_ID(), 'author', true ) )
+											? get_post_meta( get_the_ID(), 'author', true ) : '' );
+										?>
+										<?php the_date( 'd.m.Y' ) ?> <?= '| '. $author ?>
                                     </div>
                                     <div class="col-lg-12"><h3><?= get_the_title() ?></h3></div>
                                     <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>
@@ -127,7 +133,6 @@ $insightQuery = new WP_Query( $args );
 
 									$link = ( ! empty( get_post_meta( get_the_ID(), 'link', true ) )
 										? get_post_meta( get_the_ID(), 'link', true ) : get_the_permalink() );
-
 									?>
 
                                     <div class="col-lg-12 buttons"><a
@@ -142,8 +147,8 @@ $insightQuery = new WP_Query( $args );
                             <div class="row">
 								<?php
 								$pagination = array(
-									'base' => str_replace( 999, '%#%', esc_url( get_pagenum_link( 999 ) ) ),
-									'format' => '?paged=%#%',
+									'base'               => str_replace( 999, '%#%', esc_url( get_pagenum_link( 999 ) ) ),
+									'format'             => '?paged=%#%',
 									'end_size'           => 1,
 									'mid_size'           => 5,
 									'total'              => $insightQuery->max_num_pages,
@@ -154,7 +159,7 @@ $insightQuery = new WP_Query( $args );
 								?>
                                 <div class="pagination-wrapper">
                                     <div class="numbered">
-	                                    <?php echo $module->paginate_links_ajax( $pagination ); ?>
+										<?php echo $module->paginate_links_ajax( $pagination ); ?>
                                     </div>
                                 </div>
                             </div>
