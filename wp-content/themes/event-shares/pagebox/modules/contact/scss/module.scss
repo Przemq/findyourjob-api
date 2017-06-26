@@ -9,8 +9,12 @@
   $placeholder-color: #919191;
   $header-color: #1e2c32;
 
-  padding: 60px 0;
+  padding: 40px 0;
 
+  @include media-breakpoint-up(lg) {
+    padding: 70px 0;
+
+  }
   .front, .back {
     width: 100%;
   }
@@ -84,8 +88,8 @@
   }
 
   .contact-form {
-    padding-top: 60px;
-    padding-bottom: 25px;
+    //padding-top: 60px;
+    //padding-bottom: 25px;
     .small-input {
       height: 46px;
       font-family: 'Merriweather', serif;
