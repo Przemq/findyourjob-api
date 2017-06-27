@@ -12,8 +12,8 @@ $paragraphText = $this->getEditor('paragraphText')->getValue();
 $isImageBackground = $this->getInput('isImageBackground')->getValue();
 $imageBackground = $this->getMedia('imageBackground')->getImage()->getUrl();
 ?>
-<div class="<?= $module->getClass() ?>">
-    <div class="container"<?php if ($isImageBackground) echo 'style="background-image:url(' . $imageBackground . ');background-size:cover;"' ?>>
+<div class="<?= $module->getClass() ?>"<?php if ($isImageBackground) echo 'style="background-image:url(' . $imageBackground . ');background-size:cover;"' ?>>
+    <div class="container">
         <?= createTaskLink('EV-23') ?>
         <div class="row header-banner">
             <div class="col-lg-5">

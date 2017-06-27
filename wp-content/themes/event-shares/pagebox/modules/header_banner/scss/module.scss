@@ -22,6 +22,10 @@
       padding-top: 17px;
       .header-button {
         margin-right: 5px;
+        z-index: 5;
+      }
+      a {
+        word-wrap: break-word;
       }
     }
   }
