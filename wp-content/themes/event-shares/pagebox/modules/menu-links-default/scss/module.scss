@@ -2,7 +2,23 @@
 
 // Overall module styles
 @include overall_module() {
-
+  &.current-menu-item{
+    font-weight:bold;
+    color:black;
+    position: relative;
+    background: #d6d6d6;
+    &:after{
+      content: '';
+      display: block;
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      @include transform(translateY(-50%));
+      width: 10px;
+      height: 15px;
+      background: url($template-url + '/assets/images/blue-right-chevron-mobile.svg') no-repeat;
+    }
+  }
 }
 // Styles for unique page/post module.
 // In this scope you can use special functions to get data from pageboxes:

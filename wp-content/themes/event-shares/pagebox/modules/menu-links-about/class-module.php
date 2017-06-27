@@ -26,7 +26,7 @@ class MenuAboutFlyout extends AbstractModule implements StaticCacheInterface {
 		global $post;
 
 		if ( is_page() && $post->post_parent === $menuPageID ) {
-			return " current-menu-item";
+			return " current-menu-item-parent";
 		}
 
 		return "";
@@ -40,7 +40,10 @@ class MenuAboutFlyout extends AbstractModule implements StaticCacheInterface {
 		return [
 			'version'     => '1.0.0',
 			'title'       => 'Menu links About flyout',
-			'description' => 'Menu links module'
+			'description' => 'Menu links module',
+			'js'          => [
+				'depends' => [ 'jquery']
+			]
 		];
 	}
 

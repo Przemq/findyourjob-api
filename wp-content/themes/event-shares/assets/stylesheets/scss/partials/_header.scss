@@ -164,6 +164,9 @@ header {
         &:hover {
           .sub-menu-flex {
             @include display(flex);
+            @include media-breakpoint-down(md){
+              display: none;
+            }
           }
         }
       }
@@ -395,17 +398,10 @@ header {
             }
           }
           &:hover {
-            background: #d6d6d6;
             a {
               color: black;
             }
 
-          }
-          &.current-menu-item {
-            background: #d6d6d6;
-            & > a {
-              color: black;
-            }
           }
         }
       }

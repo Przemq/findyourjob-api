@@ -2,8 +2,12 @@
 
 // Overall module styles
 @include overall_module() {
+  @include transition(300ms all);
   .sub-menu-flex {
-    top:105px;
+    top: 105px;
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
     &:before {
       content: '';
       display: block;
@@ -14,8 +18,57 @@
       left: 0;
     }
   }
-}
+  .sub-menu-mobile-flex {
+    display: none;
+    padding-left: 0;
+    li {
+      h4 {
+        padding-left: 40px;
 
+      }
+    }
+    @include media-breakpoint-down(md) {
+      position: relative;
+    }
+  }
+  &.sub-on {
+    .sub-menu-mobile-flex {
+      @include media-breakpoint-down(md) {
+        display: block;
+      }
+
+      h4 a {
+        font-size: 14px;
+        color: black;
+      }
+    }
+    &.current-menu-item, .current-menu-item {
+      font-weight: bold;
+      color: black;
+      position: relative;
+      background: #d6d6d6;
+      h4 {
+        margin: 0;
+        a {
+          color: black;
+        }
+      }
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        @include transform(translateY(-50%));
+        width: 10px;
+        height: 15px;
+        background: url($template-url + '/assets/images/blue-right-chevron-mobile.svg') no-repeat;
+
+      }
+    }
+  }
+}
 
 // Styles for unique page/post module.
 // In this scope you can use special functions to get data from pageboxes:
@@ -25,7 +78,7 @@
   //background-color: get('color');
   .sub-menu-flex {
     background-color: rgba(get('background'), get('backgroundOpacity'));
-    @if(get('isImage') == 1){
+    @if (get('isImage') == 1) {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -49,6 +102,14 @@
           }
         }
       }
+
     }
   }
+
+  &.sub-on {
+    .sub-menu-mobile-flex {
+
+    }
+  }
+
 }
