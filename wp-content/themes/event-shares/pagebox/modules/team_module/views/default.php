@@ -82,7 +82,7 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
                             <div class="col-12 col-lg-6">
 								<?= $value->getEditor( 'leftDescriptionPanel' )->getValue(); ?>
                             </div>
-                            <div class="column col-12 col-lg-6">
+                            <div class="col-12 col-lg-6">
 								<?= $value->getEditor( 'rightDescriptionPanel' )->getValue(); ?>
                             </div>
                         </div>
