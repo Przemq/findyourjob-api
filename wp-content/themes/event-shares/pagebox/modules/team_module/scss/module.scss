@@ -147,7 +147,7 @@
       color: get('innerDescriptionColor');
       font-size: get('innerDescriptionSize');
       background-color: get('tabBackgroundColor');
-      .quote {
+      .quote p{
         font-size: get('quoteSize');
         color: get('quoteColor');
       }
