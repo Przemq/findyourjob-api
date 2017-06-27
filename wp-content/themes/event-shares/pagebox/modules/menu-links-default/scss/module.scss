@@ -2,29 +2,33 @@
 
 // Overall module styles
 @include overall_module() {
-  &.current-menu-item{
-    position: relative;
-    background: #d6d6d6;
-    a{
-      font-weight:bold;
-    }
-    &:after{
-      content: '';
-      display: block;
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      @include transform(translateY(-50%));
-      width: 10px;
-      height: 15px;
-      background: url($template-url + '/assets/images/blue-right-chevron-mobile.svg') no-repeat;
+
+  @include media-breakpoint-down(md) {
+    &.current-menu-item {
+      position: relative;
+      background: #d6d6d6;
+      a {
+        font-weight: bold;
+      }
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        @include transform(translateY(-50%));
+        width: 10px;
+        height: 15px;
+        background: url($template-url + '/assets/images/blue-right-chevron-mobile.svg') no-repeat;
+      }
     }
   }
 }
+
 // Styles for unique page/post module.
 // In this scope you can use special functions to get data from pageboxes:
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    //background-color: get('color');
+  //background-color: get('color');
 }
