@@ -52,7 +52,7 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
 						$startElementClass = "active";
 					}
 					?>
-                    <li class="nav-item col-4">
+                    <li class="nav-item col-6 col-lg-4">
                         <a class="nav-link <?= $startElementClass ?>" data-toggle="tab"
                            href="#tab-<?= $uniqeID . '' . $index ?>"
                            role="tab"><?= $value->getInput( 'teamTitle' ); ?>
@@ -79,10 +79,10 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
 							<?= $value->getEditor( 'quote' )->getValue(); ?>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-lg-6">
 								<?= $value->getEditor( 'leftDescriptionPanel' )->getValue(); ?>
                             </div>
-                            <div class="col-6">
+                            <div class="column col-12 col-lg-6">
 								<?= $value->getEditor( 'rightDescriptionPanel' )->getValue(); ?>
                             </div>
                         </div>
