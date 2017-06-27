@@ -47,12 +47,12 @@ $table       = $this->getEditor( 'description' )->getContent();
 						$blank = $repeater->getInput( 'rowUrlBlank' )->getValue() ? 'target=_blank' : "";
 
 						?>
-                        <tr>
+                        <tr class="aos-init" data-aos="zoom-in-left" data-aos-delay="<?=150*$index?>ms">
 
 
-                            <th><a href="<?= $rowUrl ?>" <?= $blank ?>>
+                            <th><a  href="<?= $rowUrl ?>" <?= $blank ?>>
 									<?= $repeater->getInput( 'rowBoldText' ); ?></a></th>
-                            <td><a href="<?= $rowUrl ?>" <?= $blank ?>><?= $repeater->getInput( 'rowText' ); ?></a></td>
+                            <td><a  href="<?= $rowUrl ?>" <?= $blank ?>><?= $repeater->getInput( 'rowText' ); ?></a></td>
 
                         </tr>
 

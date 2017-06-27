@@ -20,7 +20,13 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 		return [
 			'version'     => '1.0.0',
 			'title'       => 'Icon And Two column Text',
-			'description' => 'Icon and two column witch text'
+			'description' => 'Icon and two column witch text',
+			'js'          => [
+				'depends' => [ 'jquery','aos.js' ]
+			],
+			'css' => [
+				'depends' => ['aos']
+			]
 		];
 	}
 
