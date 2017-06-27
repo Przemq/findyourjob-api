@@ -65,9 +65,10 @@ class VerticalTimeLine extends AbstractModule implements StaticCacheInterface
                 'multiple' => false,
                 'values'   => [
                     [ 'id' => 'center', 'name' => 'Center' ],
-                    [ 'id' => 'left', 'name' => 'Left' ]
+                    [ 'id' => 'left', 'name' => 'Left' ],
+                    [ 'id' => 'right', 'name' => 'Right' ]
                 ],
-                'default'  => 'center',
+                'default'  => 'left',
                 'sass'     => true
             ],
 
