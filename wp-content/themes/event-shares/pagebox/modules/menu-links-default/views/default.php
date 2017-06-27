@@ -14,7 +14,10 @@ $isBlank   = $this->getInput( 'isBlank' )->getValue();
 $newTarget = $isBlank ? 'target=_blank' : '';
 $link      = $this->getInput( 'isPermalink' )->getValue() ? $permalink : $pageLink;
 $postID = $this->getSelect( 'pageLink' )->getValue()['postID']
+
 ?>
+
+
 <?= createTaskLink( 'EV-36' ) ?>
 <li class="<?= $module->getClass() ?> <?= $module->isParent( $postID ) ?> <?= $module->isActive( $link ) ?>">
     <a href="<?= $link ?>" <?= $newTarget ?>>

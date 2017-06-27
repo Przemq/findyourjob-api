@@ -39,33 +39,35 @@
 
       h4 a {
         font-size: 14px;
-        color: black;
       }
     }
-    &.current-menu-item, .current-menu-item {
-      font-weight: bold;
-      color: black;
-      position: relative;
-      background: #d6d6d6;
+    &.current-menu-item, .current-menu-item, &.current-menu-item-parent {
       h4 {
         margin: 0;
-        a {
-          color: black;
+        position: relative;
+      }
+      li.current-menu-item {
+        h4 {
+          position: relative;
+          background: #d6d6d6;
+          a {
+            font-weight: bold;
+            &:after {
+              content: '';
+              display: block;
+              position: absolute;
+              right: 15px;
+              top: 50%;
+              @include transform(translateY(-50%));
+              width: 10px;
+              height: 15px;
+              background: url($template-url + '/assets/images/blue-right-chevron-mobile.svg') no-repeat;
+            }
+          }
+
         }
       }
 
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        right: 40px;
-        top: 50%;
-        @include transform(translateY(-50%));
-        width: 10px;
-        height: 15px;
-        background: url($template-url + '/assets/images/blue-right-chevron-mobile.svg') no-repeat;
-
-      }
     }
   }
 }

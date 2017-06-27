@@ -24,9 +24,9 @@ if ( $this->getInput( 'isImage' )->getValue() ) {
 }
 ?>
 <?= createTaskLink( 'EV-36' ) ?>
-<li class="<?= $module->getClass() ?> <?= $module->isParent( $postID ) ?> <?= $module->isActive( $link ) ?>">
+<li class="flyout-module-wrapper <?= $module->getClass() ?> <?= $module->isParent( $postID ) ?> <?= $module->isActive( $link ) ?>">
 
-    <a href="<?= $link ?>" <?= $newTarget ?>>
+    <a class="main-link" href="<?= $link ?>" <?= $newTarget ?>>
 		<?= $title ?>
     </a>
     <ul class="row sub-menu-flex sub-menu" <?= $backgroundImage ?>>
@@ -54,10 +54,31 @@ if ( $this->getInput( 'isImage' )->getValue() ) {
 				endif;
 				?>
             </li>
+
 			<?php
 		endforeach;
 		?>
     </ul>
 
+
+    <ul class="row sub-menu-mobile-flex">
+		<?php
+		foreach ( $this->getRepeater( 'boxes' ) as $index => $box )
+
+//		    Links for buttons
+			:
+			$permalink = $box->getInput( 'permalink' )->getValue();
+			$pageLink = $box->getSelect( 'pageLink' )->getValue()['permalink'];
+			$isBlank = $box->getInput( 'isBlank' )->getValue();
+			$newTarget = $isBlank ? 'target=_blank' : '';
+			$link = $box->getInput( 'isPermalink' )->getValue() ? $permalink : $pageLink;
+			?>
+            <li class="col-lg-<?= $gridNumber ?> col-sm-12 <?= $module->isActive( $link ) ?>">
+                <h4><a href="<?= $link ?>" <?= $isBlank ?>><?= $box->getInput( 'title' ) ?></a></h4>
+            </li>
+			<?php
+		endforeach;
+		?>
+    </ul>
 
 </li>

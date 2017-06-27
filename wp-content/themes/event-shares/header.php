@@ -44,11 +44,14 @@
 	<?php wp_head(); ?>
 	<?php
 	//  Get all style options from wpx_theme
-	$searchBackground            = ! empty( wpx_theme_get_option( 'wpx_theme_search_background' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background' ) : '#da8b00';
-	$searchBackgroundHover       = ! empty( wpx_theme_get_option( 'wpx_theme_search_background_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background_hover' ) : '#c17b01';
-	$menu_text_color             = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) : '#004a85';
-	$menu_text_color_hover       = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) : '';
-	$menu_font_family            = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) : "";
+	$searchBackground                    = ! empty( wpx_theme_get_option( 'wpx_theme_search_background' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background' ) : '#da8b00';
+	$searchBackgroundHover               = ! empty( wpx_theme_get_option( 'wpx_theme_search_background_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background_hover' ) : '#c17b01';
+	$menu_text_color                     = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) : '#004a85';
+	$menu_text_color_hover               = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) : '';
+	$menu_font_family                    = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) : "";
+	$menu_text_color_mobile              = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_mobile' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_mobile' ) : '';
+	$menu_background_color_mobile_active = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_mobile_background_active' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_mobile_background_active' ) : '';
+	$menu_background_search_color_mobile = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_mobile_search_background' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_mobile_search_background' ) : '';
 
 	//	Get available font family and assign it correct value
 	if ( $menu_font_family === "standard" ) {
@@ -58,6 +61,7 @@
 	} else if ( $menu_font_family === 'roboto' ) {
 		$menu_font_family = "'Roboto Condensed', sans-serif";
 	}
+
 
 	?>
 
@@ -103,6 +107,17 @@
             color: #292b2c;
         }
 
+        .flyout-module-wrapper.sub-on.current-menu-item li.current-menu-item h4, .flyout-module-wrapper.sub-on .current-menu-item li.current-menu-item h4,
+        .flyout-module-wrapper.sub-on.current-menu-item-parent li.current-menu-item h4 {
+            background: <?=$menu_background_color_mobile_active?>;
+        }
+
+        .wpg-mobile header nav ul.menu li a {
+            color: <?=$menu_text_color_mobile?>;
+        }
+
+        header nav .wpx-search-mobile .mobile-search .search-mobile-button {
+            background: <?= $menu_background_search_color_mobile?>;
         }
     </style>
 </head>
@@ -114,8 +129,8 @@
  */
 // include 'includes/modal/country-investor.php'; ?>
 
-<?= createTaskLink('EV-15') ?>
-<?= createTaskLink('EV-36') ?>
+<?= createTaskLink( 'EV-15' ) ?>
+<?= createTaskLink( 'EV-36' ) ?>
 <header id="wpx-eventshare-header">
     <div class="container-fluid">
         <div class="container">

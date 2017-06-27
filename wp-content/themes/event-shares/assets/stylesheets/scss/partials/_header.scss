@@ -397,12 +397,6 @@ header {
               opacity: 1;
             }
           }
-          &:hover {
-            a {
-              color: black;
-            }
-
-          }
         }
       }
       @include media-breakpoint-down(sm) {

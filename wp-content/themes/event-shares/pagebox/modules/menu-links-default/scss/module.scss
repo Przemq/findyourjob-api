@@ -3,15 +3,16 @@
 // Overall module styles
 @include overall_module() {
   &.current-menu-item{
-    font-weight:bold;
-    color:black;
     position: relative;
     background: #d6d6d6;
+    a{
+      font-weight:bold;
+    }
     &:after{
       content: '';
       display: block;
       position: absolute;
-      right: 40px;
+      right: 15px;
       top: 50%;
       @include transform(translateY(-50%));
       width: 10px;
