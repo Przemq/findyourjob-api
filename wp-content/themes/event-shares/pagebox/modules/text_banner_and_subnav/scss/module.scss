@@ -142,6 +142,11 @@
     text-align: center;
     padding-bottom: 20px;
   }
+  .tab-content {
+    .tab-pane {
+      position: relative;
+    }
+  }
 }
 
 // Styles for unique page/post module.
