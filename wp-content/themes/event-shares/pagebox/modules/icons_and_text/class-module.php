@@ -20,7 +20,13 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 		return [
 			'version'     => '1.0.0',
 			'title'       => 'Icons and text',
-			'description' => 'Three columns with image and text'
+			'description' => 'Three columns with image and text',
+			'js'          => [
+				'depends' => [ 'jquery','aos.js' ]
+			],
+			'css' => [
+				'depends' => ['aos']
+			]
 		];
 	}
 
