@@ -4,55 +4,39 @@
 'use strict';
 (function ($) {
 
-    /* TEMPORARY TO DO
-     To keep data after mail (no page reloading) is sent keep commented out this:
-     // if ( 'mail_sent' == data.status ) {
-     // 	$form.each( function() {
-     // 		this.reset();
-     // 	} );
-     // }
-     from :
-     wp-content/plugins/contact-form-7/includes/js/scripts.js
-
-     */
-
-    var $window = $(window),
+    let $window = $(window),
         $thisModule = $(".wpx-m34105d4d");
-    var $flipContainer = $thisModule.find('.flip-container');
-    var failCounter = 0;
-    var front = $thisModule.find('.front').height();
-    var backMinWidthMobile = $window.width();
-    var additionalHeight = 150;
+    let $flipContainer = $thisModule.find('.flip-container');
+    let front = $thisModule.find('.front').height();
 
     $window.resize(function () {
         front = $thisModule.find('.front').height();
     });
 
+    $($thisModule).find('.wpcf7-submit').on('click', function (e) {
+        let form = $($thisModule).find('form');
+        let formSearialized = $(form).serializeArray();
+        console.log(formSearialized);
+        $(document).on('mailsent.wpcf7', function () {
+            if ($(window).width() < 960) {
 
-    $(document).on('spam.wpcf7', function () {
-        console.log('submit.wpcf7 was triggered!');
-
+                flipContactMobile();
+            }
+            else {
+                flipContact();
+            }
+            setTimeout(
+                function () {
+                    $(formSearialized).each(function (index, input) {
+                        if (typeof input.name !== 'undefined' && typeof input.value !== 'undefined') {
+                            $('input[name="' + input.name + '"]').val(input.value);
+                            $('select[name="' + input.name + '"]').find('option[value="'+input.value+'"]').prop('selected',true);
+                        }
+                    });
+                }, 500);
+        });
     });
 
-    $(document).on('invalid.wpcf7', function () {
-        console.log('invalid.wpcf7 was triggered!');
-
-    });
-
-    $(document).on('mailsent.wpcf7', function (data) {
-        if ($(window).width() < 960) {
-            flipContactMobile();
-        }
-        else {
-            flipContact();
-        }
-    });
-
-
-    $(document).on('mailfailed.wpcf7', function () {
-        console.log('mailfailed.wpcf7 was triggered!');
-
-    });
 
     function flipContact() {
         $flipContainer.addClass('hover').delay(5000).queue(function () {
@@ -61,9 +45,9 @@
     }
 
     function flipContactMobile() {
-        var tempHeight = $flipContainer.outerHeight();
-        var $backFlipModule = $flipContainer.find('.back');
-        var backFlipModuleHeight = $backFlipModule.outerHeight();
+        let tempHeight = $flipContainer.outerHeight();
+        let $backFlipModule = $flipContainer.find('.back');
+        let backFlipModuleHeight = $backFlipModule.outerHeight();
         console.log(tempHeight);
         $flipContainer
             .addClass('hover')
@@ -80,29 +64,6 @@
                 'height': 'auto'
             })
         });
-    }
-
-
-    function minFlipperHeight() {
-        $($thisModule).find('.flip-container').css({
-            'min-height': front
-        });
-    }
-
-    function minBackMobileWidth() {
-        $($thisModule).find('.back').css({
-            'min-width': backMinWidthMobile
-        });
-    }
-
-
-    function addHeight() {
-        var $containerHeight = $flipContainer.height() + additionalHeight;
-        if (failCounter === 0) {
-            $thisModule.css({
-                'min-height': $containerHeight + "px"
-            })
-        }
     }
 
 })(jQuery);

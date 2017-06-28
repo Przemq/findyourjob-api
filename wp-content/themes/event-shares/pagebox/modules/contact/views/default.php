@@ -13,7 +13,6 @@ $module = $this->getModule();
 		<?= createTaskLink( 'EV-29' ) ?>
         <div class="flipper">
             <div class="row front">
-				<?php include_once( 'pageContent.php' ); ?>
                 <div class="flex-lg-row col-lg-6 col-sm-12 contacts">
                     <div class="row">
                         <div class="col-lg-12"><h4><?= $this->getInput( 'title' ); ?></h4></div>
@@ -48,6 +47,7 @@ $module = $this->getModule();
 
                     </div>
                 </div>
+
                 <div class="col-lg-6 col-sm-12 contact-form">
 
 					<?php if ( shortcode_exists( 'contact-form-7' ) ) {

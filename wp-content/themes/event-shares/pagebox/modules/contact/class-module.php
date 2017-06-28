@@ -40,7 +40,8 @@ class Contact extends AbstractModule implements StaticCacheInterface {
 			'title'           => [
 				'type'        => 'input:text',
 				'label'       => 'Title',
-				'description' => 'CONTACTS'
+				'description' => 'Main contacts title',
+				'default'     => 'Contacts'
 			],
 			'backgroundColor' => [
 				'type'    => 'input:color',
@@ -141,14 +142,14 @@ class Contact extends AbstractModule implements StaticCacheInterface {
 				'default' => '#56c1a3',
 				'sass'    => true
 			],
-			'buttonBorderColor' => [
+			'buttonBorderColor'     => [
 				'type'    => 'input:color',
 				'label'   => 'Button border color',
 				'default' => '#56c1a3',
 				'sass'    => true
 			],
 
-			'buttonTextHoverColor'       => [
+			'buttonTextHoverColor'                  => [
 				'type'    => 'input:color',
 				'label'   => 'Button text hover color',
 				'default' => '#56c1a3',
@@ -161,7 +162,7 @@ class Contact extends AbstractModule implements StaticCacheInterface {
 				'default' => 1,
 				'sass'    => true
 			],
-			'buttonBackgroundHoverColor' => [
+			'buttonBackgroundHoverColor'            => [
 				'type'    => 'input:color',
 				'label'   => 'Button Background Hover color',
 				'default' => '#56c1a3',
