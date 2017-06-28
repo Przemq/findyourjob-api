@@ -20,7 +20,13 @@ class IconTextAndCTA extends AbstractModule implements StaticCacheInterface {
 		return [
 			'version'     => '1.0.0',
 			'title'       => 'Icon Text And CTA',
-			'description' => 'Icon, text and download button'
+			'description' => 'Icon, text and download button',
+			'js'          => [
+				'depends' => [ 'jquery','aos.js' ]
+			],
+			'css' => [
+				'depends' => ['aos']
+			]
 		];
 	}
 

@@ -15,11 +15,12 @@ $description = $this->getEditor( 'description' )->getContent();
 		<?= createTaskLink( 'EV-27' ) ?>
         <div class="row banner-with-download-button">
             <div class="col-lg-8 offset-lg-2 offset-sm-0">
-                <div class="mx-auto magnifier-icon">
+                <div data-aos="fade-right" class="aos-init aos-animate mx-auto magnifier-icon">
 					<?php $sectionImageID = $this->getMedia( 'sectionImage' )->getImage()->getId(); ?>
 					<?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => 'style-svg' ] ) ?>
 
                 </div>
+                <div data-aos-delay="200" data-aos="fade-left"class="aos-init aos-animate">
                 <h4 class="title"><?= $title ?></h4>
 				<?= $description ?>
 				<?php foreach ( $this->getRepeater( 'buttons' ) as $index => $button ):
@@ -58,7 +59,7 @@ $description = $this->getEditor( 'description' )->getContent();
 					<?php
 				endforeach;
 				?>
-
+                </div>
 
             </div>
         </div>
