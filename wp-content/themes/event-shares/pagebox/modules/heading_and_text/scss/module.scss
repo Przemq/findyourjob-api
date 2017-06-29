@@ -2,16 +2,17 @@
 
 // Overall module styles
 @include overall_module() {
-    $header_color: rgb(30, 44, 50);
-    $background-color: #f4f4f4;
+  $background-color: #f4f4f4;
 
-    padding: 46px 0 54px 0;
+  padding: 46px 0 54px 0;
+  .wrapper {
     h3 {
-        color: $header-color;
+      margin-bottom: 10px;
     }
     p {
-        color: #111;
+      color: #111;
     }
+  }
 }
 
 // Styles for unique page/post module.
@@ -19,5 +20,10 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    background-color: get('backgroundColor');
+  background-color: get('backgroundColor');
+  .wrapper{
+    h3{
+      color: get('titleColor');
+    }
+  }
 }

@@ -46,7 +46,6 @@ footer {
       height: 24px;
       width: 24px;
       margin-right: 13px;
-      margin-top: 3px;
       path, rect {
         fill:$menu_item_color;
         @include transition(300ms all);
@@ -63,6 +62,7 @@ footer {
     #social-wrapper {
       margin-top: 1px;
       margin-bottom: 1px;
+      display: flex;
       @include media-breakpoint-down(md) {
         margin-top: 12px;
       }
@@ -72,6 +72,15 @@ footer {
       @include media-breakpoint-up(md) {
         border-right: 1px solid $footer_border_color;
       }
+      a {
+        @include media-breakpoint-down(md) {
+          align-items: flex-start;
+        }
+        align-items: center;
+        justify-content: center;
+        display: flex;
+      }
+
     }
   }
 

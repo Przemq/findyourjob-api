@@ -1,5 +1,5 @@
 <footer>
-	<?= createTaskLink( 'EV-21' ) ?>
+    <?= createTaskLink('EV-21') ?>
     <style>
 
         /*  CUSTOM STYLES FROM WPX_THEME_OPTIONS */
@@ -60,45 +60,44 @@
     <div class="container">
         <div class="row" id="footer">
             <div class="col-md-3 col-sm-10"
-                 id="left-column"><?=wpx_theme_get_option( 'wpx_theme_footer_small_text' ); ?></div>
+                 id="left-column"><?= wpx_theme_get_option('wpx_theme_footer_small_text'); ?></div>
             <div class="col-md-6 col-sm-10"
                  id="right-column">
-	            <?php
-                $content = wpx_theme_get_option( 'wpx_theme_footer_big_text' ) ;
-	            echo apply_filters('the_content',$content);
+                <?php
+                $content = wpx_theme_get_option('wpx_theme_footer_big_text');
+                echo apply_filters('the_content', $content);
                 ?>
             </div>
         </div>
         <div class="row" id="footer-nav">
             <div class="col-md-3 col-sm-4 col-6" id="social-wrapper">
-                <a target="_blank" href="<?=wpx_theme_get_option( 'wpx_theme_footer_facebook' ) ?>">
-                <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Facebook%20Green%20Icon-01-01.svg">
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_facebook') ?>">
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Facebook%20Green%20Icon-01-01.svg">
                 </a>
-                <a target="_blank" href="<?=wpx_theme_get_option( 'wpx_theme_footer_twitter' ) ?>">
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_twitter') ?>">
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Twitter%20Green%20Icon-01-01.svg">
 
                 </a>
-
-                    <a target="_blank" href="<?=wpx_theme_get_option( 'wpx_theme_footer_linkedin' ) ?>">
-                <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Linkedin%20Green%20Icon-01-01.svg">
-                    </a>
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_linkedin') ?>">
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Linkedin%20Green%20Icon-01-01.svg">
+                </a>
             </div>
             <div class="col-md-9 col-sm-8 col-6" id="menu-items">
-				<?php
-				if ( has_nav_menu( 'footer' ) ) {
-					wp_nav_menu( array(
-							'theme_location' => 'footer',
-							'container'      => false,
-							'depth'          => 1
-						)
-					);
-				}
+                <?php
+                if (has_nav_menu('footer')) {
+                    wp_nav_menu(array(
+                            'theme_location' => 'footer',
+                            'container' => false,
+                            'depth' => 1
+                        )
+                    );
+                }
 
-				?>
+                ?>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3" id="copyright"><?=wpx_theme_get_option('wpx_theme_footer_copyright_text')?></div>
+            <div class="col-lg-3" id="copyright"><?= wpx_theme_get_option('wpx_theme_footer_copyright_text') ?></div>
         </div>
     </div>
 </footer>

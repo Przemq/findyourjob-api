@@ -21,8 +21,8 @@ class VerticalTimeLine extends AbstractModule implements StaticCacheInterface
     {
         return [
             'version' => '1.0.0',
-            'title' => 'Vertical timeline',
-            'description' => 'Vertical timeline with events',
+            'title' => 'Vertical timeline / Heading and text',
+            'description' => 'Vertical timeline / Possibility to add only heading and text ',
             'js'          => [
 	            'depends' => [ 'jquery','aos.js' ]
             ],
