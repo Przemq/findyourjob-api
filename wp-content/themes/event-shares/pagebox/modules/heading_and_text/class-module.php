@@ -19,7 +19,7 @@ class HeadingAndTExt extends AbstractModule implements StaticCacheInterface {
     {
         return [
         	'version'       => '1.0.0',
-            'title'         => 'Heading And Text',
+            'title'         => 'Simple header and text ',
             'description'   => 'Simple header and text below'
         ];
     }
@@ -38,9 +38,14 @@ class HeadingAndTExt extends AbstractModule implements StaticCacheInterface {
 	        'titleColor' => [
 		        'type' => 'input:color',
 		        'label' => 'Title color',
-		        'default' => '#282780',
+		        'default' => '#1E2C32',
 		        'sass' => true
 	        ],
+            'content' => [
+                'type' => 'editor',
+                'label' => 'Content',
+                'description' => 'Please enter text'
+            ],
             'backgroundColor' => [
                 'type' => 'input:color',
                 'label' => 'Background color',
