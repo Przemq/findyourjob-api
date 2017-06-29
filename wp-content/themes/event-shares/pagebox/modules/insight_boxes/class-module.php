@@ -128,6 +128,11 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 		} else {
 			$topic = null;
 		}
+		if ( isset( $_POST['timeline'] ) && ! empty( $_POST['timeline'] ) ) {
+			$timeline = $_POST['timeline'];
+		} else {
+			$timeline = null;
+		}
 		if ( isset( $_POST['nothingFoundText'] ) && ! empty( $_POST['nothingFoundText'] ) ) {
 			$nothingFound = $_POST['nothingFoundText'];
 		} else {
@@ -141,7 +146,13 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 			'order'          => 'DESC',
 			'post_type'      => 'post',
 			'post_status'    => 'publish',
-
+			'tax_query' => array(
+				array (
+					'taxonomy' => 'timeline',
+					'field' => 'id',
+					'terms' => $timeline,
+				)
+			),
 		];
 		$insightQuery = new WP_Query( $args );
 
@@ -153,16 +164,16 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
                 <div class="col-lg-4 single-article">
                     <div class="content-wrapper">
                         <div class="image-container">
-		                    <?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
+							<?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
                         </div>
                         <div class="publication-info col-lg-12">
-	                        <?php
-	                        $author = ( ! empty( get_post_meta( get_the_ID(), 'author', true ) )
-		                        ? get_post_meta( get_the_ID(), 'author', true ) : '' );
-	                        ?>
-	                        <?php the_date( 'd.m.Y' ) ?> <?= '| '. $author ?>
+							<?php
+							$author = ( ! empty( get_post_meta( get_the_ID(), 'author', true ) )
+								? get_post_meta( get_the_ID(), 'author', true ) : '' );
+							?>
+							<?php the_date( 'd.m.Y' ) ?> <?= '| ' . $author ?>
                         </div>
-                        <div class="col-lg-12"><h3><?= get_the_title() ?></h3></div>
+                        <div class="col-lg-12"><h3 class="title-insight"><?= get_the_title() ?></h3></div>
                         <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>
 						<?php
 						$readButton = ( ! empty( get_post_meta( get_the_ID(), 'button_text', true ) )
@@ -210,6 +221,126 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 		<?php endif;
 		die();
 	}
+
+
+//	Filter when user use buttons filters
+
+	public function filterInsightsNoPagination() {
+
+		if ( isset( $_POST['cat'] ) && ! empty( $_POST['cat'] ) ) {
+			$postCategory = $_POST['cat'];
+		} else {
+			$postCategory = null;
+		}
+		if ( isset( $_POST['topic'] ) && ! empty( $_POST['topic'] ) ) {
+			$topic = $_POST['topic'];
+		} else {
+			$topic = null;
+		}
+		if ( isset( $_POST['timeline'] ) && ! empty( $_POST['timeline'] ) ) {
+			$timeline = $_POST['timeline'];
+		} else {
+			$timeline = null;
+		}
+		if ( isset( $_POST['paginationNumber'] ) && ! empty( $_POST['paginationNumber'] ) ) {
+			$paginationNumber = $_POST['paginationNumber'];
+		} else {
+			$paginationNumber = null;
+		}
+		if ( isset( $_POST['nothingFoundText'] ) && ! empty( $_POST['nothingFoundText'] ) ) {
+			$nothingFound = $_POST['nothingFoundText'];
+		} else {
+			$nothingFound = 'Nothing Found';
+		}
+
+		$args         = [
+			'posts_per_page' => '9',
+			'paged'          => $paginationNumber,
+			'category_name'  => $postCategory,
+			'tag'            => $topic,
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+			'post_type'      => 'post',
+			'post_status'    => 'publish',
+			'tax_query' => array(
+				array (
+					'taxonomy' => 'timeline',
+					'field' => 'id',
+					'terms' => $timeline,
+				)
+			),
+
+		];
+		$insightQuery = new WP_Query( $args );
+
+		if ( $insightQuery->have_posts() ) : ?>
+            <div class="article-boxes row">
+				<?php
+				while ( $insightQuery->have_posts() ) : $insightQuery->the_post();
+					?>
+                    <div class="col-lg-4 single-article">
+                        <div class="content-wrapper">
+                            <div class="image-container">
+								<?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
+                            </div>
+                            <div class="publication-info col-lg-12">
+								<?php
+								$author = ( ! empty( get_post_meta( get_the_ID(), 'author', true ) )
+									? get_post_meta( get_the_ID(), 'author', true ) : '' );
+								?>
+								<?php the_date( 'd.m.Y' ) ?> <?= '| ' . $author ?>
+                            </div>
+                            <div class="col-lg-12"><h3 class="title-insight" ><?= get_the_title() ?></h3></div>
+                            <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>
+							<?php
+							$readButton = ( ! empty( get_post_meta( get_the_ID(), 'button_text', true ) )
+								? get_post_meta( get_the_ID(), 'button_text', true ) : 'READ NOW' );
+
+							$link = ( ! empty( get_post_meta( get_the_ID(), 'link', true ) )
+								? get_post_meta( get_the_ID(), 'link', true ) : get_the_permalink() );
+
+							?>
+
+                            <div class="col-lg-12 buttons"><a
+                                        href="<?= $link ?>"><?= $readButton ?></a></div>
+                        </div>
+                    </div>
+				<?php endwhile;
+				?>
+            </div>
+			<?php
+
+		else :?>
+            <h3 class="nothingfound"><?= $nothingFound ?></h3>
+		<?php endif; ?>
+		<?php
+
+		if ( $insightQuery->max_num_pages > 1 ): ; ?>
+            <div class="container pagePagination">
+                <div class="row">
+					<?php
+					$pagination = array(
+						'current'            => $paginationNumber,
+						'end_size'           => 1,
+						'mid_size'           => 5,
+						'total'              => $insightQuery->max_num_pages,
+						'prev_next'          => true,
+						'before_page_number' => '<strong>',
+						'after_page_number'  => '</strong>'
+					);
+					?>
+                    <div class="pagination-wrapper">
+                        <div class="numbered">
+							<?php echo $this->paginate_links_ajax( $pagination ); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		<?php endif; ?>
+		<?php
+		die();
+	}
+
 
 	/**
 	 * Retrieve paginated links for ajax  (few changes paginate_links).
@@ -365,110 +496,6 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 		return $r;
 	}
 
-//	Filter when user use buttons filters
-
-	public function filterInsightsNoPagination() {
-
-		if ( isset( $_POST['cat'] ) && ! empty( $_POST['cat'] ) ) {
-			$postCategory = $_POST['cat'];
-		} else {
-			$postCategory = null;
-		}
-		if ( isset( $_POST['topic'] ) && ! empty( $_POST['topic'] ) ) {
-			$topic = $_POST['topic'];
-		} else {
-			$topic = null;
-		}
-		if ( isset( $_POST['nothingFoundText'] ) && ! empty( $_POST['nothingFoundText'] ) ) {
-			$nothingFound = $_POST['nothingFoundText'];
-		} else {
-			$nothingFound = 'Nothing Found';
-		}
-		if ( isset( $_POST['paginationNumber'] ) && ! empty( $_POST['paginationNumber'] ) ) {
-			$paginationNumber = $_POST['paginationNumber'];
-		} else {
-			$paginationNumber = null;
-		}
-		$args         = [
-			'posts_per_page' => '9',
-			'paged'          => $paginationNumber,
-			'category_name'  => $postCategory,
-			'tag'            => $topic,
-			'orderby'        => 'date',
-			'order'          => 'DESC',
-			'post_type'      => 'post',
-			'post_status'    => 'publish',
-
-		];
-		$insightQuery = new WP_Query( $args );
-
-		if ( $insightQuery->have_posts() ) : ?>
-            <div class="article-boxes row">
-				<?php
-				while ( $insightQuery->have_posts() ) : $insightQuery->the_post();
-					?>
-                    <div class="col-lg-4 single-article">
-                        <div class="content-wrapper">
-                            <div class="image-container">
-		                        <?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
-                            </div>
-                            <div class="publication-info col-lg-12">
-	                            <?php
-	                            $author = ( ! empty( get_post_meta( get_the_ID(), 'author', true ) )
-		                            ? get_post_meta( get_the_ID(), 'author', true ) : '' );
-	                            ?>
-	                            <?php the_date( 'd.m.Y' ) ?> <?= '| '. $author ?>
-                            </div>
-                            <div class="col-lg-12"><h3><?= get_the_title() ?></h3></div>
-                            <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>
-							<?php
-							$readButton = ( ! empty( get_post_meta( get_the_ID(), 'button_text', true ) )
-								? get_post_meta( get_the_ID(), 'button_text', true ) : 'READ NOW' );
-
-							$link = ( ! empty( get_post_meta( get_the_ID(), 'link', true ) )
-								? get_post_meta( get_the_ID(), 'link', true ) : get_the_permalink() );
-
-							?>
-
-                            <div class="col-lg-12 buttons"><a
-                                        href="<?= $link ?>"><?= $readButton ?></a></div>
-                        </div>
-                    </div>
-				<?php endwhile;
-				?>
-            </div>
-			<?php
-
-		else :?>
-            <h3 class="nothingfound"><?= $nothingFound ?></h3>
-		<?php endif; ?>
-		<?php
-
-		if ( $insightQuery->max_num_pages > 1 ): ; ?>
-            <div class="container pagePagination">
-                <div class="row">
-					<?php
-					$pagination = array(
-						'current'            => $paginationNumber,
-						'end_size'           => 1,
-						'mid_size'           => 5,
-						'total'              => $insightQuery->max_num_pages,
-						'prev_next'          => true,
-						'before_page_number' => '<strong>',
-						'after_page_number'  => '</strong>'
-					);
-					?>
-                    <div class="pagination-wrapper">
-                        <div class="numbered">
-							<?php echo $this->paginate_links_ajax( $pagination ); ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-		<?php endif; ?>
-		<?php
-		die();
-	}
 
 //	Use when user use pagination filter
 
@@ -482,7 +509,7 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 			'title'       => 'Insights Boxes',
 			'description' => 'Tiles with articles',
 			'js'          => [
-				'depends' => [ 'jquery', 'bootstrap' ]
+				'depends' => [ 'jquery', 'bootstrap','matchHeight' ]
 			],
 		];
 	}
@@ -520,12 +547,34 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 				'label'    => 'Filter Text',
 				'maxItems' => 6,
 				'fields'   => [
-					'title'       => [
+					'title'            => [
 						'type'        => 'input:text',
 						'label'       => 'Title',
 						'description' => 'Please enter title'
 					],
-					'description' => [
+					'categoryTimeLine' => [
+						'type'     => 'select',
+						'label'    => 'Choose category',
+						'multiple' => false,
+						'options'  => [
+							'allowClear' => true
+						],
+						'values'   => function () {
+							$values = [];
+							$terms  = get_terms( 'timeline', array(
+								'hide_empty' => false,
+							) );
+							foreach ( $terms as $term ) {
+								$values[] = [
+									'id'   => $term->term_id,
+									'slug'   => $term->slug,
+									'name' => $term->name
+								];
+							}
+							return $values;
+						}
+					],
+					'description'      => [
 						'type'        => 'editor',
 						'label'       => 'Text below filter',
 						'description' => 'Please enter text under filter'
@@ -578,33 +627,33 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 			],
 
 			'buttonColor' => [
-				'type'    => 'input:color',
-				'label'   => 'Button color',
-                'description' => 'Button "Read Now" color',
-				'default' => '#55c2a2',
-				'sass'    => true
+				'type'        => 'input:color',
+				'label'       => 'Button color',
+				'description' => 'Button "Read Now" color',
+				'default'     => '#55c2a2',
+				'sass'        => true
 			],
 
 			'buttonColorHover' => [
-				'type'    => 'input:color',
-				'label'   => 'Button color hover',
+				'type'        => 'input:color',
+				'label'       => 'Button color hover',
 				'description' => 'Button "Read Now" color hover',
-				'default' => '#292b2c',
-				'sass'    => true
+				'default'     => '#292b2c',
+				'sass'        => true
 			],
 
-			'isButtonColorBackgroundTransparent' => [
+			'isButtonColorBackgroundTransparent'      => [
 				'type'    => 'input:switch',
 				'label'   => 'Enable Transparent Background',
 				'default' => 1,
 				'sass'    => true
 			],
-			'buttonColorBackground'              => [
-				'type'    => 'input:color',
-				'label'   => 'Button background color',
+			'buttonColorBackground'                   => [
+				'type'        => 'input:color',
+				'label'       => 'Button background color',
 				'description' => 'Button "Read Now" background color',
-				'default' => '#16a57a',
-				'sass'    => true
+				'default'     => '#16a57a',
+				'sass'        => true
 			],
 			'isButtonColorBackgroundTransparentHover' => [
 				'type'    => 'input:switch',
@@ -612,7 +661,7 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 				'default' => 1,
 				'sass'    => true
 			],
-			'buttonColorBackgroundHover'         => [
+			'buttonColorBackgroundHover'              => [
 				'type'    => 'input:color',
 				'label'   => 'Button background hover color',
 				'default' => '#16a57a',

@@ -6,8 +6,8 @@
  * @var \Nurture\EventShares\Module\IconsAndText $module
  */
 
-$module = $this->getModule();
-$titleHeader = $this->getInput('typeOfHeader')->getValue();
+$module      = $this->getModule();
+$titleHeader = $this->getInput( 'typeOfHeader' )->getValue();
 
 ?>
 <div class="<?= $module->getClass() ?>">
@@ -16,14 +16,19 @@ $titleHeader = $this->getInput('typeOfHeader')->getValue();
         <div class="row" id="three-column-boxes">
 
 
-            <div class="col-12 <?php if(!$titleHeader) echo 'title-header'; else echo 'paragraph-header';?>"><?= $this->getInput( 'title' ) ?></div>
+            <div class="col-12 <?php if ( ! $titleHeader ) {
+				echo 'title-header';
+			} else {
+				echo 'paragraph-header';
+			} ?>"><?= $this->getInput( 'title' ) ?></div>
 			<?php foreach ( $this->getRepeater( 'sections' ) as $index => $section ) :
 
 				$sectionEditor = $section->getEditor( 'sectionEditor' )->getValue();
 				$sectionImageID = $section->getMedia( 'sectionImage' )->getImage()->getId();
-                $isButtonEnable = $section->getInput( 'enableButton' )->getValue();
+				$isButtonEnable = $section->getInput( 'enableButton' )->getValue();
 				?>
-                <div data-aos-delay="<?=200*$index?>" data-aos="fade-right" class="aos-init aos-animate col-lg-4 md-padd-bottom">
+                <div data-aos-delay="<?= 200 * $index ?>" data-aos="fade-right"
+                     class="aos-init aos-animate col-lg-4 md-padd-bottom">
                     <div class="svg-wrapper first-svg"> <?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => 'style-svg' ] ) ?></div>
                     <div class="md-padd-top">
                         <p><?= $sectionEditor ?></p>
@@ -39,7 +44,8 @@ $titleHeader = $this->getInput('typeOfHeader')->getValue();
 						}
 						if ( ! empty( $buttonText ) && isset( $buttonText ) ) :
 							?>
-                            <a href="<?= $url ?>" class="button " <?= $blank ?> <?php if(!$isButtonEnable) echo 'style="display:none;"' ?> ><?= $buttonText ?></a>
+                            <a href="<?= $url ?>" class="button " <?= $blank ?> <?php if ( ! $isButtonEnable )
+								echo 'style="display:none;"' ?> ><?= $buttonText ?></a>
 
 							<?php
 						endif;

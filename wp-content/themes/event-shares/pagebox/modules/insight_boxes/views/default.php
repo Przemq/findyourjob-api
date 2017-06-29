@@ -6,18 +6,25 @@
  * @var \Nurture\EventShares\Module\InsightsBoxes $module
  */
 
-$module = $this->getModule();
-$hash   = $module->getHash();
-$uniqID = uniqid( rand( 1, 999 ) );
-
-$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-$args  = [
+$module           = $this->getModule();
+$hash             = $module->getHash();
+$uniqID           = uniqid( rand( 1, 999 ) );
+$timeLineActiveId = $this->getRepeater( 'filterText' )[0]->getSelect( 'categoryTimeLine' )->getValue()['id'];
+$paged            = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+$args             = [
 	'posts_per_page' => '9',
 	'orderby'        => 'date',
 	'order'          => 'DESC',
 	'post_type'      => 'post',
 	'paged'          => $paged,
 	'post_status'    => 'publish',
+	'tax_query'      => array(
+		array(
+			'taxonomy' => 'timeline',
+			'field'    => 'id',
+			'terms'    => $timeLineActiveId,
+		)
+	),
 ];
 
 $categorys    = get_categories();
@@ -38,9 +45,12 @@ $insightQuery = new WP_Query( $args );
                 role="tablist">
 				<?php foreach ( $this->getRepeater( 'filterText' ) as $index => $filter ) : ?>
                     <li class="nav-item custom-nav-item list-inline-item <?= $module->colsTabs() ?>">
-
+						<?php
+						$category = $filter->getSelect( 'categoryTimeLine' )->getValue()['id'];
+						?>
                         <a <?php echo ( $index == 0 ) ? 'class="active"' : '' ?>
-                                href="#htab-<?= $index ?>-<?= $uniqID ?>" data-toggle="tab" aria-expanded="true">
+                                href="#htab-<?= $index ?>-<?= $uniqID ?>" data-category="<?= $category ?>"
+                                data-toggle="tab" aria-expanded="true">
 							<?= $filter->getInput( 'title' ) ?>
                         </a></li>
 				<?php endforeach; ?>
@@ -122,9 +132,9 @@ $insightQuery = new WP_Query( $args );
 										$author = ( ! empty( get_post_meta( get_the_ID(), 'author', true ) )
 											? get_post_meta( get_the_ID(), 'author', true ) : '' );
 										?>
-										<?php the_date( 'd.m.Y' ) ?> <?= '| '. $author ?>
+										<?php the_date( 'd.m.Y' ) ?> <?= '| ' . $author ?>
                                     </div>
-                                    <div class="col-lg-12"><h3><?= get_the_title() ?></h3></div>
+                                    <div class="col-lg-12"><h3 class="title-insight"><?= get_the_title() ?></h3></div>
                                     <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>
 
 									<?php

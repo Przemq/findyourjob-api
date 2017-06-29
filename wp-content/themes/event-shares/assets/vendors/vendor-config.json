@@ -13,6 +13,12 @@
   },
   {
     "expand": true,
+    "src": ["jquery.matchHeight-min.js"],
+    "cwd": "assets/bower_components/matchHeight/dist/",
+    "dest": "assets/vendors/matchHeight/"
+  },
+  {
+    "expand": true,
     "src"   : ["bootstrap.min.js"],
     "cwd"   : "assets/bower_components/bootstrap/dist/js/",
     "dest"  : "assets/vendors/bootstrap/"

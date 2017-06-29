@@ -233,11 +233,13 @@ header {
         padding: 8px 5px 11px 5px;
         svg path {
           fill: #e0403e;
+          stroke:transparent;
           @include transition(0.5s all);
         }
         &:hover {
           svg path {
             fill: #da8b00;
+            stroke:transparent;
           }
 
         }

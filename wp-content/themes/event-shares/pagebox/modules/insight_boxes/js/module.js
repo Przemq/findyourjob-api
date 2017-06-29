@@ -6,14 +6,24 @@ let moduleClass = '.wpx-mcee07026';
 'use strict';
 (function ($) {
 
-    $(moduleClass).find('.dropdown-item').on('click', function (event) {
+    let $thisModule = $(moduleClass);
+    let $loading = $thisModule.find('.loading');
+    let options = {
+        byRow: true,
+        property: 'height',
+        target: null,
+        remove: false
+    };
+
+    makeEquals();
+
+    // Click on dropdown menu
+    $thisModule.find('.dropdown-item').on('click', function (event) {
         event.preventDefault();
 
-        let $thisModule = $(this).parents(moduleClass),
-            $button = $(this).parents('.dropdown').find('.dropdown-button'),
+        let $button = $(this).parents('.dropdown').find('.dropdown-button'),
             optionText = $(this).text(),
-            optionValue = $(this).attr('data-value'),
-            $loading = $thisModule.find('.loading');
+            optionValue = $(this).attr('data-value');
 
         $button.text(optionText);
         $loading.addClass('show');
@@ -22,6 +32,14 @@ let moduleClass = '.wpx-mcee07026';
 
     });
 
+    // Click on nav example Advisor Media
+    $thisModule.find('.nav-tabs-wrapper a').on('click', function (event) {
+        event.preventDefault();
+        let timeline = $(this).attr('data-category');
+        $loading.addClass('show');
+        sendAjaxData($thisModule, timeline);
+
+    });
     $('#insights-post-wrapper').delegate(".pagination-wrapper a ", 'click', function (event) {
         event.preventDefault();
         if (!$(this).hasClass('current')) {
@@ -30,8 +48,6 @@ let moduleClass = '.wpx-mcee07026';
             let pagNumber;
             let href = this.href;
             pagNumber = href.match(/([^\/]*)\/*$/)[1];
-            let $thisModule = $(this).parents(moduleClass);
-            let $loading = $thisModule.find('.loading');
             $loading.addClass('show');
             try {
                 pagNumber = parseInt(pagNumber);
@@ -42,13 +58,14 @@ let moduleClass = '.wpx-mcee07026';
         }
 
     });
-    // $('.')
 
     function sendAjaxPagination($thisModule, paginationNumber = null) {
         let $loading = $thisModule.find('.loading');
         let category = $thisModule.find('.current-category').attr('data-picked');
         let topic = $thisModule.find('.current-topic').attr('data-picked');
         let nothingFoundText = $thisModule.find('#nothingFound').val();
+        let timeline = $thisModule.find('.nav-tabs-wrapper a.active').attr('data-category');
+
         $.ajax({
             url: Ajax.ajax_url,
             type: 'post',
@@ -56,6 +73,7 @@ let moduleClass = '.wpx-mcee07026';
                 wpx_module: 'Nurture/EventShares/Module/InsightsBoxes',
                 action: 'filterInsightsNoPagination',
                 cat: category,
+                timeline: timeline,
                 topic: topic,
                 paginationNumber: paginationNumber,
                 nothingFoundText: nothingFoundText
@@ -64,6 +82,7 @@ let moduleClass = '.wpx-mcee07026';
             .done(function (response) {
                 $thisModule.find('.article-boxes-wrapper').html(response);
                 changeToSVG();
+                makeEquals();
                 removeClass($loading, 'show');
             })
             .fail(function (response) {
@@ -72,11 +91,14 @@ let moduleClass = '.wpx-mcee07026';
     }
 
 
-    function sendAjaxData($thisModule) {
+    function sendAjaxData($thisModule, timeline = null) {
         let category = $thisModule.find('.current-category').attr('data-picked');
         let topic = $thisModule.find('.current-topic').attr('data-picked');
         let $loading = $thisModule.find('.loading');
         let nothingFoundText = $thisModule.find('#nothingFound').val();
+        if (timeline === null) {
+            timeline = $thisModule.find('.nav-tabs-wrapper a.active').attr('data-category');
+        }
         $.ajax({
             url: Ajax.ajax_url,
             type: 'post',
@@ -84,6 +106,7 @@ let moduleClass = '.wpx-mcee07026';
                 wpx_module: 'Nurture/EventShares/Module/InsightsBoxes',
                 action: 'filterInsights',
                 cat: category,
+                timeline: timeline,
                 topic: topic,
                 nothingFoundText: nothingFoundText
             }
@@ -91,6 +114,7 @@ let moduleClass = '.wpx-mcee07026';
             .done(function (response) {
                 $thisModule.find('.article-boxes-wrapper').html(response);
                 changeToSVG();
+                makeEquals();
                 removeClass($loading, 'show');
             })
             .fail(function (response) {
@@ -178,4 +202,12 @@ let moduleClass = '.wpx-mcee07026';
         });
     }
 
+    function makeEquals() {
+        $thisModule.find('.title-insight').matchHeight(options);
+        $thisModule.find('.image-container').matchHeight(options);
+    }
+    function updateEquals() {
+        $thisModule.find('.title-insight').matchHeight(options);
+        // $thisModule.find('.image-container').matchHeight(options);
+    }
 })(jQuery);
