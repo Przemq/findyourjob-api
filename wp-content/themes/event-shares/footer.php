@@ -97,7 +97,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3" id="copyright"><?= wpx_theme_get_option('wpx_theme_footer_copyright_text') ?></div>
+            <div class="col-12" id="copyright"><?= wpx_theme_get_option('wpx_theme_footer_copyright_text') ?></div>
         </div>
     </div>
 </footer>
