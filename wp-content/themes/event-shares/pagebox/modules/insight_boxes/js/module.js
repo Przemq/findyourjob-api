@@ -15,7 +15,7 @@ let moduleClass = '.wpx-mcee07026';
         remove: false
     };
 
-    makeEquals();
+    makeEquals(options);
 
     // Click on dropdown menu
     $thisModule.find('.dropdown-item').on('click', function (event) {
@@ -28,7 +28,7 @@ let moduleClass = '.wpx-mcee07026';
         $button.text(optionText);
         $loading.addClass('show');
         $button.attr('data-picked', optionValue);
-        sendAjaxData($thisModule);
+        sendAjaxPagination($thisModule);
 
     });
 
@@ -37,7 +37,7 @@ let moduleClass = '.wpx-mcee07026';
         event.preventDefault();
         let timeline = $(this).attr('data-category');
         $loading.addClass('show');
-        sendAjaxData($thisModule, timeline);
+        sendAjaxPagination($thisModule, null, timeline);
 
     });
     $('#insights-post-wrapper').delegate(".pagination-wrapper a ", 'click', function (event) {
@@ -59,19 +59,21 @@ let moduleClass = '.wpx-mcee07026';
 
     });
 
-    function sendAjaxPagination($thisModule, paginationNumber = null) {
+    function sendAjaxPagination($thisModule, paginationNumber = 1, timeline = null) {
         let $loading = $thisModule.find('.loading');
         let category = $thisModule.find('.current-category').attr('data-picked');
         let topic = $thisModule.find('.current-topic').attr('data-picked');
         let nothingFoundText = $thisModule.find('#nothingFound').val();
-        let timeline = $thisModule.find('.nav-tabs-wrapper a.active').attr('data-category');
+        if (timeline === null) {
+            timeline = $thisModule.find('.nav-tabs-wrapper a.active').attr('data-category');
+        }
 
         $.ajax({
             url: Ajax.ajax_url,
             type: 'post',
             data: {
                 wpx_module: 'Nurture/EventShares/Module/InsightsBoxes',
-                action: 'filterInsightsNoPagination',
+                action: 'filterInsights',
                 cat: category,
                 timeline: timeline,
                 topic: topic,
@@ -82,7 +84,7 @@ let moduleClass = '.wpx-mcee07026';
             .done(function (response) {
                 $thisModule.find('.article-boxes-wrapper').html(response);
                 changeToSVG();
-                makeEquals();
+                makeEquals(options);
                 removeClass($loading, 'show');
             })
             .fail(function (response) {
@@ -90,38 +92,6 @@ let moduleClass = '.wpx-mcee07026';
             });
     }
 
-
-    function sendAjaxData($thisModule, timeline = null) {
-        let category = $thisModule.find('.current-category').attr('data-picked');
-        let topic = $thisModule.find('.current-topic').attr('data-picked');
-        let $loading = $thisModule.find('.loading');
-        let nothingFoundText = $thisModule.find('#nothingFound').val();
-        if (timeline === null) {
-            timeline = $thisModule.find('.nav-tabs-wrapper a.active').attr('data-category');
-        }
-        $.ajax({
-            url: Ajax.ajax_url,
-            type: 'post',
-            data: {
-                wpx_module: 'Nurture/EventShares/Module/InsightsBoxes',
-                action: 'filterInsights',
-                cat: category,
-                timeline: timeline,
-                topic: topic,
-                nothingFoundText: nothingFoundText
-            }
-        })
-            .done(function (response) {
-                $thisModule.find('.article-boxes-wrapper').html(response);
-                changeToSVG();
-                makeEquals();
-                removeClass($loading, 'show');
-            })
-            .fail(function (response) {
-                console.log(response);
-                removeClass($loading, 'show');
-            });
-    }
 
     function removeClass(element, classToRemove) {
         setTimeout(function () {
@@ -202,12 +172,9 @@ let moduleClass = '.wpx-mcee07026';
         });
     }
 
-    function makeEquals() {
+    function makeEquals(options) {
         $thisModule.find('.title-insight').matchHeight(options);
         $thisModule.find('.image-container').matchHeight(options);
     }
-    function updateEquals() {
-        $thisModule.find('.title-insight').matchHeight(options);
-        // $thisModule.find('.image-container').matchHeight(options);
-    }
+
 })(jQuery);
