@@ -40,7 +40,7 @@ $insightQuery = new WP_Query( $args );
         <div class="container" id="sub-nav">
 
 			<?= createTaskLink( 'EV-32' ) ?>
-            <a href="#" class="nav-tabs-dropdown <?= $module->changeNav() ?>">Dropdown-nav</a>
+            <a href="#" class="nav-tabs-dropdown <?= $module->changeNav() ?> mob-nav">Dropdown-nav</a>
             <ul class="nav-tabs-wrapper nav-tabs nav-tabs-horizontal list-inline row no-gutters <?= $module->changeNavTabs() ?>"
                 role="tablist">
 				<?php foreach ( $this->getRepeater( 'filterText' ) as $index => $filter ) : ?>

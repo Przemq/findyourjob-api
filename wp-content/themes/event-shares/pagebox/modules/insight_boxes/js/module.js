@@ -59,6 +59,15 @@ let moduleClass = '.wpx-mcee07026';
 
     });
 
+    $thisModule.find('.mob-nav').on('click', function (event) {
+        event.preventDefault();
+        let dropdown = $(this).parent().find('.nav-tabs-wrapper');
+        dropdown.toggleClass('nav-mobile-show');
+
+
+    });
+
+
     function sendAjaxPagination($thisModule, paginationNumber = 1, timeline = null) {
         let $loading = $thisModule.find('.loading');
         let category = $thisModule.find('.current-category').attr('data-picked');
@@ -93,10 +102,10 @@ let moduleClass = '.wpx-mcee07026';
     }
 
 
-    function removeClass(element, classToRemove) {
+    function removeClass(element, classToRemove ,time = 300) {
         setTimeout(function () {
             element.removeClass(classToRemove);
-        }, 300);
+        }, time);
     }
 
     // Function to change img svg to svg (after ajax request)
@@ -176,5 +185,6 @@ let moduleClass = '.wpx-mcee07026';
         $thisModule.find('.title-insight').matchHeight(options);
         $thisModule.find('.image-container').matchHeight(options);
     }
+
 
 })(jQuery);

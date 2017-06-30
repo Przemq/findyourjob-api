@@ -51,7 +51,6 @@
       }
       &.nav-show {
         display: block;
-
       }
     }
     .show {
@@ -123,8 +122,12 @@
         &.big-resolutions {
           @include media-breakpoint-up(lg) {
             display: block !important;
-
           }
+        }
+      }
+      &.nav-mobile-show {
+        @include media-breakpoint-down(md) {
+          display: block !important;
         }
       }
     }
@@ -284,21 +287,20 @@
       padding-top: 20px;
       padding-bottom: 10px;
 
-      .image-container{
-        min-height:130px;
-        svg{
+      .image-container {
+        min-height: 130px;
+        svg {
           height: 105px;
           width: 90px;
         }
-        img{
-          width:100%;
-          height:auto;
-          max-width:100%;
+        img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
           display: block;
-          margin:0 auto;
+          margin: 0 auto;
         }
       }
-
 
       .publication-info {
         text-align: left;
