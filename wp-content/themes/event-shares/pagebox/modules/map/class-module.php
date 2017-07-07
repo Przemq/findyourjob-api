@@ -74,12 +74,12 @@ class Map extends AbstractModule implements StaticCacheInterface {
             'markerColor' => [
                 'type' => 'input:color',
                 'label' => 'Map marker color',
-                'default' => '#A3A3A3',
+                'default' => '#008080',
             ],
             'markerStrokeColor' => [
                 'type' => 'input:color',
                 'label' => 'Marker stroke color',
-                'default' => '#7C7C7C',
+                'default' => '#515151',
             ],
 
         ];

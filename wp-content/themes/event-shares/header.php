@@ -138,7 +138,7 @@
                 <div class="row" id="top-menu">
                     <div class="col-lg-2 image-wrapper">
 
-                        <a href="<?= HOME_URL ?>"><img src="<?= THEME_IMAGES_URI; ?>/logo.jpg"></a>
+                        <a href="<?= HOME_URL ?>"><img src="<?= THEME_IMAGES_URI; ?>/EventSharesLogo.svg"></a>
                         <a class="wpx-button-hamburger" href="#"><span></span><span></span><span></span></a>
                     </div>
                     <nav id="main-nav" class="nav col row">
