@@ -153,11 +153,11 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 			'order'          => 'DESC',
 			'post_type'      => 'post',
 			'post_status'    => 'publish',
-			'tax_query' => array(
-				array (
+			'tax_query'      => array(
+				array(
 					'taxonomy' => 'timeline',
-					'field' => 'id',
-					'terms' => $timeline,
+					'field'    => 'id',
+					'terms'    => $timeline,
 				)
 			),
 
@@ -181,7 +181,7 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 								?>
 								<?php the_date( 'd.m.Y' ) ?> <?= '| ' . $author ?>
                             </div>
-                            <div class="col-lg-12"><h3 class="title-insight" ><?= get_the_title() ?></h3></div>
+                            <div class="col-lg-12"><h3 class="title-insight"><?= get_the_title() ?></h3></div>
                             <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>
 							<?php
 							$readButton = ( ! empty( get_post_meta( get_the_ID(), 'button_text', true ) )
@@ -236,11 +236,12 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 	/**
 	 * Retrieve paginated links for ajax  (few changes paginate_links).
 	 */
+
 	function paginate_links_ajax( $args = '' ) {
 		global $wp_query, $wp_rewrite;
 
 		// Setting up default values based on the current URL.
-		$pagenum_link = html_entity_decode( 'http://event-share.dev/news-insights/' );
+		$pagenum_link = html_entity_decode( get_pagenum_link() );
 		$url_parts    = explode( '?', $pagenum_link );
 
 		// Get max pages and current page out of the current query, if available.
@@ -400,7 +401,7 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 			'title'       => 'Insights Boxes',
 			'description' => 'Tiles with articles',
 			'js'          => [
-				'depends' => [ 'jquery', 'bootstrap','matchHeight' ]
+				'depends' => [ 'jquery', 'bootstrap', 'matchHeight' ]
 			],
 		];
 	}
@@ -458,10 +459,11 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 							foreach ( $terms as $term ) {
 								$values[] = [
 									'id'   => $term->term_id,
-									'slug'   => $term->slug,
+									'slug' => $term->slug,
 									'name' => $term->name
 								];
 							}
+
 							return $values;
 						}
 					],

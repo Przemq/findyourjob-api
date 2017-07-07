@@ -116,9 +116,10 @@ $insightQuery = new WP_Query( $args );
 			$nothingFound = $this->getInput( 'nothingFound' );
 
 			?>
+            <div class="article-boxes-wrapper">
             <input id="nothingFound" type="hidden" name="nothingFound" value="<?= $nothingFound ?>">
 			<?php if ( $insightQuery->have_posts() ) : ?>
-                <div class="article-boxes-wrapper">
+
                     <div class="article-boxes row">
 						<?php while ( $insightQuery->have_posts() ) : $insightQuery->the_post() ?>
 
@@ -148,7 +149,7 @@ $insightQuery = new WP_Query( $args );
                                     <div class="col-lg-12 buttons"><a
                                                 href="<?= $link ?>"><?= $readButton ?></a></div>
                                 </div>
-                            </div>
+
 						<?php endwhile; ?>
                     </div>
                     <!--Pagination-->
@@ -184,6 +185,7 @@ $insightQuery = new WP_Query( $args );
 			endif;
 			wp_reset_postdata();
 			?>
+            </div>
         </div>
     </div>
 </div>
