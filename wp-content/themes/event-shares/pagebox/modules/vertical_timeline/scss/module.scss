@@ -240,6 +240,7 @@ $timeline-color: #56c1a3;
           h4 {
             &:after {
               background-color: get('dotColor');
+              border-color:get('backgroundColor');
             }
           }
         }
