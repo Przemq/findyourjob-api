@@ -61,7 +61,7 @@
         <div class="row" id="footer">
             <div class="col-md-3 col-sm-10"
                  id="left-column"><?= wpx_theme_get_option('wpx_theme_footer_small_text'); ?></div>
-            <div class="col-md-9 col-sm-10"
+            <div class="col-md-9 col-sm-12"
                  id="right-column">
                 <?php
                 $content = wpx_theme_get_option('wpx_theme_footer_big_text');
@@ -89,11 +89,11 @@
                 <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_seeking_alpha') ?>">
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Linkedin%20Green%20Icon-01-01.svg">
                 </a>
-                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_google_plus') ?>">
-                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/google-plus.svg">
-                </a>
                 <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_stock_twits') ?>">
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Twitter%20Green%20Icon-01-01.svg">
+                </a>
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_google_plus') ?>">
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/google-plus.svg">
                 </a>
             </div>
             <div class="col-lg-8 col-md-7 col-sm-8 col-6" id="menu-items">
