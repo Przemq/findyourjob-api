@@ -68,7 +68,6 @@
     }
 
     .paragraph-header {
-      font-size: 23px;
       font-family: 'Merriweather', serif;
       color: #182328;
       background-color: white;
@@ -82,7 +81,7 @@
     }
     .title-header {
       padding-bottom: 35px;
-      font-size: 25px;
+      //font-size: 25px;
       font-family: 'Roboto Condensed', sans-serif;
       color: $header-color;
       letter-spacing: 5px;
@@ -101,7 +100,6 @@
   #three-column-boxes {
     h2 {
       font-size: get('titleSize');
-      color: get('titleColor');
     }
     .svg-wrapper {
       svg {
@@ -126,14 +124,22 @@
       font-size: get('descriptionSize');
       color: get('descriptionColor');
     }
-    //In QUESTION
-    //.button{
-    //  font-size: get('buttonLinkSize');
-    //  color: get('buttonLinkColor');
-    //  &:hover{
-    //    color: get('buttonLinkColorHover');
-    //
-    //  }
-    //}
+    .paragraph-header {
+      font-size: get('paragraphSize');
+      color: get('paragraphColor');
+    }
+    .title-header {
+      font-size: get('titleSize');
+      color: get('titleColor');
+    }
+    .button{
+      color: get('buttonTextColor') ;
+      background-color: get('buttonBackgroundColor');
+      font-size: get('buttonFontSize');
+      &:hover{
+        color: get('buttonTextHoverColor') ;
+        background-color: get('buttonBackgroundHoverColor');
+      }
+    }
   }
 }

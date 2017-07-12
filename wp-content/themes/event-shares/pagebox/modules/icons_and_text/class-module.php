@@ -53,6 +53,12 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 				'default' => '#002842',
 				'sass'    => true
 			],
+            'paragraphColor'      => [
+                'type'    => 'input:color',
+                'label'   => 'Paragraph color',
+                'default' => '#002842',
+                'sass'    => true
+            ],
 			'titleSize'       => [
 				'type'        => 'input:text',
 				'label'       => 'Title size',
@@ -60,10 +66,18 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 				'default'     => '25px',
 				'sass'        => true
 			],
+            'paragraphSize'       => [
+                'type'        => 'input:text',
+                'label'       => 'Paragraph size',
+                'description' => 'Please enter paragraph size px',
+                'default'     => '23px',
+                'sass'        => true
+            ],
 //	        Repeater
 			'sections'        => [
 				'type'   => 'repeater',
 				'label'  => 'Sections',
+                'maxItems' => 3,
 				'fields' => [
 					'sectionImage'       => [
 						'type'        => 'media:image',
@@ -159,6 +173,36 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 	            'label'   => 'Icon hover (if exist) color',
 	            'default' => '#16a57a',
 	            'sass'    => true
+            ],
+            'buttonTextColor'   => [
+                'type'    => 'input:color',
+                'label'   => 'Button text color',
+                'default' => '#002841',
+                'sass'    => true
+            ],
+            'buttonTextHoverColor'   => [
+                'type'    => 'input:color',
+                'label'   => 'Button text hover color',
+                'default' => '#56c1a3',
+                'sass'    => true
+            ],
+            'buttonBackgroundColor'   => [
+                'type'    => 'input:color',
+                'label'   => 'Button background color',
+                'default' => '#56c1a3',
+                'sass'    => true
+            ],
+            'buttonBackgroundHoverColor'   => [
+                'type'    => 'input:color',
+                'label'   => 'Button background hover color',
+                'default' => 'white',
+                'sass'    => true
+            ],
+            'buttonFontSize'   => [
+                'type'    => 'input:text',
+                'label'   => 'Button font size',
+                'default' => '16px',
+                'sass'    => true
             ],
 			'backgroundColor'  => [
 				'type'    => 'input:color',

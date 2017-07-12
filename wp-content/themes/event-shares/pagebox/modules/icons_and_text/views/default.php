@@ -31,6 +31,7 @@ $titleHeader = $this->getInput( 'typeOfHeader' )->getValue();
                      class="aos-init aos-animate col-lg-4 md-padd-bottom">
                     <div class="svg-wrapper first-svg"> <?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => 'style-svg' ] ) ?></div>
                     <div class="md-padd-top">
+                        <h4></h4>
                         <p><?= $sectionEditor ?></p>
 
 						<?php
