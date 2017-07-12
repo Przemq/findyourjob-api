@@ -70,19 +70,33 @@
             </div>
         </div>
         <div class="row" id="footer-nav">
-            <div class="col-md-3 col-sm-4 col-6" id="social-wrapper">
+            <div class="col-md-4 col-sm-4 col-6" id="social-wrapper">
                 <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_facebook') ?>">
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Facebook%20Green%20Icon-01-01.svg">
                 </a>
                 <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_twitter') ?>">
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Twitter%20Green%20Icon-01-01.svg">
-
                 </a>
                 <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_linkedin') ?>">
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Linkedin%20Green%20Icon-01-01.svg">
                 </a>
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_instagram') ?>">
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/instagram.svg">
+                </a>
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_medium') ?>">
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/mediumIcon.svg">
+                </a>
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_seeking_alpha') ?>">
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Linkedin%20Green%20Icon-01-01.svg">
+                </a>
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_google_plus') ?>">
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/google-plus.svg">
+                </a>
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_stock_twits') ?>">
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Twitter%20Green%20Icon-01-01.svg">
+                </a>
             </div>
-            <div class="col-md-9 col-sm-8 col-6" id="menu-items">
+            <div class="col-md-8 col-sm-8 col-6" id="menu-items">
                 <?php
                 if (has_nav_menu('footer')) {
                     wp_nav_menu(array(

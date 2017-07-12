@@ -260,6 +260,36 @@ class WPX_Theme_Options {
 					'type'    => 'text',
 					'default' => "#"
 				],
+                [
+                    'name'    => 'Url for Instagram',
+                    'id'      => $prefix . $section . 'instagram',
+                    'type'    => 'text',
+                    'default' => "#"
+                ],
+                [
+                    'name'    => 'Url for Medium',
+                    'id'      => $prefix . $section . 'medium',
+                    'type'    => 'text',
+                    'default' => "#"
+                ],
+                [
+                    'name'    => 'Url for Seeking Alpha',
+                    'id'      => $prefix . $section . 'seeking_alpha',
+                    'type'    => 'text',
+                    'default' => "#"
+                ],
+                [
+                    'name'    => 'Url for Google Plus',
+                    'id'      => $prefix . $section . 'google_plus',
+                    'type'    => 'text',
+                    'default' => "#"
+                ],
+                [
+                    'name'    => 'Url for StockTwits',
+                    'id'      => $prefix . $section . 'stock_twits',
+                    'type'    => 'text',
+                    'default' => "#"
+                ],
 				[
 					'name'    => 'Icon color',
 					'id'      => $prefix . $section . 'icon_color',
