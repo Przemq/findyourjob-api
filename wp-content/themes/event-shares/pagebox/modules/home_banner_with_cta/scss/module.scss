@@ -13,7 +13,7 @@
   $shape-image-height-m: 170px;
 
   //destkop
-  $shape-image-width: 415px;
+  $shape-image-width: 500px;
   $shape-image-height: 361px;
 
   background-color: $background-color;
@@ -81,7 +81,7 @@
       overflow: hidden;
       padding-top: $shape-image-height-m;
       @include media-breakpoint-up(lg) {
-        padding-top: $shape-image-height;
+        padding-top: 530px;
       }
       @include media-breakpoint-down(md) {
         height: 200px;
@@ -92,7 +92,7 @@
         overflow: hidden;
         @include position(absolute, 0 20px null null);
         @include media-breakpoint-up(lg) {
-          @include size (415px 450px);
+          @include size (500px 570px);
           box-shadow: 0px 0px 0px 20px $background-color;
         }
 
@@ -106,7 +106,7 @@
           z-index: 2;
           fill: $background-color;
           @include media-breakpoint-up(lg) {
-            @include size (600px 500px);
+            @include size (730px 550px);
           }
         }
 
@@ -118,7 +118,7 @@
           overflow: hidden;
           position: relative;
           @include media-breakpoint-up(lg) {
-            min-height: $shape-image-height;
+            min-height: 420px;
           }
         }
       }
