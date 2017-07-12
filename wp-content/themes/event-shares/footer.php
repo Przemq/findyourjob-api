@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="row" id="footer-nav">
-            <div class="col-md-4 col-sm-4 col-6" id="social-wrapper">
+            <div class="col-lg-4 col-md-5 col-sm-4 col-6" id="social-wrapper">
                 <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_facebook') ?>">
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Facebook%20Green%20Icon-01-01.svg">
                 </a>
@@ -96,7 +96,7 @@
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Twitter%20Green%20Icon-01-01.svg">
                 </a>
             </div>
-            <div class="col-md-8 col-sm-8 col-6" id="menu-items">
+            <div class="col-lg-8 col-md-7 col-sm-8 col-6" id="menu-items">
                 <?php
                 if (has_nav_menu('footer')) {
                     wp_nav_menu(array(
