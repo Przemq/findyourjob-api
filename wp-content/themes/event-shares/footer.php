@@ -61,7 +61,7 @@
         <div class="row" id="footer">
             <div class="col-md-3 col-sm-10"
                  id="left-column"><?= wpx_theme_get_option('wpx_theme_footer_small_text'); ?></div>
-            <div class="col-md-6 col-sm-10"
+            <div class="col-md-9 col-sm-10"
                  id="right-column">
                 <?php
                 $content = wpx_theme_get_option('wpx_theme_footer_big_text');
@@ -92,7 +92,6 @@
                         )
                     );
                 }
-
                 ?>
             </div>
         </div>

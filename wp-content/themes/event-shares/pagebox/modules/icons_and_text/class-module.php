@@ -68,7 +68,7 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 			],
             'paragraphSize'       => [
                 'type'        => 'input:text',
-                'label'       => 'Paragraph size',
+                'label'       => 'Description size',
                 'description' => 'Please enter paragraph size px',
                 'default'     => '23px',
                 'sass'        => true
