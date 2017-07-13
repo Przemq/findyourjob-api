@@ -21,10 +21,14 @@ $module = $this->getModule();
             </div>
             <div class="col-lg-12 image-container">
 				<?php foreach ( $this->getRepeater( 'logos' ) as $index => $section ) :
+                    /* @var \Nurture\Pagebox\Module\Scope $section */
 					$ImageID = $section->getMedia( 'logoImage' )->getImage()->getId();
 					$isBlank = $section->getInput( 'logoBlank' )->getValue() ? ' target=_blank ' : "";
+					$isInternal = $section->getInput('enableInternalLink')->getValue();
+					$internalLink = $section->getSelect( 'internalUrl' )->getValue()['permalink'];
+					dump($internalLink);
 					?>
-                    <a <?= $isBlank ?> href="<?= $section->getInput( 'logoUrl' ) ?>">
+                    <a <?= $isBlank ?> href="<?php if($isInternal) echo $internalLink; else echo $section->getInput( 'logoUrl' ) ?>">
 						<?php echo wp_get_attachment_image( $ImageID, 'full', false, [ 'class' => 'media-image' ] ) ?>
                     </a>
 					<?php
