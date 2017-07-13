@@ -26,7 +26,6 @@ $module = $this->getModule();
 					$isBlank = $section->getInput( 'logoBlank' )->getValue() ? ' target=_blank ' : "";
 					$isInternal = $section->getInput('enableInternalLink')->getValue();
 					$internalLink = $section->getSelect( 'internalUrl' )->getValue()['permalink'];
-					dump($internalLink);
 					?>
                     <a <?= $isBlank ?> href="<?php if($isInternal) echo $internalLink; else echo $section->getInput( 'logoUrl' ) ?>">
 						<?php echo wp_get_attachment_image( $ImageID, 'full', false, [ 'class' => 'media-image' ] ) ?>
