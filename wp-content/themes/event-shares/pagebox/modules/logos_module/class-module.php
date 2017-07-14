@@ -8,6 +8,7 @@ namespace Nurture\EventShares\Module;
 
 use Nurture\Pagebox\Module\AbstractModule;
 use Nurture\Pagebox\Module\View\StaticCacheInterface;
+use Nurture\Pagebox\Module\Fields\Builder\Select;
 
 class LogosModule extends AbstractModule implements StaticCacheInterface {
 
@@ -59,10 +60,55 @@ class LogosModule extends AbstractModule implements StaticCacheInterface {
 		        'default' => '#ffffff',
 		        'sass' => true
 	        ],
+            'logosOpacity' => [
+                'type' => 'input:text',
+                'label' => 'Image opacity',
+                'default' => '1.0',
+                'description' => 'Set opacity value(0 - 1)',
+                'sass' => true
+            ],
+            'logosHoverOpacity' => [
+                'type' => 'input:text',
+                'label' => 'Image hover opacity',
+                'default' => '0.5',
+                'description' => 'Set hover opacity value(0 - 1)',
+                'sass' => true
+            ],
+            'imageGreyScale' => [
+                'type' => 'input:text',
+                'label' => 'Image grey scale',
+                'default' => '0%',
+                'description' => 'Set opacity value(0 - 100%)',
+                'sass' => true
+            ],
 	        'logos' => [
 		        'type' => 'repeater',
 		        'label' => 'Logos',
 		        'fields' => [
+                    'enableInternalLink'        => [
+                        'type'        => 'input:switch',
+                        'label'       => 'Use internal link',
+                        'default' => true
+                    ],
+                    'internalUrl'   => [
+                        'type'        => 'select',
+                        'label'       => 'Select link',
+                        'description' => 'Select article',
+                        'multiple'    => false,
+                        'options' => [
+                            'allowClear' => true,
+                        ],
+                        'values'   => function () {
+                            return Select::postFilter( get_post( [ 'posts_per_page' => - 1 ] ), [
+                                'postID'    => function ( \WP_Post $post ) {
+                                    return $post->ID;
+                                },
+                                'permalink' => function ( \WP_Post $post ) {
+                                    return get_permalink( $post->ID );
+                                }
+                            ] );
+                        }
+                    ],
 			        'logoUrl'        => [
 				        'type'        => 'input:text',
 				        'label'       => 'Set logo url',

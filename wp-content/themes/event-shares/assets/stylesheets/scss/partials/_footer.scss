@@ -23,6 +23,9 @@ footer {
       line-height: 180%;
       color: $footer_right_color;
       font-size: 12px;
+      @include media-breakpoint-up(md) {
+        padding-left: 50px;
+      }
     }
   }
 

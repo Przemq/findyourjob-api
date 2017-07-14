@@ -22,8 +22,10 @@
     flex-direction: row;
     .media-image {
       max-width: 24%;
-      padding: 30px;
+      padding: 15px;
       width:auto;
+      object-fit: contain;
+      max-height: 160px;
       @include media-breakpoint-down(md){
         max-width: 32%;
       }
@@ -33,19 +35,11 @@
     }
     a {
       .media-image{
-        -webkit-filter: grayscale(100%);
         display: inline-flex;
-        filter: grayscale(100%);
-        opacity: 0.5;
         @include transition(0.5s all);
       }
       &:hover {
         text-decoration: none;
-        .media-image{
-          -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
-          opacity: 1;
-        }
       }
     }
 
@@ -63,6 +57,28 @@
     h4{
       color:get('titleColor');
       font-size:get('titleSize');
+    }
+  }
+  $greyScale: get('imageGreyScale');
+  .image-container {
+    a {
+      .media-image{
+        @if (type-of($greyScale) == 'number') {
+          -webkit-filter: grayscale($greyScale);
+          filter: grayscale($greyScale);
+        }
+        opacity: get('logosOpacity');
+
+      }
+      &:hover {
+        .media-image{
+          @if (type-of($greyScale) == 'number') {
+            -webkit-filter: grayscale($greyScale);
+            filter: grayscale($greyScale);
+          }
+          opacity: get('logosHoverOpacity');
+        }
+      }
     }
   }
 }
