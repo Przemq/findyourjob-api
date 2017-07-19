@@ -33,13 +33,19 @@ class IconAndText extends AbstractModule implements StaticCacheInterface {
 	        //Title
 	        'textUnderImage' => [
 		        'type' => 'editor',
-		        'label' => 'Text under image',
+		        'label' => 'Description under image',
 		        'description' => 'Please enter description'
 	        ],
             'fontSize' => [
                 'type' => 'input:text',
                 'label' => 'Font size',
                 'default' => '14px',
+                'sass' => true
+            ],
+            'descriptionColor' => [
+                'type' => 'input:color',
+                'label' => 'Description color',
+                'default' => '#000000',
                 'sass' => true
             ],
             'imageUrl' => [
