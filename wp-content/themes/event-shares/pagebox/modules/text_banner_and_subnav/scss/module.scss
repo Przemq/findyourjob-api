@@ -183,14 +183,14 @@
     }
   }
   .custom-nav-item {
-    border-color:get('titleColorHover');
+    border-color:get('titleColor');
     a{
       color:get('titleColor');
       font-size:get('titleSize');
       &.active,:hover,:active{
         color:get('titleColorHover');
         &:after{
-          border-color:get('titleColorHover');
+          border-color:get('titleColor');
         }
       }
     }
