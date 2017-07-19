@@ -9,6 +9,9 @@
   $placeholder-color: #919191;
   $header-color: #1e2c32;
 
+  form {
+    font-family: 'Merriweather', serif;
+  }
   padding: 40px 0;
 
   @include media-breakpoint-up(lg) {
@@ -30,7 +33,7 @@
       .flipper {
         max-height: 100%;
         @include transform(rotateY(180deg));
-        .back{
+        .back {
           display: flex;
           align-items: center;
           height: 100%;
@@ -58,7 +61,7 @@
         left: 0;
         @include perspective(1000px);
         @include backface-visibility(hidden);
-        .button{
+        .button {
           margin-top: 25px;
           cursor: pointer;
         }
@@ -70,17 +73,17 @@
         text-align: center;
         transform: rotateY(180deg);
         position: absolute;
-        height:100%;
+        height: 100%;
         top: 0;
         left: 0;
         color: #fff;
         @include perspective(1000px);
         @include backface-visibility(hidden);
         @include transition(0.6s);
-        @include media-breakpoint-down(md){
-          height:auto;
-          h2{
-            font-size:32px;
+        @include media-breakpoint-down(md) {
+          height: auto;
+          h2 {
+            font-size: 32px;
           }
         }
       }
@@ -145,10 +148,10 @@
 
     }
     span.wpcf7-list-item:first-child {
-    margin-left: 0;
+      margin-left: 0;
     }
-    .wpcf7-mail-sent-ok{
-      display: none!important;
+    .wpcf7-mail-sent-ok {
+      display: none !important;
     }
   }
 
@@ -188,19 +191,18 @@
 @include specified_module_loop() {
   background-color: get('backgroundColor');
 
-  .button{
+  .button {
     background-color: get('buttonBackgroundColor');
     color: get('buttonTextColor');
-    border-color:get('buttonBorderColor');
-    &:hover{
+    border-color: get('buttonBorderColor');
+    &:hover {
       @if get('buttonBackgroundHoverColorTransparent') == 1 {
-        background-color:transparent;
-      }
-    @else {
+        background-color: transparent;
+      } @else {
         background-color: get('buttonBackgroundHoverColor');
       }
       color: get('buttonTextHoverColor');
-      border-color:get('buttonBorderHoverColor');
+      border-color: get('buttonBorderHoverColor');
     }
 
   }
