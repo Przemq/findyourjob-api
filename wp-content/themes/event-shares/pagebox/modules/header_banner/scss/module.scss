@@ -14,10 +14,6 @@
     padding-top: 90px;
     padding-bottom: 39px;
 
-    p {
-      color: #fff;
-    }
-
     .buttons {
       padding-top: 17px;
       .header-button {
@@ -42,6 +38,10 @@
     h2 {
       color: get('headerColor');
       font-size: get('headerSize');
+    }
+    p {
+      color: get('descriptionColor');
+      font-size: get('descriptionFontSize');
     }
     .buttons {
       .button {

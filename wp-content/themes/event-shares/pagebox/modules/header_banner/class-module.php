@@ -53,6 +53,19 @@ class HeaderBanner extends AbstractModule implements StaticCacheInterface {
                 'label' => 'Text under header',
                 'description' => 'Please enter text'
             ],
+            'descriptionColor' => [
+                'type' => 'input:color',
+                'label' => 'Description color',
+                'default' => '#ffffff',
+                'sass' => true
+            ],
+            'descriptionFontSize' => [
+                'type' => 'input:text',
+                'label' => 'Description font size',
+                'description' => 'Please enter description font size ',
+                'default' => '14px',
+                'sass' => true
+            ],
             'buttonRepeater' => [
                 'type' => 'repeater',
                 'label' => 'Buttons',
