@@ -115,6 +115,7 @@
 
       & > a {
         display: block;
+        @include transition(300ms all);
       }
 
       & > a.active {
@@ -122,8 +123,11 @@
 
         &:hover, &:focus {
           color: #002841;
+
         }
+
       }
+
     }
   }
   p {
@@ -159,7 +163,7 @@
   .nav-tabs-dropdown{
     border-color:get('titleColorHover');
     a {
-      color: get('titleColorHover');
+      color: get('titleColor');
 
     }
   }
@@ -170,7 +174,7 @@
         color: get('inactiveTabColor');
       }
       & > a.active {
-        color: get('titleColorHover');
+        color: get('titleColor');
 
         &:hover, &:focus {
           color: get('titleColorHover');
