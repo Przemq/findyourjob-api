@@ -172,6 +172,8 @@ $timeline-color: #56c1a3;
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
+  background-color: get('backgroundColor');
+
   .description {
     p {
       @if (get_deep('align', 'id') == 'left') {
@@ -215,11 +217,14 @@ $timeline-color: #56c1a3;
       }
     }
   }
-  background-color: get('backgroundColor');
+
   .header {
-    color: get('headerColor');
-    font-size: get('headerSize');
+    h4{
+      color: get('headerColor');
+      font-size: get('headerSize');
+    }
   }
+
   .timeline {
     .days {
       .day {
@@ -238,9 +243,12 @@ $timeline-color: #56c1a3;
             }
           }
           h4 {
+            font-size:get('timelineheaderSize');
+            color:get('timelineheaderColor');
             &:after {
               background-color: get('dotColor');
               border-color:get('backgroundColor');
+
             }
           }
         }
