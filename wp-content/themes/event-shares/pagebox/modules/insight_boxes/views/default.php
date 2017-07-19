@@ -27,6 +27,7 @@ $args             = [
 	),
 ];
 
+$isEmpty = $this->getRepeater( 'filterText' )->count()>0 ? false : true;
 $categorys    = get_categories();
 $topics       = get_tags();
 $insightQuery = new WP_Query( $args );
@@ -42,7 +43,7 @@ $insightQuery = new WP_Query( $args );
 			<?= createTaskLink( 'EV-32' ) ?>
             <a href="#" class="nav-tabs-dropdown <?= $module->changeNav() ?> mob-nav">Dropdown-nav</a>
             <ul class="nav-tabs-wrapper nav-tabs nav-tabs-horizontal list-inline row no-gutters <?= $module->changeNavTabs() ?>"
-                role="tablist">
+                role="tablist" <?= $isEmpty ? 'style="padding-top:20px"' : "";?> >
 				<?php foreach ( $this->getRepeater( 'filterText' ) as $index => $filter ) : ?>
                     <li class="nav-item custom-nav-item list-inline-item <?= $module->colsTabs() ?>">
 						<?php
