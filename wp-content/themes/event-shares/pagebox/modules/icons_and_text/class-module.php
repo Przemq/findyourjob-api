@@ -68,7 +68,7 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 			],
             'paragraphSize'       => [
                 'type'        => 'input:text',
-                'label'       => 'Description size',
+                'label'       => 'Paragraph size',
                 'description' => 'Please enter paragraph size px',
                 'default'     => '23px',
                 'sass'        => true
@@ -81,14 +81,14 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 				'fields' => [
 					'sectionImage'       => [
 						'type'        => 'media:image',
-						'label'       => 'Set background image First Section',
+						'label'       => 'Set background image',
 						'multiple'    => false,
 						'unique'      => false,
 						'aspectRatio' => '16:9',
 					],
 					'sectionEditor'      => [
 						'type'  => 'editor',
-						'label' => 'Set Text for section'
+						'label' => 'Set text for section'
 					],
 					'sectionButton'      => [
 						'type'    => 'input:text',
@@ -134,33 +134,6 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 						}
 					],
 				],
-			],
-			'titleInnerSize'  => [
-				'type'        => 'input:text',
-				'label'       => 'Description Title size',
-				'description' => 'Please enter description Title size px',
-				'default'     => '25px',
-				'sass'        => true
-			],
-			'titleInnerColor' => [
-				'type'    => 'input:color',
-				'label'   => 'Description description Title color',
-				'default' => '#002842',
-				'sass'    => true
-			],
-
-			'descriptionSize'  => [
-				'type'        => 'input:text',
-				'label'       => 'Description  size',
-				'description' => 'Please enter title size px',
-				'default'     => '14px',
-				'sass'        => true
-			],
-			'descriptionColor' => [
-				'type'    => 'input:color',
-				'label'   => 'Description Title color',
-				'default' => '#292b2c',
-				'sass'    => true
 			],
             'sectionIconColor'   => [
 	            'type'    => 'input:color',
@@ -210,6 +183,18 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 				'default' => '#ffffff',
 				'sass'    => true
 			],
+            'singleParagraphFontSize'   => [
+                'type'    => 'input:text',
+                'label'   => 'Single column font size',
+                'default' => '14px',
+                'sass'    => true
+            ],
+            'singleParagraphColor'  => [
+                'type'    => 'input:color',
+                'label'   => 'Single column text color',
+                'default' => '#000000',
+                'sass'    => true
+            ],
 		];
 	}
 }

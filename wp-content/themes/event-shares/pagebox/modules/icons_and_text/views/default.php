@@ -32,7 +32,7 @@ $titleHeader = $this->getInput( 'typeOfHeader' )->getValue();
                     <div class="svg-wrapper first-svg"> <?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => 'style-svg' ] ) ?></div>
                     <div class="md-padd-top">
                         <h4></h4>
-                        <p><?= $sectionEditor ?></p>
+                        <?= $sectionEditor ?>
 
 						<?php
 						$buttonText = $section->getInput( 'sectionButton' );
