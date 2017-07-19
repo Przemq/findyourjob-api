@@ -8,7 +8,7 @@
     padding-top: 77px;
     text-align: center;
     padding-bottom: 90px;
-    @include media-breakpoint-down(md){
+    @include media-breakpoint-down(md) {
       padding-top: 60px;
       padding-bottom: 10px;
     }
@@ -21,11 +21,11 @@
       @include transition(0.3s all);
       svg {
         max-height: 110px;
-        @include media-breakpoint-down(md){
+        @include media-breakpoint-down(md) {
           max-height: 160px;
         }
         @include transition(0.3s all);
-        path,polygon,circle{
+        path, polygon, circle {
           fill: #56C1A3;
           @include transition(0.3s all);
         }
@@ -35,7 +35,7 @@
 
       }
       &:hover svg {
-        path,polygon,circle {
+        path, polygon, circle {
           fill: #56C1A3;
         }
 
@@ -43,12 +43,11 @@
       img {
         max-height: 110px;
         width: auto;
-        @include media-breakpoint-down(md){
+        @include media-breakpoint-down(md) {
           max-height: 160px;
         }
       }
     }
-
 
     h4 {
       text-transform: uppercase;
@@ -75,7 +74,7 @@
       padding-top: 34px;
       padding-bottom: 45px;
       text-align: center;
-      @include media-breakpoint-down(md){
+      @include media-breakpoint-down(md) {
         display: none;
       }
     }
@@ -85,12 +84,13 @@
       font-family: 'Roboto Condensed', sans-serif;
       color: $header-color;
       letter-spacing: 5px;
-      @include media-breakpoint-down(md){
+      @include media-breakpoint-down(md) {
         display: none;
       }
     }
   }
 }
+
 // Styles for unique page/post module.
 // In this scope you can use special functions to get data from pageboxes:
 // - get( key )
@@ -103,26 +103,23 @@
     }
     .svg-wrapper {
       svg {
-        path,polygon,circle {
+        path, polygon, circle {
           fill: get('sectionIconColor');
-          stroke:get('sectionIconColor');
+          stroke: get('sectionIconColor');
         }
-
       }
       &:hover svg {
-        path,polygon,circle{
+        path, polygon, circle {
           fill: get('sectionIconColorHover');
           stroke: get('sectionIconColorHover');
         }
       }
     }
-    h4{
-      font-size: get('titleInnerSize');
-      color: get('titleInnerColor');
-    }
-    p{
-      font-size: get('descriptionSize');
-      color: get('descriptionColor');
+    .md-padd-top {
+      p {
+        font-size: get('singleParagraphFontSize');
+        color: get('singleParagraphColor');
+      }
     }
     .paragraph-header {
       font-size: get('paragraphSize');
@@ -132,12 +129,12 @@
       font-size: get('titleSize');
       color: get('titleColor');
     }
-    .button{
-      color: get('buttonTextColor') ;
+    .button {
+      color: get('buttonTextColor');
       background-color: get('buttonBackgroundColor');
       font-size: get('buttonFontSize');
-      &:hover{
-        color: get('buttonTextHoverColor') ;
+      &:hover {
+        color: get('buttonTextHoverColor');
         background-color: get('buttonBackgroundHoverColor');
       }
     }

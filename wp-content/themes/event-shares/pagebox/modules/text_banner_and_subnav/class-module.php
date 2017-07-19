@@ -147,19 +147,19 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
             ],
             'titleColor' => [
 	            'type' => 'input:color',
-	            'label' => 'Title color',
+	            'label' => 'Tab color',
 	            'default' => '#a6a6a6',
 	            'sass' => true
             ],
             'titleColorHover' => [
 	            'type' => 'input:color',
-	            'label' => 'Title color hover',
+	            'label' => 'Tab hover color',
 	            'default' => '#002841',
 	            'sass' => true
             ],
             'titleSize' => [
 	            'type' => 'input:text',
-	            'label' => 'Title size',
+	            'label' => 'Tab font size',
 	            'default' => '18px',
 	            'sass' => true
             ],
