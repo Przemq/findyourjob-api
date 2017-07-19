@@ -21,9 +21,10 @@
 @include specified_module_loop() {
   background-color: get('backgroundColor');
   .large-text-banner {
-    font-size: get('bannerSize');
-    color: get(bannerColor);
     background-color: get('backgroundColor');
-
+    p{
+      font-size: get('bannerSize');
+      color: get('bannerColor');
+    }
   }
 }
