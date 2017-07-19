@@ -161,7 +161,7 @@
   background-color: get('backgroundColor');
 
   .nav-tabs-dropdown{
-    border-color:get('titleColorHover');
+    border-color:get('titleColor');
     a {
       color: get('titleColor');
 
