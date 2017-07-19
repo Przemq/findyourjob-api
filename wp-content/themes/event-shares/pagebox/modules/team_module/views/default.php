@@ -36,7 +36,7 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
     <div class="container">
 		<?= createTaskLink( 'EV-24' ) ?>
 
-        <div class="top col-6">
+        <div class="top col-12 col-sm-12 col-md-6">
             <div class="row">
                 <h3 class="title"><?= $this->getInput( 'title' ) ?></h3>
 				<?php if ( $this->getInput( 'isDescriptionUnderTitleSwitch' )->getValue() ): ?>
@@ -60,7 +60,7 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
 							$startElementClass = "active";
 						}
 						?>
-                        <li class="nav-item col-lg-3">
+                        <li class="nav-item col-3">
                             <a data-index="<?= $index ?>" class="nav-link <?= $startElementClass ?>" data-toggle="tab"
                                href="#tab-<?= $uniqeID . '' . $index ?>"
                                role="tab"><?= $value->getInput( 'teamTitle' ); ?>
@@ -104,7 +104,6 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
 			<?php endfor ?>
         </div>
         <div class="hidden-md-up">
-            <?php dump($sectionArrayMobile)?>
 		    <?php
 		    for ( $i = 0; $i < sizeof( $sectionArrayMobile ); $i ++ ): ?>
                 <ul class="team-nav nav nav-tabs row" role="tablist">
