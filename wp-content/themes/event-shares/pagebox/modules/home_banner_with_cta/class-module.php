@@ -227,6 +227,12 @@ class HomeBanner extends AbstractModule implements StaticCacheInterface
                 'default' => 0.14,
                 'sass' => true
             ],
+            'buttonFontSize' => [
+                'type' => 'input:text',
+                'label' => 'Buttons font size',
+                'default' => '16px',
+                'sass' => true
+            ],
 
         ];
 

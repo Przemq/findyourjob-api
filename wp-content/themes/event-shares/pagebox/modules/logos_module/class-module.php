@@ -98,15 +98,15 @@ class LogosModule extends AbstractModule implements StaticCacheInterface {
                         'options' => [
                             'allowClear' => true,
                         ],
-                        'values'   => function () {
-                            return Select::postFilter( get_post( [ 'posts_per_page' => - 1 ] ), [
-                                'postID'    => function ( \WP_Post $post ) {
+                        'values' => function () {
+                            return Select::postFilter(get_posts(['post_type'=>array('post','page'),  'posts_per_page' => - 1 ]), [
+                                'postID' => function (\WP_Post $post) {
                                     return $post->ID;
                                 },
-                                'permalink' => function ( \WP_Post $post ) {
-                                    return get_permalink( $post->ID );
+                                'permalink' => function (\WP_Post $post) {
+                                    return get_permalink($post->ID);
                                 }
-                            ] );
+                            ]);
                         }
                     ],
 			        'logoUrl'        => [
