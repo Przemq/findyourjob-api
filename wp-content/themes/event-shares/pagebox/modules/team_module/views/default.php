@@ -34,7 +34,7 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
                 <h3 class="title"><?= $this->getInput( 'title' ) ?></h3>
 				<?php if ( $this->getInput( 'isDescriptionUnderTitleSwitch' )->getValue() ): ?>
                     <div class="description">
-						<?= $this->getEditor( 'descriptionUnderTitle' )->getValue() ?>
+						<?= apply_filters('the_content',$this->getEditor( 'descriptionUnderTitle' )->getValue()) ?>
                     </div>
 				<?php endif; ?>
             </div>
