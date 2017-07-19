@@ -17,7 +17,6 @@
     }
 
     .description {
-      font-family: "Merriweather", serif;
       font-size: 14px;
       color: #000;
       text-align: left;
@@ -25,6 +24,7 @@
       overflow: hidden;
       height:auto;
       p{
+        font-family: "Merriweather", serif;
         line-height: 140%;
       }
     }
@@ -86,7 +86,9 @@
 
     .tab-content {
       font-size: 14px;
-      font-family: "Merriweather Light";
+      p{
+        font-family: "Merriweather Light", serif;
+      }
       .tab-pane {
         line-height: 1.714;
         text-align: left;
@@ -109,9 +111,10 @@
       }
 
       .quote {
+
         color: #56c2a3;
         font-size: 18px;
-        font-family: "Merriweather Light";
+        font-family: "Merriweather Light", serif;
         font-style: italic;
         margin-bottom: 38px;
       }
@@ -149,9 +152,15 @@
       span {
         color: get('jobTitleColor');
         font-size: get('jobTitleSize');
+
+        }
+      &.active {
+        &:after {
+          border-bottom: 20px solid get('tabBackgroundColor');
+        }
+      }
       }
 
-    }
     .tab-pane {
       color: get('innerDescriptionColor');
       font-size: get('innerDescriptionSize');

@@ -17,7 +17,7 @@ $sectionArray = array();
 $tempArray    = array();
 foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
 	array_push( $tempArray, $value );
-	if ( ( $index + 1 ) % 3 === 0 || $index === $numberOfSections - 1 ) {
+	if ( ( $index + 1 ) % 4 === 0 || $index === $numberOfSections - 1 ) {
 
 		array_push( $sectionArray, $tempArray );
 		$tempArray = array();
@@ -52,7 +52,7 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
 						$startElementClass = "active";
 					}
 					?>
-                    <li class="nav-item col-6 col-lg-4">
+                    <li class="nav-item col-3 col-lg-3">
                         <a class="nav-link <?= $startElementClass ?>" data-toggle="tab"
                            href="#tab-<?= $uniqeID . '' . $index ?>"
                            role="tab"><?= $value->getInput( 'teamTitle' ); ?>
