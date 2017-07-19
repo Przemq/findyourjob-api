@@ -21,7 +21,12 @@
       font-size: 14px;
       color: #000;
       text-align: left;
-
+      width:100%;
+      overflow: hidden;
+      height:auto;
+      p{
+        line-height: 140%;
+      }
     }
     .nav-tabs {
       border-bottom: none;
@@ -133,6 +138,10 @@
     .description {
       font-size: get('descriptionUnderTitleSize');
       color: get('descriptionUnderTitleColor');
+      p{
+        font-size: get('descriptionUnderTitleSize');
+        color: get('descriptionUnderTitleColor');
+      }
     }
     .nav-link {
       color: get('teamTitleColor');
@@ -147,6 +156,10 @@
       color: get('innerDescriptionColor');
       font-size: get('innerDescriptionSize');
       background-color: get('tabBackgroundColor');
+      p{
+        color: get('innerDescriptionColor');
+        font-size: get('innerDescriptionSize');
+      }
       .quote p{
         font-size: get('quoteSize');
         color: get('quoteColor');
