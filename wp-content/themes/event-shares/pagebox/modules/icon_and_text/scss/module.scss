@@ -32,6 +32,7 @@
   #top-page-image-with-text {
     p {
       font-size: get('fontSize');
+      color: get('descriptionColor');
     }
     #firm-icon {
       path,polygon,circle {
