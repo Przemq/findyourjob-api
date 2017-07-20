@@ -7,6 +7,7 @@
 namespace Nurture\EventShares\Module;
 
 use Nurture\Pagebox\Module\AbstractModule;
+use Nurture\Pagebox\Module\Fields\Api\Repeater;
 use Nurture\Pagebox\Module\Fields\Builder\Select;
 use Nurture\Pagebox\Module\View\StaticCacheInterface;
 
@@ -30,6 +31,13 @@ class MenuAboutFlyout extends AbstractModule implements StaticCacheInterface {
 		}
 
 		return "";
+	}
+
+	public function hasChildrens(  $repeater ) {
+		if ($repeater->count() > 0){
+			return 'has-childrens';
+		}
+		return 'no-childrens';
 	}
 
 	/**

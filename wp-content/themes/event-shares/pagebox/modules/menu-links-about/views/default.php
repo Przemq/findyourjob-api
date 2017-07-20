@@ -16,22 +16,22 @@ $newTarget       = $isBlank ? 'target=_blank' : '';
 $link            = $this->getInput( 'isPermalink' )->getValue() ? $permalink : $pageLink;
 $backgroundImage = "";
 $gridNumber      = $this->getSelect( 'grid-number' )->getValue()['id'];
-
+$repeater = $this->getRepeater( 'boxes' );
 
 if ( $this->getInput( 'isImage' )->getValue() ) {
 	$bgImageUrl      = $this->getMedia( 'backgroundImage' )->getImage()->getUrl( 'full' );
 	$backgroundImage = 'style="background-image:url(' . $bgImageUrl . ')"';
 }
 ?>
-<?= createTaskLink( 'EV-36' ) ?>
-<li class="flyout-module-wrapper <?= $module->getClass() ?> <?= $module->isParent( $postID ) ?> <?= $module->isActive( $link ) ?>">
+<?//= createTaskLink( 'EV-36' ) ?>
+<li class="flyout-module-wrapper <?= $module->getClass() ?> <?= $module->isParent( $postID ) ?>  <?= $module->hasChildrens( $repeater ) ?> <?= $module->isActive( $link ) ?>">
 
     <a class="main-link" href="<?= $link ?>" <?= $newTarget ?>>
 		<?= $title ?>
     </a>
     <ul class="row sub-menu-flex sub-menu" <?= $backgroundImage ?>>
 		<?php
-		foreach ( $this->getRepeater( 'boxes' ) as $index => $box )
+		foreach (  $repeater as $index => $box )
 
 //		    Links for buttons
 			:
