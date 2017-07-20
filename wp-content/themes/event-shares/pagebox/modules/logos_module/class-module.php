@@ -84,6 +84,7 @@ class LogosModule extends AbstractModule implements StaticCacheInterface {
 	        'logos' => [
 		        'type' => 'repeater',
 		        'label' => 'Logos',
+                'maxItems' => 25,
 		        'fields' => [
                     'enableInternalLink'        => [
                         'type'        => 'input:switch',
