@@ -144,7 +144,7 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 			],
 			'buttonOn'        => [
 				'type'    => 'input:switch',
-				'label'   => 'Display',
+				'label'   => 'Display button',
 				'default' => 1,
 			],
 			'rowColor'        => [
@@ -155,7 +155,7 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 			],
 			'rowSize'         => [
 				'type'    => 'input:text',
-				'label'   => 'Row size px()',
+				'label'   => 'Row size in px',
 				'default' => '14px',
 				'sass'    => true
 			],
