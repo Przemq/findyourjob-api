@@ -78,7 +78,7 @@ class VerticalTimeLine extends AbstractModule implements StaticCacheInterface
                 'fields' => [
                     'eventHeader' => [
                         'type' => 'input:text',
-                        'label' => 'Header text',
+                        'label' => 'TimeLine Header text',
                     ],
                     'eventDescription' => [
                         'type' => 'editor',
@@ -130,6 +130,19 @@ class VerticalTimeLine extends AbstractModule implements StaticCacheInterface
 	            'sass' => true
             ],
             'timelineheaderColor' => [
+	            'type' => 'input:color',
+	            'label' => 'Time line header',
+	            'default' => '#1e2c32',
+	            'sass' => true
+            ],
+
+            'timelineDescriptionSize' => [
+	            'type' => 'input:text',
+	            'label' => 'Time line Description font size',
+	            'default' => '14px',
+	            'sass' => true
+            ],
+            'timelineDescriptionColor' => [
 	            'type' => 'input:color',
 	            'label' => 'Time line header',
 	            'default' => '#1e2c32',

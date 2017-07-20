@@ -199,7 +199,9 @@ $timeline-color: #56c1a3;
       }
     }
   }
-
+  p{
+    word-wrap: break-word;
+  }
   .header {
     @if (get_deep('align', 'id') == 'left') {
       position: relative;
@@ -248,8 +250,11 @@ $timeline-color: #56c1a3;
             &:after {
               background-color: get('dotColor');
               border-color:get('backgroundColor');
-
             }
+          }
+          p{
+            font-size:get('timelineDescriptionSize');
+            color:get('timelineDescriptionColor');
           }
         }
       }
