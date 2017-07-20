@@ -131,7 +131,7 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
             ],
             'activeTab' => [
 	            'type'    => 'input:number',
-	            'label'   => 'Active tab number (please enter desired tab number: max 6)',
+	            'label'   => 'Active tab number (please enter desired tab number: 1 - 6)',
 	            'default' => '1',
             ],
             'backgroundColor' => [
