@@ -2,9 +2,10 @@
 
 // Overall module styles
 @include overall_module() {
-  @include media-breakpoint-up(lg){
-    &.current-menu-item-parent{
-      &:after{
+  font-family: 'Merriweather', serif;
+  @include media-breakpoint-up(lg) {
+    &.current-menu-item-parent {
+      &:after {
         width: 100%;
         background: #002841;
       }
@@ -25,6 +26,15 @@
       top: -33px;
       left: 0;
     }
+    li {
+      .menu-special-hover {
+        a {
+          text-transform: uppercase;
+          font-size: 18px;
+        }
+      }
+
+    }
   }
   .sub-menu-mobile-flex {
     display: none;
@@ -39,8 +49,8 @@
       position: relative;
     }
   }
-  &.sub-on{
-    &>a {
+  &.sub-on {
+    & > a {
       background: #d6d6d6;
     }
     .sub-menu-mobile-flex {
@@ -52,18 +62,18 @@
         font-size: 14px;
       }
     }
-    @include media-breakpoint-down(md){
+    @include media-breakpoint-down(md) {
       &.current-menu-item, .current-menu-item, &.current-menu-item-parent {
         h4 {
           margin: 0;
           position: relative;
         }
-        li.current-menu-item, li.sub-on{
+        li.current-menu-item, li.sub-on {
           h4 {
             position: relative;
             background: #d6d6d6;
             a {
-              font-weight: bold!important;
+              font-weight: bold !important;
               &:after {
                 content: '';
                 display: block;
@@ -82,12 +92,12 @@
         }
 
       }
-      li.current-menu-item, li.sub-on{
+      li.current-menu-item, li.sub-on {
         h4 {
           position: relative;
           background: #d6d6d6;
           a {
-            font-weight: bold!important;
+            font-weight: bold !important;
             &:after {
               content: '';
               display: block;
@@ -107,9 +117,9 @@
 
     }
   }
-  @include media-breakpoint-down(md){
-    &.has-childrens{
-      &>a {
+  @include media-breakpoint-down(md) {
+    &.has-childrens {
+      & > a {
         position: relative;
         &:after {
           content: '';
@@ -153,7 +163,7 @@
           color: get('boxDescriptionColor');
         }
         a {
-          font-size: get('boxDescriptionSize');
+          font-size: get('boxButtonSize');
           color: get('boxButtonColor');
           padding-left: 0;
           &:hover {
