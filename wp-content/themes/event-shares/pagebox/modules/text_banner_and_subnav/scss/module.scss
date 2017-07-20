@@ -158,6 +158,19 @@
 @include specified_module_loop() {
   background-color: get('backgroundColor');
 
+  $colorBackgroundHover: get('buttonBackgroundHoverColor');
+  $opacity: get('buttonBackgroundHoverOpacity');
+  .button {
+    color: get('buttonTextColor');
+    background-color: get('buttonBackgroundColor');
+    font-size: get('buttonFontSize');
+    &:hover {
+      color: get('buttonTextColorHover');
+      @if (type-of($colorBackgroundHover) == 'color' and type-of($opacity) == 'number') {
+        background: rgba($colorBackgroundHover, $opacity);
+      }
+    }
+  }
   .nav-tabs-dropdown {
     border-color: get('titleColor');
     a {
