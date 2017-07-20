@@ -302,9 +302,10 @@ header {
           box-shadow: none;
           padding: 10px;
           margin-left: 5px;
-          margin-top: 5px;
+          margin-top: 12px;
           color: black;
           background: white;
+          height: 48px;
           @include placeholder {
             color: #d6d6d6;
           }
@@ -317,6 +318,8 @@ header {
           background: #55c2a2;
           border: 0;
           padding: 9.5px;
+          margin-left: -5px;
+          height: 48px;
           img {
             width: 20px;
             height: 15px;
@@ -419,7 +422,7 @@ header {
   #wpx-eventshare-header {
     &.wpx-active-mobile-menu-parent {
 
-      left: -250px;
+      left: -245px;
       background-color: #fff;
       @include media-breakpoint-down(sm) {
         left: -277px;
