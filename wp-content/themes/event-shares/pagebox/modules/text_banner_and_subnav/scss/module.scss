@@ -135,11 +135,9 @@
     font-size: 17px;
     color: black;
     line-height: 38px;
-    text-align: center;
-    margin: 0 auto;
     @include media-breakpoint-up(lg) {
       font-size: 23px;
-      max-width: 650px;
+      //max-width: 650px;
     }
   }
   .button-wrapper {
@@ -160,8 +158,8 @@
 @include specified_module_loop() {
   background-color: get('backgroundColor');
 
-  .nav-tabs-dropdown{
-    border-color:get('titleColor');
+  .nav-tabs-dropdown {
+    border-color: get('titleColor');
     a {
       color: get('titleColor');
 
@@ -183,25 +181,34 @@
     }
   }
   .custom-nav-item {
-    border-color:get('titleColor');
-    a{
-      color:get('titleColor');
-      font-size:get('titleSize');
-      &.active,:hover,:active{
-        color:get('titleColorHover');
-        &:after{
-          border-color:get('titleColor');
+    border-color: get('titleColor');
+    a {
+      color: get('titleColor');
+      font-size: get('titleSize');
+      &.active, :hover, :active {
+        color: get('titleColorHover');
+        &:after {
+          border-color: get('titleColor');
         }
       }
     }
 
   }
-  .nav-tabs-wrapper{
-    border-color:get('titleColor');
+  .nav-tabs-wrapper {
+    border-color: get('titleColor');
   }
-  p{
-    color:get('descriptionColor');
-    font-size:get('descriptionSize');
+  p {
+    color: get('descriptionColor');
+    font-size: get('descriptionSize');
+    @if (get_deep('align', 'id') == 'left') {
+      text-align: left;
+    }
+    @if (get_deep('align', 'id') == 'center') {
+      text-align: center;
+    }
+    @if (get_deep('align', 'id') == 'right') {
+      text-align: right;
+    }
   }
 
 }

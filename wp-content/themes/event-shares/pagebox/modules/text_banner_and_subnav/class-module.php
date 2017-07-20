@@ -147,7 +147,7 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
             ],
             'titleColor' => [
 	            'type' => 'input:color',
-	            'label' => 'Tab color',
+	            'label' => 'Active tab color',
 	            'default' => '#a6a6a6',
 	            'sass' => true
             ],
@@ -162,6 +162,18 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
 	            'label' => 'Tab font size',
 	            'default' => '18px',
 	            'sass' => true
+            ],
+            'align'        => [
+                'type'     => 'select',
+                'label'    => 'Description align',
+                'multiple' => false,
+                'values'   => [
+                    [ 'id' => 'center', 'name' => 'Center' ],
+                    [ 'id' => 'left', 'name' => 'Left' ],
+                    [ 'id' => 'right', 'name' => 'Right' ]
+                ],
+                'default'  => 'center',
+                'sass'     => true
             ],
             'descriptionColor' => [
 	            'type' => 'input:color',
