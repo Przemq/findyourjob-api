@@ -228,7 +228,13 @@ $timeline-color: #56c1a3;
       font-size: get('headerSize');
     }
   }
+  .description {
+    p{
+      font-size:get('descriptionSize');
+      color:get('descriptionColor');
+    }
 
+  }
   .timeline {
     .days {
       .day {

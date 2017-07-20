@@ -59,6 +59,19 @@ class VerticalTimeLine extends AbstractModule implements StaticCacheInterface
                 'type' => 'editor',
                 'label' => 'Module description'
             ],
+            'descriptionSize' => [
+	            'type' => 'input:text',
+	            'label' => 'Description font size',
+	            'default' => '14px',
+	            'sass' => true
+
+            ],
+            'descriptionColor' => [
+	            'type' => 'input:color',
+	            'label' => 'Description color',
+	            'default' => '#1e2c32',
+	            'sass' => true
+            ],
             'align'        => [
                 'type'     => 'select',
                 'label'    => 'Description align',
