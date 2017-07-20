@@ -36,12 +36,6 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 	protected function fields() {
 		return [
 			//Title
-            'typeOfHeader'       => [
-                'type'        => 'input:switch',
-                'label'       => 'Type of header (Title/Description)',
-                'description' => 'Please select type of header',
-                'default'     => false
-            ],
 			'title'           => [
 				'type'        => 'input:text',
 				'label'       => 'Title',
@@ -53,12 +47,6 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 				'default' => '#002842',
 				'sass'    => true
 			],
-            'paragraphColor'      => [
-                'type'    => 'input:color',
-                'label'   => 'Paragraph color',
-                'default' => '#002842',
-                'sass'    => true
-            ],
 			'titleSize'       => [
 				'type'        => 'input:text',
 				'label'       => 'Title size',
@@ -66,13 +54,6 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 				'default'     => '25px',
 				'sass'        => true
 			],
-            'paragraphSize'       => [
-                'type'        => 'input:text',
-                'label'       => 'Paragraph size',
-                'description' => 'Please enter paragraph size px',
-                'default'     => '23px',
-                'sass'        => true
-            ],
 //	        Repeater
 			'sections'        => [
 				'type'   => 'repeater',
@@ -85,6 +66,10 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 						'multiple'    => false,
 						'unique'      => false,
 						'aspectRatio' => '16:9',
+					],
+					'sectionTitle'      => [
+						'type'  => 'input:text',
+						'label' => 'Section title text'
 					],
 					'sectionEditor'      => [
 						'type'  => 'editor',
@@ -135,6 +120,18 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 					],
 				],
 			],
+            'sectionTitleColor'   => [
+	            'type'    => 'input:color',
+	            'label'   => 'Section title color',
+	            'default' => '#002842',
+	            'sass'    => true
+            ],
+            'sectionTitleSize'   => [
+	            'type'    => 'input:text',
+	            'label'   => 'Section title size',
+	            'default' => '25px',
+	            'sass'    => true
+            ],
             'sectionIconColor'   => [
 	            'type'    => 'input:color',
 	            'label'   => 'Icon (if exist) color',

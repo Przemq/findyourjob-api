@@ -16,11 +16,7 @@ $titleHeader = $this->getInput( 'typeOfHeader' )->getValue();
         <div class="row" id="three-column-boxes">
 
 
-            <div class="col-12 <?php if ( ! $titleHeader ) {
-				echo 'title-header';
-			} else {
-				echo 'paragraph-header';
-			} ?>"><?= $this->getInput( 'title' ) ?></div>
+            <div class="col-12 title-header" ><?= $this->getInput( 'title' ) ?></div>
 			<?php foreach ( $this->getRepeater( 'sections' ) as $index => $section ) :
 
 				$sectionEditor = $section->getEditor( 'sectionEditor' )->getValue();
@@ -31,9 +27,8 @@ $titleHeader = $this->getInput( 'typeOfHeader' )->getValue();
                      class="aos-init aos-animate col-lg-4 md-padd-bottom">
                     <div class="svg-wrapper first-svg"> <?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => 'style-svg' ] ) ?></div>
                     <div class="md-padd-top">
-                        <h4></h4>
+                        <h4 class="sub-header"><?= $section->getInput('sectionTitle');?></h4>
                         <?= $sectionEditor ?>
-
 						<?php
 						$buttonText = $section->getInput( 'sectionButton' );
 						$blank      = $section->getInput( 'sectionButtonBlank' )->getValue() ? 'target=_blank' : "";

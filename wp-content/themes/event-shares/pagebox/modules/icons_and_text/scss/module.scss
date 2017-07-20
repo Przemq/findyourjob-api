@@ -66,7 +66,7 @@
       font-size: 16px;
     }
 
-    .paragraph-header {
+    .title-header {
       font-family: 'Merriweather', serif;
       color: #182328;
       background-color: white;
@@ -78,16 +78,16 @@
         display: none;
       }
     }
-    .title-header {
-      padding-bottom: 35px;
-      //font-size: 25px;
-      font-family: 'Roboto Condensed', sans-serif;
-      color: $header-color;
-      letter-spacing: 5px;
-      @include media-breakpoint-down(md) {
-        display: none;
-      }
-    }
+    //.title-header {
+    //  padding-bottom: 35px;
+    //  //font-size: 25px;
+    //  font-family: 'Roboto Condensed', sans-serif;
+    //  color: $header-color;
+    //  letter-spacing: 5px;
+    //  @include media-breakpoint-down(md) {
+    //    display: none;
+    //  }
+    //}
   }
 }
 
@@ -115,19 +115,21 @@
         }
       }
     }
+
     .md-padd-top {
       p {
         font-size: get('singleParagraphFontSize');
         color: get('singleParagraphColor');
       }
     }
-    .paragraph-header {
-      font-size: get('paragraphSize');
-      color: get('paragraphColor');
-    }
     .title-header {
       font-size: get('titleSize');
       color: get('titleColor');
+    }
+    .sub-header{
+
+      font-size: get('sectionTitleSize');
+      color: get('sectionTitleColor');
     }
     .button {
       color: get('buttonTextColor');
