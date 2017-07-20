@@ -44,6 +44,7 @@
       line-height: 24px;
     }
 
+
     #left-column {
       margin-right: 50px;
     }
@@ -107,6 +108,22 @@
     p {
       font-size: get('descriptionSize');
       color: get('descriptionColor');
+    }
+
+    $colorBackgroundHover: get('buttonBackgroundHoverColor');
+    $opacity: get('buttonBackgroundHoverOpacity');
+    #left-column {
+      .button {
+        color: get('buttonTextColor');
+        background-color: get('buttonBackgroundColor');
+        font-size: get('buttonFontSize');
+        &:hover {
+          color: get('buttonTextColorHover');
+          @if (type-of($colorBackgroundHover) == 'color' and type-of($opacity) == 'number') {
+            background: rgba($colorBackgroundHover, $opacity);
+          }
+        }
+      }
     }
     table {
       tbody {
