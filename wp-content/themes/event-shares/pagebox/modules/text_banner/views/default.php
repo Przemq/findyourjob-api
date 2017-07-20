@@ -11,28 +11,27 @@ $module = $this->getModule();
 <div class="<?= $module->getClass() ?>">
     <div class="container-fluid">
         <div class="container">
-			<?= createTaskLink( 'EV-17' ) ?>
+            <?= createTaskLink('EV-17') ?>
             <div class="row large-text-banner">
-                <div class="col-lg-8 offset-lg-2">
+                <div id="wrapper" class="col-12">
 
-					<?= $this->getEditor( 'Text' )->getContent(); ?>
+                    <?= $this->getEditor('Text')->getContent(); ?>
 
-					<?php
-					if ( $this->getInput( 'buttonSwitch' )->getValue() ):
-						if ( $this->getInput( 'isPermalink' )->getValue() ) {
-							$url = $this->getInput( 'buttonUrl' );
-						} else {
-							$url = $this->getSelect( 'pageLink' )->getValue()['permalink'];
-
-						}
-
-						$blank = $this->getInput( 'buttonBlank' )->getValue() ? 'target=_blank' : "";
-						?>
-                        <a href="<?= $url ?>" <?= $blank ?> class="button">
-                            <span><?= $this->getInput( 'button' ) ?></span></a>
-					<?php endif;
-					?>
                 </div>
+                <?php
+                if ($this->getInput('buttonSwitch')->getValue()):
+                    if ($this->getInput('isPermalink')->getValue()) {
+                        $url = $this->getInput('buttonUrl');
+                    } else {
+                        $url = $this->getSelect('pageLink')->getValue()['permalink'];
+
+                    }
+
+                    $blank = $this->getInput('buttonBlank')->getValue() ? 'target=_blank' : "";
+                    ?>
+                    <a href="<?= $url ?>" <?= $blank ?> class="button" style="margin:auto">
+                        <span><?= $this->getInput('button') ?></span></a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
