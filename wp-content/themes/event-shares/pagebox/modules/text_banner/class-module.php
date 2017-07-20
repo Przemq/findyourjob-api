@@ -34,6 +34,18 @@ class TextBanner extends AbstractModule implements StaticCacheInterface {
 				'label'       => 'Text Banner',
 				'description' => 'Please enter Banner text'
 			],
+            'align'        => [
+                'type'     => 'select',
+                'label'    => 'Description align',
+                'multiple' => false,
+                'values'   => [
+                    [ 'id' => 'center', 'name' => 'Center' ],
+                    [ 'id' => 'left', 'name' => 'Left' ],
+                    [ 'id' => 'right', 'name' => 'Right' ]
+                ],
+                'default'  => 'left',
+                'sass'     => true
+            ],
 			'bannerColor'     => [
 				'type'    => 'input:color',
 				'label'   => 'Text Banner color',
@@ -95,7 +107,45 @@ class TextBanner extends AbstractModule implements StaticCacheInterface {
 				'label'   => 'Button Url New target',
 				'default' => 1,
 			],
+            'buttonBackgroundColor' => [
+                'type' => 'input:color',
+                'label' => 'Buttons background color',
+                'default' => '#56c1a3',
+                'sass' => true
+            ],
+            'buttonTextColor' => [
+                'type' => 'input:color',
+                'label' => 'Buttons text color',
+                'default' => '#002841',
+                'sass' => true
+            ],
+            'buttonBackgroundHoverColor' => [
+                'type' => 'input:color',
+                'label' => 'Buttons background hover color',
+                'default' => '#ffffff',
+                'sass' => true
+            ],
+            'buttonTextColorHover' => [
+                'type' => 'input:color',
+                'label' => 'Buttons text hover color',
+                'default' => '#ffffff',
+                'sass' => true
+            ],
+            'buttonBackgroundHoverOpacity' => [
+                'type' => 'input:text',
+                'label' => 'Buttons background on hover opacity',
+                'description' => 'Please enter opacity (values from 0 to 1)',
+                'default' => 0.14,
+                'sass' => true
+            ],
+            'buttonFontSize' => [
+                'type' => 'input:text',
+                'label' => 'Buttons font size',
+                'default' => '16px',
+                'sass' => true
+            ],
 
-		];
+
+        ];
 	}
 }

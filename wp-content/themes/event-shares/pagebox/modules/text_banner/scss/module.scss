@@ -11,9 +11,22 @@
     min-height: 160px;
     padding-top: 45px;
     padding-bottom: 45px;
-    text-align: center;
+    p {
+      margin: auto;
+      line-height: 1.5;
+    }
+
+    .button {
+      margin-top: 10px !important;
+    }
+    #wrapper {
+      @include media-breakpoint-down(md) {
+        padding: 0;
+      }
+    }
   }
 }
+
 // Styles for unique page/post module.
 // In this scope you can use special functions to get data from pageboxes:
 // - get( key )
@@ -22,9 +35,36 @@
   background-color: get('backgroundColor');
   .large-text-banner {
     background-color: get('backgroundColor');
-    p{
+    p {
       font-size: get('bannerSize');
+
       color: get('bannerColor');
+      @if (get_deep('align', 'id') == 'left') {
+        text-align: left;
+      }
+      @if (get_deep('align', 'id') == 'center') {
+        text-align: center;
+        @include media-breakpoint-up(md) {
+          max-width: 730px;
+        }
+      }
+      @if (get_deep('align', 'id') == 'right') {
+        text-align: right;
+        margin: auto;
+      }
+    }
+    $colorBackgroundHover: get('buttonBackgroundHoverColor');
+    $opacity: get('buttonBackgroundHoverOpacity');
+    .button {
+      color: get('buttonTextColor');
+      background-color: get('buttonBackgroundColor');
+      font-size: get('buttonFontSize');
+      &:hover {
+        color: get('buttonTextColorHover');
+        @if (type-of($colorBackgroundHover) == 'color' and type-of($opacity) == 'number') {
+          background: rgba($colorBackgroundHover, $opacity);
+        }
+      }
     }
   }
 }
