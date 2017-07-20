@@ -170,6 +170,9 @@
     > li {
       a {
         color: get('inactiveTabColor');
+        &:hover {
+          color: get('inactiveTabHoverColor');
+        }
       }
       & > a.active {
         color: get('titleColor');
