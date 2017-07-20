@@ -37,6 +37,7 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
             'timeline' => [
                 'type' => 'repeater',
                 'label' => 'Timeline',
+                'maxItems' => 6,
 	            'fields' =>[
 		            'title' => [
 			            'type' => 'input:text',
@@ -129,8 +130,8 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
 
             ],
             'activeTab' => [
-	            'type'    => 'input:text',
-	            'label'   => 'Active tab number (please enter desired tab number)',
+	            'type'    => 'input:number',
+	            'label'   => 'Active tab number (please enter desired tab number: 1 - 6)',
 	            'default' => '1',
             ],
             'backgroundColor' => [
@@ -145,6 +146,12 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
                 'default' => '#a6a6a6',
                 'sass' => true
             ],
+            'inactiveTabHoverColor' => [
+                'type' => 'input:color',
+                'label' => 'Inactive tab hover color',
+                'default' => '#2F4F4F',
+                'sass' => true
+            ],
             'titleColor' => [
 	            'type' => 'input:color',
 	            'label' => 'Active tab color',
@@ -153,7 +160,7 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
             ],
             'titleColorHover' => [
 	            'type' => 'input:color',
-	            'label' => 'Tab hover color',
+	            'label' => 'Active tab hover color',
 	            'default' => '#002841',
 	            'sass' => true
             ],

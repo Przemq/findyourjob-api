@@ -144,7 +144,7 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 			],
 			'buttonOn'        => [
 				'type'    => 'input:switch',
-				'label'   => 'Display',
+				'label'   => 'Display button',
 				'default' => 1,
 			],
 			'rowColor'        => [
@@ -155,7 +155,7 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 			],
 			'rowSize'         => [
 				'type'    => 'input:text',
-				'label'   => 'Row size px()',
+				'label'   => 'Row size in px',
 				'default' => '14px',
 				'sass'    => true
 			],
@@ -171,6 +171,44 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 				'default' => '#EBEBEB',
 				'sass'    => true
 			],
-		];
+            'buttonBackgroundColor' => [
+                'type' => 'input:color',
+                'label' => 'Buttons background color',
+                'default' => '#56c1a3',
+                'sass' => true
+            ],
+            'buttonTextColor' => [
+                'type' => 'input:color',
+                'label' => 'Buttons text color',
+                'default' => '#002841',
+                'sass' => true
+            ],
+            'buttonBackgroundHoverColor' => [
+                'type' => 'input:color',
+                'label' => 'Buttons background hover color',
+                'default' => '#ffffff',
+                'sass' => true
+            ],
+            'buttonTextColorHover' => [
+                'type' => 'input:color',
+                'label' => 'Buttons text hover color',
+                'default' => '#ffffff',
+                'sass' => true
+            ],
+            'buttonBackgroundHoverOpacity' => [
+                'type' => 'input:text',
+                'label' => 'Buttons background on hover opacity',
+                'description' => 'Please enter opacity (values from 0 to 1)',
+                'default' => 0.14,
+                'sass' => true
+            ],
+            'buttonFontSize' => [
+                'type' => 'input:text',
+                'label' => 'Buttons font size',
+                'default' => '16px',
+                'sass' => true
+            ],
+
+        ];
 	}
 }
