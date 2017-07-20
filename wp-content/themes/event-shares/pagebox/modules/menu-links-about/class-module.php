@@ -219,7 +219,7 @@ class MenuAboutFlyout extends AbstractModule implements StaticCacheInterface {
 			'boxButtonSize' => [
 				'type'    => 'input:text',
 				'label'   => 'Box Button size',
-				'default' => '14px',
+				'default' => '16px',
 				'sass'    => true
 			],
 			'grid-number'   => [
