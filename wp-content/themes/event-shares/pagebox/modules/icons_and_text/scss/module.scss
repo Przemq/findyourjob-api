@@ -21,6 +21,7 @@
       @include transition(0.3s all);
       svg {
         max-height: 110px;
+        max-width: 100%;
         @include media-breakpoint-down(md) {
           max-height: 160px;
         }
