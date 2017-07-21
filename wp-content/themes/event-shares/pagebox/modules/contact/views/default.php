@@ -61,11 +61,11 @@ $module = $this->getModule();
                 <div class="message"><?= $this->getEditor('messageAfterSentOK')->getContent(); ?></div>
             </div>
 
-<!--            <!-- Modal -->-->
+<!--            <!-- Modal -->
 <!--            <div id="subscribe-modal" class="modal fade" role="dialog" tabindex="-1" data-keyboard="false" data-backdrop="static">-->
 <!--                <div class="modal-dialog">-->
 <!---->
-<!--                    <!-- Modal content-->-->
+<!--                    <!-- Modal content-->
 <!--                    <div class="container">-->
 <!--                        <div class="row">-->
 <!--                            <div class="box col-12 col-md-6 col-lg-6">-->

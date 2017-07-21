@@ -51,6 +51,7 @@ class Contact extends AbstractModule implements StaticCacheInterface {
 			'addresses' => [
 				'type'   => 'repeater',
 				'label'  => 'Addresses',
+                'maxItems' => 15,
 				'fields' => [
 					'title'       => [
 						'type'        => 'input:text',
