@@ -25,7 +25,7 @@ $titleHeader = $this->getInput( 'typeOfHeader' )->getValue();
 				?>
                 <div data-aos-delay="<?= 200 * $index ?>" data-aos="fade-right"
                      class="aos-init aos-animate col-lg-4 md-padd-bottom">
-                    <div class="svg-wrapper first-svg"> <?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => 'style-svg' ] ) ?></div>
+                    <div class="svg-wrapper first-svg" xmlns="http://www.w3.org/2000/svg" version="1.1"> <?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => 'style-svg' ] ) ?></div>
                     <div class="md-padd-top">
                         <h4 class="sub-header"><?= $section->getInput('sectionTitle');?></h4>
                         <?= $sectionEditor ?>
