@@ -37,7 +37,7 @@ $markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
                         var london = {lat: <?= $latitude ?>, lng: <?= $longitude ?>};
 
                         var contentString =
-                            '<div> <?= $this->getEditor('address')->getValue(); ?> </div>';
+                            '<div><strong> <?= $this->getEditor('address')->getValue(); ?> </strong></div><div> <?= $this->getEditor('subAddress')->getValue(); ?> </div>';
 
                         var infowindow = new google.maps.InfoWindow({
                             content: contentString

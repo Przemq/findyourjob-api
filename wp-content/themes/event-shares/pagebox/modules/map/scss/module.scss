@@ -3,8 +3,8 @@
 // Overall module styles
 @include overall_module() {
 
-  #map{
-  background-color: rgb(229, 227, 223);
+  #map {
+    background-color: rgb(229, 227, 223);
     height: 400px;
     width: 100%;
   }
@@ -15,27 +15,50 @@
     font-weight: 500;
   }
 
-  #description{
+  #description {
     font-size: 14px;
     font-family: 'Merriweather', serif;
     line-height: 27px;
     color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
-  #title{
+  #title {
     text-transform: uppercase;
     font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 5px;
     font-weight: 400;
   }
 }
+
 // Styles for unique page/post module.
 // In this scope you can use special functions to get data from pageboxes:
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-    #title{
-      font-size: get('titleSize');
-      color: get('titleColor');
+  #title {
+    font-size: get('titleSize');
+    color: get('titleColor');
+  }
+  #description {
+    p {
+      font-size: get('descriptionSize');
+      color: get('descriptionColor');
     }
+  }
+  #map {
+    .gm-style .gm-style-iw {
+      p {
+        color: get('subAddressColor');
+        font-size: get('subAddressFontSize');
+      }
+      strong {
+        p {
+          color: get('headerAddressColor');
+          font-size: get('addressFontSize');
+        }
+      }
+    }
+  }
 }
