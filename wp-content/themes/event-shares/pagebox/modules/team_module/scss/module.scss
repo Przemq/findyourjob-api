@@ -2,6 +2,9 @@
 
 // Overall module styles
 @include overall_module() {
+  p{
+    word-wrap: break-word;
+  }
   .container {
     padding-top: 60px;
     padding-bottom: 60px;
