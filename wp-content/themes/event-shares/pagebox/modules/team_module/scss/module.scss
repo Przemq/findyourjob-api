@@ -100,6 +100,10 @@
         padding: 43px 23px 27px 23px;
         color: #fff;
         background-color: #002841;
+        @include media-breakpoint-down(sm) {
+          margin-left: -15px;
+          margin-right: -15px;
+        }
         img{
           max-width: 100%;
           width:100%;
