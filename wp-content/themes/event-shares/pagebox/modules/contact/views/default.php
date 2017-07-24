@@ -33,7 +33,7 @@ $module = $this->getModule();
                                 $pageLink = $address->getSelect('pageLink')->getValue()['permalink'];
                                 $isBlank = $address->getInput('isBlank')->getValue();
                                 $newTarget = $isBlank ? 'target=_blank' : '';
-                                $link = $address->getInput('isPermalink')->getValue() ? $permalink : $pageLink;
+                                $link = $address->getInput('isPermalink')->getValue() ? $pageLink : $permalink;
                                 ?>
                                 <?php if ($buttonText != "" && !empty($buttonText)): ?>
                                     <div class="button-wrapper">

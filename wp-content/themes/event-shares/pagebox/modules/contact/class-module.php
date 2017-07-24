@@ -77,7 +77,7 @@ class Contact extends AbstractModule implements StaticCacheInterface {
 					'isPermalink' => [
 						'type'    => 'input:switch',
 						'label'   => 'Use Permalink Link',
-						'default' => 1
+						'default' => true
 					],
 					'buttonUrl'   => [
 						'type'    => 'input:text',
