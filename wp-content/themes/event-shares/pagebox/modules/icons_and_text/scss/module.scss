@@ -72,9 +72,9 @@
       font-family: 'Merriweather', serif;
       color: #182328;
       background-color: white;
-      min-height: 160px;
+      //min-height: 160px;
       //padding-top: 34px;
-      padding-bottom: 45px;
+      padding-bottom: 35px;
       text-align: center;
       @include media-breakpoint-down(md) {
         display: none;
