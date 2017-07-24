@@ -206,4 +206,14 @@
     }
 
   }
+  .contacts {
+    h4{
+      color: get('titleColor');
+      font-size: get('titleFontSize');
+    }
+    p {
+      color: get('descriptionColor');
+      font-size: get('descriptionFontSize');
+    }
+  }
 }

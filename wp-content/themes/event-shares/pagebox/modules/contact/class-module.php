@@ -41,12 +41,41 @@ class Contact extends AbstractModule implements StaticCacheInterface {
 				'description' => 'Main contacts title',
 				'default'     => 'Contacts'
 			],
+
+            'titleColor' => [
+                'type'    => 'input:color',
+                'label'   => 'Title color',
+                'default' => '#1e2c32',
+                'sass'    => true
+            ],
+
+            'titleFontSize'           => [
+                'type'        => 'input:text',
+                'label'       => 'Title font size',
+                'description' => 'Please enter title font size',
+                'default'     => '25px',
+                'sass'    => true
+            ],
+
 			'backgroundColor' => [
 				'type'    => 'input:color',
 				'label'   => 'Background color',
 				'default' => '#ffffff',
 				'sass'    => true
 			],
+            'descriptionColor' => [
+                'type'    => 'input:color',
+                'label'   => 'Single contact description color',
+                'default' => '#1e2c32',
+                'sass'    => true
+            ],
+            'descriptionFontSize'           => [
+                'type'        => 'input:text',
+                'label'       => 'Single contact font size',
+                'description' => 'Please enter description font size',
+                'default'     => '14px',
+                'sass'    => true
+            ],
 
 			'addresses' => [
 				'type'   => 'repeater',
