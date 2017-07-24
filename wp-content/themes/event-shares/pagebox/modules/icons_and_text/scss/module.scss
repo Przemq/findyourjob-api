@@ -5,7 +5,7 @@
   $header-color: #002842;
 
   #three-column-boxes {
-    padding-top: 77px;
+    padding-top: 69px;
     text-align: center;
     padding-bottom: 90px;
     @include media-breakpoint-down(md) {
@@ -73,7 +73,7 @@
       color: #182328;
       background-color: white;
       min-height: 160px;
-      padding-top: 34px;
+      //padding-top: 34px;
       padding-bottom: 45px;
       text-align: center;
       @include media-breakpoint-down(md) {
