@@ -65,8 +65,8 @@ footer {
     #social-wrapper {
       margin-top: 1px;
       margin-bottom: 1px;
-      display: flex;
-      flex-wrap: wrap;
+      //display: flex;
+      //flex-wrap: wrap;
       @include media-breakpoint-down(md) {
         margin-top: 12px;
       }
@@ -77,12 +77,15 @@ footer {
         border-right: 1px solid $footer_border_color;
       }
       a {
-        @include media-breakpoint-down(md) {
-          align-items: flex-start;
+        //margin-bottom: 20px;
+        @include media-breakpoint-down(sm) {
+         margin-bottom: 20px;
+          float: left;
+
         }
-        align-items: center;
-        justify-content: center;
-        display: flex;
+        //align-items: center;
+        //justify-content: center;
+        //display: flex;
       }
 
     }
