@@ -41,9 +41,15 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 				'label'       => 'Title',
 				'description' => 'Please enter title'
 			],
+            'isDescription'           => [
+                'type'        => 'input:switch',
+                'label'       => 'Top text is header or description? (default header)',
+                'description' => 'Please select top text style',
+                'default' => false
+            ],
 			'titleColor'      => [
 				'type'    => 'input:color',
-				'label'   => 'Title color',
+				'label'   => 'Title/Description color',
 				'default' => '#002842',
 				'sass'    => true
 			],

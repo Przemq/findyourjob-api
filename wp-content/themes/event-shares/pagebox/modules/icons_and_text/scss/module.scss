@@ -80,16 +80,13 @@
         display: none;
       }
     }
-    //.title-header {
-    //  padding-bottom: 35px;
-    //  //font-size: 25px;
-    //  font-family: 'Roboto Condensed', sans-serif;
-    //  color: $header-color;
-    //  letter-spacing: 5px;
-    //  @include media-breakpoint-down(md) {
-    //    display: none;
-    //  }
-    //}
+    .description-header {
+      text-transform: uppercase;
+      font-size: 25px;
+      font-family: 'Roboto Condensed', sans-serif;
+      color: #002842;
+      letter-spacing: 5px;
+    }
   }
 }
 
@@ -100,48 +97,49 @@
 @include specified_module_loop() {
   background-color: get('backgroundColor');
   #three-column-boxes {
-    h2 {
+    .description-header {
       font-size: get('titleSize');
-    }
-    .svg-wrapper {
-      svg {
-        path, polygon, circle {
-          fill: get('sectionIconColor');
-          stroke: get('sectionIconColor');
-        }
-      }
-      &:hover svg {
-        path, polygon, circle {
-          fill: get('sectionIconColorHover');
-          stroke: get('sectionIconColorHover');
-        }
-      }
-    }
-
-    .md-padd-top {
-      p {
-        font-size: get('singleParagraphFontSize');
-        color: get('singleParagraphColor');
-      }
+      color: get('titleColor');
     }
     .title-header {
       font-size: get('titleSize');
       color: get('titleColor');
       background-color: get('backgroundColor');
-    }
-    .sub-header{
+      }
+      .svg-wrapper {
+        svg {
+          path, polygon, circle {
+            fill: get('sectionIconColor');
+            stroke: get('sectionIconColor');
+          }
+        }
+        &:hover svg {
+          path, polygon, circle {
+            fill: get('sectionIconColorHover');
+            stroke: get('sectionIconColorHover');
+          }
+        }
+      }
 
-      font-size: get('sectionTitleSize');
-      color: get('sectionTitleColor');
-    }
-    .button {
-      color: get('buttonTextColor');
-      background-color: get('buttonBackgroundColor');
-      font-size: get('buttonFontSize');
-      &:hover {
-        color: get('buttonTextHoverColor');
-        background-color: get('buttonBackgroundHoverColor');
+      .md-padd-top {
+        p {
+          font-size: get('singleParagraphFontSize');
+          color: get('singleParagraphColor');
+        }
+      }
+      .sub-header {
+
+        font-size: get('sectionTitleSize');
+        color: get('sectionTitleColor');
+      }
+      .button {
+        color: get('buttonTextColor');
+        background-color: get('buttonBackgroundColor');
+        font-size: get('buttonFontSize');
+        &:hover {
+          color: get('buttonTextHoverColor');
+          background-color: get('buttonBackgroundHoverColor');
+        }
       }
     }
   }
-}
