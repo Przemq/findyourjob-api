@@ -12,7 +12,7 @@ $module = $this->getModule();
     <div class="container flip-container">
         <?= createTaskLink('EV-29') ?>
         <div class="flipper">
-            <div class="row front">
+            <div class="row front no-gutters">
                 <div class="flex-lg-row col-lg-6 col-sm-12 contacts">
                     <div class="row">
                         <div class="col-lg-12"><h4><?= $this->getInput('title'); ?></h4></div>
