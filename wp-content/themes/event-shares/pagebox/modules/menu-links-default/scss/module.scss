@@ -2,12 +2,16 @@
 
 // Overall module styles
 @include overall_module() {
+  a {
+    text-decoration: none;
+  }
 
   @include media-breakpoint-down(md) {
     &.current-menu-item {
       position: relative;
       background: #d6d6d6;
       a {
+        text-decoration: none;
         font-weight: bold;
       }
       &:after {
