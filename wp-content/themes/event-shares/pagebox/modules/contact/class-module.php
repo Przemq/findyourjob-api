@@ -63,6 +63,19 @@ class Contact extends AbstractModule implements StaticCacheInterface {
 				'default' => '#ffffff',
 				'sass'    => true
 			],
+            'descriptionHeaderColor' => [
+                'type'    => 'input:color',
+                'label'   => 'Single contact header color',
+                'default' => '#000000',
+                'sass'    => true
+            ],
+            'descriptionHeaderFontSize'           => [
+                'type'        => 'input:text',
+                'label'       => 'Single contact header font size',
+                'description' => 'Please enter header font size',
+                'default'     => '17px',
+                'sass'    => true
+            ],
             'descriptionColor' => [
                 'type'    => 'input:color',
                 'label'   => 'Single contact description color',

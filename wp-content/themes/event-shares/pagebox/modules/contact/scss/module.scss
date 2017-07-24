@@ -215,5 +215,9 @@
       color: get('descriptionColor');
       font-size: get('descriptionFontSize');
     }
+    h5{
+      color: get('descriptionHeaderColor');
+      font-size: get('descriptionHeaderFontSize');
+    }
   }
 }
