@@ -27,7 +27,7 @@ $module = $this->getModule();
                                 <?php endif; ?>
                                 <?= $address->getEditor('description')->getContent(); ?>
                                 <?php
-                                $permalink = $address->getInput('permalink')->getValue();
+                                $permalink = $address->getInput('buttonUrl')->getValue();
                                 $buttonText = $address->getInput('button');
                                 $description = $address->getEditor('description')->getContent();
                                 $pageLink = $address->getSelect('pageLink')->getValue()['permalink'];
@@ -37,6 +37,7 @@ $module = $this->getModule();
                                 ?>
                                 <?php if ($buttonText != "" && !empty($buttonText)): ?>
                                     <div class="button-wrapper">
+
                                         <a class="button" <?= $newTarget ?> href="<?= $link ?>"><?= $buttonText ?></a>
                                     </div>
                                 <?php endif
