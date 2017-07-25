@@ -62,38 +62,6 @@ $module = $this->getModule();
                 <div class="message"><?= $this->getEditor('messageAfterSentOK')->getContent(); ?></div>
             </div>
 
-<!--            <!-- Modal -->
-<!--            <div id="subscribe-modal" class="modal fade" role="dialog" tabindex="-1" data-keyboard="false" data-backdrop="static">-->
-<!--                <div class="modal-dialog">-->
-<!---->
-<!--                    <!-- Modal content-->
-<!--                    <div class="container">-->
-<!--                        <div class="row">-->
-<!--                            <div class="box col-12 col-md-6 col-lg-6">-->
-<!--                                <form>-->
-<!--                                    <div class="form-group">-->
-<!--                                        <label for="exampleInputEmail1">Email address*</label>-->
-<!--                                        <input type="email" class="form-control" id="exampleInputEmail1"-->
-<!--                                               aria-describedby="emailHelp" placeholder="Enter email">-->
-<!--                                    </div>-->
-<!--                                    <div class="form-group">-->
-<!--                                        <label for="exampleSelect1">User information*</label>-->
-<!--                                        <select class="form-control" id="exampleSelect1">-->
-<!--                                            <option>I am individual investor</option>-->
-<!--                                            <option>I am Financial Advisor / RIA Wirehouse</option>-->
-<!--                                            <option>I am Family Office Institutional</option>-->
-<!--                                            <option>I am Investor Non-US Investor</option>-->
-<!--                                        </select>-->
-<!--                                    </div>-->
-<!--                                    <button type="submit" class="btn btn-primary button">Submit</button>-->
-<!--                                </form>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-
-
         </div>
     </div>
 </div>

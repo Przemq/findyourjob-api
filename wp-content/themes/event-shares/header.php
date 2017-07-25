@@ -132,6 +132,33 @@
 
 <?= createTaskLink( 'EV-15' ) ?>
 <?= createTaskLink( 'EV-36' ) ?>
+<div id="subscribe-modal" class="modal fade d-none">
+    <div class="modal-dialog">
+        <div class="container">
+            <div class="row">
+                <div class="box col-12 col-md-6 col-lg-6">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address*</label>
+                            <input type="email" class="form-control" id="subscribe-email"
+                                   aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleSelect1">User information*</label>
+                            <select class="form-control" id="subscribe-select">
+                                <option value="individual">I am individual investor</option>
+                                <option value="advisor">I am Financial Advisor / RIA Wirehouse</option>
+                                <option value="institutional">I am Family Office Institutional</option>
+                                <option value="us">I am Investor Non-US Investor</option>
+                            </select>
+                        </div>
+                        <button id="subscribe-submit" type="submit" class="btn btn-primary button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <header id="wpx-eventshare-header">
     <div class="container-fluid">
         <div class="container">

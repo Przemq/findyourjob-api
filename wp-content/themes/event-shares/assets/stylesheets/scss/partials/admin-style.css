@@ -1,0 +1,78 @@
+.theme-options-wrapper table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.theme-options-wrapper td, .theme-options-wrapper th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.theme-options-wrapper tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.theme-options-wrapper {
+    padding: 20px;
+}
+
+.theme-options-wrapper th {
+    width: 250px; }
+
+.theme-options-wrapper td span {
+    font-size: 12px;
+    padding: 5px;
+    color: #4c4c4c;
+    font-style: italic; }
+
+.theme-options-wrapper td input, .theme-options-wrapper td textarea {
+    width: 500px !important; }
+
+/* Style the list */
+.theme-options-wrapper ul.subtab {
+    background-color: #ccc !important; }
+
+.theme-options-wrapper ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    background-color: #f1f1f1; }
+
+/* Float the list items side by side */
+.theme-options-wrapper ul.tab li {
+    margin: 0;
+    float: left; }
+
+/* Style the links inside the list items */
+.theme-options-wrapper ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 16px; }
+
+/* Change background color of links on hover */
+.theme-options-wrapper ul.tab li a:hover {
+    background-color: #ddd; }
+
+/* Create an active/current tablink class */
+.theme-options-wrapper ul.tab li a:focus, .theme-options-wrapper .active {
+    background-color: #ccc;
+    box-shadow: none; }
+
+.theme-options-wrapper ul.subtab li a:focus, .theme-options-wrapper ul.subtab .active {
+    background-color: #949494 !important; }
+
+/* Style the tab content */
+.theme-options-wrapper .tabcontent, .theme-options-wrapper .subtabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none; }
+
+/*# sourceMappingURL=admin-style.css.map */

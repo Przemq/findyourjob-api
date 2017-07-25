@@ -87,6 +87,39 @@ jQuery(function ($) {
 
     })(jQuery);
 
+    $('#sign-up-link').on('click', function() {
 
+        $('#subscribe-modal').removeClass('fade');
+
+    });
+
+    function subscribers() {
+
+        $('#subscribe-submit').on('click', function() {
+
+            var email = $('#subscribe-email').val(),
+                investor = $('#subscribe-select').find('option:selected').val();
+
+            if(email !== '') {
+
+                var data = {
+                    action: 'sendToSubscribe',
+                    email: email,
+                    investor: investor
+                };
+
+                $.ajax({
+                    type: 'post',
+                    url: Ajax.ajax_url,
+                    data: data
+                }).done( function( response ) {
+
+                })
+            }
+
+        });
+    }
+
+    subscribers();
 
 });

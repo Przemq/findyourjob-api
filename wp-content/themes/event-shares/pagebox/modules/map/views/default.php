@@ -47,11 +47,13 @@ $markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
                             scrollwheel: false,
 
                             styles: [{
-                                "featureType": "all",
-                                "elementType": "all",
+                                "featureType": "administrative.land_parcel",
+                                "elementType": "labels",
                                 "stylers": [{"saturation": -100}, {"gamma": 0.8}]
                             }]
-                        });
+                        },
+
+                        );
 
                         google.maps.event.addDomListener(window, "resize", function () {
                             var center = map.getCenter();
