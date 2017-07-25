@@ -3,7 +3,7 @@
 // Overall module styles
 @include overall_module() {
 
-  #top-page-image-with-text {
+  .icon-and-text {
     padding-top: 60px;
     padding-bottom: 65px;
     text-align: center;
@@ -29,7 +29,7 @@
 @include specified_module_loop() {
   background-color: get('backgroundColor');
 
-  #top-page-image-with-text {
+  .icon-and-text {
     p {
       font-size: get('fontSize');
       color: get('descriptionColor');
@@ -47,9 +47,9 @@
         }
       }
     }
+    $colorBackgroundHover: get('buttonBackgroundHoverColor');
+    $opacity: get('buttonBackgroundHoverOpacity');
     .button {
-      $colorBackgroundHover: get('buttonBackgroundHoverColor');
-      $opacity: get('buttonBackgroundHoverOpacity');
       color: get('buttonTextColor');
       background-color: get('buttonBackgroundColor');
       font-size: get('buttonFontSize');
