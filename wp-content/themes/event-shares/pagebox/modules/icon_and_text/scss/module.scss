@@ -35,28 +35,30 @@
       color: get('descriptionColor');
     }
     #firm-icon {
-      path,polygon,circle {
+      path, polygon, circle {
         fill: get('imageColor');
         stroke: get('imageColor');
         @include transition(300ms all);
       }
-      &:hover{
-        path,polygon,circle {
+      &:hover {
+        path, polygon, circle {
           fill: get('imageColorHover');
           stroke: get('imageColorHover');
         }
       }
     }
-    $colorBackgroundHover: get('buttonBackgroundHoverColor');
-    $opacity: get('buttonBackgroundHoverOpacity');
-    .button {
-      color: get('buttonTextColor');
-      background-color: get('buttonBackgroundColor');
-      font-size: get('buttonFontSize');
-      &:hover {
-        color: get('buttonTextColorHover');
-        @if (type-of($colorBackgroundHover) == 'color' and type-of($opacity) == 'number') {
-          background: rgba($colorBackgroundHover, $opacity);
+    .button-wrapper {
+      $colorBackgroundHover: get('buttonBackgroundHoverColor');
+      $opacity: get('buttonBackgroundHoverOpacity');
+      .button {
+        color: get('buttonTextColor');
+        background-color: get('buttonBackgroundColor');
+        font-size: get('buttonFontSize');
+        &:hover {
+          color: get('buttonTextColorHover');
+          @if (type-of($colorBackgroundHover) == 'color' and type-of($opacity) == 'number') {
+            background: rgba($colorBackgroundHover, $opacity);
+          }
         }
       }
     }

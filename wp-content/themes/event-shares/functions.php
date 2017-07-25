@@ -290,3 +290,49 @@ function wpx_add_blankline( $content ) {
 }
 
 
+function sendToSubscribe() {
+    global $wpdb;
+
+    $tableName = $wpdb->base_prefix . 'wpx_' . 'subscriptions';
+
+    $email      = $_POST['email'];
+    $investor   = $_POST['investor'];
+
+    // check is there no such entry in the database (function return true/false)
+    function isAlreadySubscribe($email, $investor) {
+        global $wpdb;
+        global $tableName;
+
+        $result = $wpdb->get_results('SELECT * FROM ' . $tableName . ' WHERE email = "' . $email . '" AND investor = "' . $investor . '"');
+
+        if (!empty($result)) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+
+        return $result;
+    }
+
+    if ((isAlreadySubscribe($email, $investor) == false)) {
+
+        $wpdb->insert(
+            $tableName,
+            [
+                'email' => $email,
+                'investor' => $investor
+            ],
+            [
+                '%s',
+                '%s'
+            ]
+        );
+    }
+
+    echo 'test';
+
+    die();
+}
+
+add_action( 'wp_ajax_sendToSubscribe', 'sendToSubscribe' );
+add_action( 'wp_ajax_nopriv_sendToSubscribe', 'sendToSubscribe' );

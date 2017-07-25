@@ -48,7 +48,6 @@
 	$searchBackground                    = ! empty( wpx_theme_get_option( 'wpx_theme_search_background' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background' ) : '#da8b00';
 	$searchBackgroundHover               = ! empty( wpx_theme_get_option( 'wpx_theme_search_background_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background_hover' ) : '#c17b01';
 	$menu_text_color                     = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) : '#004a85';
-	$menu_text_color_hover               = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) : '';
 	$menu_font_family                    = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) : "";
 	$menu_text_color_mobile              = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_mobile' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_mobile' ) : '';
 	$menu_background_color_mobile_active = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_mobile_background_active' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_mobile_background_active' ) : '';
@@ -90,20 +89,6 @@
         }
 
         /**/
-        header nav > ul.menu > li:hover:after,
-        {
-            background-color: <?=$menu_text_color_hover?>;
-        }
-
-        header nav > ul.menu > li > a:hover {
-            color: <?=$menu_text_color_hover?>;
-
-        }
-
-        body.wpx-desktop .wpx-main-header nav > ul > li:hover a {
-            color: <?=$menu_text_color_hover?>;
-        }
-
         .wpg-mobile header nav ul li .sub-menu-flex li a h4 {
             color: #292b2c;
         }
@@ -132,6 +117,33 @@
 
 <?= createTaskLink( 'EV-15' ) ?>
 <?= createTaskLink( 'EV-36' ) ?>
+<div id="subscribe-modal" class="modal fade d-none">
+    <div class="modal-dialog">
+        <div class="container">
+            <div class="row">
+                <div class="box col-12 col-md-6 col-lg-6">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address*</label>
+                            <input type="email" class="form-control" id="subscribe-email"
+                                   aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleSelect1">User information*</label>
+                            <select class="form-control" id="subscribe-select">
+                                <option value="individual">I am individual investor</option>
+                                <option value="advisor">I am Financial Advisor / RIA Wirehouse</option>
+                                <option value="institutional">I am Family Office Institutional</option>
+                                <option value="us">I am Investor Non-US Investor</option>
+                            </select>
+                        </div>
+                        <button id="subscribe-submit" type="submit" class="btn btn-primary button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <header id="wpx-eventshare-header">
     <div class="container-fluid">
         <div class="container">
