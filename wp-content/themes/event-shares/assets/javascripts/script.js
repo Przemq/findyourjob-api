@@ -30,8 +30,19 @@ jQuery(function ($) {
         }
     };
 
-    mobileVer();
 
+    var options = {
+        byRow: true,
+        property: 'height',
+        target: null,
+        remove: false
+    };
+    function makeEqualsSearchResults(options) {
+        $('.search-results .articles-results .article-title').matchHeight(options);
+    }
+    makeEqualsSearchResults(options);
+
+    mobileVer();
     $window.on("resize", mobileVer);
     $window.on("scroll", sizeBar);
 
@@ -79,16 +90,7 @@ jQuery(function ($) {
         //
         //     }
         // });
-        let options = {
-            byRow: true,
-            property: 'height',
-            target: null,
-            remove: false
-        };
-        function makeEqualsSearchResults(options) {
-            $('.articles-results .article-title').matchHeight(options);
-        }
-        makeEqualsSearchResults(options)
+
     })(jQuery);
 
 

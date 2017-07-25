@@ -36,8 +36,8 @@ require_once( 'includes/theme-options.php' );
  * Use registered media in assets/vendors/register_vendors.php
  */
 add_action( 'wp_enqueue_scripts', function () {
-	wp_enqueue_script( 'scripts', THEME_JS_URI . '/script.js', array( 'jquery', 'bootstrap' ), null, true );
 	wp_enqueue_script( 'matchHeight');
+	wp_enqueue_script( 'scripts', THEME_JS_URI . '/script.js', array( 'jquery', 'bootstrap' ), null, true );
 	wp_localize_script( 'scripts', 'Ajax', [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ] );
 
 } );
