@@ -297,7 +297,7 @@ get_footer();
 ?>
 <script>
     var options = {
-        byRow: true,
+        byRow: false,
         property: 'height',
         target: null,
         remove: false
