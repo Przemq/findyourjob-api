@@ -202,12 +202,12 @@ if ( $search_query->have_posts() ) {
                 <div class="container">
                     <div class="row">
 
-                        <div class="col-12 top d-inline-block">
+                        <div class="col-12 px-0 px-md-3 top d-inline-block">
                             <div class="title">
                                 <h2>ARTICLE RESULTS</h2>
                             </div>
                         </div>
-                        <div class="all-results row">
+                        <div class="all-results mx-md-0 row">
 							<?php endif;
 							?>
 							<?php while ( $search_article->have_posts() ) :
@@ -243,7 +243,7 @@ if ( $search_query->have_posts() ) {
             <!--Pagination-->
 			<?php if ( $search_query->max_num_pages > 1 ): ; ?>
                 <div class="container pagePagination">
-                    <div class="row">
+                    <div class="row px-3">
 						<?php
 						$pagination = array(
 							'end_size'           => 1,
