@@ -22,7 +22,7 @@ wp_register_script( 'slick', THEME_VENDORS_URI . '/slick/slick.min.js', [ 'jquer
 wp_register_script( 'js-cookie', THEME_VENDORS_URI . '/js-cookie/js.cookie.js', [ 'jquery' ], '2.1.3', true);
 wp_register_script( 'parallax.js', THEME_VENDORS_URI . '/parallax.js/parallax.min.js', [ 'jquery' ], '1.4.2', true );
 wp_register_script( 'aos.js', THEME_VENDORS_URI . '/aos/aos.js', [ 'jquery' ], '2.1.1', true);
-wp_register_script( 'matchHeight', THEME_VENDORS_URI . '/matchHeight/jquery.matchHeight-min.js', [ 'jquery' ], '0.7.5', true);
+wp_register_script( 'matchHeight', THEME_VENDORS_URI . '/matchHeight/jquery.matchHeight-min.js', [ 'jquery' ], '0.7.2', true);
 /**
  * CSS files
  */

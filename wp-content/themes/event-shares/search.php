@@ -198,7 +198,7 @@ if ( $search_query->have_posts() ) {
 			if ( $search_article->have_posts() ) :
 
 			?>
-            <div class="container-fluid articles-results matchHeight">
+            <div class="container-fluid articles-results articles-images">
                 <div class="container">
                     <div class="row">
 
@@ -223,7 +223,7 @@ if ( $search_query->have_posts() ) {
                                         <div class="author">
                                             <span><?php the_date( 'd.m.Y', '', '' ); ?> | <?php the_author() ?></span>
                                         </div>
-                                        <div class="title-article"><?php the_title() ?></div>
+                                        <div class="title-article title-article-equal"><?php the_title() ?></div>
                                         <?php the_excerpt() ?>
                                         <div class="see_more">
                                             <a class="d-inline" href="<?php the_permalink() ?> ">
@@ -293,4 +293,17 @@ if ( $search_query->have_posts() ) {
 
 
 <?php
-get_footer(); ?>
+get_footer();
+?>
+<script>
+    var options = {
+        byRow: true,
+        property: 'height',
+        target: null,
+        remove: false
+    };
+    function makeEqualsSearchResults(options) {
+        $('.title-article-equal').matchHeight('remove').matchHeight(options);
+    }
+    makeEqualsSearchResults(options);
+</script>

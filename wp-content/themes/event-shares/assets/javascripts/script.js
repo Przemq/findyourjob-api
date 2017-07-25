@@ -21,20 +21,8 @@ jQuery(function ($) {
             $wpgMainHeader.removeClass("wpx-small-header");
         }
     };
-    var options = {
-        byRow: true,
-        property: 'height',
-        target: null,
-        remove: false
-    };
 
-    function updateEquals(options,time=100) {
-        setTimeout(function () {
-            $('.matchHeight').find('.title-article').matchHeight('remove').matchHeight(options);
-        }, time);
 
-    };
-    updateEquals(options);
 
 
     var mobileVer = function () {
