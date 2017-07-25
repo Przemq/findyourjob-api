@@ -218,7 +218,7 @@ if ( $search_query->have_posts() ) {
                                 <div class="col-md-4 col-sm-6 col-12 single-result">
                                     <div class="single-background">
                                         <div class="image">
-											<?php the_post_thumbnail( 'large', array( 'class' => 'style-svg' ) ); ?>
+											<?php the_post_thumbnail( 'large', array( 'class' => 'style-svg max-imageWidth' ) ); ?>
                                         </div>
                                         <div class="author">
                                             <span><?php the_date( 'd.m.Y', '', '' ); ?> | <?php the_author() ?></span>

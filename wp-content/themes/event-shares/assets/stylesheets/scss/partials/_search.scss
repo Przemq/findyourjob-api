@@ -105,6 +105,10 @@ $highlight:#56c2a3;
           padding: 15px;
         }
         .image {
+          img{
+            max-width: 100%;
+            height:auto;
+          }
           svg{
             height: 100px;
             width:auto;
