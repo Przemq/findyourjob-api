@@ -37,10 +37,10 @@ jQuery(function ($) {
         target: null,
         remove: false
     };
-    function makeEqualsSearchResults(options) {
-        $('.search-results .articles-results .article-title').matchHeight(options);
+    function makeEqualsSearchResults() {
+        $('.search-results .matchHeight .single-result h4').matchHeight();
     }
-    makeEqualsSearchResults(options);
+    makeEqualsSearchResults();
 
     mobileVer();
     $window.on("resize", mobileVer);

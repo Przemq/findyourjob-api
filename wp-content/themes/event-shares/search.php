@@ -198,7 +198,7 @@ if ( $search_query->have_posts() ) {
 			if ( $search_article->have_posts() ) :
 
 			?>
-            <div class="container-fluid articles-results">
+            <div class="container-fluid articles-results matchHeight">
                 <div class="container">
                     <div class="row">
 
@@ -223,7 +223,7 @@ if ( $search_query->have_posts() ) {
                                         <div class="author">
                                             <span><?php the_date( 'd.m.Y', '', '' ); ?> | <?php the_author() ?></span>
                                         </div>
-                                        <h4 class="article-title"><?php the_title() ?></h4>
+                                        <h4><?php the_title() ?></h4>
                                         <p class="d-inline"><?php the_excerpt() ?></p>
                                         <div class="see_more">
                                             <a class="d-inline" href="<?php the_permalink() ?> ">
@@ -293,5 +293,4 @@ if ( $search_query->have_posts() ) {
 
 
 <?php
-
 get_footer(); ?>
