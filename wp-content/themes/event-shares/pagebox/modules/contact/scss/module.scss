@@ -18,7 +18,7 @@
     padding: 70px 0;
 
   }
-  .front, .back {
+   .back {
     width: 100%;
   }
 
@@ -205,5 +205,19 @@
       border-color: get('buttonBorderHoverColor');
     }
 
+  }
+  .contacts {
+    h4{
+      color: get('titleColor');
+      font-size: get('titleFontSize');
+    }
+    p {
+      color: get('descriptionColor');
+      font-size: get('descriptionFontSize');
+    }
+    h5{
+      color: get('descriptionHeaderColor');
+      font-size: get('descriptionHeaderFontSize');
+    }
   }
 }

@@ -21,13 +21,11 @@ $markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
                 <div class="text-wrapper">
                     <div class="container">
                         <div class="row">
-                            <div class="col-12">
                                 <div class="text" <?php if (!$enableTitle) echo 'style="display:none"'; ?>>
-                                    <p class="col-6" id="title"><?= $this->getInput('title')->getValue(); ?></p>
-                                    <div class="col-6"
+                                    <p class="col-12 col-lg-6" id="title"><?= $this->getInput('title')->getValue(); ?></p>
+                                    <div class="col-12 col-lg-6"
                                          id="description"><?= $this->getEditor('description')->getValue(); ?></div>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -37,7 +35,7 @@ $markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
                         var london = {lat: <?= $latitude ?>, lng: <?= $longitude ?>};
 
                         var contentString =
-                            '<div> <?= $this->getEditor('address')->getValue(); ?> </div>';
+                            '<div><strong> <?= $this->getEditor('address')->getValue(); ?> </strong></div><div> <?= $this->getEditor('subAddress')->getValue(); ?> </div>';
 
                         var infowindow = new google.maps.InfoWindow({
                             content: contentString
@@ -70,12 +68,13 @@ $markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
                                 scale: 1
                             };
                         }
+
                         var marker = new google.maps.Marker({
                             position: london,
                             map: map,
                             icon: pinSymbol('<?= $markerColor ?>')
                         });
-                        marker.addListener('click', function() {
+                        marker.addListener('click', function () {
                             infowindow.open(map, marker);
                         });
 

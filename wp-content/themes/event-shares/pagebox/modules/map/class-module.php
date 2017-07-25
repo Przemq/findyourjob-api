@@ -43,7 +43,35 @@ class Map extends AbstractModule implements StaticCacheInterface {
             ],
             'address' => [
                 'type' => 'editor',
+                'label' => 'Enter address header',
+            ],
+            'subAddress' => [
+                'type' => 'editor',
                 'label' => 'Enter address',
+            ],
+            'addressFontSize' => [
+                'type' => 'input:text',
+                'label' => 'Address header font size',
+                'default' => '16px',
+                'sass' => true
+            ],
+            'headerAddressColor' => [
+                'type' => 'input:color',
+                'label' => 'Address header address color',
+                'default' => '#000000',
+                'sass' => true
+            ],
+            'subAddressFontSize' => [
+                'type' => 'input:text',
+                'label' => 'Sub address font size',
+                'default' => '14px',
+                'sass' => true
+            ],
+            'subAddressColor' => [
+                'type' => 'input:color',
+                'label' => 'Sub address color',
+                'default' => '#000000',
+                'sass' => true
             ],
             'enableTitle' => [
                 'type' => 'input:switch',
@@ -55,11 +83,6 @@ class Map extends AbstractModule implements StaticCacheInterface {
                 'label' => 'Map title',
                 'description' => 'Please enter title'
             ],
-            'description' => [
-                'type' => 'editor',
-                'label' => 'Map description',
-                'description' => 'Please enter description'
-            ],
             'titleColor' => [
                 'type' => 'input:color',
                 'label' => 'Title color',
@@ -68,8 +91,26 @@ class Map extends AbstractModule implements StaticCacheInterface {
             ],
             'titleSize' => [
                 'type' => 'input:text',
-                'label' => 'Title size',
+                'label' => 'Title font size',
                 'default' => '30px',
+                'sass' => true
+            ],
+            'description' => [
+                'type' => 'editor',
+                'label' => 'Map description',
+                'description' => 'Please enter description'
+            ],
+            'descriptionColor' => [
+                'type' => 'input:color',
+                'label' => 'Description color',
+                'default' => '#000000',
+                'sass' => true
+            ],
+            'descriptionSize' => [
+                'type' => 'input:text',
+                'label' => 'Description font size',
+                'default' => '14px',
+                'sass' => true
             ],
             'markerColor' => [
                 'type' => 'input:color',

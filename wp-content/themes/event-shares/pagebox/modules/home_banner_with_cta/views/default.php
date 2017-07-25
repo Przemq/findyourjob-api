@@ -7,7 +7,7 @@
  */
 
 $module = $this->getModule();
-$bgImage = $this->getMedia('bgImage')->getImage()->getUrl('banner-cta');
+$bgImage = $this->getMedia('bgImage')->getImage()->getUrl('large');
 $title = $this->getInput('title');
 $description = $this->getEditor('description')->getContent();
 $buttonLeft = $this->getInput('buttonLeftTitle');

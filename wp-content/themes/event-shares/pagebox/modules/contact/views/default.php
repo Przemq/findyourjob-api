@@ -27,16 +27,17 @@ $module = $this->getModule();
                                 <?php endif; ?>
                                 <?= $address->getEditor('description')->getContent(); ?>
                                 <?php
-                                $permalink = $address->getInput('permalink')->getValue();
+                                $permalink = $address->getInput('buttonUrl')->getValue();
                                 $buttonText = $address->getInput('button');
                                 $description = $address->getEditor('description')->getContent();
                                 $pageLink = $address->getSelect('pageLink')->getValue()['permalink'];
                                 $isBlank = $address->getInput('isBlank')->getValue();
                                 $newTarget = $isBlank ? 'target=_blank' : '';
-                                $link = $address->getInput('isPermalink')->getValue() ? $permalink : $pageLink;
+                                $link = $address->getInput('isPermalink')->getValue() ? $pageLink : $permalink;
                                 ?>
                                 <?php if ($buttonText != "" && !empty($buttonText)): ?>
                                     <div class="button-wrapper">
+
                                         <a class="button" <?= $newTarget ?> href="<?= $link ?>"><?= $buttonText ?></a>
                                     </div>
                                 <?php endif
@@ -61,11 +62,11 @@ $module = $this->getModule();
                 <div class="message"><?= $this->getEditor('messageAfterSentOK')->getContent(); ?></div>
             </div>
 
-<!--            <!-- Modal -->-->
+<!--            <!-- Modal -->
 <!--            <div id="subscribe-modal" class="modal fade" role="dialog" tabindex="-1" data-keyboard="false" data-backdrop="static">-->
 <!--                <div class="modal-dialog">-->
 <!---->
-<!--                    <!-- Modal content-->-->
+<!--                    <!-- Modal content-->
 <!--                    <div class="container">-->
 <!--                        <div class="row">-->
 <!--                            <div class="box col-12 col-md-6 col-lg-6">-->

@@ -86,7 +86,7 @@
             border: solid 2px #002841;
             border-radius: 50%;
             position: absolute;
-            top: 45px;
+            top: 50px;
             left: calc(50% - 5px);
             content: '';
 
@@ -137,6 +137,7 @@
       > li {
         float: none;
         background: transparent;
+        padding-bottom: 5px;
 
         & > a {
           display: block;
@@ -162,7 +163,7 @@
 
       @include media-breakpoint-up(lg) {
         position: absolute;
-        top: -55px;
+        top: -10px;
         right: 15px;
         min-width: 650px;
         margin-top: 0;

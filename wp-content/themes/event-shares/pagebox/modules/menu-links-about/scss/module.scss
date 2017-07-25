@@ -11,6 +11,9 @@
       }
     }
   }
+  .main-link {
+    text-decoration: none;
+  }
   @include transition(300ms all);
   .sub-menu-flex {
     top: 105px;
