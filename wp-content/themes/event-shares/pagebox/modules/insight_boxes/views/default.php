@@ -150,9 +150,9 @@ $insightQuery = new WP_Query( $args );
                                     <div class="col-lg-12 buttons"><a
                                                 href="<?= $link ?>"><?= $readButton ?></a></div>
                                 </div>
+                            </div>
 
 						<?php endwhile; ?>
-                    </div>
                     <!--Pagination-->
 					<?php if ( $insightQuery->max_num_pages > 1 ): ; ?>
                         <div class="container pagePagination">
