@@ -79,8 +79,16 @@ jQuery(function ($) {
         //
         //     }
         // });
-
-
+        let options = {
+            byRow: true,
+            property: 'height',
+            target: null,
+            remove: false
+        };
+        function makeEqualsSearchResults(options) {
+            $('.articles-results .article-title').matchHeight(options);
+        }
+        makeEqualsSearchResults(options)
     })(jQuery);
 
 

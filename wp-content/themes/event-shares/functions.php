@@ -37,6 +37,7 @@ require_once( 'includes/theme-options.php' );
  */
 add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_script( 'scripts', THEME_JS_URI . '/script.js', array( 'jquery', 'bootstrap' ), null, true );
+	wp_enqueue_script( 'matchHeight');
 	wp_localize_script( 'scripts', 'Ajax', [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ] );
 
 } );
