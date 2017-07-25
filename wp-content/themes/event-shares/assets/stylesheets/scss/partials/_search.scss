@@ -102,10 +102,15 @@ $highlight:#56c2a3;
       .single-result{
         margin-bottom: 10px;
         .single-background{
+          height:100%;
           background: white;
           padding: 15px;
         }
         .image {
+          img{
+            max-width: 100%;
+            height:auto;
+          }
           svg{
             height: 100px;
             width:auto;
@@ -119,12 +124,13 @@ $highlight:#56c2a3;
           font-size: 15px;
           margin-bottom: 15px;
         }
-        h4{
+        .title-article{
           color: $primary-theme-color;
           font-size: 25px;
           margin-bottom: 15px;
           text-transform: uppercase;
           font-weight:bold;
+          min-height: 81px;
         }
         p{
             font-size:14px;

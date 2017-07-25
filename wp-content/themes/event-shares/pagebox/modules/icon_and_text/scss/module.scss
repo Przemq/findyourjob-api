@@ -47,9 +47,9 @@
         }
       }
     }
+    $colorBackgroundHover: get('buttonBackgroundHoverColor');
+    $opacity: get('buttonBackgroundHoverOpacity');
     .button {
-      $colorBackgroundHover: get('buttonBackgroundHoverColor');
-      $opacity: get('buttonBackgroundHoverOpacity');
       color: get('buttonTextColor');
       background-color: get('buttonBackgroundColor');
       font-size: get('buttonFontSize');

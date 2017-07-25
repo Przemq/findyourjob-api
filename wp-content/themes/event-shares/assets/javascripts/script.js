@@ -22,6 +22,9 @@ jQuery(function ($) {
         }
     };
 
+
+
+
     var mobileVer = function () {
         if ($(".wpx-button-hamburger").css("display") === "block") {
             $body.addClass("wpg-mobile").removeClass("wpx-desktop");
@@ -30,8 +33,10 @@ jQuery(function ($) {
         }
     };
 
-    mobileVer();
 
+
+
+    mobileVer();
     $window.on("resize", mobileVer);
     $window.on("scroll", sizeBar);
 
@@ -79,7 +84,6 @@ jQuery(function ($) {
         //
         //     }
         // });
-
 
     })(jQuery);
 

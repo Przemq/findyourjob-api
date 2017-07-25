@@ -198,7 +198,7 @@ if ( $search_query->have_posts() ) {
 			if ( $search_article->have_posts() ) :
 
 			?>
-            <div class="container-fluid articles-results">
+            <div class="container-fluid articles-results articles-images">
                 <div class="container">
                     <div class="row">
 
@@ -218,13 +218,13 @@ if ( $search_query->have_posts() ) {
                                 <div class="col-md-4 col-sm-6 col-12 single-result">
                                     <div class="single-background">
                                         <div class="image">
-											<?php the_post_thumbnail( 'large', array( 'class' => 'style-svg' ) ); ?>
+											<?php the_post_thumbnail( 'large', array( 'class' => 'style-svg max-imageWidth' ) ); ?>
                                         </div>
                                         <div class="author">
                                             <span><?php the_date( 'd.m.Y', '', '' ); ?> | <?php the_author() ?></span>
                                         </div>
-                                        <h4><?php the_title() ?></h4>
-                                        <p class="d-inline"><?php the_excerpt() ?></p>
+                                        <div class="title-article title-article-equal"><?php the_title() ?></div>
+                                        <?php the_excerpt() ?>
                                         <div class="see_more">
                                             <a class="d-inline" href="<?php the_permalink() ?> ">
 												<?= $more_article ?></a>
@@ -292,4 +292,18 @@ if ( $search_query->have_posts() ) {
 <?php wp_reset_query(); ?>
 
 
-<?php get_footer(); ?>
+<?php
+get_footer();
+?>
+<script>
+    var options = {
+        byRow: false,
+        property: 'height',
+        target: null,
+        remove: false
+    };
+    function makeEqualsSearchResults(options) {
+        $('.title-article-equal').matchHeight('remove').matchHeight(options);
+    }
+    makeEqualsSearchResults(options);
+</script>

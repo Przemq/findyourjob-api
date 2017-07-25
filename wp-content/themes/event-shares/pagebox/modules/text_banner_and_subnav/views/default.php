@@ -17,7 +17,7 @@ $openTab = (integer)$this->getInput('activeTab')->getValue();
 
     <div class="container" id="sub-nav">
         <?= createTaskLink('EV-33') ?>
-        <a href="#" class="nav-tabs-dropdown <?= $module->changeNav() ?>">Dropdown-nav</a>
+        <a href="" class="nav-tabs-dropdown <?= $module->changeNav() ?>"><?= get_the_title(); ?></a>
         <ul class="nav-tabs-wrapper nav-tabs nav-tabs-horizontal list-inline row no-gutters <?= $module->changeNavTabs() ?>"
             role="tablist">
             <?php foreach ($this->getRepeater('timeline') as $index => $timeLine):
@@ -42,7 +42,6 @@ $openTab = (integer)$this->getInput('activeTab')->getValue();
                         href="<?= $linkTitle ?>" <?= $newTargetTitle ?>><?= $title ?></a>
             <?php endif ?>
 
-                </li>
                 <?php
             endforeach;
             ?>
