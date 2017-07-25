@@ -301,8 +301,9 @@ header {
           border: 1px solid #d6d6d6;
           box-shadow: none;
           padding: 10px;
-          margin-left: 5px;
+          margin-left: 10px;
           margin-top: 12px;
+          width: 78%;
           color: black;
           background: white;
           height: 48px;
@@ -314,10 +315,12 @@ header {
           }
         }
         .search-mobile-button {
-
+          position: absolute;
+          top:12px;
+          right:25px;
           background: #55c2a2;
           border: 0;
-          padding: 9.5px;
+          padding: 9.5px 15px;
           margin-left: -5px;
           height: 48px;
           img {
@@ -401,7 +404,10 @@ header {
           a {
             font-weight: 300;
             text-transform: uppercase;
-            padding: 0.85em 1em;
+            padding: 12px 30px;
+            &:after {
+              right:28px;
+            }
             .sub-menu-flex {
               background: transparent;
               opacity: 1;
