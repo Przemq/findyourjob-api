@@ -223,8 +223,8 @@ if ( $search_query->have_posts() ) {
                                         <div class="author">
                                             <span><?php the_date( 'd.m.Y', '', '' ); ?> | <?php the_author() ?></span>
                                         </div>
-                                        <h4><?php the_title() ?></h4>
-                                        <p class="d-inline"><?php the_excerpt() ?></p>
+                                        <div class="title-article"><?php the_title() ?></div>
+                                        <?php the_excerpt() ?>
                                         <div class="see_more">
                                             <a class="d-inline" href="<?php the_permalink() ?> ">
 												<?= $more_article ?></a>

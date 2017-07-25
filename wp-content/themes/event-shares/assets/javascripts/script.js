@@ -21,6 +21,21 @@ jQuery(function ($) {
             $wpgMainHeader.removeClass("wpx-small-header");
         }
     };
+    var options = {
+        byRow: true,
+        property: 'height',
+        target: null,
+        remove: false
+    };
+
+    function updateEquals(options,time=100) {
+        setTimeout(function () {
+            $('.matchHeight').find('.title-article').matchHeight('remove').matchHeight(options);
+        }, time);
+
+    };
+    updateEquals(options);
+
 
     var mobileVer = function () {
         if ($(".wpx-button-hamburger").css("display") === "block") {
@@ -31,16 +46,7 @@ jQuery(function ($) {
     };
 
 
-    var options = {
-        byRow: true,
-        property: 'height',
-        target: null,
-        remove: false
-    };
-    function makeEqualsSearchResults() {
-        $('.search-results .matchHeight .single-result h4').matchHeight();
-    }
-    makeEqualsSearchResults();
+
 
     mobileVer();
     $window.on("resize", mobileVer);
