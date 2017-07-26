@@ -2,7 +2,7 @@ $top-menu-header-color: rgb(0, 40, 65);
 $learn-more-color: #56C1A3;
 $menu-negative-margin: -400px;
 body {
-  padding-top: 95px;
+  padding-top: 80px;
 }
 
 a:hover {
@@ -22,7 +22,13 @@ header {
     align-items: center;
   }
   img {
-    height: 41px;
+    height:41px;
+    @include media-breakpoint-up(lg) {
+      height: 65px;
+      position: absolute;
+      top:-30px;
+    }
+
     @include transition(all 300ms ease-in-out);
   }
   .image-wrapper {
@@ -35,7 +41,9 @@ header {
     .image-wrapper {
 
       img {
-        height: 30px;
+        height: 45px;
+        position: absolute;
+        top:-20px;
       }
     }
     #top-menu {
