@@ -42,8 +42,11 @@ header {
 
       img {
         height: 45px;
-        position: absolute;
-        top:-20px;
+        @include media-breakpoint-up(lg){
+          height: 45px;
+          position: absolute;
+          top:-20px;
+        }
       }
     }
     #top-menu {
