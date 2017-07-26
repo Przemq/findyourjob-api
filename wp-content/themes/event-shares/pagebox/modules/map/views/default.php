@@ -10,8 +10,6 @@ $module = $this->getModule();
 $latitude = $this->getInput('latitude')->getValue();
 $longitude = $this->getInput('longitude')->getValue();
 $enableTitle = $this->getInput('enableTitle')->getValue();
-$markerColor = $this->getInput('markerColor')->getValue();
-$markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container-fluid">
@@ -293,21 +291,19 @@ $markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
                             google.maps.event.trigger(map, "resize");
                             map.setCenter(center);
                         });
-                        function pinSymbol(color) {
-                            return {
-                                path: 'M 0,0 C -2,-20 -10,-22 -10,-30 A 10,10 0 1,1 10,-30 C 10,-22 2,-20 0,0 z M -2,-30 a 2,2 0 1,1 4,0 2,2 0 1,1 -4,0',
-                                fillColor: color,
-                                fillOpacity: 1,
-                                strokeWeight: 1,
-                                strokeColor: '<?= $markerStrokeColor ?>',
-                                scale: 1
-                            };
-                        }
+                       // var image = '/wp-content/themes/event-shares/assets/images/map-marker.svg';
+                        var icon = {
+                            url: "/wp-content/themes/event-shares/assets/images/map-marker.svg", // url
+                            scaledSize: new google.maps.Size(50, 85), // scaled size
+                            origin: new google.maps.Point(0,0), // origin
+                            anchor: new google.maps.Point(20, 40), // anchor
+                        };
+
 
                         var marker = new google.maps.Marker({
                             position: london,
                             map: map,
-                            icon: pinSymbol('<?= $markerColor ?>')
+                            icon: icon
                         });
                         marker.addListener('click', function () {
                             infowindow.open(map, marker);
