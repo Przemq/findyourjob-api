@@ -128,7 +128,7 @@ class IconAndText extends AbstractModule implements StaticCacheInterface {
             'buttonTextColorHover' => [
                 'type' => 'input:color',
                 'label' => 'Button text hover color',
-                'default' => '##56C1A3',
+                'default' => '#56C1A3',
                 'sass' => true
             ],
             'buttonBackgroundHoverOpacity' => [

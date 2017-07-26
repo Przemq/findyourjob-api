@@ -9,10 +9,10 @@
 defined('ABSPATH') or die('No script kiddies please!');
 
 // SFTP settings
-define('CSV_USER', 'wpgeeksdev');
-define('CSV_PWD', 'fr6gtr5muh4u');
+define('CSV_USER', 'user');
+define('CSV_PWD', 'pass');
 define('CSV_PORT', '22909');
-define('CSV_HOST', 'horse.wpgeeks.uk');
+define('CSV_HOST', 'exampleHostshorse.wpgeeks.uk');
 define('CSV_PATH', '/home/wpgeeksdev/quilteruploader/');
 define('CSV_FILENAME', 'subscribers');
 

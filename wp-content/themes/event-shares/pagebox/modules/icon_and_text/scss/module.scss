@@ -3,15 +3,14 @@
 // Overall module styles
 @include overall_module() {
 
-
   #top-page-image-with-text {
     padding-top: 60px;
     padding-bottom: 65px;
     text-align: center;
 
     #firm-icon {
-      height: 95px!important;
-      width: 83px!important;
+      height: 95px !important;
+      width: 83px !important;
 
     }
     p {
@@ -46,18 +45,17 @@
         }
       }
     }
-    .button-wrapper {
-      $colorBackgroundHover: get('buttonBackgroundHoverColor');
-      $opacity: get('buttonBackgroundHoverOpacity');
-      .button {
-        color: get('buttonTextColor');
-        background-color: get('buttonBackgroundColor');
-        font-size: get('buttonFontSize');
-        &:hover {
-          color: get('buttonTextColorHover');
-          @if (type-of($colorBackgroundHover) == 'color' and type-of($opacity) == 'number') {
-            background: rgba($colorBackgroundHover, $opacity);
-          }
+    $colorBackgroundHover: get('buttonBackgroundHoverColor');
+    $opacity: get('buttonBackgroundHoverOpacity');
+
+    .button {
+      color: get('buttonTextColor');
+      background-color: get('buttonBackgroundColor');
+      font-size: get('buttonFontSize');
+      &:hover {
+        color: get('buttonTextColorHover');
+        @if (type-of($colorBackgroundHover) == 'color' and type-of($opacity) == 'number') {
+          background: rgba($colorBackgroundHover, $opacity);
         }
       }
     }
