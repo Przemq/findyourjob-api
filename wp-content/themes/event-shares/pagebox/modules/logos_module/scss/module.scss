@@ -30,6 +30,9 @@
       width:auto;
       object-fit: contain;
       max-height: 160px;
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
+        float: left;
+      }
       @include media-breakpoint-down(md){
         max-width: 32%;
       }
