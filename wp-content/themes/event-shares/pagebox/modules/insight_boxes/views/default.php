@@ -108,7 +108,7 @@ $insightQuery = new WP_Query( $args );
     </div>
     <!-- Boxes -->
 
-    <div class="container-fluid" id="insights-post-wrapper">
+    <div class="container-fluid px-0" id="insights-post-wrapper">
 
         <div class="container">
 			<?= createTaskLink( 'EV-31' ) ?>
