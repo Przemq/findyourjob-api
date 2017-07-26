@@ -137,7 +137,7 @@ $insightQuery = new WP_Query( $args );
 										<?php the_date( 'd.m.Y' ) ?> <?= '| ' . $author ?>
                                     </div>
                                     <div class="col-lg-12"><h3 class="title-insight"><?= get_the_title() ?></h3></div>
-                                    <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>
+                                    <div class="col-lg-12 hidden-sm-down"><p><?php the_excerpt() ?></p></div>
 
 									<?php
 									$readButton = ( ! empty( get_post_meta( get_the_ID(), 'button_text', true ) )
