@@ -95,8 +95,8 @@ jQuery(function ($) {
 
     function subscribers() {
 
-        $('#subscribe-submit').on('click', function() {
-
+        $('#subscribe-submit').on('click', function(event) {
+            event.preventDefault();
             var email = $('#subscribe-email').val(),
                 investor = $('#subscribe-select').find('option:selected').val();
 
@@ -112,8 +112,13 @@ jQuery(function ($) {
                     type: 'post',
                     url: Ajax.ajax_url,
                     data: data
-                }).done( function( response ) {
-
+                }).done( function(response) {
+                    if(response.success){
+                        $('#success-info').removeClass('d-none')
+                    }
+                    else {
+                        $('#success-info').removeClass('d-none')
+                    }
                 })
             }
 
