@@ -316,7 +316,7 @@ function sendToSubscribe() {
 
     if ((isAlreadySubscribe($email, $investor) == false)) {
 
-        $wpdb->insert(
+      $result = $wpdb->insert(
             $tableName,
             [
                 'email' => $email,
@@ -327,10 +327,13 @@ function sendToSubscribe() {
                 '%s'
             ]
         );
+      if($result){
+          wp_send_json_success();
+      }
+      else {
+          wp_send_json_error();
+      }
     }
-
-    echo 'test';
-
     die();
 }
 
