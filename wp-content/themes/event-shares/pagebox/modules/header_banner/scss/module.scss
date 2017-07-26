@@ -5,6 +5,10 @@
   $header-banner-color: #002841;
   background: url($template-url + '/assets/images/background-x.svg') no-repeat;
   background-position-x: 85%;
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
+    background-position:371px;
+  }
   @include media-breakpoint-up(sm) {
     background-size: contain;
     min-height: 328px;

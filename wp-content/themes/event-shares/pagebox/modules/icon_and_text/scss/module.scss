@@ -3,14 +3,15 @@
 // Overall module styles
 @include overall_module() {
 
+
   #top-page-image-with-text {
     padding-top: 60px;
     padding-bottom: 65px;
     text-align: center;
 
     #firm-icon {
-      height: 95px;
-      width: 83px;
+      height: 95px!important;
+      width: 83px!important;
 
     }
     p {

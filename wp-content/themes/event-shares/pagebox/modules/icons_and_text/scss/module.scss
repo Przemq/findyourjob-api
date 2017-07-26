@@ -76,9 +76,9 @@
       //padding-top: 34px;
       padding-bottom: 35px;
       text-align: center;
-      @include media-breakpoint-down(md) {
-        display: none;
-      }
+      //@include media-breakpoint-down(md) {
+      //  display: none;
+      //}
     }
     .description-header {
       text-transform: uppercase;
