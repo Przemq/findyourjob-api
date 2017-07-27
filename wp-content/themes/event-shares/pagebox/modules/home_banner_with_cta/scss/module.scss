@@ -35,6 +35,10 @@
       @include position(absolute, null 20px 0 null);
       svg {
         height: 92px;
+
+        path {
+          fill: #56C1A3;
+        }
       }
       @include media-breakpoint-up(lg) {
         width: 450px;
