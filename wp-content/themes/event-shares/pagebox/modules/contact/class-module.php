@@ -106,6 +106,13 @@ class Contact extends AbstractModule implements StaticCacheInterface {
 						'description' => 'Please pick option',
 						'default'     => 1
 					],
+                    'marginUnderTitle'       => [
+                        'type'        => 'input:text',
+                        'label'       => 'margin under title',
+                        'description' => 'Please enter margin under title (in px)',
+                        'default' => '8px'
+
+                    ],
 					'description' => [
 						'type'        => 'editor',
 						'label'       => 'Description',

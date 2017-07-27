@@ -17,10 +17,10 @@ $module = $this->getModule();
                     <div class="row">
                         <div class="col-lg-12"><h4><?= $this->getInput('title'); ?></h4></div>
                         <?php foreach ($this->getRepeater('addresses') as $index => $address) : ?>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-12 padding-bottom">
+                            <div class="col-12 padding-bottom">
                                 <?php if ($address->getInput('isTitle')->getValue()) : ?>
                                     <div>
-                                        <h5><?= $address->getInput('title') ?></h5>
+                                        <h5 style="margin-bottom: <?= $address->getInput('marginUnderTitle')->getValue() ?>"><?= $address->getInput('title') ?></h5>
                                     </div>
                                 <?php else: ?>
                                     <div style="padding-top: 26px"></div>
