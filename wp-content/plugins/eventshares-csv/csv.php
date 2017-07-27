@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Event shares subscribers
- * Description: CSV user export & SFTP upload
+ * Description: CSV user export
  * Version: 0.5
  */
 
@@ -112,7 +112,7 @@ function clearLog() {
 
 function csv_function() {
     ?>
-    <h1>Quilter subscriber list</h1>
+    <h1>EventShares subscriber list</h1>
 
     <hr>
     <div class="theme-options-wrapper">

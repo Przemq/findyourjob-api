@@ -540,14 +540,65 @@ class WPX_Theme_Options {
 		];
 
 // End of Navigation
-		$cmb->add_field( [
+
+// Sign Up mail
+        $section = 'sign_up_mail_';
+
+        $tabs_setting['tabs'][] = [
+            'id'     => 'sign_up_mail',
+            'title'  => __( 'Sign Up mail', 'cmb2' ),
+            'fields' => [
+                [
+                    'name'    => 'Subject',
+                    'id'      => $prefix . $section . 'subject',
+                    'type'    => 'text',
+                    'default' => '',
+                ],
+                [
+                    'name'    => 'Mail content',
+                    'id'      => $prefix . $section . 'mail_content',
+                    'type'    => 'wysiwyg',
+                    'default' => '',
+                ],
+            ]
+        ];
+
+// End of Sign Up mail
+
+// Mail for user after using form
+        $section = 'user_mail_';
+
+        $tabs_setting['tabs'][] = [
+            'id'     => 'sign_up_mail',
+            'title'  => __( 'Mail for user after using form', 'cmb2' ),
+            'fields' => [
+
+                [
+                    'name'    => 'Subject',
+                    'id'      => $prefix . $section . 'subject',
+                    'type'    => 'text',
+                    'default' => '',
+                ],
+                [
+                    'name'    => 'Mail content',
+                    'id'      => $prefix . $section . 'mail_content',
+                    'type'    => 'wysiwyg',
+                    'default' => '',
+                ],
+
+            ]
+
+        ];
+// End Mail for user after using form
+
+
+        $cmb->add_field( [
 			'id'   => '__tabs',
 			'type' => 'tabs',
 			'tabs' => $tabs_setting
 		] );
 
 	}
-
 	/**
 	 * Register settings notices for display
 	 *

@@ -117,11 +117,10 @@ jQuery(function ($) {
                         $('#success-info').removeClass('d-none')
                     }
                     else {
-                        $('#success-info').removeClass('d-none')
+                        $('#error-info').removeClass('d-none')
                     }
                 })
             }
-
         });
     }
 
