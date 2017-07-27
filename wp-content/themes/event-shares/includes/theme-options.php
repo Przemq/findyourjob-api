@@ -39,7 +39,7 @@ class WPX_Theme_Options {
 	 */
 	protected function __construct() {
 		// Set our title
-		$this->title = __( 'WPX Theme Options', 'wpx_theme' );
+		$this->title = __( 'EventShares Theme Options', 'wpx_theme' );
 	}
 
 	/**
@@ -569,8 +569,8 @@ class WPX_Theme_Options {
         $section = 'user_mail_';
 
         $tabs_setting['tabs'][] = [
-            'id'     => 'sign_up_mail',
-            'title'  => __( 'Mail for user after using form', 'cmb2' ),
+            'id'     => 'user_mail',
+            'title'  => __( 'User mail after using form', 'cmb2' ),
             'fields' => [
 
                 [

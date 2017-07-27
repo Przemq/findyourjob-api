@@ -4,8 +4,8 @@ jQuery(function ($) {
      * Always use '$name' style for variable which contains jQuery element.
      * Cache often used DOM elements in variable.
      */
-    //$window = $( window );
-    //$htmlBody = $( "html, body" );
+        //$window = $( window );
+        //$htmlBody = $( "html, body" );
     var $window = $(window);
     var $document = $(document);
     var $body = $("body");
@@ -117,7 +117,7 @@ jQuery(function ($) {
                         $('#success-info').removeClass('d-none')
                     }
                     else {
-                        $('#error-info').removeClass('d-none')
+                        $('#exist-info').removeClass('d-none')
                     }
                 })
             }

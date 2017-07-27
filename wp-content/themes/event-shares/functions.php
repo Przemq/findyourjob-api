@@ -253,7 +253,6 @@ function flyout_menu()
 
 }
 
-
 add_action('init', 'flyout_menu', 0);
 
 /**
@@ -300,8 +299,6 @@ function wpx_add_blankline($content)
     return str_ireplace('&nbsp;', '</br></br>', $content);
 }
 
-add_action( 'phpmailer_init', 'embed_images' );
-
 function sendMail($to, $subject, $msg, $headers, $attachments)
 {
     $result = wp_mail($to, $subject, $msg, $headers, $attachments);
@@ -347,30 +344,29 @@ function sendToSubscribe()
                 '%s'
             ]
         );
-        if ($result) {
+        if ($result == true) {
             wp_send_json_success();
         } else {
             wp_send_json_error();
         }
     }
-    remove_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
+    remove_filter('wp_mail_content_type', 'wpse27856_set_content_type');
     $headers = array('Content-Type: text/html; charset=UTF-8');
     $subject = wpx_theme_get_option('wpx_theme_sign_up_mail_subject');
-    $msg = wpx_theme_get_option('wpx_theme_sign_up_mail_mail_content');
+    $msg =     stripslashes(wpx_theme_get_option('wpx_theme_sign_up_mail_mail_content'));
 
-    sendMail($email, $subject, $msg, $headers, array());
+    sendMail($email, $subject, wpautop($msg), $headers, array());
     die();
 }
 
 add_action('wp_ajax_sendToSubscribe', 'sendToSubscribe');
 add_action('wp_ajax_nopriv_sendToSubscribe', 'sendToSubscribe');
 
+
 add_action('wpcf7_mail_sent', function () {
     $headers = array('Content-Type: text/html; charset=UTF-8');
+    $msg = stripslashes(wpx_theme_get_option('wpx_theme_user_mail_mail_content'));
+    $subject = wpx_theme_get_option('wpx_theme_user_mail_subject');
 
-    $mail = $_POST['email'];
-    $msg = wpx_theme_get_option('wpx_theme_user_mail_mail_content');
-    $subject = wpx_theme_get_option('wpx_theme_user_mail_mail');
-    sendMail($mail, $subject, $msg, $headers, array());
+    sendMail('przemek.kudla@nurtureagency.com', $subject, wpautop($msg), $headers, array());
 });
-
