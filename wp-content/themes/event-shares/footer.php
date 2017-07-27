@@ -87,10 +87,10 @@
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/mediumIcon.svg">
                 </a>
                 <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_seeking_alpha') ?>" alt="seeking alpha icon">
-                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/seekin-alpha-logo.png" style="margin-top: -13px;">
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/seekin-alpha-logo.png" style="margin-top: -13px;"> <!-- remove after svg added -->
                 </a>
                 <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_stock_twits') ?>" alt="stock-twits icon">
-                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/stock-twits-logo.png" style="margin-top: -13px;">
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/stock-twits-logo.png" style="margin-top: -13px;"> <!-- remove after svg added -->
                 </a>
                 <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_google_plus') ?>" alt="google plus icon">
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/google-plus.svg">
