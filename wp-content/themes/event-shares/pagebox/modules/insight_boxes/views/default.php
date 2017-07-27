@@ -135,6 +135,7 @@ $insightQuery = new WP_Query( $args );
 											? get_post_meta( get_the_ID(), 'author', true ) : '' );
 										?>
 										<?php the_date( 'd.m.Y' ) ?> <?= '| ' . $author ?>
+
                                     </div>
                                     <div class="col-lg-12"><h3 class="title-insight"><?= get_the_title() ?></h3></div>
                                     <div class="col-lg-12 hidden-sm-down"><p><?php the_excerpt() ?></p></div>

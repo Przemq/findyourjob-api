@@ -26,10 +26,10 @@
     flex-direction: row;
     .media-image {
       max-width: 24%;
-      padding: 15px;
+      padding: 5px;
       width:auto;
       object-fit: contain;
-      max-height: 160px;
+      max-height: 150px;
       @media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
         float: left;
       }
