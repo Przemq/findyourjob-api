@@ -74,6 +74,42 @@
           border-left: 20px solid transparent;
           border-right: 20px solid transparent;
           border-bottom: 20px solid #002841;
+          animation: fadein 1.5s;
+          -moz-animation: fadein 1.5s; /* Firefox */
+          -webkit-animation: fadein 1.5s; /* Safari and Chrome */
+          -o-animation: fadein 1.5s; /* Opera */
+          @keyframes fadein {
+            from {
+              opacity:0;
+            }
+            to {
+              opacity:1;
+            }
+          }
+          @-moz-keyframes fadein { /* Firefox */
+            from {
+              opacity:0;
+            }
+            to {
+              opacity:1;
+            }
+          }
+          @-webkit-keyframes fadein { /* Safari and Chrome */
+            from {
+              opacity:0;
+            }
+            to {
+              opacity:1;
+            }
+          }
+          @-o-keyframes fadein { /* Opera */
+            from {
+              opacity:0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
           @include transform(translateX(-20px));
           @include media-breakpoint-up(lg) {
             position: absolute;
@@ -100,6 +136,7 @@
         padding: 43px 23px 27px 23px;
         color: #fff;
         background-color: #002841;
+
         @include media-breakpoint-down(sm) {
           margin-left: -15px;
           margin-right: -15px;
