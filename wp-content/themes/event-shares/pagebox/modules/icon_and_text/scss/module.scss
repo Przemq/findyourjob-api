@@ -8,14 +8,16 @@
     padding-bottom: 65px;
     text-align: center;
 
-    .img-fluid {
-      height: 95px!important;
-      width: 83px!important;
-    }
+    //.img-fluid {
+    //  height: 95px!important;
+    //  width: 83px!important;
+    //}
     #firm-icon {
-      height: 95px !important;
-      width: 83px !important;
-
+      height: 95px;
+      width: 83px;
+      .st0 {
+        fill:none;
+      }
     }
     p {
       padding-top: 40px;
@@ -38,13 +40,13 @@
     }
     #firm-icon {
       path, polygon, circle {
-        fill: get('imageColor');
+        //fill: get('imageColor');
         stroke: get('imageColor');
         @include transition(300ms all);
       }
       &:hover {
         path, polygon, circle {
-          fill: get('imageColorHover');
+          //fill: get('imageColorHover');
           stroke: get('imageColorHover');
         }
       }
