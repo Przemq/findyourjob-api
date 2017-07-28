@@ -30,6 +30,7 @@ require_once 'includes/menu-with-description.php';
  */
 require_once 'functions/theme.php';
 require_once('includes/theme-options.php');
+require_once('unsubscribe-user.php');
 
 /**
  * Theme styles (CSS) and scripts (JavaScript)
@@ -354,8 +355,8 @@ function sendToSubscribe()
         remove_filter('wp_mail_content_type', 'wpse27856_set_content_type');
         $headers = array('Content-Type: text/html; charset=UTF-8');
         $subject = wpx_theme_get_option('wpx_theme_sign_up_mail_subject');
-        $userHash = '/unsubscribe-user.php?hash='.$hash;
-        $unsubscribeLink = '<a href="'.THEME_DIR_URI.$userHash.'">Remove me from subscribe list</a>';
+        $userHash = '/?unsubscribe='.$hash;
+        $unsubscribeLink = '<a href="'.HOME_URL.$userHash.'">Remove me from subscribe list</a>';
         $msg = stripslashes(wpx_theme_get_option('wpx_theme_sign_up_mail_mail_content'));
         $msg = str_replace('[UN-SUBSCRIBE]',$unsubscribeLink,$msg);
         sendMail($email, $subject, wpautop($msg), $headers, array());
@@ -381,3 +382,14 @@ add_action('wpcf7_mail_sent', function () {
 
     sendMail($_POST['your-email'], $subject, wpautop($msg), $headers, array());
 });
+
+add_action('init', function () {
+    $hash = $_GET['unsubscribe'] ?? false;
+    if($hash && !empty($hash) ) {
+        global $wpdb;
+        $tableName = $wpdb->base_prefix . 'wpx_subscriptions';
+        $wpdb->query("DELETE FROM " . $tableName . " WHERE hash=" . '"'.$hash.'"');
+    }
+});
+
+
