@@ -105,7 +105,8 @@ jQuery(function ($) {
                 var data = {
                     action: 'sendToSubscribe',
                     email: email,
-                    investor: investor
+                    investor: investor,
+                    hash: "aaaaaaa"
                 };
 
                 $.ajax({
@@ -113,6 +114,7 @@ jQuery(function ($) {
                     url: Ajax.ajax_url,
                     data: data
                 }).done( function(response) {
+                    console.log(response);
                         $('#subscribe-info').html("").append(response);
                 })
             }

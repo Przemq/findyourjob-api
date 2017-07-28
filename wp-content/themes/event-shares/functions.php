@@ -313,6 +313,7 @@ function sendToSubscribe()
 
     $email = $_POST['email'];
     $investor = $_POST['investor'];
+    $hash = uniqid();
 
     // check is there no such entry in the database (function return true/false)
     function isAlreadySubscribe($email, $investor)
@@ -336,9 +337,11 @@ function sendToSubscribe()
             $tableName,
             [
                 'email' => $email,
-                'investor' => $investor
+                'investor' => $investor,
+                'hash' => $hash
             ],
             [
+                '%s',
                 '%s',
                 '%s'
             ]
@@ -352,6 +355,7 @@ function sendToSubscribe()
         $headers = array('Content-Type: text/html; charset=UTF-8');
         $subject = wpx_theme_get_option('wpx_theme_sign_up_mail_subject');
         $msg = stripslashes(wpx_theme_get_option('wpx_theme_sign_up_mail_mail_content'));
+        $msg = str_replace('[UN-SUBSCRIBE]','link',$msg);
         sendMail($email, $subject, wpautop($msg), $headers, array());
     }else{
         $response = 'Error, your email already is subscribed';
