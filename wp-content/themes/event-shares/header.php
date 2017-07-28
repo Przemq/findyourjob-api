@@ -141,7 +141,6 @@
                             </div>
                             <button id="subscribe-submit" type="submit" class="btn btn-primary button">Submit</button>
                             <p id="success-info" class="d-none">Thank you for your subscription</p>
-                            <p id="error-info" class="d-none">Error, subscribe failed</p>
                             <p id="exist-info" class="d-none">Error, your email already is subscribed</p>
                         </form>
                     </div>

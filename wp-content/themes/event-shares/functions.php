@@ -332,7 +332,6 @@ function sendToSubscribe()
     }
 
     if ((isAlreadySubscribe($email, $investor) == false)) {
-
         $result = $wpdb->insert(
             $tableName,
             [
@@ -349,13 +348,16 @@ function sendToSubscribe()
         } else {
             wp_send_json_error();
         }
-    } // Mail from subscription modal
-    remove_filter('wp_mail_content_type', 'wpse27856_set_content_type');
-    $headers = array('Content-Type: text/html; charset=UTF-8');
-    $subject = wpx_theme_get_option('wpx_theme_sign_up_mail_subject');
-    $msg =     stripslashes(wpx_theme_get_option('wpx_theme_sign_up_mail_mail_content'));
+    }
 
-    sendMail($email, $subject, wpautop($msg), $headers, array());
+    // Mail from subscription modal
+
+        remove_filter('wp_mail_content_type', 'wpse27856_set_content_type');
+        $headers = array('Content-Type: text/html; charset=UTF-8');
+        $subject = wpx_theme_get_option('wpx_theme_sign_up_mail_subject');
+        $msg = stripslashes(wpx_theme_get_option('wpx_theme_sign_up_mail_mail_content'));
+        sendMail($email, $subject, wpautop($msg), $headers, array());
+
     die();
 }
 

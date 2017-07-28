@@ -116,8 +116,8 @@ jQuery(function ($) {
                     if(response.success){
                         $('#success-info').removeClass('d-none')
                     }
-                    else {
-                        $('#exist-info').removeClass('d-none')
+                    if(response.error) {
+                        $('#error-info').removeClass('d-none')
                     }
                 })
             }
