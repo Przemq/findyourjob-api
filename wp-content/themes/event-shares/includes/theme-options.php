@@ -546,7 +546,7 @@ class WPX_Theme_Options {
 
         $tabs_setting['tabs'][] = [
             'id'     => 'sign_up_mail',
-            'title'  => __( 'Sign Up mail', 'cmb2' ),
+            'title'  => __( 'Sign Up admin mail', 'cmb2' ),
             'fields' => [
                 [
                     'name'    => 'Subject',

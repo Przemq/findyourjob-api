@@ -38,11 +38,11 @@ function generate_csv_string() {
 
     $results = $wpdb->get_results("SELECT email, investor FROM " . $tableName, ARRAY_A);
 
-    $stringData = 'email;investor' . "\r\n";
+    $stringData = 'email,investor' . "\r\n";
 
     foreach ($results as $single) {
 
-        @$stringData .=  $single['email'] . ';' . $single['investor'] . "\r\n";
+        @$stringData .=  $single['email'] . ',' . $single['investor'] . "\r\n";
     }
 
     return $stringData;
@@ -59,11 +59,11 @@ function generate_csv() {
 
     $results = $wpdb->get_results("SELECT email, investor FROM " . $tableName, ARRAY_A);
 
-    $stringData = 'email;investor' . "\r\n";
+    $stringData = 'email,investor' . "\r\n";
 
     foreach ($results as $single) {
 
-        @$stringData .=  $single['email'] . ';' . $single['investor'] . "\r\n";
+        @$stringData .=  $single['email'] . ',' . $single['investor'] . "\r\n";
     }
 
 
@@ -112,7 +112,7 @@ function clearLog() {
 
 function csv_function() {
     ?>
-    <h1>Quilter subscriber list</h1>
+    <h1>EventShares subscriber list</h1>
 
     <hr>
     <div class="theme-options-wrapper">
@@ -121,7 +121,7 @@ function csv_function() {
     <?php settings_fields('quilter-settings-group'); ?>
     <?php do_settings_sections('quilter-settings-group'); ?>
     <ul class="tab">
-        <li><a href="#" class="tablinks active" onclick="openTab(event, 'log')">CSV generator</a></li>
+      <!--  <li><a href="#" class="tablinks active" onclick="openTab(event, 'log')">CSV generator</a></li>-->
         <li><a href="#" class="tablinks" onclick="openTab(event, 'list')">Subscriber list</a></li>
     </ul>
 
@@ -129,9 +129,6 @@ function csv_function() {
     <div id="log" class="tabcontent" style="display: block">
         <br>
         <a href="/wp-admin/admin.php?page=csv&download_csv=1" class="button">Click here to <b>DOWNLOAD</b> .csv with users</a>
-        <a href="/wp-admin/admin.php?page=csv&transfer_csv=2" class="button">Click here to <b>UPLOAD</b> .csv with users</a>
-        <a href="/wp-admin/admin.php?page=csv&flush_log" class="button">Click here to <b>CLEAR</b> log</a>
-        <h3>SFTP uploader log:</h3>
         <?php
         displayLog();
         ?>
