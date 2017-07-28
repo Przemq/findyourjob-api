@@ -140,8 +140,7 @@
                                 </select>
                             </div>
                             <button id="subscribe-submit" type="submit" class="btn btn-primary button">Submit</button>
-                            <p id="success-info" class="d-none">Thank you for your subscription</p>
-                            <p id="exist-info" class="d-none">Error, your email already is subscribed</p>
+                            <p id="subscribe-info" class="d-none">Thank you for your subscription</p>
                         </form>
                     </div>
                 </div>

@@ -130,7 +130,7 @@ function csv_function() {
         <br>
         <a href="/wp-admin/admin.php?page=csv&download_csv=1" class="button">Click here to <b>DOWNLOAD</b> .csv with users</a>
         <?php
-        displayLog();
+       // displayLog();
         ?>
     </div>
 
@@ -139,7 +139,7 @@ function csv_function() {
         global $wpdb;
         global $tableName;
 
-        $results = $wpdb->get_results("SELECT email, investor FROM " . $tableName . " GROUP BY  investor", ARRAY_A);
+        $results = $wpdb->get_results("SELECT email, investor FROM " . $tableName , ARRAY_A);
 
         $stringData = '<table>';
         $stringData .= '<tr>';

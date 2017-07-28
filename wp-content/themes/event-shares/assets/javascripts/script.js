@@ -113,12 +113,7 @@ jQuery(function ($) {
                     url: Ajax.ajax_url,
                     data: data
                 }).done( function(response) {
-                    if(response.success){
-                        $('#success-info').removeClass('d-none')
-                    }
-                    if(response.error) {
-                        $('#error-info').removeClass('d-none')
-                    }
+                        $('#subscribe-info').html("").append(response);
                 })
             }
         });
