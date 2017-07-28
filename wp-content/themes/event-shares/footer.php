@@ -95,7 +95,7 @@
                 <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_google_plus') ?>" >
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/google-plus.svg" alt="google plus icon">
                 </a>
-                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_google_plus') ?>" >
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_youtube') ?>" >
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/youTube.svg" alt="youTube icon">
                 </a>
             </div>

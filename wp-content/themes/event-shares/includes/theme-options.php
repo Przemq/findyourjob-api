@@ -290,6 +290,12 @@ class WPX_Theme_Options {
                     'type'    => 'text',
                     'default' => "#"
                 ],
+                [
+                    'name'    => 'Url for YouTube',
+                    'id'      => $prefix . $section . 'youtube',
+                    'type'    => 'text',
+                    'default' => "#"
+                ],
 				[
 					'name'    => 'Icon color',
 					'id'      => $prefix . $section . 'icon_color',
