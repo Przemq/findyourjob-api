@@ -30,7 +30,6 @@ require_once 'includes/menu-with-description.php';
  */
 require_once 'functions/theme.php';
 require_once('includes/theme-options.php');
-require_once('unsubscribe-user.php');
 
 /**
  * Theme styles (CSS) and scripts (JavaScript)

@@ -80,20 +80,23 @@
                 <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_linkedin') ?>">
                     <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Linkedin%20Green%20Icon-01-01.svg" alt="linkedIn icon">
                 </a>
-                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_instagram') ?>" alt="instagram icon">
-                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/instagram.svg">
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_instagram') ?>" >
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/instagram.svg" alt="instagram icon">
                 </a>
-                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_medium') ?>" alt="medium icon">
-                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/mediumIcon.svg">
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_medium') ?>" >
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/mediumIcon.svg" alt="medium icon">
                 </a>
-                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_seeking_alpha') ?>" alt="seeking alpha icon">
-                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/seekin-alpha-logo.png" style="margin-top: -13px;"> <!-- remove after svg added -->
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_seeking_alpha') ?>" >
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Seeking-Alpha-Logo.svg" alt="seekinh-alpha-logo" >
                 </a>
-                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_stock_twits') ?>" alt="stock-twits icon">
-                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/stock-twits-logo.png" style="margin-top: -13px;"> <!-- remove after svg added -->
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_stock_twits') ?>" >
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/StockTwits-Logo.svg" alt="stock-twits icon">
                 </a>
-                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_google_plus') ?>" alt="google plus icon">
-                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/google-plus.svg">
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_google_plus') ?>" >
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/google-plus.svg" alt="google plus icon">
+                </a>
+                <a target="_blank" href="<?= wpx_theme_get_option('wpx_theme_footer_google_plus') ?>" >
+                    <img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/youTube.svg" alt="youTube icon">
                 </a>
             </div>
             <div class="col-lg-8 col-md-7 col-sm-4 col-6" id="menu-items">
