@@ -354,9 +354,10 @@ function sendToSubscribe()
         remove_filter('wp_mail_content_type', 'wpse27856_set_content_type');
         $headers = array('Content-Type: text/html; charset=UTF-8');
         $subject = wpx_theme_get_option('wpx_theme_sign_up_mail_subject');
-        $unsubscribeLink = '<a href="'.THEME_DIR_PATH.'/unsubscribe-user.php">Remove me from subscribe list</a>';
+        $userHash = '/unsubscribe-user.php?hash='.$hash;
+        $unsubscribeLink = '<a href="'.THEME_DIR_URI.$userHash.'">Remove me from subscribe list</a>';
         $msg = stripslashes(wpx_theme_get_option('wpx_theme_sign_up_mail_mail_content'));
-        $msg = str_replace('[UN-SUBSCRIBE]','link',$msg);
+        $msg = str_replace('[UN-SUBSCRIBE]',$unsubscribeLink,$msg);
         sendMail($email, $subject, wpautop($msg), $headers, array());
     }else{
         $response = 'Error, your email already is subscribed';
