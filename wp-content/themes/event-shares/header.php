@@ -140,7 +140,7 @@
                                 </select>
                             </div>
                             <button id="subscribe-submit" type="submit" class="btn btn-primary button">Submit</button>
-                            <p id="subscribe-info" class="d-none"></p>
+                            <p class="subscribe-info" class="d-none"></p>
 
                         </form>
                     </div>

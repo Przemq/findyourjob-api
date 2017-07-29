@@ -23,8 +23,6 @@ jQuery(function ($) {
     };
 
 
-
-
     var mobileVer = function () {
         if ($(".wpx-button-hamburger").css("display") === "block") {
             $body.addClass("wpg-mobile").removeClass("wpx-desktop");
@@ -34,12 +32,9 @@ jQuery(function ($) {
     };
 
 
-
-
     mobileVer();
     $window.on("resize", mobileVer);
     $window.on("scroll", sizeBar);
-
 
 
     /* mobile hamburger */
@@ -87,7 +82,7 @@ jQuery(function ($) {
 
     })(jQuery);
 
-    $('#sign-up-link').on('click', function() {
+    $('#sign-up-link').on('click', function () {
 
         $('#subscribe-modal').removeClass('fade');
 
@@ -95,12 +90,12 @@ jQuery(function ($) {
 
     function subscribers() {
 
-        $('#subscribe-submit').on('click', function(event) {
+        $('#subscribe-submit').on('click', function (event) {
             event.preventDefault();
             var email = $('#subscribe-email').val(),
                 investor = $('#subscribe-select').find('option:selected').val();
 
-            if(email !== '') {
+            if (email !== '') {
 
                 var data = {
                     action: 'sendToSubscribe',
@@ -112,10 +107,20 @@ jQuery(function ($) {
                     type: 'post',
                     url: Ajax.ajax_url,
                     data: data
-                }).done( function(response) {
+                }).done(function (response) {
                     console.log(response);
-                        $('#subscribe-info').html("").append(response);
+                    $('.subscribe-info').text(response);
+                    setTimeout(function () {
+                        $('#subscribe-modal').addClass('fade').fadeOut(2000);
+                    }, 3000);
+                    setTimeout(function () {
+                        $('.modal-backdrop').remove();
+                    }, 5000);
+
+
                 })
+            } else {
+                $('.subscribe-info').text("Please, enter your email");
             }
         });
     }

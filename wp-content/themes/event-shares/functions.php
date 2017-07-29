@@ -318,6 +318,11 @@ function sendToSubscribe()
     // check is there no such entry in the database (function return true/false)
     function isAlreadySubscribe($email, $investor)
     {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL) ) {
+            echo "Email address is invalid.";
+            die;
+        }
+        else {}
         global $wpdb;
         global $tableName;
 
@@ -360,7 +365,7 @@ function sendToSubscribe()
         $msg = str_replace('[UN-SUBSCRIBE]',$unsubscribeLink,$msg);
         sendMail($email, $subject, wpautop($msg), $headers, array());
     }else{
-        $response = 'Error, your email already is subscribed';
+        $response = 'Error, your email is already subscribed';
 
     }
     echo $response;
