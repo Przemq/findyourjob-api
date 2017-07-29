@@ -36,7 +36,8 @@ $enableTitle = $this->getInput('enableTitle')->getValue();
                             '<div><strong> <?= $this->getEditor('address')->getValue(); ?> </strong></div><div> <?= $this->getEditor('subAddress')->getValue(); ?> </div>';
 
                         var infowindow = new google.maps.InfoWindow({
-                            content: contentString
+                            content: contentString,
+                            pixelOffset: new google.maps.Size(-23,0)
                         });
                         var map = new google.maps.Map(document.getElementById('map'), {
                             zoom: 12,
@@ -296,7 +297,8 @@ $enableTitle = $this->getInput('enableTitle')->getValue();
                             url: "/wp-content/themes/event-shares/assets/images/map-marker.svg", // url
                             scaledSize: new google.maps.Size(50, 85), // scaled size
                             origin: new google.maps.Point(0,0), // origin
-                            anchor: new google.maps.Point(20, 40), // anchor
+                            anchor: new google.maps.Point(10, 40), // anchor
+                            size: new google.maps.Size(71, 71)
                         };
 
 
