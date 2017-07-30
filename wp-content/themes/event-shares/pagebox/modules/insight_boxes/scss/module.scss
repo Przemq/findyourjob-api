@@ -411,13 +411,18 @@
         li {
           & > {
             a {
-              color: get('filterTextColor');
+              color: get('inactiveFilterTextColor');
               font-size: get('filterTextSize');
+              &:hover {
+                color: get('inactiveFilterTextColorHover');
+              }
               @include transition(all 300ms);
-              &.active, &:hover {
+              &.active {
                 text-decoration: none;
-                color: get('filterTextColorHover');
-
+                color: get('filterActiveTextColor');
+                &:hover {
+                  color: get('activeColorHover');
+                }
               }
             }
           }

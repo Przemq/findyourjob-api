@@ -474,21 +474,33 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 					],
 				]
 			],
-			'filterTextColor'            => [
+			'inactiveFilterTextColor'            => [
 				'type'    => 'input:color',
-				'label'   => 'Title filter color',
-				'default' => '#002841',
+				'label'   => 'Inactive filter color',
+				'default' => '#a6a6a6',
 				'sass'    => true
 			],
-			'filterTextColorHover'       => [
+            'inactiveFilterTextColorHover'            => [
+                'type'    => 'input:color',
+                'label'   => 'Inactive filter hover color',
+                'default' => '#2F4F4F',
+                'sass'    => true
+            ],
+            'filterActiveTextColor'       => [
+                'type'    => 'input:color',
+                'label'   => 'Active filter color',
+                'default' => '#002841',
+                'sass'    => true
+            ],
+			'filterActiveTextColorHover'       => [
 				'type'    => 'input:color',
-				'label'   => 'Title filter color',
-				'default' => '#a6a6a6',
+				'label'   => 'Active filter color on hover',
+				'default' => '#0080ff',
 				'sass'    => true
 			],
 			'filterTextSize'             => [
 				'type'    => 'input:text',
-				'label'   => 'Title filter size',
+				'label'   => 'Filter text size',
 				'default' => '18px',
 				'sass'    => true
 			],
