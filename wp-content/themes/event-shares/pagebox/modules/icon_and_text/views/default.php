@@ -17,9 +17,11 @@ $enableInternalLinks = $this->getInput('enableInternalLink')->getValue();
     <div class="container">
         <?= createTaskLink('EV-22') ?>
         <div class="row" id="top-page-image-with-text">
-            <div class="col-lg-12">
-                <img class="img-fluid style-svg" id="firm-icon"
-                     src="<?= $this->getMedia('imageUrl')->getImage()->getUrl() ?>">
+            <div class="col-12">
+                <div id="firm-icon">
+                    <img class="style-svg"
+                         src="<?= $this->getMedia('imageUrl')->getImage()->getUrl() ?>">
+                </div>
             </div>
             <div class="button-wrapper">
                 <div class="col-lg-6 offset-lg-3"><?= $this->getEditor('textUnderImage')->getValue(); ?>

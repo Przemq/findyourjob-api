@@ -15,9 +15,13 @@
     #firm-icon {
       height: 95px;
       width: 83px;
-      .st0 {
-        fill:none;
+      margin: 0 auto 45px auto;
+      svg {
+        path, circle, polygon, rect {
+          @include transition(700ms all);
+        }
       }
+
     }
     p {
       padding-top: 40px;
@@ -39,15 +43,17 @@
       color: get('descriptionColor');
     }
     #firm-icon {
-      path, polygon, circle {
-        //fill: get('imageColor');
-        stroke: get('imageColor');
-        @include transition(300ms all);
-      }
-      &:hover {
-        path, polygon, circle {
-          //fill: get('imageColorHover');
-          stroke: get('imageColorHover');
+      svg {
+        path, polygon, circle, rect {
+          fill: get('imageColor');
+          stroke: get('imageColor');
+
+        }
+        &:hover {
+          path, polygon, circle, rect {
+            fill: get('imageColorHover');
+            stroke: get('imageColorHover');
+          }
         }
       }
     }
