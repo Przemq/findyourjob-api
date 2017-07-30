@@ -29,19 +29,19 @@ $openTab = (integer)$this->getInput('activeTab')->getValue();
                 $linkTitle = $timeLine->getInput('isPermalinkTitle')->getValue() ? $permalinkTitle : $pageLinkTitle;
                 $title = $timeLine->getInput('title')->getValue();
                 ?>
-            <li class="nav-item custom-nav-item list-inline-item <?= $module->colsTabs() ?>">
+                <li class="nav-item custom-nav-item list-inline-item <?= $module->colsTabs() ?>">
 
-                <?php if ($isTab) : ?>
+                    <?php if ($isTab) : ?>
 
-                <a <?php echo (($index + 1) === $openTab) ? 'class="active"' : '' ?>
-                        href="#htab-<?= $index ?>-<?= $uniqID ?>" data-toggle="tab"
-                        aria-expanded="true"><?= $title ?></a></li>
-            <?php else: ?>
+                        <a <?php echo (($index + 1) === $openTab) ? 'class="active"' : '' ?>
+                                href="#htab-<?= $index ?>-<?= $uniqID ?>" data-toggle="tab"
+                                aria-expanded="true"><?= $title ?></a>
+                    <?php else: ?>
 
-                <a <?php echo (($index + 1) === $openTab) ? 'class="active"' : '' ?>
-                        href="<?= $linkTitle ?>" <?= $newTargetTitle ?>><?= $title ?></a>
-            <?php endif ?>
-
+                        <a <?php echo (($index + 1) === $openTab) ? 'class="active"' : '' ?>
+                                href="<?= $linkTitle ?>" <?= $newTargetTitle ?>><?= $title ?></a>
+                    <?php endif ?>
+                </li>
                 <?php
             endforeach;
             ?>

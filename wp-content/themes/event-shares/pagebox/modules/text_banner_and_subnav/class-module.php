@@ -22,8 +22,8 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
             'version' => '1.0.0',
             'title' => 'Text Banner & Subnav',
             'description' => 'Subnav with text banner',
-            'js' => [
-                'depends' => ['bootstrap']
+            'js'          => [
+                'depends' => ['jquery', 'bootstrap']
             ],
         ];
     }

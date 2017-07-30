@@ -139,7 +139,7 @@
                                     <option value="Non-US">I am Non-US Investor</option>
                                 </select>
                             </div>
-                            <button id="subscribe-submit" type="submit" class="btn btn-primary button">Submit</button>
+                            <button id="subscribe-submit" type="submit" class="btn btn-primary button">send</button>
                             <p class="subscribe-info" class="d-none"></p>
 
                         </form>
