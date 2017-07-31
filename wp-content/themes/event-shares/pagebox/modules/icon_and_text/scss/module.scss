@@ -11,7 +11,7 @@
     #firm-icon {
       height: 95px;
       width: 83px;
-      margin: 0 auto 45px auto;
+      margin: 0 auto 0 auto;
       svg {
         path, circle, polygon, rect {
           @include transition(700ms all);
@@ -42,13 +42,13 @@
     #firm-icon {
       svg {
         path, polygon, circle, rect {
-          fill: get('imageColor');
+          fill: get('imageFillColor');
           stroke: get('imageColor');
 
         }
         &:hover {
           path, polygon, circle, rect {
-            fill: get('imageColorHover');
+            fill: get('imageFillColorHover');
             stroke: get('imageColorHover');
           }
         }
