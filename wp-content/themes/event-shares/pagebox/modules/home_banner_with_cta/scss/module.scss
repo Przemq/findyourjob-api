@@ -102,7 +102,7 @@
         @include position(absolute, 0 20px null null);
         @include media-breakpoint-up(lg) {
           @include size (500px 570px);
-          box-shadow: 0px 0px 0px 20px $background-color;
+         // box-shadow: 0px 0px 0px 20px $background-color;
         }
 
         .image-punch {
@@ -113,7 +113,6 @@
           //@include size ($shape-image-width-m+1px $shape-image-height-m+1px);
           @include position (absolute, 0 0 0 -92px);
           z-index: 2;
-          fill: $background-color;
           @include media-breakpoint-up(lg) {
             @include size (730px 550px);
           }
@@ -133,7 +132,6 @@
       }
 
       .parallax-mask-fix {
-        background-color: $background-color;
         width: 100%;
         position: absolute;
         z-index: 3;
@@ -169,6 +167,17 @@
   $opacity: get('buttonBackgroundHoverOpacity');
 
   .header-container {
+    .shape {
+      .shape-image {
+        @include media-breakpoint-up(lg) {
+          @include size (500px 570px);
+           box-shadow: 0px 0px 0px 20px get('backgroundColor');
+        }
+        .image-punch {
+          fill: get('backgroundColor');
+        }
+      }
+    }
     .text-content{
       .learn-more-button {
         color: get('buttonTextColor');
