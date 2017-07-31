@@ -547,13 +547,50 @@ class WPX_Theme_Options {
 
 // End of Navigation
 
-// Sign Up mail
+// Sign Up user mail
         $section = 'sign_up_mail_';
 
         $tabs_setting['tabs'][] = [
             'id'     => 'sign_up_mail',
+            'title'  => __( 'Sign Up user mail', 'cmb2' ),
+            'fields' => [
+                [
+                    'name'    => 'Admin mail',
+                    'id'      => $prefix . $section . 'admin',
+                    'type'    => 'text',
+                    'default' => '',
+                ],
+                [
+                    'name'    => 'Subject',
+                    'id'      => $prefix . $section . 'subject',
+                    'type'    => 'text',
+                    'default' => '',
+                ],
+                [
+                    'name'    => 'Mail content',
+                    'id'      => $prefix . $section . 'mail_content',
+                    'type'    => 'wysiwyg',
+                    'default' => '',
+                ],
+            ]
+        ];
+
+
+// End of Sign Up mail
+
+        // Sign Up admin mail
+        $section = 'sign_up_admin_';
+
+        $tabs_setting['tabs'][] = [
+            'id'     => 'sign_up_admin',
             'title'  => __( 'Sign Up admin mail', 'cmb2' ),
             'fields' => [
+                [
+                    'name'    => 'Admin mail',
+                    'id'      => $prefix . $section . 'admin_mail',
+                    'type'    => 'text',
+                    'default' => '',
+                ],
                 [
                     'name'    => 'Subject',
                     'id'      => $prefix . $section . 'subject',

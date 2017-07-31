@@ -318,11 +318,11 @@ function sendToSubscribe()
     // check is there no such entry in the database (function return true/false)
     function isAlreadySubscribe($email, $investor)
     {
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL) ) {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo "Email address is invalid.";
             die;
+        } else {
         }
-        else {}
         global $wpdb;
         global $tableName;
 
@@ -338,7 +338,7 @@ function sendToSubscribe()
     }
 
     if ((isAlreadySubscribe($email, $investor) == false)) {
-       $wpdb->insert(
+        $wpdb->insert(
             $tableName,
             [
                 'email' => $email,
@@ -351,25 +351,33 @@ function sendToSubscribe()
                 '%s'
             ]
         );
+        $response = 'Thank you for your subscription';
 
 
-           $response = 'Thank you for your subscription';
         // Mail from subscription modal
-
+        $hashFromDB = $wpdb->get_results('SELECT hash FROM ' . $tableName . ' WHERE email = "' . $email . '" AND investor = "' . $investor . '"');
         remove_filter('wp_mail_content_type', 'wpse27856_set_content_type');
         $headers = array('Content-Type: text/html; charset=UTF-8');
         $subject = wpx_theme_get_option('wpx_theme_sign_up_mail_subject');
-        $userHash = '/?unsubscribe='.$hash;
-        $unsubscribeLink = '<a href="'.HOME_URL.$userHash.'">Remove me from subscribe list</a>';
+        $userHash = '/?unsubscribe=' . $hashFromDB[0]->hash;
+        $unsubscribeLink = '<a href="' . HOME_URL . $userHash . '">Unsubscribe from this list</a>';
         $msg = stripslashes(wpx_theme_get_option('wpx_theme_sign_up_mail_mail_content'));
-        $msg = str_replace('[UN-SUBSCRIBE]',$unsubscribeLink,$msg);
+        $msg = str_replace('[UN-SUBSCRIBE]', $unsubscribeLink, $msg);
         sendMail($email, $subject, wpautop($msg), $headers, array());
-    }else{
+
+        //Mail for admin - new user subscribed
+        $subject = wpx_theme_get_option('wpx_theme_sign_up_admin_subject');
+        $msg = stripslashes(wpx_theme_get_option('wpx_theme_sign_up_admin_mail_content'));
+        $adminMail = wpx_theme_get_option('wpx_theme_sign_up_admin_admin_mail');
+        $msg = str_replace('[DATE]', date('Y-m-d'), $msg);
+        $msg = str_replace('[E-MAIL]', $email, $msg);
+        $msg = str_replace('[INVESTOR]', $investor, $msg);
+        sendMail($adminMail, $subject, wpautop($msg), $headers, array());
+    } else {
         $response = 'Error, your email is already subscribed';
 
     }
     echo $response;
-
 
 
     die();
@@ -383,16 +391,51 @@ add_action('wpcf7_mail_sent', function () {
     $headers = array('Content-Type: text/html; charset=UTF-8');
     $msg = stripslashes(wpx_theme_get_option('wpx_theme_user_mail_mail_content'));
     $subject = wpx_theme_get_option('wpx_theme_user_mail_subject');
+    if (!empty($_POST['your-sub'])) {
+        $hash = uniqid();
+        global $wpdb;
+        $tableName = $wpdb->base_prefix . 'wpx_' . 'subscriptions';
 
-    sendMail($_POST['your-email'], $subject, wpautop($msg), $headers, array());
+
+        $result = $wpdb->get_results('SELECT * FROM ' . $tableName . ' WHERE email = "' . $_POST['your-email'] . '" AND investor = "' . $_POST['wpx_menu-695'] . '"');
+
+        if (empty($result)) {
+            $wpdb->insert(
+                $tableName,
+                [
+                    'email' => $_POST['your-email'],
+                    'investor' => $_POST['wpx_menu-695'],
+                    'hash' => $hash
+                ],
+                [
+                    '%s',
+                    '%s',
+                    '%s'
+                ]
+            );
+            $userHash = '/?unsubscribe=' . $hash;
+            $unsubscribeLink = '<a href="' . HOME_URL . $userHash . '">Unsubscribe from this list</a>';
+            $msg = str_replace('[UN-SUBSCRIBE]', $unsubscribeLink, $msg);
+            sendMail($_POST['your-email'], $subject, wpautop($msg), $headers, array());
+        }
+    } else {
+        global $wpdb;
+        $tableName = $wpdb->base_prefix . 'wpx_' . 'subscriptions';
+        $hashFromDB = $wpdb->get_results('SELECT hash FROM ' . $tableName . ' WHERE email = "' . $_POST['your-email'] . '" AND investor = "' . $_POST['wpx_menu-695'] . '"');
+        $userHash = '/?unsubscribe=' . $hashFromDB[0]->hash;
+        $unsubscribeLink = '<a href="' . HOME_URL . $userHash . '">Unsubscribe from this list</a>';
+        $msg = str_replace('[UN-SUBSCRIBE]', $unsubscribeLink, $msg);
+        sendMail($_POST['your-email'], $subject, wpautop($msg), $headers, array());
+    }
+
 });
 
 add_action('init', function () {
     $hash = $_GET['unsubscribe'] ?? false;
-    if($hash && !empty($hash) ) {
+    if ($hash && !empty($hash)) {
         global $wpdb;
         $tableName = $wpdb->base_prefix . 'wpx_subscriptions';
-        $wpdb->query("DELETE FROM " . $tableName . " WHERE hash=" . '"'.$hash.'"');
+        $wpdb->query("DELETE FROM " . $tableName . " WHERE hash=" . '"' . $hash . '"');
     }
 });
 
