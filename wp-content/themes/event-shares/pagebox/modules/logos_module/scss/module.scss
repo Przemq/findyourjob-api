@@ -34,10 +34,11 @@
       padding: 10px;
       max-width: 100%;
       width:auto;
+      height: auto;
       object-fit: contain;
       max-height: 150px;
       @media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
-        float: left;
+        //float: left;
       }
       @include media-breakpoint-down(md){
         //max-width: 32%;
