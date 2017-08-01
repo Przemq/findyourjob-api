@@ -1,9 +1,11 @@
 <?php
+use Nurture\Pagebox\Module\Fields\Api\RepeaterNode;
 
 /**
  * Use this for PhpStorm hints.
  * @var \Nurture\Pagebox\Module\Scope $this
  * @var \Nurture\EventShares\Module\TeamModule $module
+ *
  */
 
 $module = $this->getModule();
@@ -53,7 +55,9 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
 			for ( $i = 0; $i < sizeof( $sectionArray ); $i ++ ): ?>
                 <ul class="team-nav nav nav-tabs row" role="tablist">
 					<?php $uniqeID = uniqid(); ?>
-					<?php foreach ( $sectionArray[ $i ] as $index => $value ): ?>
+					<?php foreach ( $sectionArray[ $i ] as $index => $value ):
+                        /** @var $value RepeaterNode */
+                        ?>
 						<?php
 						$startElementClass = "";
 						if ( $i == 0 && $index == 0 ) {
@@ -68,13 +72,12 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
                         </li>
 
 
-					<?php endforeach;
-					?>
-
+					<?php endforeach; ?>
                 </ul>
 
                 <div class="tab-content">
-					<?php foreach ( $sectionArray[ $i ] as $index => $value ): ?>
+					<?php foreach ( $sectionArray[ $i ] as $index => $value ):
+                         ?>
 						<?php
 						$startElementClass = "";
 						if ( $i == 0 && $index == 0 ) {
@@ -85,21 +88,25 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
                              role="tabpanel">
                             <div class="quote">
 								<?= $value->getEditor( 'quote' )->getValue(); ?>
+
                             </div>
                             <div class="row">
-                                <div class="col-12 col-lg-6">
+                                <?php $enableImage = $value->getInput("imageSwitch")->getValue(); ?>
+                                <?php if($enableImage): ?>
+                                <div class="col-lg-4">
+                                    <img src="<?= $value->getMedia('image')->getImage()->getUrl() ?>" alt="member photo"/>
+                                </div>
+                                <?php endif ?>
+                                <div class="col-12 <?php if($enableImage) echo 'col-lg-4'; else echo 'col-lg-6' ?>">
 									<?= $value->getEditor( 'leftDescriptionPanel' )->getValue(); ?>
                                 </div>
-                                <div class="col-12 col-lg-6 column">
+                                <div class="col-12 <?php if($enableImage) echo 'col-lg-4'; else echo 'col-lg-6' ?> column">
 									<?= $value->getEditor( 'rightDescriptionPanel' )->getValue(); ?>
                                 </div>
                             </div>
                         </div>
-
-
 					<?php endforeach;
 					?>
-
                 </div>
 			<?php endfor ?>
         </div>
@@ -129,7 +136,8 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
                 </ul>
 
                 <div class="tab-content">
-				    <?php foreach ( $sectionArrayMobile[ $i ] as $index => $value ): ?>
+				    <?php foreach ( $sectionArrayMobile[ $i ] as $index => $value ):
+                         /** @var $value RepeaterNode */?>
 					    <?php
 					    $startElementClass = "";
 					    if ( $i == 0 && $index == 0 ) {
@@ -142,10 +150,16 @@ foreach ( $this->getRepeater( 'tabs' ) as $index => $value ) {
 							    <?= $value->getEditor( 'quote' )->getValue(); ?>
                             </div>
                             <div class="row">
-                                <div class="col-12 col-lg-6">
+                                <?php $enableImage = $value->getInput("imageSwitch")->getValue(); ?>
+                                <?php if($enableImage): ?>
+                                    <div class="col-lg-4">
+                                        <img src="<?= $value->getMedia('image')->getImage()->getUrl() ?>" alt="member photo"/>
+                                    </div>
+                                <?php endif ?>
+                                <div class="col-12 col-lg-4">
 								    <?= $value->getEditor( 'leftDescriptionPanel' )->getValue(); ?>
                                 </div>
-                                <div class="col-12 col-lg-6 column">
+                                <div class="col-12 col-lg-4 column">
 								    <?= $value->getEditor( 'rightDescriptionPanel' )->getValue(); ?>
                                 </div>
                             </div>

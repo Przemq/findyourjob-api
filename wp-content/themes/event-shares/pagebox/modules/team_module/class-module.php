@@ -52,7 +52,7 @@ class TeamModule extends AbstractModule implements StaticCacheInterface {
 		        'sass' => true
 	        ],
 	        'isDescriptionUnderTitleSwitch' =>[
-	        	'type' => 'input:switch',
+
 		        'label' => "Text Under Title (Off/On)",
 		        'default' => 0
 	        ],
@@ -88,12 +88,23 @@ class TeamModule extends AbstractModule implements StaticCacheInterface {
 				        'label'       => 'Job Title',
 				        'description' => 'Please enter Job Title'
 			        ],
+                    'imageSwitch' =>[
+                        'type' => 'input:switch',
+                        'label'   => "Enable member photo",
+                        'description' => 'Eneable or disable photo (OFF/ON)',
+                        'default' => false
+                    ],
+                    'image' =>[
+                        'type' => 'media:image',
+                        'label'   => "Team member photo",
+                        'description' => 'Please, select photo',
+                        'default' => ''
+                    ],
 			        'quote' =>[
 				        'type' => 'editor',
 				        'label' => "Enter Quote",
 				        'default' => ''
-			        ]
-			        ,
+			        ],
 			        'leftDescriptionPanel' =>[
 				        'type' => 'editor',
 				        'label'   => "Left Description Panel",
