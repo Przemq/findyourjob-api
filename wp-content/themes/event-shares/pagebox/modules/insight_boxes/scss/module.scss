@@ -391,6 +391,9 @@
   }
 
   .pagePagination {
+    .pagination-wrapper {
+      margin: 25px 15px 25px auto;
+    }
     .page-numbers {
       padding: 5px;
     }
@@ -478,11 +481,18 @@
     }
   }
   .pagePagination {
-    .page-numbers {
-      padding: 5px;
-      .current {
-        color: yellow;
+    span {
+      strong {
+        color: get('activePageColor');
       }
+
     }
   }
+  a {
+    color: get('nextPageColor');
+    &:hover {
+      color: get('nextPageHoverColor');
+    }
+  }
+
 }

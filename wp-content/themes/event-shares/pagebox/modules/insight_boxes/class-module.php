@@ -572,6 +572,27 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 				'default' => '#16a57a',
 				'sass'    => true
 			],
+            'activePageColor'              => [
+                'type'    => 'input:color',
+                'label'   => 'Actual page number color',
+                'description' => 'Color of page number if there are more than 9 posts',
+                'default' => '#56c2a3',
+                'sass'    => true
+            ],
+            'nextPageColor'              => [
+                'type'    => 'input:color',
+                'label'   => 'Next page number color',
+                'description' => 'Color of next page number if there are more than 9 posts',
+                'default' => '#002841',
+                'sass'    => true
+            ],
+            'nextPageHoverColor'              => [
+                'type'    => 'input:color',
+                'label'   => 'Next page number hover color',
+                'description' => 'Hover color of next page number if there are more than 9 posts',
+                'default' => '#56c2a3',
+                'sass'    => true
+            ],
 
 
 		];
