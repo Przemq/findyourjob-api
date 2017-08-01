@@ -10,4 +10,5 @@ $module = $this->getModule();
 ?>
 <div class="<?= $module->getClass() ?>">
     Example module
+
 </div>
