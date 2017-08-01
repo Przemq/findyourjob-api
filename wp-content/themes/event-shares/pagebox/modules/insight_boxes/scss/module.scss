@@ -477,4 +477,12 @@
       }
     }
   }
+  .pagePagination {
+    .page-numbers {
+      padding: 5px;
+      .current {
+        color: yellow;
+      }
+    }
+  }
 }

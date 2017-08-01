@@ -170,7 +170,7 @@ $insightQuery = new WP_Query( $args );
 									'after_page_number'  => '</strong>'
 								);
 								?>
-                                <div class="pagination-wrapper">
+                                <div class="pagination-wrapper pull-right">
                                     <div class="numbered">
 										<?php echo $module->paginate_links_ajax( $pagination ); ?>
                                     </div>

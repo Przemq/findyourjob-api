@@ -62,7 +62,7 @@ $openTab = (integer)$this->getInput('activeTab')->getValue();
                  id="htab-<?= $index ?>-<?= $uniqID ?>">
                 <div class="container text-content">
                     <div class="row">
-                        <div class="col-12">
+                        <div class=" col-lg-8 mx-auto col-12">
                             <?= $description ?>
                         </div>
                     </div>
