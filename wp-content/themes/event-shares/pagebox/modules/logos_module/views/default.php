@@ -19,7 +19,7 @@ $module = $this->getModule();
 				endif;
 				?>
             </div>
-            <div class="col-lg-12 image-container">
+            <div class="col-lg-12 row image-container">
 				<?php foreach ( $this->getRepeater( 'logos' ) as $index => $section ) :
                     /* @var \Nurture\Pagebox\Module\Scope $section */
 					$ImageID = $section->getMedia( 'logoImage' )->getImage()->getId();
@@ -27,7 +27,7 @@ $module = $this->getModule();
 					$isInternal = $section->getInput('enableInternalLink')->getValue();
 					$internalLink = $section->getSelect( 'internalUrl' )->getValue()['permalink'];
 					?>
-                    <a <?= $isBlank ?> href="<?php if($isInternal) echo $internalLink; else echo $section->getInput( 'logoUrl' ) ?>">
+                    <a class="box col-sm-6 col-md-3" <?= $isBlank ?> href="<?php if($isInternal) echo $internalLink; else echo $section->getInput( 'logoUrl' ) ?>">
 						<?php echo wp_get_attachment_image( $ImageID, 'full', false, [ 'class' => 'media-image' ] ) ?>
                     </a>
 					<?php

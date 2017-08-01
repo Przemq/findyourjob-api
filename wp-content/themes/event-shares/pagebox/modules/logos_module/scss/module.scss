@@ -24,8 +24,12 @@
     align-content: center;
     align-items: center;
     flex-direction: row;
+    margin-left: 0;
+    .box {
+      margin: 0 auto;
+    }
     .media-image {
-      max-width: 24%;
+      //max-width: 24%;
       padding: 5px;
       width:auto;
       object-fit: contain;
@@ -34,15 +38,15 @@
         float: left;
       }
       @include media-breakpoint-down(md){
-        max-width: 32%;
+        //max-width: 32%;
       }
       @include media-breakpoint-down(xs){
-        max-width: 285px;
+        //max-width: 285px;
       }
     }
     a {
       .media-image{
-        display: inline-flex;
+        //display: inline-flex;
         @include transition(0.5s all);
       }
       &:hover {
