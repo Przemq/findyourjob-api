@@ -55,7 +55,7 @@ class IconAndText extends AbstractModule implements StaticCacheInterface {
             ],
 	        'imageColor' => [
 		        'type' => 'input:color',
-		        'label' => 'Image color',
+		        'label' => 'Image stroke color',
 		        'default' => '#59c1a2',
 		        'sass' => true
 	        ],
@@ -67,7 +67,7 @@ class IconAndText extends AbstractModule implements StaticCacheInterface {
             ],
 	        'imageColorHover' => [
 		        'type' => 'input:color',
-		        'label' => 'Image color on hover',
+		        'label' => 'Image stroke color on hover',
 		        'default' => '#16a57a',
 		        'sass' => true
 	        ],
