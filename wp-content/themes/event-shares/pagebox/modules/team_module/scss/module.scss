@@ -146,6 +146,7 @@
           margin: auto;
           display: block;
           height:auto;
+          max-height: 260px;
 
           @include media-breakpoint-down(md) {
             margin-bottom: 10px;
