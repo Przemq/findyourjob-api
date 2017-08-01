@@ -27,10 +27,12 @@
     margin-left: 0;
     .box {
       margin: 0 auto;
+      padding:0;
     }
     .media-image {
       //max-width: 24%;
-      padding: 5px;
+      padding: 10px;
+      max-width: 100%;
       width:auto;
       object-fit: contain;
       max-height: 150px;
