@@ -484,15 +484,18 @@
     span {
       strong {
         color: get('activePageColor');
+        font-size: get('numerationFontSize');
       }
 
     }
-  }
-  a {
-    color: get('nextPageColor');
-    &:hover {
-      color: get('nextPageHoverColor');
+    a {
+      color: get('nextPageColor');
+      font-size: get('numerationFontSize');
+      &:hover {
+        color: get('nextPageHoverColor');
+      }
     }
   }
+
 
 }

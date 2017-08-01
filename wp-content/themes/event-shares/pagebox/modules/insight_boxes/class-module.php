@@ -572,6 +572,13 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 				'default' => '#16a57a',
 				'sass'    => true
 			],
+            'numerationFontSize'              => [
+                'type'    => 'input:text',
+                'label'   => 'Pagination font size',
+                'description' => 'Please, enter pagination font size',
+                'default' => '18px',
+                'sass'    => true
+            ],
             'activePageColor'              => [
                 'type'    => 'input:color',
                 'label'   => 'Actual page number color',
