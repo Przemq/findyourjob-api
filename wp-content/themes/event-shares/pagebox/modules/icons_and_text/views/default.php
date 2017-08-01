@@ -18,7 +18,7 @@ $isDescription = $this->getInput( 'isDescription' )->getValue();
 
 
             <div class="col-12 <?php if($isDescription) echo 'description-header'; else echo 'title-header'; ?>" >
-                <h4><?= $this->getInput( 'title' ) ?></h4>
+                <div class="col-md-8 mx-auto"><?= $this->getInput( 'title' ) ?></div>
             </div>
 			<?php foreach ( $this->getRepeater( 'sections' ) as $index => $section ) :
 

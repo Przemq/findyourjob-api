@@ -106,12 +106,9 @@
       color: get('titleColor');
     }
     .title-header {
-      h4{
         font-size: get('titleSize');
         color: get('titleColor');
-      }
-
-      background-color: get('backgroundColor');
+        background-color: get('backgroundColor');
       }
       .svg-wrapper {
         svg {
