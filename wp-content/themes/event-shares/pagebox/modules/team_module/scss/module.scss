@@ -143,9 +143,13 @@
         }
         img{
           max-width: 100%;
-          width:100%;
+          margin: auto;
           display: block;
           height:auto;
+
+          @include media-breakpoint-down(md) {
+            margin-bottom: 10px;
+          }
         }
         .column {
           margin-top: 20px;
