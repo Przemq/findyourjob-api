@@ -17,7 +17,9 @@ $isDescription = $this->getInput( 'isDescription' )->getValue();
         <div class="row" id="three-column-boxes">
 
 
-            <div class="col-12 <?php if($isDescription) echo 'description-header'; else echo 'title-header'; ?>" ><?= $this->getInput( 'title' ) ?></div>
+            <div class="col-12 <?php if($isDescription) echo 'description-header'; else echo 'title-header'; ?>" >
+                <h4><?= $this->getInput( 'title' ) ?></h4>
+            </div>
 			<?php foreach ( $this->getRepeater( 'sections' ) as $index => $section ) :
 
 				$sectionEditor = $section->getEditor( 'sectionEditor' )->getValue();
