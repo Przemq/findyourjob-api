@@ -299,6 +299,8 @@ function wpx_add_blankline($content)
     return str_ireplace('&nbsp;', '</br></br>', $content);
 }
 
+add_post_type_support( 'page', 'excerpt' );
+
 function sendMail($to, $subject, $msg, $headers, $attachments)
 {
     $result = wp_mail($to, $subject, $msg, $headers, $attachments);

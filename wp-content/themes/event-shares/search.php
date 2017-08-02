@@ -135,15 +135,6 @@ if ( $search_query->have_posts() ) {
 						<?php while ( $search_query->have_posts() ) :
 							$search_query->the_post();
 							global $post;
-							$excerptExample = "Lorem ipsum dolor sit amet,
-                                    consectetur
-                                    adipiscing elit.
-                                    Nullam pulvinar euismod eros, a laoreet leo. Quisque ac turpis id mi
-                                    euismod
-                                    tristique. In sit amet urna sed leo semper iaculis sit amet vitae
-                                    lectus.
-                                    Aenean
-                                    feugiat imperdiet sollicitudin.";
 							$post_id        = $post->ID;
 							$link           = get_permalink( $post_id );
 							$target         = '';
@@ -160,6 +151,7 @@ if ( $search_query->have_posts() ) {
 							$title   = preg_replace( '/(' . $keys . ')/iu', '<strong class="search-highlight">\0</strong>', $title );
 							$more    = ! empty( wpx_theme_get_option( 'wpx_theme_search_results_readme' ) ) ?
 								wpx_theme_get_option( 'wpx_theme_search_results_readme' ) : 'Read more';
+                            $excerptExample = $excerpt;
 							?>
                             <div class="single-result">
                                 <h4><?php echo $title; ?></h4>
