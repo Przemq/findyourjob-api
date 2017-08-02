@@ -1,14 +1,14 @@
 /**
  * Created by pgurdek on 23.06.17.
  */
-let moduleClass = '.wpx-mcee07026';
+var moduleClass = '.wpx-mcee07026';
 
 'use strict';
 (function ($) {
 
-    let $thisModule = $(moduleClass);
-    let $loading = $thisModule.find('.loading');
-    let options = {
+    var $thisModule = $(moduleClass);
+    var $loading = $thisModule.find('.loading');
+    var options = {
         byRow: true,
         property: 'height',
         target: null,
@@ -21,7 +21,7 @@ let moduleClass = '.wpx-mcee07026';
     $thisModule.find('.dropdown-item').on('click', function (event) {
         event.preventDefault();
 
-        let $button = $(this).parents('.dropdown').find('.dropdown-button'),
+        var $button = $(this).parents('.dropdown').find('.dropdown-button'),
             optionText = $(this).text(),
             optionValue = $(this).attr('data-value');
 
@@ -35,7 +35,7 @@ let moduleClass = '.wpx-mcee07026';
     // Click on nav example Advisor Media
     $thisModule.find('.nav-tabs-wrapper a').on('click', function (event) {
         event.preventDefault();
-        let timeline = $(this).attr('data-category');
+        var timeline = $(this).attr('data-category');
         $loading.addClass('show');
         sendAjaxPagination($thisModule, null, timeline);
 
@@ -45,8 +45,8 @@ let moduleClass = '.wpx-mcee07026';
         if (!$(this).hasClass('current')) {
             $(this).parent().find('.page-numbers').removeClass('current');
             $(this).addClass('current');
-            let pagNumber;
-            let href = this.href;
+            var pagNumber;
+            var href = this.href;
             pagNumber = href.match(/([^\/]*)\/*$/)[1];
             $loading.addClass('show');
             try {
@@ -61,18 +61,20 @@ let moduleClass = '.wpx-mcee07026';
 
     $thisModule.find('.mob-nav').on('click', function (event) {
         event.preventDefault();
-        let dropdown = $(this).parent().find('.nav-tabs-wrapper');
+        var dropdown = $(this).parent().find('.nav-tabs-wrapper');
         dropdown.toggleClass('nav-mobile-show');
 
 
     });
 
 
-    function sendAjaxPagination($thisModule, paginationNumber = 1, timeline = null) {
-        let $loading = $thisModule.find('.loading');
-        let category = $thisModule.find('.current-category').attr('data-picked');
-        let topic = $thisModule.find('.current-topic').attr('data-picked');
-        let nothingFoundText = $thisModule.find('#nothingFound').val();
+    function sendAjaxPagination($thisModule, paginationNumber, timeline) {
+        paginationNumber = !!paginationNumber ? paginationNumber : 1;
+        timeline = !!timeline ? timeline : null;
+        var $loading = $thisModule.find('.loading');
+        var category = $thisModule.find('.current-category').attr('data-picked');
+        var topic = $thisModule.find('.current-topic').attr('data-picked');
+        var nothingFoundText = $thisModule.find('#nothingFound').val();
         if (timeline === null) {
             timeline = $thisModule.find('.nav-tabs-wrapper a.active').attr('data-category');
         }
@@ -102,7 +104,8 @@ let moduleClass = '.wpx-mcee07026';
     }
 
 
-    function removeClass(element, classToRemove ,time = 300) {
+    function removeClass(element, classToRemove ,time) {
+        time = !!time ? time : 300;
         setTimeout(function () {
             element.removeClass(classToRemove);
         }, time);
@@ -112,34 +115,34 @@ let moduleClass = '.wpx-mcee07026';
     function changeToSVG() {
 
         // Polyfill to support all ye old browsers
-        // delete when not needed in the future
+        // devare when not needed in the future
         if (!String.prototype.endsWith) {
             String.prototype.endsWith = function (searchString, position) {
-                let subjectString = this.toString();
+                var subjectString = this.toString();
                 if (typeof position !== 'number' || !isFinite(position) || Math.floor(position) !== position || position > subjectString.length) {
                     position = subjectString.length;
                 }
                 position -= searchString.length;
-                let lastIndex = subjectString.lastIndexOf(searchString, position);
+                var lastIndex = subjectString.lastIndexOf(searchString, position);
                 return lastIndex !== -1 && lastIndex === position;
             };
         } // end polyfill
 
         // Another snippet to support IE11
         String.prototype.endsWith = function (pattern) {
-            let d = this.length - pattern.length;
+            var d = this.length - pattern.length;
             return d >= 0 && this.lastIndexOf(pattern) === d;
         };
         // End snippet to support IE11
 
         // Check to see if user set alternate class
-        let target = ( cssTarget !== 'img.' ? cssTarget : 'img.style-svg' );
+        var target = ( cssTarget !== 'img.' ? cssTarget : 'img.style-svg' );
 
         $(target).each(function (index) {
-            let $img = jQuery(this);
-            let imgID = $img.attr('id');
-            let imgClass = $img.attr('class');
-            let imgURL = $img.attr('src');
+            var $img = jQuery(this);
+            var imgID = $img.attr('id');
+            var imgClass = $img.attr('class');
+            var imgURL = $img.attr('src');
 
             if (!imgURL.endsWith('svg')) {
                 return;
@@ -148,9 +151,9 @@ let moduleClass = '.wpx-mcee07026';
             $.get(imgURL, function (data) {
 
                 // Get the SVG tag, ignore the rest
-                let $svg = $(data).find('svg');
+                var $svg = $(data).find('svg');
 
-                let svgID = $svg.attr('id');
+                var svgID = $svg.attr('id');
 
                 // Add replaced image's ID to the new SVG if necessary
                 if (typeof imgID === 'undefined') {
@@ -186,11 +189,11 @@ let moduleClass = '.wpx-mcee07026';
         // $thisModule.find('.image-container').matchHeight(options);
     }
 
-    function updateEquals(options,time=100) {
+    function updateEquals(options,time) {
+        time = !!time ? time : 100;
         setTimeout(function () {
             $thisModule.find('.title-insight').matchHeight('remove').matchHeight(options);
         }, time);
-
     }
 
 })(jQuery);
