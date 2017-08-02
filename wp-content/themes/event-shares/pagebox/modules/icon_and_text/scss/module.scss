@@ -3,6 +3,7 @@
 // Overall module styles
 @include overall_module() {
 
+
   #top-page-image-with-text {
     padding-top: 60px;
     padding-bottom: 65px;
@@ -21,6 +22,12 @@
     p {
       padding-top: 40px;
       color: #111;
+    }
+
+    svg:not(:root) {
+      overflow: hidden;
+      max-height: 90px;
+      @include transition(700ms all);
     }
   }
 

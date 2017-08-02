@@ -129,7 +129,7 @@ $insightQuery = new WP_Query( $args );
                                     <div class="image-container">
 										<?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
                                     </div>
-                                    <div class="publication-info col-lg-12">
+                                    <div class="publication-info col-lg-12 px-0">
 										<?php
 										$author = ( ! empty( get_post_meta( get_the_ID(), 'author', true ) )
 											? get_post_meta( get_the_ID(), 'author', true ) : '' );
@@ -137,8 +137,8 @@ $insightQuery = new WP_Query( $args );
 										<?php the_date( 'd.m.Y' ) ?> <?= '| ' . $author ?>
 
                                     </div>
-                                    <div class="col-lg-12"><h3 class="title-insight"><?= get_the_title() ?></h3></div>
-                                    <div class="col-lg-12 hidden-sm-down"><p><?php the_excerpt() ?></p></div>
+                                    <div class="col-lg-12 px-0"><h3 class="title-insight"><?= get_the_title() ?></h3></div>
+                                    <div class="col-lg-12 hidden-sm-down px-0"><p><?php the_excerpt() ?></p></div>
 
 									<?php
 									$readButton = ( ! empty( get_post_meta( get_the_ID(), 'button_text', true ) )
@@ -148,7 +148,7 @@ $insightQuery = new WP_Query( $args );
 										? get_post_meta( get_the_ID(), 'link', true ) : get_the_permalink() );
 									?>
 
-                                    <div class="col-lg-12 buttons"><a
+                                    <div class="col-lg-12 buttons px-0"><a
                                                 href="<?= $link ?>"><?= $readButton ?></a></div>
                                 </div>
                             </div>
