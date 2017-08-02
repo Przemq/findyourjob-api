@@ -54,6 +54,13 @@ class LogosModule extends AbstractModule implements StaticCacheInterface {
 		        'default' => '1.5rem',
 		        'sass' => true
 	        ],
+            'modulePadding' => [
+                'type' => 'input:text',
+                'label' => 'Module padding top and bottom',
+                'description' => 'Possibility to change padding top and bottom',
+                'default' => '15px',
+                'sass' => true
+            ],
 	        'background' => [
 		        'type' => 'input:color',
 		        'label' => 'Background color',

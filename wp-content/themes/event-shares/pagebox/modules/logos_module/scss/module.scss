@@ -4,7 +4,6 @@
 @include overall_module() {
 
   $header-color: #1e2c32;
-  padding: 15px 0;
   #in-the-media {
     text-align: center;
     h4 {
@@ -65,6 +64,7 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
+  padding: get('modulePadding') 0;
   background-color: get('background');
   #in-the-media {
     background-color:get('background');
