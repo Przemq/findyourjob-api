@@ -20,7 +20,6 @@
 
     }
     p {
-      padding-top: 40px;
       color: #111;
     }
 
@@ -44,6 +43,7 @@
     p {
       font-size: get('fontSize');
       color: get('descriptionColor');
+      padding-top: get('paragraphPadding');
     }
     #firm-icon {
       svg {

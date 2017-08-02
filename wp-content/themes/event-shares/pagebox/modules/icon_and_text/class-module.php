@@ -36,6 +36,13 @@ class IconAndText extends AbstractModule implements StaticCacheInterface {
 		        'label' => 'Description under image',
 		        'description' => 'Please enter description'
 	        ],
+            'paragraphPadding' => [
+                'type' => 'input:text',
+                'label' => 'Padding above paragraph',
+                'description' => 'Please, enter padding above description',
+                'default' => '40px',
+                'sass' => true
+            ],
             'fontSize' => [
                 'type' => 'input:text',
                 'label' => 'Font size',
