@@ -45,7 +45,7 @@ class LogosModule extends AbstractModule implements StaticCacheInterface {
 	        'titleColor' => [
 		        'type' => 'input:color',
 		        'label' => 'Title color',
-		        'default' => '#282780',
+		        'default' => '#1e2c32',
 		        'sass' => true
 	        ],
 	        'titleSize' => [

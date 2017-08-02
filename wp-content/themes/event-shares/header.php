@@ -48,6 +48,7 @@
     $searchBackground = !empty(wpx_theme_get_option('wpx_theme_search_background')) ? wpx_theme_get_option('wpx_theme_search_background') : '#da8b00';
     $searchBackgroundHover = !empty(wpx_theme_get_option('wpx_theme_search_background_hover')) ? wpx_theme_get_option('wpx_theme_search_background_hover') : '#c17b01';
     $menu_text_color = !empty(wpx_theme_get_option('wpx_theme_navigation_menu_text_color')) ? wpx_theme_get_option('wpx_theme_navigation_menu_text_color') : '#004a85';
+    $menu_text_color_hover = !empty(wpx_theme_get_option('wpx_theme_navigation_menu_text_color_hover')) ? wpx_theme_get_option('wpx_theme_navigation_menu_text_color_hover') : '';
     $menu_font_family = !empty(wpx_theme_get_option('wpx_theme_navigation_font_family')) ? wpx_theme_get_option('wpx_theme_navigation_font_family') : "";
     $menu_text_color_mobile = !empty(wpx_theme_get_option('wpx_theme_navigation_menu_text_color_mobile')) ? wpx_theme_get_option('wpx_theme_navigation_menu_text_color_mobile') : '';
     $menu_background_color_mobile_active = !empty(wpx_theme_get_option('wpx_theme_navigation_menu_mobile_background_active')) ? wpx_theme_get_option('wpx_theme_navigation_menu_mobile_background_active') : '';
@@ -91,6 +92,20 @@
         /**/
         .wpg-mobile header nav ul li .sub-menu-flex li a h4 {
             color: #292b2c;
+        }
+
+        header nav > ul.menu > li:after,
+        {
+            background-color: <?=$menu_text_color?> ;
+        }
+
+        header nav > ul.menu > li > a:hover {
+            color: <?=$menu_text_color_hover?>;
+
+        }
+
+        body.wpx-desktop .wpx-main-header nav > ul > li:hover a {
+            color: <?=$menu_text_color_hover?>;
         }
 
         .flyout-module-wrapper.sub-on.current-menu-item li.current-menu-item h4, .flyout-module-wrapper.sub-on .current-menu-item li.current-menu-item h4,
@@ -173,7 +188,8 @@
                                            value="<?php echo get_search_query() ?>" name="s"
                                            title="<?php echo esc_attr_x('Search for:', 'label') ?>"/>
                                     <button type="submit" class="search-submit search-mobile-button "
-                                            value=""><img src="<?= THEME_IMAGES_URI; ?>/white-cheveron-right.svg" alt="chevron">
+                                            value=""><img src="<?= THEME_IMAGES_URI; ?>/white-cheveron-right.svg"
+                                                          alt="chevron">
                                     </button>
                                 </form>
                             </div>

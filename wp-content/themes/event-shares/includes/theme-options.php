@@ -524,6 +524,12 @@ class WPX_Theme_Options {
 					'type'    => 'colorpicker',
 					'default' => '#000000',
 				],
+                [
+                    'name'    => 'Navigation text color hover',
+                    'id'      => $prefix . $section . 'menu_text_color_hover',
+                    'type'    => 'colorpicker',
+                    'default' => '#002841',
+                ],
 				[
 					'name'    => 'Navigation text color mobile',
 					'id'      => $prefix . $section . 'menu_text_color_mobile',

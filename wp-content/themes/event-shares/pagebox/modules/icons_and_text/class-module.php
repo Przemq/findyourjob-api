@@ -50,7 +50,7 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
 			'titleColor'      => [
 				'type'    => 'input:color',
 				'label'   => 'Title/Description color',
-				'default' => '#002842',
+				'default' => '#1e2c32',
 				'sass'    => true
 			],
 			'titleSize'       => [
@@ -129,7 +129,7 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
             'sectionTitleColor'   => [
 	            'type'    => 'input:color',
 	            'label'   => 'Section title color',
-	            'default' => '#002842',
+	            'default' => '#1e2c32',
 	            'sass'    => true
             ],
             'sectionTitleSize'   => [
