@@ -16,7 +16,7 @@
   }
   @include transition(300ms all);
   .sub-menu-flex {
-    top: 105px;
+    top: 95px;
     @include media-breakpoint-down(md) {
       display: none;
     }
