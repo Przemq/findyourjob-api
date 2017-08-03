@@ -52,7 +52,7 @@ class TeamModule extends AbstractModule implements StaticCacheInterface {
 		        'sass' => true
 	        ],
 	        'isDescriptionUnderTitleSwitch' =>[
-
+                'type' => 'input:switch',
 		        'label' => "Text Under Title (Off/On)",
 		        'default' => 0
 	        ],
