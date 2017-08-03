@@ -47,7 +47,7 @@ if ( $this->getInput( 'isImage' )->getValue() ) {
                     <h4><?= $box->getInput( 'title' ) ?></h4>
 					<?= $box->getEditor( 'description' )->getContent(); ?>
 					<?php if ( ! empty( $buttonText ) && $buttonText !== "" ) : ?>
-                    <a href="<?= $link ?>" <?= $isBlank ?>
+                    <a href="<?= $link ?>" <?= $newTarget ?>
                        class="learn-description"><?= $buttonText ?></a>
                 </div>
 				<?php
