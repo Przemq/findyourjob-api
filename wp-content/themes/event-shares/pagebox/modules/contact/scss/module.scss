@@ -192,6 +192,13 @@
 // - get_deep( keys... )
 @include specified_module_loop() {
   background-color: get('backgroundColor');
+  .flip-container {
+    .flipper {
+      .front {
+        background-color: get('backgroundColor');
+      }
+    }
+  }
 
   .button {
     background-color: get('buttonBackgroundColor');
