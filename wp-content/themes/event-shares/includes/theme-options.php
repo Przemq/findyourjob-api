@@ -537,12 +537,6 @@ class WPX_Theme_Options {
 					'default' => '#000000',
 				],
 				[
-					'name'    => 'Navigation active color ',
-					'id'      => $prefix . $section . 'menu_mobile_background_active',
-					'type'    => 'colorpicker',
-					'default' => '#d6d6d6',
-				],
-				[
 					'name'    => 'Navigation mobile search background',
 					'id'      => $prefix . $section . 'menu_mobile_search_background',
 					'type'    => 'colorpicker',

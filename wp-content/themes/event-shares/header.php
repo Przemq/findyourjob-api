@@ -51,7 +51,6 @@
     $menu_text_color_hover = !empty(wpx_theme_get_option('wpx_theme_navigation_menu_text_color_hover')) ? wpx_theme_get_option('wpx_theme_navigation_menu_text_color_hover') : '';
     $menu_font_family = !empty(wpx_theme_get_option('wpx_theme_navigation_font_family')) ? wpx_theme_get_option('wpx_theme_navigation_font_family') : "";
     $menu_text_color_mobile = !empty(wpx_theme_get_option('wpx_theme_navigation_menu_text_color_mobile')) ? wpx_theme_get_option('wpx_theme_navigation_menu_text_color_mobile') : '';
-    $menu_background_color_mobile_active = !empty(wpx_theme_get_option('wpx_theme_navigation_menu_mobile_background_active')) ? wpx_theme_get_option('wpx_theme_navigation_menu_mobile_background_active') : '';
     $menu_background_search_color_mobile = !empty(wpx_theme_get_option('wpx_theme_navigation_menu_mobile_search_background')) ? wpx_theme_get_option('wpx_theme_navigation_menu_mobile_search_background') : '';
 
     //	Get available font family and assign it correct value
@@ -106,11 +105,6 @@
 
         body.wpx-desktop .wpx-main-header nav > ul > li:hover a {
             color: <?=$menu_text_color_hover?>;
-        }
-
-        .flyout-module-wrapper.sub-on.current-menu-item li.current-menu-item h4, .flyout-module-wrapper.sub-on .current-menu-item li.current-menu-item h4,
-        .flyout-module-wrapper.sub-on.current-menu-item-parent li.current-menu-item h4 {
-            background: <?=$menu_background_color_mobile_active?>;
         }
 
         .wpg-mobile header nav ul.menu li a {

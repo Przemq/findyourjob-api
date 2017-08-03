@@ -205,7 +205,8 @@ if ( $search_query->have_posts() ) {
 							<?php while ( $search_article->have_posts() ) :
 								$more_article = ! empty( wpx_theme_get_option( 'wpx_theme_search_results_readme' ) ) ?
 									wpx_theme_get_option( 'wpx_theme_search_results_readme' ) : 'Read more';
-								$search_article->the_post(); ?>
+								$search_article->the_post();
+								?>
 
                                 <div class="col-md-4 col-sm-6 col-12 single-result">
                                     <div class="single-background">

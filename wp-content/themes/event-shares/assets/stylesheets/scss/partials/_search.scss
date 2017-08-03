@@ -47,28 +47,32 @@ $highlight:#56c2a3;
   }
 
   .search-results-content{
+
     //.search-highlight{
     //  color:$highlight;
     //}
     font-family:$font-family;
     padding-top: 70px;
-      .title{
-        h2{
-          font-size:25px;
-          font-weight:normal;
-          color:$primary-theme-color;
-        }
-
+    .all-results {
+      width:100%;
+    }
+    .title{
+      h2{
+        font-size:25px;
+        font-weight:normal;
+        color:$primary-theme-color;
       }
+
+    }
 
     .page-post-results{
       .all-results{
         padding-top: 35px;
         padding-bottom: 65px;
 
+
         .single-result{
           padding-bottom: 45px;
-          text-align: center;
           h4{
             font-size:24px;
             font-weight:bold;
@@ -88,6 +92,7 @@ $highlight:#56c2a3;
             font-weight:bold;
             font-size:16px;
           }
+
         }
       }
     }
@@ -99,30 +104,35 @@ $highlight:#56c2a3;
       h2{
         color:#1e2c32;
         margin-bottom: 35px;
+        word-wrap: break-word;
       }
       .single-result{
         margin-bottom: 10px;
+        }
         .single-background{
           height:100%;
           background: white;
           padding: 15px;
         }
         .image {
-          img{
-            max-width: 100%;
-            height:auto;
+          min-height: 130px;
+          svg {
+            height: 105px;
+            width: 90px;
           }
-          svg{
-            height: 100px;
-            width:auto;
+          img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
             display: block;
             margin: 0 auto;
           }
-          padding: 15px;
+          padding: 0;
         }
         .author{
           color:#ababab;
           font-size: 15px;
+          padding-top: 25px;
           //margin-bottom: 15px;
         }
         .title-article{
@@ -134,7 +144,7 @@ $highlight:#56c2a3;
           min-height: 81px;
         }
         p{
-            font-size:14px;
+          font-size:14px;
           line-height:200%;
           color: $primary-theme-color;
         }
@@ -151,9 +161,6 @@ $highlight:#56c2a3;
       }
     }
   }
-
-
-}
 .pagePagination{
   .pagination-wrapper{
     margin: 25px 0;
