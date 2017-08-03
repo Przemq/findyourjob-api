@@ -31,7 +31,7 @@ $module = $this->getModule();
                                 $buttonText = $address->getInput('button');
                                 $description = $address->getEditor('description')->getContent();
                                 $pageLink = $address->getSelect('pageLink')->getValue()['permalink'];
-                                $isBlank = $address->getInput('isBlank')->getValue();
+                                $isBlank = $address->getInput('buttonBlank')->getValue();
                                 $newTarget = $isBlank ? 'target=_blank' : '';
                                 $link = $address->getInput('isPermalink')->getValue() ? $pageLink : $permalink;
                                 ?>
