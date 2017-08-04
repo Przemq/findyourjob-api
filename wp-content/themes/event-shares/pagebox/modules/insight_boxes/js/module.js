@@ -185,14 +185,14 @@ var moduleClass = '.wpx-mcee07026';
     }
 
     function makeEquals(options) {
-        $thisModule.find('.title-insight').matchHeight(options);
+        $thisModule.find('.content-wrapper').matchHeight(options);
         // $thisModule.find('.image-container').matchHeight(options);
     }
 
     function updateEquals(options,time) {
         time = !!time ? time : 100;
         setTimeout(function () {
-            $thisModule.find('.title-insight').matchHeight('remove').matchHeight(options);
+            $thisModule.find('.content-wrapper').matchHeight('remove').matchHeight(options);
         }, time);
     }
 
