@@ -140,13 +140,13 @@
                                        aria-describedby="emailHelp" placeholder="Enter email">
                             </div>
                             <div class="form-group">
-                                <label for="exampleSelect1">User information*</label>
+                                <label for="exampleSelect1">How would you describe yourself?</label>
                                 <select class="form-control" id="subscribe-select">
-                                    <option value="Individual Investor">I am individual investor</option>
-                                    <option value="Financial Advisor">I am Financial Advisor</option>
+                                    <option value="Individual Investor">Individual Investor</option>
+                                    <option value="Financial Advisor">Financial Advisor</option>
                                     <option value="Family Office">Family Office</option>
                                     <option value="Institutional Investor">Institutional Investor</option>
-                                    <option value="Non-US Investor">I am Non-US Investor</option>
+                                    <option value="Non-US Investor">Non-US Investor</option>
                                 </select>
                             </div>
                             <button id="subscribe-submit" type="submit" class="btn btn-primary button">send</button>
