@@ -296,7 +296,7 @@ get_footer();
         remove: false
     };
     function makeEqualsSearchResults(options) {
-        $('.title-article-equal').matchHeight('remove').matchHeight(options);
+        $('.single-background').matchHeight('remove').matchHeight(options);
     }
     makeEqualsSearchResults(options);
 </script>
