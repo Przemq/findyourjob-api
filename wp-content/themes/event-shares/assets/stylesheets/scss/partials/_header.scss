@@ -210,7 +210,7 @@ header {
         &.current-menu-item:after, &:hover:after {
           @include media-breakpoint-up(lg) {
             width: 100%;
-            background: currentColor;
+            //background: red;
           }
         }
       }

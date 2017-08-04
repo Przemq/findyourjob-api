@@ -73,6 +73,9 @@
         header nav .wpx-search .desktop-search .search-submit:hover svg path {
             fill: <?=$searchBackgroundHover?>;
         }
+        header nav > ul.menu > li:after {
+            background: <?=$menu_text_color?>;
+        }
 
         <?php
             if ($menu_font_family !=='none') :?>
