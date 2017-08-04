@@ -536,6 +536,7 @@ class WPX_Theme_Options {
 					'type'    => 'colorpicker',
 					'default' => '#000000',
 				],
+
 				[
 					'name'    => 'Navigation mobile search background',
 					'id'      => $prefix . $section . 'menu_mobile_search_background',
