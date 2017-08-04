@@ -60,10 +60,11 @@ jQuery(function ($) {
         });
         $('*').on('click', function (event) {
 
-            if (!$(event.target).hasClass("wpx-button-hamburger") && !$.contains(document.getElementById('main-nav'), event.target)) {
+            if ($wpgMainHeader.find("nav").hasClass("wpx-active-mobile-menu") &&  !$(event.target).hasClass("wpx-button-hamburger") && !$.contains(document.getElementById('main-nav'), event.target)) {
                 event.preventDefault();
-
-                $(".wpx-button-hamburger").trigger('click');
+                // if(!$.contains(document.getElementById('wpx-active-mobile-menu'), event.target)) {
+                    $(".wpx-button-hamburger").trigger('click');
+                // }
             }
         });
         $window.on("resize", mobileVer);
