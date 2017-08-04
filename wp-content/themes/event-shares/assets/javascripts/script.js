@@ -117,6 +117,7 @@ jQuery(function ($) {
                     data: data
                 }).done(function (response) {
                     console.log(response);
+                    $('.modal-content').css("min-height","330px");
                     $('.subscribe-info').text(response);
                     setTimeout(function () {
                         $('#subscribe-modal').addClass('fade').fadeOut(2000);
@@ -131,11 +132,14 @@ jQuery(function ($) {
 
                 })
             } else {
+                $('.modal-content').css("min-height","330px");
                 $('.subscribe-info').text("Please, enter your email");
             }
         });
     }
 
     subscribers();
+
+
 
 });
