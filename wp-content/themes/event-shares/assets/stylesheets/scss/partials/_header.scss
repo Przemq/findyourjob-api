@@ -517,8 +517,25 @@ header {
     .modal-content {
       padding-top: 10px;
       min-height: 290px;
+      overflow-y: hidden;
+
+      @include media-breakpoint-down(md){
+        min-height: 335px;
+        p {
+          padding-bottom: 15px;
+        }
+        @media screen and (-webkit-min-device-pixel-ratio:0)
+        {
+          min-height: 290px;
+        }
+        @-moz-document url-prefix() {
+          h1 {
+            min-height: 290px;
+          }
+        }
+      }
       p {
-        padding-bottom: 15px;
+        padding-bottom: 30px;
       }
       form {
         input {
@@ -532,6 +549,9 @@ header {
         }
         .button:hover{
           cursor: pointer;
+        }
+        .button {
+          margin-bottom: 10px;
         }
       }
     }
