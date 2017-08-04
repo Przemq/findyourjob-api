@@ -58,7 +58,14 @@ jQuery(function ($) {
                 .toggleClass("wpx-active-mobile-menu");
 
         });
+        $('*').on('click', function (event) {
 
+            if (!$(event.target).hasClass("wpx-button-hamburger") && !$.contains(document.getElementById('main-nav'), event.target)) {
+                event.preventDefault();
+
+                $(".wpx-button-hamburger").trigger('click');
+            }
+        });
         $window.on("resize", mobileVer);
         $window.on("load", mobileVer);
         $window.on("scroll", sizeBar);
