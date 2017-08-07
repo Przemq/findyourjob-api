@@ -276,7 +276,7 @@ header {
         border-left: 1px solid #b7b7b7;
        // background: #f2e6ff;
         border-radius: 2px;
-        @include transition(all 1000ms);
+        @include transition(all 500ms);
         @include placeholder {
           color: #b7b7b7;
         }
