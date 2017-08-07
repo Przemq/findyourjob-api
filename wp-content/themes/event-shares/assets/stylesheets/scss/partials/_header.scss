@@ -383,6 +383,9 @@ header {
   }
   .logo-link {
     margin-left: 0;
+    @include media-breakpoint-down(xs){
+      margin-left: -15px;
+    }
   }
 }
 
