@@ -73,6 +73,7 @@
         header nav .wpx-search .desktop-search .search-submit:hover svg path {
             fill: <?=$searchBackgroundHover?>;
         }
+
         header nav > ul.menu > li:after {
             background: <?=$menu_text_color?>;
         }
@@ -98,7 +99,7 @@
 
         header nav > ul.menu > li:after,
         {
-            background-color: <?=$menu_text_color?> ;
+            background-color: <?=$menu_text_color?>;
         }
 
         header nav > ul.menu > li > a:hover {
@@ -218,9 +219,11 @@
                                                           alt="search"></button>
                                 </form>
                             </div>
-
                     </nav>
-
                 </div>
+            </div>
+        </div>
 
+    </div>
 </header>
+

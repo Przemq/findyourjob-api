@@ -10,8 +10,7 @@ $module = $this->getModule();
 $latitude = $this->getInput('latitude')->getValue();
 $longitude = $this->getInput('longitude')->getValue();
 $enableTitle = $this->getInput('enableTitle')->getValue();
-$markerColor = $this->getInput('markerColor')->getValue();
-$markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
+
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container-fluid">
@@ -29,9 +28,15 @@ $markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
                         </div>
                     </div>
                 </div>
+                <script type="text/javascript"
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSpN1O9PFMM2acjz66kGZ2H4sDHjsex-A&callback=initMap" async defer>
+                </script>
                 <div id="map"></div>
-                <script>
-                    function initMap() {
+                <script type="text/javascript">
+                    
+                    console.log(123);
+                    
+                    var initMap = function() {
                         var london = {lat: <?= $latitude ?>, lng: <?= $longitude ?>};
 
                         var contentString =
@@ -40,6 +45,7 @@ $markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
                         var infowindow = new google.maps.InfoWindow({
                             content: contentString
                         });
+
                         var map = new google.maps.Map(document.getElementById('map'), {
                                 zoom: 12,
                                 center: london,
@@ -284,8 +290,7 @@ $markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
                                         ]
                                     }
                                 ]
-                            },
-
+                            }
                         );
 
                         google.maps.event.addDomListener(window, "resize", function () {
@@ -293,7 +298,7 @@ $markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
                             google.maps.event.trigger(map, "resize");
                             map.setCenter(center);
                         });
-                        function pinSymbol() {
+                        var pinSymbol = function () {
                             return {
                                 path: 'M10,0A10,10,0,0,0,0,10c0,8,8,10,10,30,2-20,10-22,10-30A10,10,0,0,0,10,0Zm0,12.08A2.13,2.13,0,1,1,12.13,10,2.12,2.12,0,0,1,10,12.08Z',
                                 fillColor: '#56c1a3',
@@ -302,12 +307,12 @@ $markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
                                 strokeColor: '#56c1a3',
                                 scale: 1,
                                 scaledSize: new google.maps.Size(50, 85), // scaled size
-                                origin: new google.maps.Point(0,0), // origin
+                                origin: new google.maps.Point(0, 0), // origin
                                 anchor: new google.maps.Point(10, 40), // anchor
                                 size: new google.maps.Size(71, 71)
 
                             };
-                        }
+                        };
 
                         var marker = new google.maps.Marker({
                             position: london,
@@ -318,11 +323,10 @@ $markerStrokeColor = $this->getInput('markerStrokeColor')->getValue();
                             infowindow.open(map, marker);
                         });
 
-                    }
+                    };
+                    console.log(555);
                 </script>
-                <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSpN1O9PFMM2acjz66kGZ2H4sDHjsex-A&callback=initMap">
-                </script>
+
             </div>
         </div>
     </div>

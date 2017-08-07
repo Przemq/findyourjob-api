@@ -23,7 +23,6 @@ if ( $this->getInput( 'isImage' )->getValue() ) {
 	$backgroundImage = 'style="background-image:url(' . $bgImageUrl . ')"';
 }
 ?>
-<?//= createTaskLink( 'EV-36' ) ?>
 <li class="flyout-module-wrapper <?= $module->getClass() ?> <?= $module->isParent( $postID ) ?>  <?= $module->hasChildrens( $repeater ) ?> <?= $module->isActive( $link ) ?>">
 
     <a class="main-link" href="<?= $link ?>" <?= $newTarget ?>>
