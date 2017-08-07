@@ -55,7 +55,8 @@ add_action( 'wp_enqueue_scripts', function() {
 		/**
 		 * Load only one, compressed file for production.
 		 */
-		wp_enqueue_style( 'theme-style', THEME_CSS_URI . '/style.min.css', [], null, 'all' );
+        $lastChangeHash = get_option( 'wpx_last_blog_update', null );
+		wp_enqueue_style( 'theme-style', THEME_CSS_URI . '/style.min.css', [], $lastChangeHash, 'all' );
 	}
 });
 
