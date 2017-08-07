@@ -298,5 +298,8 @@ get_footer();
     function makeEqualsSearchResults(options) {
         $('.single-background').matchHeight('remove').matchHeight(options);
     }
-    makeEqualsSearchResults(options);
+    if($( window ).width()>576)
+    {
+        makeEqualsSearchResults(options);
+    }
 </script>
