@@ -168,6 +168,9 @@ $highlight:#56c2a3;
     margin-top: 25px;
     margin-bottom: 25px;
     margin-left: 90%;
+    @include media-breakpoint-down(md) {
+      margin-left: 75%;
+    }
   }
   .page-numbers{
     &.current{
