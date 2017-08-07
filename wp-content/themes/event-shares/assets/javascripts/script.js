@@ -31,11 +31,15 @@ jQuery(function ($) {
         }
     };
 
-
     mobileVer();
     $window.on("resize", mobileVer);
     $window.on("scroll", sizeBar);
 
+    $(".desktop-search").on("mouseenter",function () {
+         setTimeout(function () {
+        $("#search-input").focus();
+           }, 1000);
+    } );
 
     /* mobile hamburger */
     (function ($) {

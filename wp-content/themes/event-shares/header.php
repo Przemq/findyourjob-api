@@ -92,6 +92,10 @@
             color: <?=$menu_text_color?>;
         }
 
+        header nav .wpx-search .hidden-before-hover {
+            background: <?= wpx_theme_get_option('wpx_theme_search_input_background') ?>;
+        }
+
         /**/
         .wpg-mobile header nav ul li .sub-menu-flex li a h4 {
             color: #292b2c;
@@ -209,7 +213,7 @@
                             <div class="desktop-search">
                                 <form role="search" method="get" class="search-form"
                                       action="<?php echo home_url('/'); ?>">
-                                    <input type="search" class="hidden-before-hover search-field"
+                                    <input id="search-input" type="search" class="hidden-before-hover search-field"
                                            placeholder="<?php echo esc_attr_x('Search...', 'placeholder') ?>"
                                            value="<?php echo get_search_query() ?>" name="s"
                                            title="<?php echo esc_attr_x('Search for:', 'label') ?>"/>

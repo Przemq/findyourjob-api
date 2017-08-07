@@ -484,18 +484,23 @@ class WPX_Theme_Options {
 			'title'  => __( 'Search', 'cmb2' ),
 			'fields' => [
 				[
-					'name'    => 'Search Background color',
+					'name'    => 'Search Icon Background color',
 					'id'      => $prefix . $section . 'background',
 					'type'    => 'colorpicker',
 					'default' => '#da8b00',
 				],
 				[
-					'name'    => 'Search Background Hover',
+					'name'    => 'Search Icon Background Hover',
 					'id'      => $prefix . $section . 'background_hover',
 					'type'    => 'colorpicker',
 					'default' => '#bf5700',
 				],
-
+                [
+                    'name'    => 'Search Input Background Color',
+                    'id'      => $prefix . $section . 'input_background',
+                    'type'    => 'colorpicker',
+                    'default' => '#ecebf9',
+                ],
 			]
 		];
 //		Navigation
