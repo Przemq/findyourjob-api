@@ -53,6 +53,13 @@ class HeadingAndTExt extends AbstractModule implements StaticCacheInterface {
                 'label' => 'Content',
                 'description' => 'Please enter text'
             ],
+            'contentFontSize' => [
+                'type' => 'input:text',
+                'label' => 'Content font size',
+                'description' => 'Please enter content font size in px',
+                'default' => '14px',
+                'sass'=> true
+            ],
             'backgroundColor' => [
                 'type' => 'input:color',
                 'label' => 'Background color',

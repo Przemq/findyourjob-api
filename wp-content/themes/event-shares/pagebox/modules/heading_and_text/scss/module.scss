@@ -21,8 +21,11 @@
 @include specified_module_loop() {
   background-color: get('backgroundColor');
   padding-bottom: get('paddingBottom');
-  .wrapper{
-    h3{
+  .wrapper {
+    p {
+      font-size: get('contentFontSize');
+    }
+    h3 {
       color: get('titleColor');
       font-size: get('headerSize');
     }
