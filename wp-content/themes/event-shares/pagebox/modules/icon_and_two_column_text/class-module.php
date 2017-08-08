@@ -149,19 +149,19 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 			],
 			'rowColor'        => [
 				'type'    => 'input:color',
-				'label'   => 'Row color',
+				'label'   => 'Right side links color',
 				'default' => '#1B1B1B',
 				'sass'    => true
 			],
 			'rowSize'         => [
 				'type'    => 'input:text',
-				'label'   => 'Row size in px',
+				'label'   => 'Right side links size in px',
 				'default' => '14px',
 				'sass'    => true
 			],
 			'etfsColorHover' => [
 				'type'    => 'input:color',
-				'label'   => 'ETFS hover color',
+				'label'   => 'Right side links hover color',
 				'default' => '#56c1a3',
 				'sass'    => true
 			],
