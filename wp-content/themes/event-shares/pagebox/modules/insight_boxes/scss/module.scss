@@ -424,7 +424,7 @@
                 text-decoration: none;
                 color: get('filterActiveTextColor');
                 &:hover {
-                  color: get('activeColorHover');
+                  color: get('filterActiveTextColorHover');
                 }
               }
             }
