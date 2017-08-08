@@ -138,26 +138,26 @@ class VerticalTimeLine extends AbstractModule implements StaticCacheInterface
             ],
             'timelineheaderSize' => [
 	            'type' => 'input:text',
-	            'label' => 'Time line header font size',
+	            'label' => 'Timeline header font size',
 	            'default' => '24px',
 	            'sass' => true
             ],
             'timelineheaderColor' => [
 	            'type' => 'input:color',
-	            'label' => 'Time line header',
+	            'label' => 'Timeline header font color',
 	            'default' => '#1e2c32',
 	            'sass' => true
             ],
 
             'timelineDescriptionSize' => [
 	            'type' => 'input:text',
-	            'label' => 'Time line Description font size',
+	            'label' => 'Timeline Description font size',
 	            'default' => '14px',
 	            'sass' => true
             ],
             'timelineDescriptionColor' => [
 	            'type' => 'input:color',
-	            'label' => 'Time line header',
+	            'label' => 'Timeline description font color',
 	            'default' => '#1e2c32',
 	            'sass' => true
             ],
@@ -181,14 +181,14 @@ class VerticalTimeLine extends AbstractModule implements StaticCacheInterface
             ],
             'buttonColor'           => [
                 'type'        => 'input:color',
-                'label'       => 'Button color',
+                'label'       => 'Button background color',
                 'description' => 'Please select color',
                 'default' => '#56C1A3',
                 'sass' => true
             ],
             'buttonHoverColor'           => [
                 'type'        => 'input:color',
-                'label'       => 'Button hover color',
+                'label'       => 'Button background hover color',
                 'description' => 'Please select color',
                 'default' => 'transparent',
                 'sass' => true
