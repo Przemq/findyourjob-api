@@ -40,12 +40,12 @@ class HomeBanner extends AbstractModule implements StaticCacheInterface
                 'label' => 'Title (stacked)',
                 'description' => 'Please enter title (use h2 tag)'
             ],
-            'titleColor' => [
-                'type' => 'input:color',
-                'label' => 'Title color',
-                'default' => '#ffffff',
-                'sass' => true
-            ],
+//            'titleColor' => [
+//                'type' => 'input:color',
+//                'label' => 'Title color',
+//                'default' => '#ffffff',
+//                'sass' => true
+//            ],
             'titleSize' => [
                 'type' => 'input:text',
                 'label' => 'Title size',
