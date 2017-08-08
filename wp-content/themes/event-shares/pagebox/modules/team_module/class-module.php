@@ -126,13 +126,13 @@ class TeamModule extends AbstractModule implements StaticCacheInterface {
 	        ],
 	        'teamTitleSize'  => [
 		        'type'    => 'input:text',
-		        'label'   => 'Team  size (px)',
+		        'label'   => 'Team name font size (px)',
 		        'default' => '18px',
 		        'sass'    => true
 	        ],
 	        'jobTitleColor' => [
 		        'type'    => 'input:color',
-		        'label'   => 'Job Titlee color',
+		        'label'   => 'Job Title color',
 		        'default' => '#000',
 		        'sass'    => true
 	        ],

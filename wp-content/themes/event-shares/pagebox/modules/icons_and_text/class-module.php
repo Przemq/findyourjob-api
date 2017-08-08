@@ -47,6 +47,18 @@ class IconsAndText extends AbstractModule implements StaticCacheInterface {
                 'description' => 'Please select top text style',
                 'default' => false
             ],
+            'paddingUnderTitle'      => [
+                'type'    => 'input:text',
+                'label'   => 'Padding under title/description',
+                'default' => '80px',
+                'sass'    => true
+            ],
+            'paddingUnderButton'      => [
+                'type'    => 'input:text',
+                'label'   => 'Padding under buttons',
+                'default' => '75px',
+                'sass'    => true
+            ],
 			'titleColor'      => [
 				'type'    => 'input:color',
 				'label'   => 'Title/Description color',
