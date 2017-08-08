@@ -56,7 +56,7 @@ class SubnavAndText extends AbstractModule implements StaticCacheInterface {
 		            ],
 		            'titleURL'       => [
 			            'type'    => 'input:text',
-			            'label'   => 'Title Url ',
+			            'label'   => 'External Link',
 			            'default' => '#'
 		            ],
 		            'pageLinkTitle'       => [
