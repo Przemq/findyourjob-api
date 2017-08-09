@@ -47,7 +47,7 @@ class Map extends AbstractModule implements StaticCacheInterface {
             ],
             'subAddress' => [
                 'type' => 'editor',
-                'label' => 'Enter address',
+                'label' => 'Enter sub address',
             ],
             'addressFontSize' => [
                 'type' => 'input:text',
