@@ -84,7 +84,7 @@ class Contact extends AbstractModule implements StaticCacheInterface {
             ],
             'descriptionFontSize'           => [
                 'type'        => 'input:text',
-                'label'       => 'Single contact font size',
+                'label'       => 'Single contact description font size',
                 'description' => 'Please enter description font size',
                 'default'     => '14px',
                 'sass'    => true
