@@ -526,7 +526,7 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 
 			'iconColorHover' => [
 				'type'    => 'input:color',
-				'label'   => 'Icons color',
+				'label'   => 'Icons hover color',
 				'default' => '#16a57a',
 				'sass'    => true
 			],
