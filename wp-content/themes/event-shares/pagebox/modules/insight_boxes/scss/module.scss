@@ -10,7 +10,7 @@
   $font_color: #1e2c32;
   $circle_color: #CEECF5;
   background: #fff;
-  padding: 60px 0 0;
+  padding: 70px 0 0;
   .filter-wrapper {
     @include media-breakpoint-down(md) {
       padding: 15px 0 15px 0;
@@ -163,7 +163,7 @@
 
       @include media-breakpoint-up(lg) {
         position: absolute;
-        top: -10px;
+        top: -60px;
         right: 15px;
         min-width: 650px;
         margin-top: 0;
