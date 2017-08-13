@@ -104,6 +104,9 @@
     .description-header {
       font-size: get('titleSize');
       color: get('titleColor');
+      @include media-breakpoint-up(lg) {
+        padding-bottom: get('paddingUnderTitle');
+      }
     }
     .title-header {
       font-size: get('titleSize');
