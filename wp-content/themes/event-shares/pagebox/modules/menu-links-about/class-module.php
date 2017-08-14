@@ -47,7 +47,7 @@ class MenuAboutFlyout extends AbstractModule implements StaticCacheInterface {
 	protected function config() {
 		return [
 			'version'     => '1.0.0',
-			'title'       => 'Menu links About flyout',
+			'title'       => 'Menu links flyout',
 			'description' => 'Menu links module',
 			'js'          => [
 				'depends' => [ 'jquery']
