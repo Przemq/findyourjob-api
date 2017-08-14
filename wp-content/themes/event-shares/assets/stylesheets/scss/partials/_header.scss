@@ -146,6 +146,8 @@ header {
             }
 
             .learn-description {
+              position: absolute;
+              bottom: -20px;
               cursor: pointer;
               text-decoration: none;
               color: #56C1A3;

@@ -105,6 +105,10 @@ class MenuAboutFlyout extends AbstractModule implements StaticCacheInterface {
 						'type'  => 'input:text',
 						'label' => 'Add title',
 					],
+                    'subTitle'       => [
+                        'type'  => 'input:text',
+                        'label' => 'Set subtitle '
+                    ],
 					'description' => [
 						'type'  => 'editor',
 						'label' => 'Set Description',
@@ -181,7 +185,12 @@ class MenuAboutFlyout extends AbstractModule implements StaticCacheInterface {
 				'default' => '#002841',
 				'sass'    => true
 			],
-
+            'boxSubTitleColor' => [
+                'type'    => 'input:color',
+                'label'   => 'Box SubTitle color',
+                'default' => '#002841',
+                'sass'    => true
+            ],
 			'boxDescriptionColor' => [
 				'type'    => 'input:color',
 				'label'   => 'Box description color',
@@ -208,7 +217,12 @@ class MenuAboutFlyout extends AbstractModule implements StaticCacheInterface {
 				'default' => '18px',
 				'sass'    => true
 			],
-
+            'boxSubTitle' => [
+                'type'    => 'input:text',
+                'label'   => 'Box SubTitle size (px)',
+                'default' => '20px',
+                'sass'    => true
+            ],
 			'boxDescriptionSize' => [
 				'type'    => 'input:text',
 				'label'   => 'Box description size (px)',
