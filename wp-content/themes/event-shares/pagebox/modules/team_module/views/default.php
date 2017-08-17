@@ -138,7 +138,7 @@ foreach ($this->getRepeater('tabs') as $index => $value) {
                     ?>
 
                 </ul>
-
+            <?php if ($isFloutVisible): ?>
                 <div class="tab-content">
                     <?php foreach ($sectionArrayMobile[$i] as $index => $value):
                         /** @var $value RepeaterNode */ ?>
@@ -173,8 +173,8 @@ foreach ($this->getRepeater('tabs') as $index => $value) {
 
                     <?php endforeach;
                     ?>
-
                 </div>
+                <?php endif; ?>
             <?php endfor ?>
         </div>
 

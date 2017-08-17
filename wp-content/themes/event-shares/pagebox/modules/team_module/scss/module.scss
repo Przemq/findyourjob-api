@@ -43,6 +43,7 @@
       font-style: italic;
       font-weight: bold;
       font-size: 18px;
+      padding-bottom: 18px;
       font-family: "Merriweather Italic", serif;
       color: #002841;
       line-height: 1.333;
@@ -66,7 +67,7 @@
       &.active {
         background-color: transparent;
         border: none;
-        padding-bottom: 50px;
+        padding-bottom: 18px;
         &:after {
           content: '';
           width: 0;
@@ -183,7 +184,7 @@
 // - get_deep( keys... )
 @include specified_module_loop() {
   background-color: get('backgroundColor');
-
+  $floutVisible : get('flyoutVisible');
   .container {
     .title {
       font-size: get('titleSize');
@@ -200,15 +201,20 @@
     .nav-link {
       color: get('teamTitleColor');
       font-size: get('teamTitleSize');
+      @if ($floutVisible == null) {
+        padding-bottom: 50px;
+      }
       span {
         color: get('jobTitleColor');
         font-size: get('jobTitleSize');
 
         }
       &.active {
+        @if ($floutVisible == null) {
+          padding-bottom: 50px;
+        }
         &:after {
           border-bottom: 20px solid get('tabBackgroundColor');
-          $floutVisible : get('flyoutVisible');
           @if ($floutVisible == null) {
             display: none;
           }
