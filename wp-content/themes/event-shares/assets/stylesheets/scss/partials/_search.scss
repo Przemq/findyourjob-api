@@ -114,6 +114,9 @@ $highlight:#56c2a3;
           height:100%;
           background: white;
           padding: 15px;
+          &:hover {
+            cursor: pointer;
+          }
         }
         .image {
           min-height: 130px;
@@ -133,15 +136,15 @@ $highlight:#56c2a3;
         }
         .author{
           color:#ababab;
-          font-size: 15px;
+          font-size: 16px;
           padding-top: 25px;
-          //margin-bottom: 15px;
+          font-family: 'Merriweather', serif;
         }
         .title-article{
           color: $primary-theme-color;
           font-size: 25px;
           margin-bottom: 15px;
-          text-transform: uppercase;
+          text-transform: none;
           font-weight:bold;
           min-height: 81px;
         }
