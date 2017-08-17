@@ -73,6 +73,13 @@ class TeamModule extends AbstractModule implements StaticCacheInterface {
 		        'default' => '14px',
 		        'sass'    => true
 	        ],
+            'flyoutVisible'  => [
+                'type'    => 'input:switch',
+                'label'   => 'Flyout visible? (NO/YES)',
+                'description' => 'Enable or disable flyout under team member?',
+                'default' => true,
+                'sass'    => true
+            ],
 	        'tabs' =>[
 		        'type' => 'repeater',
 		        'label' => "Team Member",
