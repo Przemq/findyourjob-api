@@ -8,6 +8,7 @@ require_once 'functions/global-definitions.php';
 /**
  * Init CMB2
  */
+require_once 'functions/cmb2.php';
 
 require_once 'includes/cmb2/init.php';
 require_once 'includes/cmb2-tabs/plugin.php';

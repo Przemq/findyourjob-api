@@ -1,0 +1,267 @@
+@import "module-variables";
+
+// Overall module styles
+@include overall_module() {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  #sidebar {
+    //transition: 0.5s;
+    //opacity: 0;
+  }
+
+  @media(min-width: 1356px) {
+    min-height: 400px;
+
+  }
+
+  ul {
+    padding-left: 16px;
+
+    li {
+      list-style-type: disc;
+    }
+  }
+
+  blockquote {
+    border-left: 2px solid #1e2c32;
+    padding: 2px 15px 4px;
+    p {
+      padding: 5px 10px 5px 10px;
+
+      font-size: 21px;
+      font-style: italic;
+      margin-bottom: 0;
+    }
+    &:before {
+      content: open-quote;
+      display: none;
+    }
+    &:after {
+      content: close-quote;
+      display: none;
+    }
+  }
+
+  .fixed-action-btn {
+    position: static;
+    right: 23px;
+    bottom: 23px;
+    margin-bottom: 0;
+    padding-left: 0;
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 20px;
+    }
+
+    &:active {
+      .btn-floating {
+        cursor: pointer;
+      }
+    }
+    ul {
+      text-align: left;
+      top: 37px;
+      -webkit-transform: translateY(-25%);
+      transform: translateY(-25%);
+      left: 63px;
+      display: flex;
+      position: absolute;
+      padding-left: 0;
+      @include media-breakpoint-down(xs) {
+        left: 75px;
+      }
+
+      li {
+        margin: 15px -2px 5px 0;
+        width: 50px;
+        list-style-type: none;
+
+      }
+    }
+
+    .btn-floating {
+      margin-left: -12px;
+      display: inline-block;
+      color: transparent;
+      position: relative;
+      overflow: visible;
+      z-index: 1;
+      width: 40px;
+      height: 40px;
+      //line-height: 40px;
+      padding: 0;
+      background-color: transparent;
+      border-radius: 50%;
+      transition: .3s;
+      cursor: none;
+      vertical-align: middle;
+      border: none;
+      opacity: 0;
+      transform: scaleY(0) scaleX(0) translateY(0px) translateX(40px);;
+    }
+
+    .social-icon {
+      margin-top: 35px;
+      background-color: #063766;
+      width: 48px;
+      height: 48px;
+      margin-right: 2px;
+      transition: all 0.3s ease-in-out;
+
+      img {
+        padding-bottom: 5px;
+      }
+    }
+
+    .icon {
+      background-color: #39a4f9;
+      width: 48px;
+      height: 48px;
+      margin-right: -4px;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: #2893e8;
+      }
+    }
+  }
+
+  article {
+    padding: 15px 15px;
+    p {
+      font-family: 'Merriweather', serif;
+    }
+    .top {
+      text-align: right;
+      margin-bottom: 10px;
+      color: #000000;
+      border-bottom: 1px solid #000000;
+
+    }
+
+    .text {
+      padding-top: 70px;
+      h2 {
+        color: #005c48;
+        padding-right: 0;
+        padding-left: 0;
+        font-size: 31px;
+        @include media-breakpoint-up(md) {
+          font-size: 44px;
+          padding-right: 15px;
+        }
+        @include media-breakpoint-up(lg) {
+          padding-right: 0;
+          max-width: 470px;
+        }
+        @include media-breakpoint-up(xl) {
+          padding-right: 0;
+          max-width: 100%;
+        }
+
+      }
+
+      p {
+
+        font-size: 16px;
+        color: #464646;
+        word-wrap: break-word;
+
+      }
+    }
+  }
+  h2 {
+    padding-top: 30px;
+    margin-bottom: 0;
+    text-transform: none;
+  }
+  .publication-info {
+    text-align: left;
+    font-family: 'Merriweather', serif;
+    color: #B3B3B3;
+    font-weight: 400;
+  }
+  .image-container {
+    text-align: center;
+    img {
+      @include media-breakpoint-up(md)
+      {
+        max-width: 350px;
+      }
+      @include media-breakpoint-down(md)
+      {
+        max-width: 690px;
+      }
+      @include media-breakpoint-down(sm)
+      {
+        max-width: 510px;
+      }
+      @include media-breakpoint-down(xs)
+      {
+        max-width: 100%;
+      }
+    }
+    @include media-breakpoint-up(lg)
+    {
+      margin-top: 60px;
+    }
+  }
+
+  .social {
+    padding-left: 15px;
+
+    @include media-breakpoint-up(sm) {
+      padding-left: 0;
+    }
+
+    @media(min-width: 1356px) {
+      display: inline-grid;
+      position: absolute;
+      left: -1500px;
+      top: 15px;
+    }
+
+    .small {
+      img {
+        width: 30px;
+        height: 30px;
+        padding-left: 10px;
+        padding-top: 10px;
+      }
+      @include media-breakpoint-up(sm) {
+        img {
+          width: 41px;
+          height: 35px;
+          padding-left: 9px;
+          padding-top: 13px;
+        }
+      }
+
+    }
+  }
+}
+
+// Styles for unique page/post module.
+// In this scope you can use special functions to get data from pageboxes:
+// - get( key )
+// - get_deep( keys... )
+@include specified_module_loop() {
+  background-color: get('bgcolor');
+  article {
+    .text{
+      p {
+        font-size: get('textFontSize');
+      }
+    }
+  }
+  h2 {
+    font-size: get('titleFontSize');
+    color: get('titleFontColor');
+  }
+  blockquote {
+    p {
+      font-size: get('blockquoteFontSize');
+
+    }
+
+  }
+}
