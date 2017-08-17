@@ -8,7 +8,6 @@ namespace Nurture\EventShares\Module;
 
 use Nurture\Pagebox\Module\AbstractModule;
 use Nurture\Pagebox\Module\View\StaticCacheInterface;
-use Nurture\Pagebox\Module\Fields\Builder\Select;
 
 class ArticleText extends AbstractModule implements StaticCacheInterface
 {
@@ -23,9 +22,8 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
             'version' => '1.0.0',
             'title' => 'Article Text',
             'description' => 'Module will show article with share social icons optionally. For use on like a a post',
-            // Dependences
             'js'          => [
-                'depends' => [ 'jquery','aos.js' ]
+                'depends' => [ 'jquery','aos.js', 'bootstrap' ]
             ],
             'css' => [
                 'depends' => ['aos']

@@ -28,21 +28,20 @@ $image = $this->getMedia('image')->getImage()->getUrl();
                 <?php if (!empty($this->getInput('switchMedia')->getValue())) : ?>
                     <div class="col-12 fixed-action-btn">
                         <a>
-                            <div class="social-icon"><img
+                            <div class="social-icon aos-init" data-aos="zoom-in-right" data-aos-delay="1s"><img
                                         src="<?= THEME_IMAGES_URI; ?>/White_social_media_icon.svg"></div>
                         </a>
                         <ul>
-                            <li><a class="aos-init" data-aos="zoom-in-left" data-aos-delay="150ms"
-                                   href="<?= $facebook ?>" target="_blank">
+                            <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="1s"><a href="<?= $facebook ?>" target="_blank">
                                     <div class="icon"><img
                                                 src="<?= THEME_IMAGES_URI; ?>/white_facebook.svg"></div>
                                 </a></li>
-                            <li><a class="aos-init" data-aos="zoom-in-left" data-aos-delay="300ms"
+                            <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="2s"><a  data-aos-delay="300ms"
                                    href="<?= $twitter ?>" target="_blank">
                                     <div class="icon"><img
                                                 src="<?= THEME_IMAGES_URI; ?>/Twitter_white.svg"></div>
                                 </a></li>
-                            <li><a class="aos-init" data-aos="zoom-in-left" data-aos-delay="450ms" href="<?= $linked ?>"
+                            <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a href="<?= $linked ?>"
                                    target="_blank">
                                     <div class="icon"><img
                                                 src="<?= THEME_IMAGES_URI; ?>/Linkedin_white.svg"></div>
@@ -70,16 +69,16 @@ $image = $this->getMedia('image')->getImage()->getUrl();
                     <?php endif; ?>
                 <?php endif ?>
             </div>
-            <article class="<?php if($showImage) echo 'col-lg-8'; else echo 'col-lg-12' ?> col-12">
+            <article class="<?php if ($showImage) echo 'col-lg-8'; else echo 'col-lg-12' ?> col-12">
 
-                <div class="text" <?php if($showPostData) echo 'style="padding-top:40px;"' ?>>
+                <div class="text" <?php if ($showPostData) echo 'style="padding-top:40px;"' ?>>
                     <?= $this->getEditor('articleText')->getValue() ?>
                 </div>
             </article>
-            <?php if($showImage): ?>
-            <div class="image-container col-lg-4 col-12">
-                <img src="<?= $image ?>" alt="article image">
-            </div>
+            <?php if ($showImage): ?>
+                <div class="image-container col-lg-4 col-12">
+                    <img src="<?= $image ?>" alt="article image">
+                </div>
             <?php endif; ?>
         </div>
     </div>

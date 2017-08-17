@@ -1,2 +1,3 @@
-'use strict';
-AOS.init();
+$(document).ready(function () {
+    AOS.init();
+});
