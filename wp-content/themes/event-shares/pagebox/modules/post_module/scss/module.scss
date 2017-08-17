@@ -67,9 +67,6 @@
       display: flex;
       position: absolute;
       padding-left: 0;
-      @include media-breakpoint-down(xs) {
-        left: 75px;
-      }
 
       li {
         margin: 15px -2px 5px 0;
