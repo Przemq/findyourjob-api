@@ -176,19 +176,31 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
                             </div>
                             <div class="publication-info col-lg-12">
 								<?php
-								$author = ( ! empty( get_post_meta( get_the_ID(), 'author', true ) )
-									? get_post_meta( get_the_ID(), 'author', true ) : '' );
-								?>
-								<?php the_date( 'd.m.Y' ) ?> <?= '| ' . $author ?>
+								$author = ( ! empty( get_post_meta( get_the_ID(), '_event_shares_author', true ) )
+									? get_post_meta( get_the_ID(), '_event_shares_author', true ) : '' );
+
+                                $enableDate = get_post_meta(get_the_ID(), '_event_shares_enable_date', 1);
+                                $dateFormat = get_post_meta(get_the_ID(), '_event_shares_date_format', 1);
+
+                                $date = '';
+                                if ($enableDate == 'on'):
+                                    if ($dateFormat == 'uk'):
+                                        $date =  get_the_date('d.m.Y');
+                                    else:
+                                        $date = get_the_date('m.d.Y');
+                                    endif;
+                                endif; ?>
+
+								<?= $date ?> <?= '| ' . $author ?>
                             </div>
                             <div class="col-lg-12"><h3 class="title-insight"><?= get_the_title() ?></h3></div>
                             <div class="col-lg-12"><p><?php the_excerpt() ?></p></div>
 							<?php
-							$readButton = ( ! empty( get_post_meta( get_the_ID(), 'button_text', true ) )
-								? get_post_meta( get_the_ID(), 'button_text', true ) : 'READ NOW' );
+							$readButton = ( ! empty( get_post_meta( get_the_ID(), '_event_shares_button_text', true ) )
+								? get_post_meta( get_the_ID(), '_event_shares_button_text', true ) : 'READ NOW' );
 
-							$link = ( ! empty( get_post_meta( get_the_ID(), 'link', true ) )
-								? get_post_meta( get_the_ID(), 'link', true ) : get_the_permalink() );
+							$link = ( ! empty( get_post_meta( get_the_ID(), '_event_shares_link', true ) )
+								? get_post_meta( get_the_ID(), '_event_shares_link', true ) : get_the_permalink() );
 
 							?>
 
@@ -196,8 +208,18 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
                                         href="<?= $link ?>"><?= $readButton ?></a></div>
                         </div>
                     </div>
-				<?php endwhile;
-				?>
+				<?php endwhile; ?>
+
+                <script>
+                    $(document).ready(function () {
+
+                        $('.content-wrapper').on('click', function () {
+                            var link = $(this).find('.buttons a').attr('href');
+                            window.open(link, '_blank');
+                        })
+                    });
+
+                </script>
             </div>
 			<?php
 
