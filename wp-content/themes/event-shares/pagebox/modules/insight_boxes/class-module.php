@@ -440,10 +440,15 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 				'maxItems' => 6,
 				'fields'   => [
 					'title'            => [
-						'type'        => 'input:text',
-						'label'       => 'Title',
-						'description' => 'Please enter title'
-					],
+                        'type'        => 'input:text',
+                        'label'       => 'Title',
+                        'description' => 'Please enter title'
+                    ],
+                    'tabID'            => [
+                        'type'        => 'input:text',
+                        'label'       => 'tabID',
+                        'description' => 'Option for News & Insights flyout menu'
+                    ],
 					'categoryTimeLine' => [
 						'type'     => 'select',
 						'label'    => 'Choose category',
