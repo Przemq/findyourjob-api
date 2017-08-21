@@ -3,6 +3,8 @@
 // Overall module styles
 @include overall_module() {
   $header-color: #002842;
+  overflow: hidden;
+
 
   #three-column-boxes {
     padding-top: 69px;

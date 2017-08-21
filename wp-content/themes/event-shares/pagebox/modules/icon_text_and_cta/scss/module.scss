@@ -2,6 +2,7 @@
 
 // Overall module styles
 @include overall_module() {
+  overflow: hidden;
 
   $button_background_color: #56C1A3;
   $button-font-color: #002841;
