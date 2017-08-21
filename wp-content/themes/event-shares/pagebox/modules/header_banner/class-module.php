@@ -48,6 +48,13 @@ class HeaderBanner extends AbstractModule implements StaticCacheInterface {
                 'default' => '54px',
                 'sass' => true
             ],
+            'isAllCaps' => [
+                'type' => 'input:switch',
+                'label' => 'Text in title all CAPS',
+                'description' => 'Enable or disable uppercase text',
+                'default' => true,
+                'sass' => true
+            ],
             'paragraphText' => [
                 'type' => 'editor',
                 'label' => 'Text under header',

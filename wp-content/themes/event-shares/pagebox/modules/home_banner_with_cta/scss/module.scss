@@ -151,8 +151,14 @@
     background-color: get('backgroundColor');
     h2 {
       font-size: get('titleSize');
-     // color: get('titleColor');
       line-height: 47px;
+      $isAllCaps: get('isAllCaps');
+      @if($isAllCaps == null){
+        text-transform: none;
+      }
+      @else {
+        text-transform: uppercase;
+      }
       #header-second-color {
         color: get('titleInnerColor');
       }
