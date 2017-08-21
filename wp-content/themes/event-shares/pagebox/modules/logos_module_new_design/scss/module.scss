@@ -1,0 +1,106 @@
+@import "module-variables";
+
+// Overall module styles
+@include overall_module() {
+  $header-color: #1e2c32;
+  padding-top: 30px;
+  #in-the-media {
+    text-align: center;
+    h4 {
+      letter-spacing: 5px;
+      margin-bottom: 0;
+      color: $header-color;
+      padding-bottom: 25px;
+      text-transform: uppercase;
+      font-family: 'Roboto Condensed', sans-serif;;
+
+      @include media-breakpoint-down(sm) {
+        padding-bottom: 25px;
+      }
+    }
+  }
+  .image-container {
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 0;
+    .box {
+      margin: 0 auto;
+    //  padding: 0;
+      min-height: 100px;
+      display: flex;
+    }
+    img {
+      padding: 15px;
+      max-width: 100%;
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+      max-height: 150px;
+      margin: auto;
+    }
+    a {
+      .media-image {
+        @include transition(0.5s all);
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .slick-list {
+      .slick-track {
+        a {
+          svg {
+            height: 100px;
+            //max-width: 200px;
+            &svg:focus {
+              outline: none;
+            }
+          }
+        }
+        .slick-slide {
+          display: flex;
+          align-items: center;
+          margin-left: 5px;
+          margin-right: 5px
+        }
+      }
+    }
+  }
+  .button-wrapper {
+    padding-bottom: 40px;
+    text-align: center;
+    .logo-button {
+      border: 2px solid;
+      padding: 8px 100px;
+      @include transition(300ms all);
+    }
+  }
+}
+
+// Styles for unique page/post module.
+// In this scope you can use special functions to get data from pageboxes:
+// - get( key )
+// - get_deep( keys... )
+@include specified_module_loop() {
+  background-color: get('background');
+  #in-the-media {
+    background-color: get('background');
+  }
+  $greyScale: get('imageGreyScale');
+  .image-container {
+    a {
+
+    }
+  }
+  .button-wrapper {
+    .logo-button {
+      color: get('buttonColor');
+      font-size: get('buttonTextSize');
+      &:hover {
+        background-color: get('buttonHoverColor');
+      }
+    }
+  }
+}
