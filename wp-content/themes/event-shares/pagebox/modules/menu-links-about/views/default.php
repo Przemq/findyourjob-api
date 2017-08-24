@@ -40,9 +40,10 @@ if ($this->getInput('isImage')->getValue()) {
             $newTarget = $isBlank ? 'target=_blank' : '';
             $link = $box->getInput('isPermalink')->getValue() ? $permalink : $pageLink;
             $buttonText = $box->getInput('buttonText');
+            $anchor = $box->getInput('anchor')->getValue();
             ?>
             <li class="col-lg-<?= $gridNumber ?> col-sm-12">
-                <div class="menu-special-hover">
+                <div id="<?= $anchor ?>" class="menu-special-hover">
                     <a href="<?= $link ?>" <?= $newTarget ?>>
                         <h4><?= $box->getInput('title')->getValue(); ?></h4>
                     </a>

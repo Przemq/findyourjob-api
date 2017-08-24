@@ -109,6 +109,7 @@ class MenuAboutFlyout extends AbstractModule implements StaticCacheInterface {
                         'type'  => 'input:text',
                         'label' => 'Set subtitle '
                     ],
+
 					'description' => [
 						'type'  => 'editor',
 						'label' => 'Set Description',
