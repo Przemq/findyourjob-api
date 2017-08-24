@@ -7,6 +7,16 @@
  */
 
 $module = $this->getModule();
+$internalLink = $this->getSelect('internalUrl')->getValue()['permalink'];
+$externalButtonLink = $this->getInput('externalURL')->getValue();
+$buttonLink = '';
+
+if (empty($internalLink)) {
+    $buttonLink = $externalButtonLink;
+} else {
+    $buttonLink = $internalLink;
+}
+
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container">
@@ -30,7 +40,8 @@ $module = $this->getModule();
             </div>
             <div class="col-lg-12 button-wrapper">
                 <?php if ($this->getInput('buttonSwitch')->getValue()) : ?>
-                    <a href="#" class="logo-button"><?= $this->getInput('buttonText') ?></a>
+                    <a href="<?= $buttonLink ?>"
+                       class="logo-button"><?= $this->getInput('buttonText')->getValue(); ?></a>
                     <?php
                 endif;
                 ?>

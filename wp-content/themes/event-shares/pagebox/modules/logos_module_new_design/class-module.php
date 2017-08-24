@@ -49,6 +49,30 @@ class LogosModuleNew extends AbstractModule implements StaticCacheInterface
                 'label' => 'Button text',
                 'description' => 'Please enter button text'
             ],
+            'internalUrl' => [
+                'type' => 'select',
+                'label' => 'Select button link',
+                'description' => 'Select internal button link',
+                'multiple' => false,
+                'options' => [
+                    'allowClear' => true,
+                ],
+                'values' => function () {
+                    return Select::postFilter(get_posts(['post_type' => array('post', 'page'), 'posts_per_page' => -1]), [
+                        'postID' => function (\WP_Post $post) {
+                            return $post->ID;
+                        },
+                        'permalink' => function (\WP_Post $post) {
+                            return get_permalink($post->ID);
+                        }
+                    ]);
+                }
+            ],
+            'externalURL' => [
+                'type' => 'input:text',
+                'label' => 'External button URL',
+                'description' => 'Please enter external URL (working if internal URL is empty)'
+            ],
             'buttonColor' => [
                 'type' => 'input:color',
                 'label' => 'Button color',
