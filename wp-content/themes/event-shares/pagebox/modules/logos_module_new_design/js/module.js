@@ -14,7 +14,7 @@ $(document).ready(function(){
             speed: 1000,
             slidesToShow: 6,
             slidesToScroll: 6,
-            autoplay: false,
+            autoplay: true,
             autoplaySpeed: 4000,
             responsive: [
                 {

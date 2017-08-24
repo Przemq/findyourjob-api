@@ -64,7 +64,7 @@ jQuery(function ($) {
         });
         $('*').on('click', function (event) {
 
-            if ($wpgMainHeader.find("nav").hasClass("wpx-active-mobile-menu") &&  !$(event.target).hasClass("wpx-button-hamburger") && !$.contains(document.getElementById('main-nav'), event.target)) {
+            if ($wpgMainHeader.find("nav").hasClass("wpx-active-mobile-menu") &&  !$(event.target).hasClass("wpx-button-hamburger") && ! $(event.target).parents('.wpx-button-hamburger').length > 0 && !$.contains(document.getElementById('main-nav'), event.target)) {
                 event.preventDefault();
                     $(".wpx-button-hamburger").trigger('click');
             }
