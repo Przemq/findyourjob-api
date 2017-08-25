@@ -270,11 +270,15 @@
     }
   }
   .footnotes {
-    font-family: 'Roboto Condensed', sans-serif;
+    h6 {
+      font-family: 'Roboto Condensed', sans-serif;
+      color: black;
+    }
     p{
       font-family: 'Roboto Condensed', sans-serif;
       font-size: 16px;
       color: #849199;
+      padding-bottom: 5px;
     }
   }
 }

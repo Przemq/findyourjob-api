@@ -130,7 +130,7 @@ $videoURL = $this->getInput('videoURL')->getValue();
             <div class="related-posts col-md-4 col-12">
                 <?php
                 $postArray = array(
-                    'posts_per_page' => -1,
+                    'posts_per_page' => 5,
                     'tax_query' => array(
                         'relation' => 'OR',
                         array(
@@ -167,7 +167,7 @@ $videoURL = $this->getInput('videoURL')->getValue();
                     /* @var \Nurture\Pagebox\Module\Scope $single */
                     $footnotesText = $single->getEditor('footnotesText')->getValue();
                     ?>
-                    <p><?= $footnotesText ?></p>
+                    <?= $footnotesText ?>
                 <?php endforeach; ?>
             </div>
             <?php endif; ?>
