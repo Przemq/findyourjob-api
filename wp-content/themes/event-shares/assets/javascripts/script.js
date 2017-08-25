@@ -69,6 +69,11 @@ jQuery(function ($) {
                     $(".wpx-button-hamburger").trigger('click');
             }
         });
+
+        if($wpgMainHeader.find("nav").hasClass("wpx-active-mobile-menu")) {
+
+        }
+
         $window.on("resize", mobileVer);
         $window.on("load", mobileVer);
         $window.on("scroll", sizeBar);

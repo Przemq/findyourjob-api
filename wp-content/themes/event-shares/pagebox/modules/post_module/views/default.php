@@ -13,18 +13,37 @@ $linkToPage = urlencode(get_the_permalink());
 $facebook = 'https://www.facebook.com/sharer/sharer.php?u=' . $linkToPage;
 $twitter = 'https://twitter.com/home?status=' . $linkToPage;
 $linked = 'https://www.linkedin.com/shareArticle?mini=true&url=' . $linkToPage . '&title=EventShares';
+$seekingAlpha = 'https://seekingalpha.com/user/48568128/comments';
+$stockTwits = 'https://stocktwits.com/eventsharesetfs';
+
 $showPublicationInfo = $this->getInput('showPublicationInfo')->getValue();
 $showPostData = $this->getInput('showPostData')->getValue();
-$showImage = $this->getInput('showImage')->getValue();
+$showMedia = $this->getInput('showMedia')->getValue();
 $image = $this->getMedia('image')->getImage()->getUrl();
+$externalURL = $this->getInput('backButtonURL')->getValue();
+$internalLink = $this->getSelect('internalLink')->getValue()['permalink'];
+$backButtonText = $this->getInput('backButtonText')->getValue();
+$footnotesRepeater = $this->getRepeater('footnotes');
+$enableFootnotes = $this->getInput('enableFootnotes')->getValue();
+
+$buttonLink = '';
+if (empty($internalLink)) {
+    $buttonLink = $externalURL;
+} else {
+    $buttonLink = $internalLink;
+}
+
+$typeOfMedia = $this->getSelect('typeOfMedia')->getValue()['id'];
+$videoURL = $this->getInput('videoURL')->getValue();
 ?>
 <div class="<?= $module->getClass() ?> articleTextModule" xmlns:javascript="http://www.w3.org/1999/xhtml">
-
     <div class="container">
         <?php //createTaskLink('OMGI-85') ?>
 
         <div class="row">
             <div class="col-12">
+                <div class="printIcon hidden-md-down"><a href="javascript:window.print();">
+                        <img src="<?= THEME_IMAGES_URI; ?>/printIcon.svg"><span>Print</span></a></div>
                 <?php if (!empty($this->getInput('switchMedia')->getValue())) : ?>
                     <div class="col-12 fixed-action-btn">
                         <a>
@@ -32,20 +51,38 @@ $image = $this->getMedia('image')->getImage()->getUrl();
                                         src="<?= THEME_IMAGES_URI; ?>/White_social_media_icon.svg"></div>
                         </a>
                         <ul>
-                            <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="1s"><a href="<?= $facebook ?>" target="_blank">
+                            <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="1s"><a href="<?= $facebook ?>"
+                                                                                                target="_blank">
                                     <div class="icon"><img
                                                 src="<?= THEME_IMAGES_URI; ?>/white_facebook.svg"></div>
                                 </a></li>
-                            <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="2s"><a  data-aos-delay="300ms"
-                                   href="<?= $twitter ?>" target="_blank">
+                            <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="2s"><a data-aos-delay="300ms"
+                                                                                                href="<?= $twitter ?>"
+                                                                                                target="_blank">
                                     <div class="icon"><img
                                                 src="<?= THEME_IMAGES_URI; ?>/Twitter_white.svg"></div>
                                 </a></li>
                             <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a href="<?= $linked ?>"
-                                   target="_blank">
-                                    <div class="icon"><img
-                                                src="<?= THEME_IMAGES_URI; ?>/Linkedin_white.svg"></div>
-                                </a></li>
+                                                                                                target="_blank">
+                                    <div class="icon"><img src="<?= THEME_IMAGES_URI; ?>/Linkedin_white.svg"></div>
+                                </a>
+                            </li>
+                            <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a
+                                        href="<?= $seekingAlpha ?>"
+                                        target="_blank">
+                                    <div class="icon"><img style="padding: 6px"
+                                                           src="<?= THEME_IMAGES_URI; ?>/Seeking-Alpha-Logo-White.svg">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a
+                                        href="<?= $stockTwits ?>"
+                                        target="_blank">
+                                    <div class="icon"><img style="padding: 13px"
+                                                           src="<?= THEME_IMAGES_URI; ?>/StockTwits-Logo-White.svg">
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 <?php endif; ?>
@@ -69,18 +106,78 @@ $image = $this->getMedia('image')->getImage()->getUrl();
                     <?php endif; ?>
                 <?php endif ?>
             </div>
-            <article class="<?php if ($showImage) echo 'col-lg-8'; else echo 'col-lg-12' ?> col-12">
+            <article class="col-12">
 
                 <div class="text" <?php if ($showPostData) echo 'style="padding-top:40px;"' ?>>
                     <?= $this->getEditor('articleText')->getValue() ?>
                 </div>
             </article>
-            <?php if ($showImage): ?>
-                <div class="image-container col-lg-4 col-12">
-                    <img src="<?= $image ?>" alt="article image">
+            <?php if ($showMedia): ?>
+                <div class="media-container col-12">
+                    <?php if ($typeOfMedia == 'image'): ?>
+                        <img src="<?= $image ?>" alt="article image">
+                    <?php endif; ?>
+                    <?php if ($typeOfMedia == 'video'): ?>
+                        <iframe width="100%" height="500px"
+                                src="https://www.youtube.com/embed/<?= $videoURL ?>">
+                        </iframe>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
+            <div class="col-12">
+                <hr>
+            </div>
+            <div class="related-posts col-md-4 col-12">
+                <?php
+                $postArray = array(
+                    'posts_per_page' => -1,
+                    'tax_query' => array(
+                        'relation' => 'OR',
+                        array(
+                            'taxonomy' => 'category',
+                            'field' => 'id',
+                            'terms' => wp_get_post_categories(get_the_ID()),
+                        ),
+//                        array(
+//                            'taxonomy' => 'post_tag',
+//                            'field' => 'id',
+//                            'terms' => wp_get_post_tags(get_the_ID()),
+//                        ),
+                    ),
+                    'post_type' => 'post',
+                    'post__not_in' => array(get_the_ID())
+                );
+
+                $posts = '';
+                $posts = new WP_Query($postArray);
+                ?>
+                <div class="related">Related posts:</div>
+                <?php while ($posts->have_posts()): ?>
+                    <?php $posts->the_post();
+                    $post = $posts->post;
+                    $ID = $post->ID;
+                    ?>
+                    <a class="post-link" href="<?= get_permalink($ID); ?>"><?= get_the_title($ID); ?></a><br>
+                <?php endwhile; ?>
+            </div>
+            <?php if ($enableFootnotes): ?>
+            <div class="col-md-8 col-12 footnotes">
+                <h6>FOOTNOTES</h6>
+                <?php foreach ($footnotesRepeater as $single):
+                    /* @var \Nurture\Pagebox\Module\Scope $single */
+                    $footnotesText = $single->getEditor('footnotesText')->getValue();
+                    ?>
+                    <p><?= $footnotesText ?></p>
+                <?php endforeach; ?>
+            </div>
+            <?php endif; ?>
+            <div class="col-12">
+                <hr>
+                <a href="<?= $buttonLink ?>">
+                    <img src="<?= THEME_IMAGES_URI; ?>/quadratic-button.svg" class="back-to-all-entries">
+                    <?= $backButtonText ?></a>
+            </div>
+
         </div>
     </div>
-</div>
 

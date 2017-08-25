@@ -5,7 +5,7 @@
   $header-color: #1e2c32;
   padding-top: 30px;
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 1s;
 
   #in-the-media {
     text-align: center;
@@ -53,14 +53,17 @@
 
     .slick-list {
       .slick-track {
+        &:focus {
+          outline: none;
+        }
         display: flex;
         align-items: center;
         a {
           svg {
             height: 100px;
             //max-width: 200px;
-            &svg:focus {
-              outline: none;
+            &:focus {
+              outline: none !important;
             }
           }
         }
@@ -70,7 +73,7 @@
           margin-left: 5px;
           margin-right: 5px;
           &:focus {
-            outline:none;
+            outline:none !important;
           }
         }
       }

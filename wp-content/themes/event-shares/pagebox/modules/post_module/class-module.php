@@ -7,6 +7,7 @@
 namespace Nurture\EventShares\Module;
 
 use Nurture\Pagebox\Module\AbstractModule;
+use Nurture\Pagebox\Module\Fields\Builder\Select;
 use Nurture\Pagebox\Module\View\StaticCacheInterface;
 
 class ArticleText extends AbstractModule implements StaticCacheInterface
@@ -21,7 +22,7 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
         return [
             'version' => '1.0.0',
             'title' => 'Article Text',
-            'description' => 'Module will show article with share social icons optionally. For use on like a a post',
+            'description' => 'Module will show article with share social icons optionally. For use on like a post',
             'js'          => [
                 'depends' => [ 'jquery','aos.js', 'bootstrap' ]
             ],
@@ -86,16 +87,83 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'default' => '21px',
                 'sass'    => true
             ],
-            'showImage' => [
+            'showMedia' => [
                 'type' => 'input:switch',
-                'label' => 'Show image? (NO/YES) ',
-                'description' => 'Enable or disable image',
-                'default' => false,
+                'label' => 'Show media? (NO/YES) ',
+                'description' => 'Enable or disable media in post',
+                'default' => true,
+            ],
+            'typeOfMedia' => [
+                'type' => 'select',
+                'label' => 'Select type of media',
+                'description' => 'Please, select type of media displayed in post',
+                'multiple' => false,
+                'default' => 'image',
+                'options' => [
+                    'allowClear' => true,
+                ],
+                'values'      => [
+                    [ 'id' => 'image', 'name' => 'Image' ],
+                    [ 'id' => 'video', 'name' => 'Video' ],
+                    [ 'id' => 'chart', 'name' => 'Chart/Graph' ],
+                ]
             ],
             'image' => [
                 'type' => 'media:image',
                 'label' => 'Select image',
                 'description' => 'Please, select image'
+            ],
+            'videoURL' => [
+                'type' => 'input:text',
+                'label' => 'YouTube video id',
+                'description' => 'Please, enter YouTube video id(the last part of video link eg: fLexgOxsZu0)'
+            ],
+            'backButtonText' => [
+                'type' => 'input:text',
+                'label' => 'Button text',
+                'description' => 'Please, enter button text',
+                'default' => 'Back to all entries'
+            ],
+            'backButtonURL' => [
+                'type' => 'input:text',
+                'label' => 'Button external URL',
+                'description' => 'Please, enter button URL'
+            ],
+            'internalLink'           => [
+                'type'     => 'select',
+                'label'    => 'Select internal button URL',
+                'multiple' => false,
+                'options'  => [
+                    'allowClear' => true
+                ],
+                'values'   => function () {
+                    return Select::postFilter( get_pages( [ 'posts_per_page' => - 1 ] ), [
+                        'postID'    => function ( \WP_Post $post ) {
+                            return $post->ID;
+                        },
+                        'permalink' => function ( \WP_Post $post ) {
+                            return get_permalink( $post->ID );
+                        }
+                    ] );
+                }
+            ],
+            'enableFootnotes' => [
+                'type' => 'input:switch',
+                'label' => 'Enable footnotes? (NO/YES) ',
+                'description' => 'Enable or disable footnotes under post',
+                'default' => true,
+            ],
+            'footnotes'        => [
+                'type'   => 'repeater',
+                'label'  => 'FOOTNOTES',
+                'maxItems' => 15,
+                'fields' => [
+                    'footnotesText'      => [
+                        'type'  => 'editor',
+                        'label' => 'Set text for footnotes',
+                        'description' => 'Please, enter text for single footnotes'
+                    ],
+                ],
             ],
             'bgcolor' => [
                 'type' => 'input:color',
