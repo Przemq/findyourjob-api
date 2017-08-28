@@ -118,7 +118,7 @@ $videoURL = $this->getInput('videoURL')->getValue();
                         <img src="<?= $image ?>" alt="article image">
                     <?php endif; ?>
                     <?php if ($typeOfMedia == 'video'): ?>
-                        <iframe width="100%" height="500px"
+                        <iframe
                                 src="https://www.youtube.com/embed/<?= $videoURL ?>">
                         </iframe>
                     <?php endif; ?>
@@ -127,8 +127,10 @@ $videoURL = $this->getInput('videoURL')->getValue();
             <div class="col-12">
                 <hr>
             </div>
+
             <div class="related-posts col-md-4 col-12">
                 <?php
+                // TODO Tomek pomuszzz
                 $postArray = array(
                     'posts_per_page' => 5,
                     'tax_query' => array(

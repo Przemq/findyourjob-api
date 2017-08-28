@@ -21,8 +21,8 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
     {
         return [
             'version' => '1.0.0',
-            'title' => 'Article Text',
-            'description' => 'Module will show article with share social icons optionally. For use on like a post',
+            'title' => 'Post module',
+            'description' => 'Module will show article with share social icons optionally, images or video. For use on like a post',
             'js'          => [
                 'depends' => [ 'jquery','aos.js', 'bootstrap' ]
             ],
@@ -79,6 +79,13 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'label' => 'Article text font size',
                 'description' => 'Please, enter article text font size',
                 'default' => '16px',
+                'sass' => true
+            ],
+            'publicationInfoFontColor' => [
+                'type' => 'input:color',
+                'label' => 'Date and author text color',
+                'description' => 'Please, select date and author text color',
+                'default' => '#849199',
                 'sass' => true
             ],
             'blockquoteFontSize' => [
@@ -164,6 +171,34 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                         'description' => 'Please, enter text for single footnotes'
                     ],
                 ],
+            ],
+            'relatedPostHeader' => [
+                'type' => 'input:color',
+                'label' => 'Related post header text color',
+                'description' => 'Please select related post header text color',
+                'default' => '#000000',
+                'sass' => true,
+            ],
+            'relatedPostLinkColor' => [
+                'type' => 'input:color',
+                'label' => 'Related post link text color',
+                'description' => 'Please select related post link text color',
+                'default' => '#000000',
+                'sass' => true,
+            ],
+            'footNotesHeaderTextColor' => [
+                'type' => 'input:color',
+                'label' => 'Footnotes header text color',
+                'description' => 'Please select footnotes header text color',
+                'default' => '#000000',
+                'sass' => true,
+            ],
+            'footNotesTextColor' => [
+                'type' => 'input:color',
+                'label' => 'Footnotes text color',
+                'description' => 'Please select footnotes text color',
+                'default' => '#849199',
+                'sass' => true,
             ],
             'bgcolor' => [
                 'type' => 'input:color',
