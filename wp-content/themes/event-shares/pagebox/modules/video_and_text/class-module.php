@@ -77,9 +77,16 @@ class VideoAndText extends AbstractModule implements StaticCacheInterface {
             ],
             'buttonText'       => [
                 'type'  => 'input:text',
-                'label' => 'Shae button text ',
+                'label' => 'Share button text ',
                 'default' => 'Share',
                 'description' => 'Please, enter share button text',
+            ],
+            'buttonColor'       => [
+                'type'  => 'input:color',
+                'label' => 'Share button text color ',
+                'description' => 'Please, select share button text color',
+                'default' => '#56c1a3',
+                'sass' => true,
             ],
 		];
 

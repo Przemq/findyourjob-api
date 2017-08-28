@@ -32,10 +32,10 @@ $buttonText = $this->getInput('buttonText')->getValue();
                     <h4><?= $title; ?></h4>
                     <?= $paragraphText; ?>
                     <div class="share-icons row">
-                        <div class="share-button col-md-3">
+                        <div class="col-md-2 col-sm-2 col-lg-3 toggle-icons">
                             <img class="style-svg" src="<?= THEME_IMAGES_URI?>/shareIconArrow.svg">
-                            <span><?= $buttonText ?></span></div>
-                        <div class="col-md-9 icons">
+                            <div class="share-button"><?= $buttonText ?></div></div>
+                        <div class="col-md-10 col-sm-10 col-lg-9 icons">
                             <ul>
                                 <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="1s"><a href="<?= $facebook ?>"
                                                                                                     target="_blank">
@@ -72,7 +72,6 @@ $buttonText = $this->getInput('buttonText')->getValue();
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
