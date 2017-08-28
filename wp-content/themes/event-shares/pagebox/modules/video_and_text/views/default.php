@@ -34,7 +34,8 @@ $buttonText = $this->getInput('buttonText')->getValue();
                     <div class="share-icons row">
                         <div class="col-md-2 col-sm-2 col-lg-3 toggle-icons">
                             <img class="style-svg" src="<?= THEME_IMAGES_URI?>/shareIconArrow.svg">
-                            <div class="share-button"><?= $buttonText ?></div></div>
+                            <div class="share-button"><?= $buttonText ?></div>
+                        </div>
                         <div class="col-md-10 col-sm-10 col-lg-9 icons">
                             <ul>
                                 <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="1s"><a href="<?= $facebook ?>"
