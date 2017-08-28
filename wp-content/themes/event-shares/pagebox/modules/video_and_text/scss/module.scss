@@ -1,0 +1,113 @@
+@import "module-variables";
+
+// Overall module styles
+@include overall_module() {
+  font-family: 'Merriweather', serif;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  transition: all .5s ease-in-out;
+
+  h4 {
+    text-transform: uppercase;
+    padding-bottom: 20px;
+  }
+  p {
+    line-height: 24px;
+  }
+
+  .video-container {
+    @include media-breakpoint-down(md) {
+      order: 2;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+    }
+  }
+
+  .text-container {
+    @include media-breakpoint-down(md) {
+      padding-bottom: 20px;
+    }
+    .share-icons {
+      margin-top: 15px;
+      @include media-breakpoint-down(md) {
+        padding-left: 15px;
+      }
+      svg {
+        height: 30px;
+        width: 30px;
+      }
+      img {
+        height: 30px;
+        width: 30px;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .icons {
+      opacity: 0;
+      transition: all .5s ease-in-out;
+      margin-bottom: 0;
+      padding-left: 0;
+      @include media-breakpoint-down(xs) {
+        margin-bottom: 20px;
+      }
+
+      &:active {
+        .btn-floating {
+          cursor: pointer;
+        }
+      }
+      ul {
+        text-align: left;
+        -webkit-transform: translateY(-25%);
+        transform: translateY(-25%);
+        display: flex;
+        padding-left: 0;
+
+        li {
+          margin: 15px -2px 5px 0;
+          width: 50px;
+          list-style-type: none;
+
+        }
+      }
+      .icon {
+        background-color: #39a4f9;
+        width: 48px;
+        height: 48px;
+        margin-right: -4px;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          background-color: #2893e8;
+        }
+        img {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+  }
+
+  .active-share-icons{
+    opacity: 1 !important;
+    transition: all .5s ease-in-out;
+  }
+}
+
+// Styles for unique page/post module.
+// In this scope you can use special functions to get data from pageboxes:
+// - get( key )
+// - get_deep( keys... )
+@include specified_module_loop() {
+  h4 {
+    color: get('titleColor');
+    font-size: get('titleFontSize');
+  }
+  p {
+    color: get('paragraphColor');
+    font-size: get('paragraphFontSize');
+  }
+}
