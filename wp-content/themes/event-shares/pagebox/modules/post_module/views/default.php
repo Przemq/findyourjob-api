@@ -113,7 +113,8 @@ $videoURL = $this->getInput('videoURL')->getValue();
                 </div>
             </article>
             <?php if ($showMedia): ?>
-                <div class="media-container col-12">
+                <div class="col-12">
+                    <div class="media-container">
                     <?php if ($typeOfMedia == 'image'): ?>
                         <img src="<?= $image ?>" alt="article image">
                     <?php endif; ?>
@@ -122,6 +123,7 @@ $videoURL = $this->getInput('videoURL')->getValue();
                                 src="https://www.youtube.com/embed/<?= $videoURL ?>">
                         </iframe>
                     <?php endif; ?>
+                    </div>
                 </div>
             <?php endif; ?>
             <div class="col-12">
@@ -191,5 +193,3 @@ $videoURL = $this->getInput('videoURL')->getValue();
         </div>
     </div>
 </div>
-
-
