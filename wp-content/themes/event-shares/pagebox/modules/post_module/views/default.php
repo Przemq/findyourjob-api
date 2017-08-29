@@ -45,7 +45,7 @@ $videoURL    = $this->getInput( 'videoURL' )->getValue();
 ?>
 <div class="<?= $module->getClass() ?> articleTextModule" xmlns:javascript="http://www.w3.org/1999/xhtml">
     <div class="container">
-		<?php //createTaskLink('OMGI-85') ?>
+		<?php createTaskLink('EV-237') ?>
 
         <div class="row">
             <div class="col-12">
