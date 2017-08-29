@@ -72,6 +72,7 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
 	            'label' => 'Input category slug',
 	            'description' => ''
             ],
+	        // TODO Cleanup and move it correct position
             'postCategory' => [
 	            'type' => 'select',
 	            'label' => 'Category',

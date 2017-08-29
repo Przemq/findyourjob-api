@@ -9,13 +9,13 @@ global $post;
 
 $module = $this->getModule();
 
-$linkToPage   = urlencode( get_the_permalink() );
-$facebook     = 'https://www.facebook.com/sharer/sharer.php?u=' . $linkToPage;
-$twitter      = 'https://twitter.com/home?status=' . $linkToPage;
-$linked       = 'https://www.linkedin.com/shareArticle?mini=true&url=' . $linkToPage . '&title=EventShares';
-$seekingAlpha = 'https://seekingalpha.com/user/48568128/comments';
-$stockTwits = 'https://stocktwits.com/eventsharesetfs';
-$stockTwitsTest = 'https://stocktwits.com/widgets/share?body='.$linkToPage;
+$linkToPage     = urlencode( get_the_permalink() );
+$facebook       = 'https://www.facebook.com/sharer/sharer.php?u=' . $linkToPage;
+$twitter        = 'https://twitter.com/home?status=' . $linkToPage;
+$linked         = 'https://www.linkedin.com/shareArticle?mini=true&url=' . $linkToPage . '&title=EventShares';
+$seekingAlpha   = 'https://seekingalpha.com/user/48568128/comments';
+$stockTwits     = 'https://stocktwits.com/eventsharesetfs';
+$stockTwitsTest = 'https://stocktwits.com/widgets/share?body=' . $linkToPage;
 
 $showPublicationInfo = $this->getInput( 'showPublicationInfo' )->getValue();
 $showPostData        = $this->getInput( 'showPostData' )->getValue();
@@ -135,7 +135,7 @@ $videoURL    = $this->getInput( 'videoURL' )->getValue();
                 </div>
 			<?php endif; ?>
             <div class="col-12">
-<!--                <hr>-->
+                <!--                <hr>-->
             </div>
         </div>
     </div>
@@ -148,12 +148,13 @@ $videoURL    = $this->getInput( 'videoURL' )->getValue();
 					$postArray = array(
 						'posts_per_page' => 5,
 						'post_type'      => 'post',
-						'category_name'   => $postCategoryId,
+						'category_name'  => $postCategoryId,
 						'post__not_in'   => array( get_the_ID() )
 					);
 
 					$posts = '';
 					$posts = new WP_Query( $postArray );
+					// TODO Add option to filter by tag
 
 					?>
                     <div class="related">Related posts:</div>
@@ -161,27 +162,25 @@ $videoURL    = $this->getInput( 'videoURL' )->getValue();
 						$posts->the_post();
 						$post = $posts->post;
 						$ID   = $post->ID;
-//	                    dump(get_post($ID));
-//	                    dump(get_the_category($ID)[0]->slug);
 
-							?>
-                            <a class="post-link" href="<?= get_permalink( $ID ); ?>"><?= get_the_title( $ID ); ?></a>
-                            <br>
-							<?php
+						?>
+                        <a class="post-link" href="<?= get_permalink( $ID ); ?>"><?= get_the_title( $ID ); ?></a>
+                        <br>
+						<?php
 					endwhile; ?>
                 </div>
 				<?php if ( $enableFootnotes ): ?>
                     <div class="col-md-8 col-12 footnotes">
                         <h6>FOOTNOTES</h6>
-                        <?php foreach ($footnotesRepeater as $key => $single):
-                            /* @var \Nurture\Pagebox\Module\Scope $single */
-                            $footnotesText = $single->getEditor('footnotesText')->getValue();
-                            $footnotesText = str_replace('<p>','',$footnotesText);
-                            $footnotesText = str_replace('</p>','',$footnotesText);
-                            $footnotesText = ($key + 1).'. '.$footnotesText;
-                            ?>
+						<?php foreach ( $footnotesRepeater as $key => $single ):
+							/* @var \Nurture\Pagebox\Module\Scope $single */
+							$footnotesText = $single->getEditor( 'footnotesText' )->getValue();
+							$footnotesText = str_replace( '<p>', '', $footnotesText );
+							$footnotesText = str_replace( '</p>', '', $footnotesText );
+							$footnotesText = ( $key + 1 ) . '. ' . $footnotesText;
+							?>
                             <p><?= $footnotesText ?></p>
-                        <?php endforeach; ?>
+						<?php endforeach; ?>
                     </div>
 				<?php endif; ?>
             </div>
@@ -190,7 +189,7 @@ $videoURL    = $this->getInput( 'videoURL' )->getValue();
     <div class="container">
         <div class="row">
             <div class="col-12">
-<!--                <hr>-->
+                <!--                <hr>-->
                 <a href="<?= $buttonLink ?>">
                     <img src="<?= THEME_IMAGES_URI; ?>/quadratic-button.svg" class="back-to-all-entries">
 					<?= $backButtonText ?></a>
