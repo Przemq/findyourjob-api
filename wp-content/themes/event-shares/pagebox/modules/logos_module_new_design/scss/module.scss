@@ -90,6 +90,9 @@
       border: 2px solid;
       padding: 8px 100px;
       @include transition(300ms all);
+      @include media-breakpoint-down(sm){
+        padding: 8px 60px;
+      }
     }
   }
 }

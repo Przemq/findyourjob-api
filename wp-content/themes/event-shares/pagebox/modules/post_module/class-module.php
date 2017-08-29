@@ -112,7 +112,6 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'values'      => [
                     [ 'id' => 'image', 'name' => 'Image' ],
                     [ 'id' => 'video', 'name' => 'Video' ],
-                    [ 'id' => 'chart', 'name' => 'Chart/Graph' ],
                 ]
             ],
             'image' => [
@@ -183,7 +182,7 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'type' => 'input:color',
                 'label' => 'Related post link text color',
                 'description' => 'Please select related post link text color',
-                'default' => '#000000',
+                'default' => '#0275d8',
                 'sass' => true,
             ],
             'footNotesHeaderTextColor' => [
@@ -198,6 +197,13 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'label' => 'Footnotes text color',
                 'description' => 'Please select footnotes text color',
                 'default' => '#849199',
+                'sass' => true,
+            ],
+            'buttonTextColour' => [
+                'type' => 'input:color',
+                'label' => 'Button text color',
+                'description' => 'Please select button text color',
+                'default' => '#0275d8',
                 'sass' => true,
             ],
             'bgcolor' => [

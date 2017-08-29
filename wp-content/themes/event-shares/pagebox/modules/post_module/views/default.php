@@ -127,59 +127,69 @@ $videoURL = $this->getInput('videoURL')->getValue();
             <div class="col-12">
                 <hr>
             </div>
-
-            <div class="related-posts col-md-4 col-12">
-                <?php
-                // TODO Tomek pomuszzz
-                $postArray = array(
-                    'posts_per_page' => 5,
-                    'tax_query' => array(
-                        'relation' => 'OR',
-                        array(
-                            'taxonomy' => 'category',
-                            'field' => 'id',
-                            'terms' => wp_get_post_categories(get_the_ID()),
-                        ),
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="related-posts col-md-4 col-12">
+                    <?php
+                    // TODO Tomek pomuszzz
+                    $postArray = array(
+                        'posts_per_page' => 5,
+                        'tax_query' => array(
+                            'relation' => 'OR',
+                            array(
+                                'taxonomy' => 'category',
+                                'field' => 'id',
+                                'terms' => wp_get_post_categories(get_the_ID()),
+                            ),
 //                        array(
 //                            'taxonomy' => 'post_tag',
 //                            'field' => 'id',
 //                            'terms' => wp_get_post_tags(get_the_ID()),
 //                        ),
-                    ),
-                    'post_type' => 'post',
-                    'post__not_in' => array(get_the_ID())
-                );
+                        ),
+                        'post_type' => 'post',
+                        'post__not_in' => array(get_the_ID())
+                    );
 
-                $posts = '';
-                $posts = new WP_Query($postArray);
-                ?>
-                <div class="related">Related posts:</div>
-                <?php while ($posts->have_posts()): ?>
-                    <?php $posts->the_post();
-                    $post = $posts->post;
-                    $ID = $post->ID;
+                    $posts = '';
+                    $posts = new WP_Query($postArray);
                     ?>
-                    <a class="post-link" href="<?= get_permalink($ID); ?>"><?= get_the_title($ID); ?></a><br>
-                <?php endwhile; ?>
+                    <div class="related">Related posts:</div>
+                    <?php while ($posts->have_posts()): ?>
+                        <?php $posts->the_post();
+                        $post = $posts->post;
+                        $ID = $post->ID;
+                        ?>
+                        <a class="post-link" href="<?= get_permalink($ID); ?>"><?= get_the_title($ID); ?></a><br>
+                    <?php endwhile; ?>
+                </div>
+                <?php if ($enableFootnotes): ?>
+                    <div class="col-md-8 col-12 footnotes">
+                        <h6>FOOTNOTES</h6>
+                        <?php foreach ($footnotesRepeater as $single):
+                            /* @var \Nurture\Pagebox\Module\Scope $single */
+                            $footnotesText = $single->getEditor('footnotesText')->getValue();
+                            ?>
+                            <?= $footnotesText ?>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </div>
-            <?php if ($enableFootnotes): ?>
-            <div class="col-md-8 col-12 footnotes">
-                <h6>FOOTNOTES</h6>
-                <?php foreach ($footnotesRepeater as $single):
-                    /* @var \Nurture\Pagebox\Module\Scope $single */
-                    $footnotesText = $single->getEditor('footnotesText')->getValue();
-                    ?>
-                    <?= $footnotesText ?>
-                <?php endforeach; ?>
-            </div>
-            <?php endif; ?>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
             <div class="col-12">
                 <hr>
                 <a href="<?= $buttonLink ?>">
                     <img src="<?= THEME_IMAGES_URI; ?>/quadratic-button.svg" class="back-to-all-entries">
                     <?= $backButtonText ?></a>
             </div>
-
         </div>
     </div>
 </div>
+
+

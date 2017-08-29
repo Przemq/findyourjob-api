@@ -152,6 +152,7 @@
     height: 15px;
     margin-right: 5px;
     margin-top: -3px;
+    font-family: 'Merriweather', serif;
   }
 
   article {
@@ -330,5 +331,11 @@
 
   .publication-info {
     color: get('publicationInfoFontColor');
+  }
+
+  .back-to-all-entries {
+    a {
+      color: get('buttonTextColour');
+    }
   }
 }
