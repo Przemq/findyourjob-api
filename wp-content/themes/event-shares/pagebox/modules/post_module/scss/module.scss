@@ -219,12 +219,18 @@
     }
     iframe {
       width: 100%;
-      height: 560px;
+      height: 625px;
+      @include media-breakpoint-down(lg) {
+        height: 525px;
+      }
       @include media-breakpoint-down(md) {
-        height: 400px;
+        height: 390px;
       }
       @include media-breakpoint-down(sm) {
-        height: 300px;
+        height: 287px;
+      }
+      @include media-breakpoint-down(xs) {
+        height: 148px;
       }
     }
   }
