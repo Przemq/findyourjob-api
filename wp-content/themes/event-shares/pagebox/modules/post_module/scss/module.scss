@@ -74,12 +74,15 @@
       display: flex;
       position: absolute;
       padding-left: 0;
-
+      .copyLink {
+        &:hover {
+          cursor: pointer;
+        }
+      }
       li {
         margin: 15px -2px 5px 0;
         width: 50px;
         list-style-type: none;
-
       }
     }
 
@@ -130,6 +133,11 @@
         width: 48px;
         height: 48px;
       }
+    }
+    .copyLinkText {
+      display: none;
+      padding: 5px 0;
+      width: 288px;
     }
   }
 
@@ -233,7 +241,7 @@
         height: 148px;
       }
     }
-    @include media-breakpoint-down(md){
+    @include media-breakpoint-down(md) {
       order: 2;
     }
 
@@ -242,7 +250,8 @@
       position: relative;
       padding-bottom: 56.25%;
       padding-top: 30px;
-      height: 0; overflow: hidden;
+      height: 0;
+      overflow: hidden;
 
       iframe {
         position: absolute;
@@ -358,8 +367,8 @@
 
   .related-posts {
     color: get('relatedPostHeader');
-      .post-link {
-          color: get('relatedPostLinkColor');
+    .post-link {
+      color: get('relatedPostLinkColor');
     }
   }
 

@@ -11,7 +11,7 @@ $facebook = 'https://www.facebook.com/sharer/sharer.php?u=' . $linkToPage;
 $twitter = 'https://twitter.com/home?status=' . $linkToPage;
 $linked = 'https://www.linkedin.com/shareArticle?mini=true&url=' . $linkToPage . '&title=EventShares';
 $seekingAlpha = 'https://seekingalpha.com/user/48568128/comments';
-$stockTwits = 'https://stocktwits.com/eventsharesetfs';
+$stockTwits = 'https://stocktwits.com/widgets/share?body='.$linkToPage;
 
 $module = $this->getModule();
 $title = $this->getInput('title')->getValue();

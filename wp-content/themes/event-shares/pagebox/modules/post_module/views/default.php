@@ -75,22 +75,26 @@ $videoURL    = $this->getInput( 'videoURL' )->getValue();
                                 </a>
                             </li>
                             <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a
-                                        href="<?= $seekingAlpha ?>"
-                                        target="_blank">
-                                    <div class="icon"><img style="padding: 6px"
-                                                           src="<?= THEME_IMAGES_URI; ?>/Seeking-Alpha-Logo-White.svg">
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a
-                                        href="<?= $stockTwitsTest ?>"
+                                        href="<?= $stockTwits ?>"
                                         target="_blank">
                                     <div class="icon"><img style="padding: 13px"
                                                            src="<?= THEME_IMAGES_URI; ?>/StockTwits-Logo-White.svg">
                                     </div>
                                 </a>
                             </li>
+                            <li class="aos-init copyLink" data-aos="zoom-in-left" data-aos-delay="3s">
+                                    <div class="icon"><img style="padding: 12px"
+                                                           src="<?= THEME_IMAGES_URI; ?>/copyLink.svg">
+                                    </div>
+                            </li>
                         </ul>
+                        <form class="copyLinkText">
+                            <div class="input-group">
+                                <input type="text" class="form-control"
+                                       value="<?= get_permalink() ?>" placeholder="Some path" id="copy-input">
+
+                            </div>
+                        </form>
                     </div>
 				<?php endif; ?>
 
