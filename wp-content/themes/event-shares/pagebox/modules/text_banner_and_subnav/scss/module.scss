@@ -28,6 +28,7 @@
       display: block;
       background-size: cover;
       @include position (absolute, 22px null null 22px);
+
     }
     @include media-breakpoint-down(md) {
       display: block !important;

@@ -206,6 +206,13 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'default' => '#0275d8',
                 'sass' => true,
             ],
+            'footnotesBackgroundColor' => [
+                'type' => 'input:color',
+                'label' => 'Footnotes background Color',
+                'description' => 'Please select footnotes color',
+                'default' => '#f4f4f4',
+                'sass' => true,
+            ],
             'bgcolor' => [
                 'type' => 'input:color',
                 'label' => 'Background Color',

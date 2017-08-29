@@ -15,6 +15,7 @@ $twitter = 'https://twitter.com/home?status=' . $linkToPage;
 $linked = 'https://www.linkedin.com/shareArticle?mini=true&url=' . $linkToPage . '&title=EventShares';
 $seekingAlpha = 'https://seekingalpha.com/user/48568128/comments';
 $stockTwits = 'https://stocktwits.com/eventsharesetfs';
+$stockTwitsTest = 'https://stocktwits.com/widgets/share?body='.$linkToPage;
 
 $showPublicationInfo = $this->getInput('showPublicationInfo')->getValue();
 $showPostData = $this->getInput('showPostData')->getValue();
@@ -76,7 +77,7 @@ $videoURL = $this->getInput('videoURL')->getValue();
                                 </a>
                             </li>
                             <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a
-                                        href="<?= $stockTwits ?>"
+                                        href="<?= $stockTwitsTest ?>"
                                         target="_blank">
                                     <div class="icon"><img style="padding: 13px"
                                                            src="<?= THEME_IMAGES_URI; ?>/StockTwits-Logo-White.svg">
@@ -127,11 +128,11 @@ $videoURL = $this->getInput('videoURL')->getValue();
                 </div>
             <?php endif; ?>
             <div class="col-12">
-                <hr>
+<!--                <hr>-->
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid grey-background">
         <div class="container">
             <div class="row">
                 <div class="related-posts col-md-4 col-12">
@@ -171,11 +172,14 @@ $videoURL = $this->getInput('videoURL')->getValue();
                 <?php if ($enableFootnotes): ?>
                     <div class="col-md-8 col-12 footnotes">
                         <h6>FOOTNOTES</h6>
-                        <?php foreach ($footnotesRepeater as $single):
+                        <?php foreach ($footnotesRepeater as $key => $single):
                             /* @var \Nurture\Pagebox\Module\Scope $single */
                             $footnotesText = $single->getEditor('footnotesText')->getValue();
+                            $footnotesText = str_replace('<p>','',$footnotesText);
+                            $footnotesText = str_replace('</p>','',$footnotesText);
+                            $footnotesText = ($key + 1).'. '.$footnotesText;
                             ?>
-                            <?= $footnotesText ?>
+                            <p><?= $footnotesText ?></p>
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
@@ -185,7 +189,7 @@ $videoURL = $this->getInput('videoURL')->getValue();
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <hr>
+<!--                <hr>-->
                 <a href="<?= $buttonLink ?>">
                     <img src="<?= THEME_IMAGES_URI; ?>/quadratic-button.svg" class="back-to-all-entries">
                     <?= $backButtonText ?></a>

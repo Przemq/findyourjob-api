@@ -40,6 +40,24 @@ var moduleClass = '.wpx-mcee07026';
         sendAjaxPagination($thisModule, null, timeline);
 
     });
+
+    //submenu click
+    $thisModule.each(function (index, el) {
+        var $module = $(el),
+            $navDropdwon = $module.find('.nav-tabs-dropdown');
+
+        $navDropdwon.on('click', function (e) {
+            e.preventDefault();
+            $(e.target).toggleClass('show').next('ul').slideToggle(400);
+        });
+
+        $('.nav-tabs-wrapper a[data-toggle="tab"]').on('click', function (e) {
+            e.preventDefault();
+            $(e.target).closest('ul').hide().prev('a').removeClass('show').text($(this).text());
+
+        });
+    });
+
     $('#insights-post-wrapper').delegate(".pagination-wrapper a ", 'click', function (event) {
         event.preventDefault();
         if (!$(this).hasClass('current')) {
