@@ -67,6 +67,32 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'default' => '44px',
                 'sass' => true
             ],
+            'filterByCategory' => [
+	            'type' => 'input:text',
+	            'label' => 'Input category slug',
+	            'description' => ''
+            ],
+            'postCategory' => [
+	            'type' => 'select',
+	            'label' => 'Category',
+	            'multiple' => false,
+	            'options' => [
+		            'allowClear' => true
+	            ],
+	            'values' => function () {
+		            $values = [];
+		            $categories = get_categories(['posts_per_page' => -1]);
+
+		            foreach ($categories as $category) {
+			            $values[] = [
+				            'id' => $category->slug,
+				            'name' => $category->name
+			            ];
+		            }
+
+		            return $values;
+	            }
+            ],
             'titleFontColor' => [
                 'type' => 'input:color',
                 'label' => 'Title font color',
