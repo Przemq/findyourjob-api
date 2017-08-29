@@ -6,6 +6,7 @@
   margin-top: 30px;
   margin-bottom: 30px;
   transition: all .5s ease-in-out;
+  overflow: hidden;
 
   h4 {
     padding-bottom: 20px;
@@ -18,21 +19,17 @@
     @include media-breakpoint-down(md) {
       order: 2;
     }
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0; overflow: hidden;
+
     iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 360px;
-      @include media-breakpoint-down(lg) {
-        height: 300px;
-      }
-      @include media-breakpoint-down(md) {
-        height: 390px;
-      }
-      @include media-breakpoint-down(sm) {
-        height: 287px;
-      }
-      @include media-breakpoint-down(xs) {
-        height: 148px;
-      }
+      height: 100%;
     }
   }
 

@@ -23,34 +23,35 @@ $buttonText = $this->getInput('buttonText')->getValue();
     <div class="container-fluid">
         <div class="container">
             <div class="row">
-                <div class="video-container col-lg-7 col-12">
-                    <iframe
-                            src="https://www.youtube.com/embed/<?= $videoURL ?>">
-                    </iframe>
+                <div class="col-lg-7 col-12 video-container">
+                            <iframe src="https://www.youtube.com/embed/<?= $videoURL ?>"></iframe>
                 </div>
                 <div class="col-lg-5 col-12 text-container">
                     <h4><?= $title; ?></h4>
                     <?= $paragraphText; ?>
                     <div class="share-icons row">
                         <div class="col-md-2 col-sm-2 col-lg-3 toggle-icons">
-                            <img class="style-svg" src="<?= THEME_IMAGES_URI?>/shareIconArrow.svg">
+                            <img class="style-svg" src="<?= THEME_IMAGES_URI ?>/shareIconArrow.svg">
                             <div class="share-button"><?= $buttonText ?></div>
                         </div>
                         <div class="col-md-10 col-sm-10 col-lg-9 icons">
                             <ul>
-                                <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="1s"><a href="<?= $facebook ?>"
-                                                                                                    target="_blank">
+                                <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="1s"><a
+                                            href="<?= $facebook ?>"
+                                            target="_blank">
                                         <div class="icon"><img
                                                     src="<?= THEME_IMAGES_URI; ?>/white_facebook.svg"></div>
                                     </a></li>
-                                <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="2s"><a data-aos-delay="300ms"
-                                                                                                    href="<?= $twitter ?>"
-                                                                                                    target="_blank">
+                                <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="2s"><a
+                                            data-aos-delay="300ms"
+                                            href="<?= $twitter ?>"
+                                            target="_blank">
                                         <div class="icon"><img
                                                     src="<?= THEME_IMAGES_URI; ?>/Twitter_white.svg"></div>
                                     </a></li>
-                                <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a href="<?= $linked ?>"
-                                                                                                    target="_blank">
+                                <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a
+                                            href="<?= $linked ?>"
+                                            target="_blank">
                                         <div class="icon"><img src="<?= THEME_IMAGES_URI; ?>/Linkedin_white.svg"></div>
                                     </a>
                                 </li>
