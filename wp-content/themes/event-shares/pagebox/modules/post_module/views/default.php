@@ -196,7 +196,7 @@ $videoURL    = $this->getInput( 'videoURL' )->getValue();
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container ps-button-all-entries">
         <div class="row">
             <div class="col-12">
                 <!--                <hr>-->

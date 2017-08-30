@@ -172,6 +172,11 @@
 <header id="wpx-eventshare-header">
     <div class="container-fluid">
         <div class="container">
+            <div class="ps-logo-for-printing">
+                <img
+                     src="<?= THEME_IMAGES_URI; ?>/EventSharesLogo.svg"
+                     alt="logo eventShares">
+            </div>
             <div class="wpx-name-module-header">
                 <div class="row" id="top-menu">
                     <div class="col-lg-2 image-wrapper">

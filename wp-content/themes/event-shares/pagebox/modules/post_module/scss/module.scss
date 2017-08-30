@@ -221,6 +221,7 @@
     text-align: center;
     img {
       width: 100%;
+      display: block;
     }
     @include media-breakpoint-up(lg) {
       margin-top: 40px;

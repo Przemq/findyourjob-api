@@ -10,6 +10,9 @@ a:hover {
 }
 
 header {
+  .ps-logo-for-printing {
+    display: none;
+  }
   position: fixed;
   background: white;
   top: 0;
@@ -449,6 +452,9 @@ header {
     }
   }
   #wpx-eventshare-header {
+    .ps-log0-for-printing {
+
+    }
     &.wpx-active-mobile-menu-parent {
 
       .wpx-button-hamburger {
