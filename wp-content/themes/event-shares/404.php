@@ -5,9 +5,11 @@
             <div class="col-12">
                 <h2 class="page404__heading">404</h2>
                 <h3 class="page404__subHeading"> PAGE NOT FOUND</h3>
+                <br>
                 <p class="page404__paragraph">We’re sorry, the page you were looking for doesn’t exist or another
                     error occured.</p>
                 <p class="page404__paragraph list">This could be because:
+                <br>
                 <ul>
                     <li>1. There is a error in the URL you have entered into your browser. Please check the spelling and
                         try again
