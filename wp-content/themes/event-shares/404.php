@@ -19,7 +19,7 @@
                 <p class="page404__paragraph">You can either <a style="text-decoration: underline;" href="javascript:history.back()">go back</a> or
                     head over to the <a style="text-decoration: underline;" href="<?php HOME_URL ?>/">homepage</a> to choose a new
                     direction. <br>
-                    Alternatively please <a style="text-decoration: underline;" href="<?php HOME_URL ?>/contact">contact us</a>.</p>
+                    Alternatively please <a style="text-decoration: underline;" href="<?php HOME_URL ?>/get-in-touch/">contact us</a>.</p>
             </div>
         </div>
     </div>
