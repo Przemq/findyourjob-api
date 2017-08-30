@@ -16,7 +16,9 @@
   }
 
   .video-container {
-
+  @include media-breakpoint-down(md){
+    padding: 0;
+  }
    iframe {
      width:100%;
      height:360px;
@@ -81,62 +83,73 @@
         margin-top: 9px;
         cursor: pointer;
       }
-    }
-    .icons {
-      opacity: 0;
-      height: 0;
-      transition: all .5s ease-in-out;
-      margin-bottom: 0;
-      padding-left: 0;
-      @include media-breakpoint-down(xs) {
+      .icons {
+        opacity: 0;
+        //height: auto;
+        transition: all .5s ease-in-out;
         margin-bottom: 0;
-      }
-
-      &:active {
-        .btn-floating {
-          //cursor: pointer;
-        }
-      }
-      ul {
-        text-align: left;
-        -webkit-transform: translateY(-25%);
-        transform: translateY(-25%);
-        display: flex;
         padding-left: 0;
-        @include media-breakpoint-down(sm) {
-          padding-left: 15px;
+        @include media-breakpoint-down(xs) {
+          margin-bottom: 0;
         }
 
-        li {
-          margin: 15px 0 5px 0;
-          width: 50px;
-          list-style-type: none;
+        &:active {
+          .btn-floating {
+            //cursor: pointer;
+          }
+        }
+        ul {
+          text-align: left;
+          -webkit-transform: translateY(-25%);
+          transform: translateY(-25%);
+          display: flex;
+          padding-left: 0;
+          margin-bottom: 0;
+          @include media-breakpoint-down(sm) {
+            padding-left: 15px;
+          }
 
+          li {
+            margin: 15px 0 5px 0;
+            width: 50px;
+            list-style-type: none;
+
+          }
         }
-      }
-      .icon {
-        background-color: #39a4f9;
-        width: 48px;
-        height: 48px;
-        margin-right: -4px;
-        transition: all 0.3s ease-in-out;
-        display: none;
-        cursor: pointer;
-        &:hover {
-          background-color: #2893e8;
-        }
-        img {
+        .icon {
+          background-color: #39a4f9;
           width: 48px;
           height: 48px;
+          margin-right: -4px;
+          transition: all 0.3s ease-in-out;
+          display: none;
+          cursor: pointer;
+          &:hover {
+            background-color: #2893e8;
+          }
+          img {
+            width: 48px;
+            height: 48px;
+          }
+        }
+        .copyLinkText {
+          display: none;
+          padding: 5px 0;
+          width: 249px;
+          margin-top: -20px;
+          @include media-breakpoint-down(sm)
+          {
+            margin-left: 14px;
+          }
         }
       }
     }
+
   }
 
   .active-share-icons {
     opacity: 1 !important;
     transition: all .5s ease-in-out;
-    margin-bottom: 36px!important;
     .icon {
       display: block !important;
     }

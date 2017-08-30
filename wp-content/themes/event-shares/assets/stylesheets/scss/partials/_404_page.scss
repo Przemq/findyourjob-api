@@ -12,7 +12,7 @@
     font-weight: 300;
     font-size: 82px;
     text-align: center;
-    color:$om-green;
+    color:#39a4f9;
     font-family: 'Roboto Condensed',sans-serif;
   }
   &__subHeading{
@@ -20,19 +20,19 @@
     text-align: center;
     font-size: 18px;
     padding-top: 3px;
-    color:$om-green;
+    color:#39a4f9;
 
   }
   &__paragraph{
     font-family: 'Roboto Condensed',sans-serif;
     font-size: 16px;
     padding-bottom: 0;
-    color:$om-green ;
+    color:#39a4f9 ;
     a {
-      color: $om-green;
+      color: #39a4f9;
       text-decoration: none;
       &:hover{
-        color:$om-green-light;
+        color:#39a4f9;
       }
     }
     &.list{
@@ -43,7 +43,7 @@
   ul,li{
     font-family: 'Roboto Condensed',sans-serif;
     font-size: 16px;
-    color:$om-green ;
+    color:#39a4f9 ;
   }
   img{
     width: 100%;

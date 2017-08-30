@@ -90,7 +90,7 @@ $videoURL    = $this->getInput( 'videoURL' )->getValue();
                         <form class="copyLinkText">
                             <div class="input-group">
                                 <input type="text" class="form-control"
-                                       value="<?= get_permalink() ?>" placeholder="Some path" id="copy-input">
+                                       value="<?= get_permalink() ?>" placeholder="" id="copy-input">
 
                             </div>
                         </form>

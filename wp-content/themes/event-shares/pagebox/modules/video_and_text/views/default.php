@@ -30,11 +30,11 @@ $buttonText = $this->getInput('buttonText')->getValue();
                     <h4><?= $title; ?></h4>
                     <?= $paragraphText; ?>
                     <div class="share-icons row">
-                        <div class="col-md-2 col-sm-2 col-lg-3 toggle-icons">
+                        <div class="col-md-2 col-sm-2 col-xs-2 col-lg-3 toggle-icons">
                             <img class="style-svg" src="<?= THEME_IMAGES_URI ?>/shareIconArrow.svg">
                             <div class="share-button"><?= $buttonText ?></div>
                         </div>
-                        <div class="col-md-10 col-sm-10 col-lg-9 icons">
+                        <div class="col-md-10 col-sm-10 col-cs-10 col-lg-9 icons">
                             <ul>
                                 <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="1s"><a
                                             href="<?= $facebook ?>"
@@ -56,14 +56,6 @@ $buttonText = $this->getInput('buttonText')->getValue();
                                     </a>
                                 </li>
                                 <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a
-                                            href="<?= $seekingAlpha ?>"
-                                            target="_blank">
-                                        <div class="icon"><img style="padding: 6px"
-                                                               src="<?= THEME_IMAGES_URI; ?>/Seeking-Alpha-Logo-White.svg">
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a
                                             href="<?= $stockTwits ?>"
                                             target="_blank">
                                         <div class="icon"><img style="padding: 13px"
@@ -71,7 +63,18 @@ $buttonText = $this->getInput('buttonText')->getValue();
                                         </div>
                                     </a>
                                 </li>
+                                <li class="aos-init copyLink" data-aos="zoom-in-left" data-aos-delay="3s">
+                                    <div class="icon"><img style="padding: 12px"
+                                                           src="<?= THEME_IMAGES_URI; ?>/copyLink.svg">
+                                    </div>
+                                </li>
                             </ul>
+                            <form class="copyLinkText">
+                                <div class="input-group">
+                                    <input type="text" class="form-control"
+                                           value="<?= get_permalink() ?>" placeholder="" id="copy-input">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
