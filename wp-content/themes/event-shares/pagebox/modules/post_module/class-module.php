@@ -67,33 +67,6 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'default' => '44px',
                 'sass' => true
             ],
-            'filterByCategory' => [
-	            'type' => 'input:text',
-	            'label' => 'Input category slug',
-	            'description' => ''
-            ],
-	        // TODO Cleanup and move it correct position
-            'postCategory' => [
-	            'type' => 'select',
-	            'label' => 'Category',
-	            'multiple' => false,
-	            'options' => [
-		            'allowClear' => true
-	            ],
-	            'values' => function () {
-		            $values = [];
-		            $categories = get_categories(['posts_per_page' => -1]);
-
-		            foreach ($categories as $category) {
-			            $values[] = [
-				            'id' => $category->slug,
-				            'name' => $category->name
-			            ];
-		            }
-
-		            return $values;
-	            }
-            ],
             'titleFontColor' => [
                 'type' => 'input:color',
                 'label' => 'Title font color',
@@ -246,6 +219,50 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'description' => 'Please select background color, default #ffffff',
                 'default' => '#ffffff',
                 'sass' => true,
+            ],
+            'postCategory' => [
+	            'type' => 'select',
+	            'label' => 'Related category',
+	            'description' => 'Select related category. If not selected it will take a category from current post',
+	            'multiple' => false,
+	            'options' => [
+		            'allowClear' => true
+	            ],
+	            'values' => function () {
+		            $values = [];
+		            $categories = get_categories(['posts_per_page' => -1]);
+
+		            foreach ($categories as $category) {
+			            $values[] = [
+				            'id' => $category->slug,
+				            'name' => $category->name
+			            ];
+		            }
+
+		            return $values;
+	            }
+            ],
+            'postTag' => [
+	            'type' => 'select',
+	            'label' => 'Related tag',
+	            'description' => 'Select related tag. If not selected it will take a tag from current post',
+	            'multiple' => false,
+	            'options' => [
+		            'allowClear' => true
+	            ],
+	            'values' => function () {
+		            $values = [];
+		            $categories = get_tags(['posts_per_page' => -1]);
+
+		            foreach ($categories as $category) {
+			            $values[] = [
+				            'id' => $category->slug,
+				            'name' => $category->name
+			            ];
+		            }
+
+		            return $values;
+	            }
             ],
         ];
     }
