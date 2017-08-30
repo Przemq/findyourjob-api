@@ -9,12 +9,12 @@ global $post;
 
 $module = $this->getModule();
 
-$linkToPage     = urlencode( get_the_permalink() );
-$facebook       = 'https://www.facebook.com/sharer/sharer.php?u=' . $linkToPage;
-$twitter        = 'https://twitter.com/home?status=' . $linkToPage;
-$linked         = 'https://www.linkedin.com/shareArticle?mini=true&url=' . $linkToPage . '&title=EventShares';
-$seekingAlpha   = 'https://seekingalpha.com/user/48568128/comments';
-$stockTwits = 'https://stocktwits.com/widgets/share?body=' . $linkToPage;
+$linkToPage   = urlencode( get_the_permalink() );
+$facebook     = 'https://www.facebook.com/sharer/sharer.php?u=' . $linkToPage;
+$twitter      = 'https://twitter.com/home?status=' . $linkToPage;
+$linked       = 'https://www.linkedin.com/shareArticle?mini=true&url=' . $linkToPage . '&title=EventShares';
+$seekingAlpha = 'https://seekingalpha.com/user/48568128/comments';
+$stockTwits   = 'https://stocktwits.com/widgets/share?body=' . $linkToPage;
 
 $showPublicationInfo = $this->getInput( 'showPublicationInfo' )->getValue();
 $showPostData        = $this->getInput( 'showPostData' )->getValue();
@@ -28,9 +28,8 @@ $enableFootnotes     = $this->getInput( 'enableFootnotes' )->getValue();
 $filterByCategory    = $this->getInput( 'filterByCategory' )->getValue();
 $postCategory        = $this->getSelect( 'postCategory' )->getValue();
 $postCategoryId      = $postCategory['id'];
-//dump(explode(':', $filterByCategorySelect['id'])[1]);
-//dump(get_page_by_path('test-1'));
-//dump($filterByCategorySelect['id']);
+$postTag             = $this->getSelect( 'postTag' )->getValue();
+$postTagId           = $postTag['id'];
 
 $buttonLink = '';
 if ( empty( $internalLink ) ) {
@@ -44,7 +43,7 @@ $videoURL    = $this->getInput( 'videoURL' )->getValue();
 ?>
 <div class="<?= $module->getClass() ?> articleTextModule" xmlns:javascript="http://www.w3.org/1999/xhtml">
     <div class="container">
-		<?php createTaskLink('EV-237') ?>
+		<?php createTaskLink( 'EV-237' ) ?>
 
         <div class="row">
             <div class="col-12">
@@ -82,9 +81,9 @@ $videoURL    = $this->getInput( 'videoURL' )->getValue();
                                 </a>
                             </li>
                             <li class="aos-init copyLink" data-aos="zoom-in-left" data-aos-delay="3s">
-                                    <div class="icon"><img style="padding: 12px"
-                                                           src="<?= THEME_IMAGES_URI; ?>/copyLink.svg">
-                                    </div>
+                                <div class="icon"><img style="padding: 12px"
+                                                       src="<?= THEME_IMAGES_URI; ?>/copyLink.svg">
+                                </div>
                             </li>
                         </ul>
                         <form class="copyLinkText">
@@ -147,17 +146,22 @@ $videoURL    = $this->getInput( 'videoURL' )->getValue();
             <div class="row">
                 <div class="related-posts col-md-4 col-12">
 					<?php
+					// Check if Post Category is set in module. If not - take category from current post
+					$postCategoryArgs = ( $postCategoryId !== null ) ? $postCategoryId : get_the_category()[0]->slug;
+					// Check if Post Tag is set in module. If not - take tag from current post AND check if it's not empty
+					$postTagsArgsCheckIfExist = ( ! empty( wp_get_post_tags( get_the_ID() ) ) ) ? wp_get_post_tags( get_the_ID() )[0]->slug : null;
+					$postTagsArgs             = ( $postTagId !== null ) ? $postTagId : $postTagsArgsCheckIfExist;
 
 					$postArray = array(
 						'posts_per_page' => 5,
 						'post_type'      => 'post',
-						'category_name'  => $postCategoryId,
+						'category_name'  => $postCategoryArgs,
+						'tag'            => $postTagsArgs,
 						'post__not_in'   => array( get_the_ID() )
 					);
 
 					$posts = '';
 					$posts = new WP_Query( $postArray );
-					// TODO Add option to filter by tag
 
 					?>
                     <div class="related">Related posts:</div>
@@ -185,7 +189,10 @@ $videoURL    = $this->getInput( 'videoURL' )->getValue();
                             <p><?= $footnotesText ?></p>
 						<?php endforeach; ?>
                     </div>
-				<?php endif; ?>
+					<?php
+					// Restore original post data.
+					wp_reset_postdata();
+				endif; ?>
             </div>
         </div>
     </div>
