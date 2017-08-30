@@ -22,6 +22,7 @@ $buttonText = $this->getInput('buttonText')->getValue();
 <div class="<?= $module->getClass() ?>">
     <div class="container-fluid">
         <div class="container">
+            <?= createTaskLink('EV-243') ?>
             <div class="row">
                 <div class="col-lg-7 col-12 video-container">
                             <iframe src="https://www.youtube.com/embed/<?= $videoURL ?>"></iframe>
