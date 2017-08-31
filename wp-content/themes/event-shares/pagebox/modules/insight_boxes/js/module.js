@@ -35,6 +35,7 @@ var moduleClass = '.wpx-mcee07026';
     // Click on nav example Advisor Media
     $thisModule.find('.nav-tabs-wrapper a').on('click', function (event) {
         event.preventDefault();
+        window.location.hash = $(this).attr('id');
         var timeline = $(this).attr('data-category');
         $loading.addClass('show');
         sendAjaxPagination($thisModule, null, timeline);
