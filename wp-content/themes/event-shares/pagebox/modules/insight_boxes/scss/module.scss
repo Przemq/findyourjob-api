@@ -141,14 +141,15 @@
 
         & > a {
           display: block;
-
+          outline: none;
         }
         & > a.active {
           color: #002841;
+          outline: none;
 
           &:hover, &:focus {
             color: #002841;
-
+            outline: none;
           }
         }
       }

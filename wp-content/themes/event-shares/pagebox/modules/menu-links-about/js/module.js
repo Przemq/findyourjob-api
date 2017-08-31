@@ -43,15 +43,9 @@
             if (callNow) func.apply(context, args);
         };
     }
-    // var elem =  $('.menu-special-hover').find('a');
-    //
-    // $.each(elem, function(index, value) {
-    //
-    //     $(this).on('click', function (event) {
-    //         event.preventDefault();
-    //         var id = $(this).parent().attr('id');
-    //         $('.nav-tabs-wrapper').find('a#' + id ).trigger('click');
-    //     })
-    // });
+
+
+    // $(window.location.hash).trigger('click');
+    $(window.location.hash).click();
 
 })(jQuery);
