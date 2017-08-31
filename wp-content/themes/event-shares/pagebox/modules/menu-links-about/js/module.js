@@ -45,7 +45,10 @@
     }
 
 
-    // $(window.location.hash).trigger('click');
-    $(window.location.hash).click();
+     $(window.location.hash).trigger('click');
+        $(window.location.hash).click();
+        setTimeout(function () {
+            $(window.location.hash).trigger('click');
+        },100)
 
 })(jQuery);

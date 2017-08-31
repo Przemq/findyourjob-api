@@ -144,11 +144,16 @@
           display: block;
           position: absolute;
           right: 15px;
-          top: 50%;
+          top: 30%;
           @include transform(translateY(-50%));
           width: 10px;
           height: 15px;
           background: url($template-url + '/assets/images/blue-right-chevron-mobile.svg') no-repeat;
+          transform: rotate(90deg);
+          -webkit-transform: rotate(90deg);
+          -moz-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          -o-transform: rotate(90deg);
         }
       }
     }
