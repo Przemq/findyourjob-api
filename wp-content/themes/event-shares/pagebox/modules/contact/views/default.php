@@ -7,6 +7,10 @@
  */
 
 $module = $this->getModule();
+$downloadButtonText = $this->getInput('downloadButtonText')->getValue();
+$file = $this->getSelect('file')->getValue()['url'];
+$isBlank = $this->getInput('downloadButtonBlank')->getValue();
+$isBlank =  $isBlank ? 'target="_blank"' : '';
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container flip-container">
@@ -15,7 +19,14 @@ $module = $this->getModule();
             <div class="row front">
                 <div class="flex-lg-row col-lg-6 col-sm-12 contacts">
                     <div class="row">
-                        <div class="col-lg-12"><h4><?= $this->getInput('title'); ?></h4></div>
+                        <div class="col-lg-12 button-wrapper">
+                            <a <?= $isBlank ?> href="<?= $file ?>" class="btn btn-primary button">
+                                <span><img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Download icon-01-01.svg"
+                                           alt="download icon"></span>
+                                <span class="align-middle"><?= $downloadButtonText ?></span>
+                            </a>
+                        </div>
+                        <div class="col-lg-12"><h4><?= $this->getInput('title')->getValue(); ?></h4></div>
                         <?php foreach ($this->getRepeater('addresses') as $index => $address) : ?>
                             <div class="col-12 padding-bottom">
                                 <?php if ($address->getInput('isTitle')->getValue()) : ?>

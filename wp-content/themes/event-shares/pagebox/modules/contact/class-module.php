@@ -41,7 +41,44 @@ class Contact extends AbstractModule implements StaticCacheInterface {
 				'description' => 'Main contacts title',
 				'default'     => 'Contacts'
 			],
+            'downloadButtonText' => [
+                'type'        => 'input:text',
+                'label'       => 'Download button text',
+                'description' => 'PLease, enter download button text',
+                'default' => 'PRESS KIT',
+            ],
+            'file'  => [
+                'type'        => 'select',
+                'label'       => 'File',
+                'description' => "Select file for download (pdf only)",
+                'multiple'    => false,
+                'options'     => [
+                    'allowClear' => true
+                ],
+                'values'      => function () {
+                    $files      = get_posts( [
+                        'post_type'      => 'attachment',
+                        'post_mime_type' => 'application/pdf',
+                        'posts_per_page' => - 1
+                    ] );
+                    $filesArray = [];
+                    foreach ( $files as $file ) {
+                        $filesArray[] = [
+                            'id'   => $file->ID,
+                            'url'  => $file->guid,
+                            'name' => $file->post_title
+                        ];
+                    }
 
+                    return $filesArray;
+                }
+            ],
+            'downloadButtonBlank' => [
+                'type'    => 'input:switch',
+                'label'   => 'Open document in the new tab? (NO/YES)',
+                'description' => 'Open document on actual tab or on new?',
+                'default' => true,
+            ],
             'titleColor' => [
                 'type'    => 'input:color',
                 'label'   => 'Title color',
