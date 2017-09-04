@@ -183,12 +183,12 @@
       padding-bottom: 30px;
     }
     .button-wrapper {
+      @include transition(300ms all);
       a {
         text-decoration: none;
       }
       .button {
         margin-top: 0 !important;
-        @include transition(300ms all);
         padding: 11.5px 20px;
         span {
           font-family: 'Roboto Condensed', sans-serif;

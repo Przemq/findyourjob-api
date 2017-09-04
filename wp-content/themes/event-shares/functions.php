@@ -300,7 +300,7 @@ function wpx_add_blankline($content)
     return str_ireplace('&nbsp;', '</br></br>', $content);
 }
 
-add_post_type_support( 'page', 'excerpt' );
+add_post_type_support('page', 'excerpt');
 
 function sendMail($to, $subject, $msg, $headers, $attachments)
 {
@@ -316,7 +316,7 @@ function sendToSubscribe()
 
     $email = $_POST['email'];
     $investor = $_POST['investor'];
-    $hash = uniqid();
+    $hash = str_shuffle(uniqid());
 
     // check is there no such entry in the database (function return true/false)
     function isAlreadySubscribe($email, $investor)
@@ -395,7 +395,7 @@ add_action('wpcf7_mail_sent', function () {
     $msg = stripslashes(wpx_theme_get_option('wpx_theme_user_mail_mail_content'));
     $subject = wpx_theme_get_option('wpx_theme_user_mail_subject');
     if (!empty($_POST['your-sub'])) {
-        $hash = uniqid();
+        $hash = str_shuffle(uniqid());
         global $wpdb;
         $tableName = $wpdb->base_prefix . 'wpx_' . 'subscriptions';
 
@@ -435,11 +435,23 @@ add_action('wpcf7_mail_sent', function () {
 
 add_action('init', function () {
     $hash = $_GET['unsubscribe'] ?? false;
+    $isRemoved = '';
     if ($hash && !empty($hash)) {
         global $wpdb;
         $tableName = $wpdb->base_prefix . 'wpx_subscriptions';
-        $wpdb->query("DELETE FROM " . $tableName . " WHERE hash=" . '"' . $hash . '"');
+        $isRemoved = $wpdb->query("DELETE FROM " . $tableName . " WHERE hash=" . '"' . $hash . '"');
+        if ($isRemoved == 1) {
+            echo '<script>
+            alert("You have been removed from subscription list");
+              </script>';
+        }
+        else {
+            echo '<script>
+            alert("Such subscription does not exist");
+              </script>';
+        }
     }
+
 });
 
 
