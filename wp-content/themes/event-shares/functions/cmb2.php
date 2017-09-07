@@ -100,13 +100,6 @@ function cmb2_documents_metabox()
     ));
 
     $cmb->add_field(array(
-        'name' => 'Excerpt',
-        'id' => $prefix . 'excerpt',
-        'type' => 'textarea',
-        'desc' => '',
-    ));
-
-    $cmb->add_field(array(
         'name' => 'PDF file',
         'id' => $prefix . 'document',
         'type' => 'file',
