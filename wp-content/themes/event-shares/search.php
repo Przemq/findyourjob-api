@@ -272,12 +272,12 @@ $args  = array(
                             'after_page_number'  => '</strong>'
                         );
                         ?>
-                        <div class="pagination-wrapper">
-                            <span class="prev-link"><?php previous_posts_link( 'Previous' ) ?></span>
+                        <div class="pagination-wrapper offset-lg-10 offset-md-9">
+                            <div class="prev-link"><?php previous_posts_link( 'Previous' ) ?></div>
                             <div class="numbered">
                                 <?php echo paginate_links( $pagination ); ?>
                             </div>
-                            <span class="next-link"><?php next_posts_link( 'Next', $search_query->max_num_pages ) ?></span>
+                            <div class="next-link"><?php next_posts_link( 'Next', $search_query->max_num_pages ) ?></div>
                         </div>
                     </div>
                 </div>
