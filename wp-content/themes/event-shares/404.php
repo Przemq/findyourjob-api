@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
     <div class="container page404">
-        <div class="row">
+        <div class="row ie-style">
             <div class="col-12">
                 <h2 class="page404__heading">404</h2>
                 <h3 class="page404__subHeading"> PAGE NOT FOUND</h3>
@@ -18,7 +18,6 @@
                     <li>2. The page has been deleted or moved.</li>
                 </ul>
 
-                </p>
                 <p class="page404__paragraph">You can either <a style="text-decoration: underline;" href="javascript:history.back()">go back</a> or
                     head over to the <a style="text-decoration: underline;" href="<?php HOME_URL ?>/">homepage</a> to choose a new
                     direction. <br>
