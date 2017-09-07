@@ -47,13 +47,13 @@
       display: inline-block;
       padding: 13px 22px;
       background-color: $button_background_color;
-      border: none;
       color: $button-font-color;
       font-family: 'Roboto Condensed', sans-serif;
       letter-spacing: 3px;
       text-decoration: none;
       border-radius: 3px;
       margin: 5px 10px;
+      border: 1px solid $button_background_color;
       .download-icon {
         height: 18px;
         width: 18px;
@@ -120,6 +120,7 @@
       &:hover {
         color: get('buttonTextColorHover');
         background: get('buttonBackgroundColorHover');
+        border-color: get('buttonTextColorHover');
         svg {
           path, polygon {
             fill: get('buttonTextColorHover');

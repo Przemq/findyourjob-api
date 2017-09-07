@@ -8,9 +8,10 @@
 
 $module = $this->getModule();
 $downloadButtonText = $this->getInput('downloadButtonText')->getValue();
-$file = $this->getSelect('file')->getValue()['url'];
+$file = $this->getSelect('file')->getValue()['permalink'];
 $isBlank = $this->getInput('downloadButtonBlank')->getValue();
 $isBlank =  $isBlank ? 'target="_blank"' : '';
+dump(get_post_meta($this->getSelect('file')->getValue()['postID'], '_cmb2_document')[0]);
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container flip-container">

@@ -29,7 +29,7 @@ $description = $this->getEditor( 'description' )->getContent();
 					<?php
 					$buttonText = $button->getInput( 'buttonTitle' );
 					$blank      = $button->getInput( 'buttonBlankLink' )->getValue() ? 'target=_blank' : "";
-					if ( $button->getInput( 'isPermalink' )->getValue() ) {
+					if ( !$button->getInput( 'isPermalink' )->getValue() ) {
 						$url = $button->getInput( 'buttonPermalink' );
 					} else {
 						$url = $button->getSelect( 'buttonUrl' )->getValue()['permalink'];

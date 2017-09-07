@@ -184,6 +184,7 @@
     }
     .button-wrapper {
       @include transition(300ms all);
+      margin-bottom: 25px;
       a {
         text-decoration: none;
       }
@@ -202,6 +203,7 @@
             width: 16px;
             margin-right: 5px;
           }
+
         }
         &:hover {
           span {

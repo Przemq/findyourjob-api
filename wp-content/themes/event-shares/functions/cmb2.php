@@ -64,3 +64,52 @@ function cmb2_sample_metaboxes() {
     ) );
 
 }
+
+
+add_action( 'init', 'create_documents_type', 1 );
+function create_documents_type() {
+    register_post_type( 'documents',
+        array(
+            'labels'              => array(
+                'name'          => __( 'Documents' ),
+                'singular_name' => __( 'Document' )
+            ),
+            'taxonomies'          => array('documents'),
+            'public'              => true,
+            'has_archive'         => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'publicly_queryable'  => true,
+            'exclude_from_search' => false,
+            'supports'            => array( 'title', 'thumbnail' )
+        )
+    );
+}
+
+
+
+add_action( 'cmb2_init', 'cmb2_documents_metabox' );
+function cmb2_documents_metabox()
+{
+    $prefix = '_cmb2_';
+
+    $cmb = new_cmb2_box(array(
+        'title' => 'Documents',
+        'id' => $prefix . 'post_meta_documents',
+        'object_types' => array('documents'),
+    ));
+
+    $cmb->add_field(array(
+        'name' => 'Excerpt',
+        'id' => $prefix . 'excerpt',
+        'type' => 'textarea',
+        'desc' => '',
+    ));
+
+    $cmb->add_field(array(
+        'name' => 'PDF file',
+        'id' => $prefix . 'document',
+        'type' => 'file',
+        'desc' => '',
+    ));
+}

@@ -107,8 +107,8 @@ class IconTextAndCTA extends AbstractModule implements StaticCacheInterface {
 					],
 					'isPermalink'     => [
 						'type'    => 'input:switch',
-						'label'   => 'Permalink (not paglink)',
-						'default' => 1,
+						'label'   => 'Use document or external link? (Link/Document)',
+						'default' => true,
 					],
 					'buttonPermalink' => [
 						'type'    => 'input:text',
@@ -117,26 +117,29 @@ class IconTextAndCTA extends AbstractModule implements StaticCacheInterface {
 					],
 					'buttonUrl'       => [
 						'type'     => 'select',
-						'label'    => 'Select pagelink for button',
+						'label'    => 'Select document',
 						'multiple' => false,
 						'options'  => [
 							'allowClear' => true
 						],
-						'values'   => function () {
-							return Select::postFilter( get_pages( [ 'posts_per_page' => - 1 ] ), [
-								'postID'    => function ( \WP_Post $post ) {
-									return $post->ID;
-								},
-								'permalink' => function ( \WP_Post $post ) {
-									return get_permalink( $post->ID );
-								}
-							] );
-						}
+                        'values' => function () {
+                            return Select::postFilter(get_posts(['post_type' => array('documents'), 'posts_per_page' => -1]), [
+                                'postID' => function (\WP_Post $post) {
+                                    return $post->ID;
+                                },
+                                'permalink' => function (\WP_Post $post) {
+                                    return get_permalink($post->ID);
+                                },
+                                'name' => function (\WP_Post $post) {
+                                    return $post->post_name;
+                                },
+                            ]);
+                        }
 					],
 					'buttonBlankLink' => [
 						'type'    => 'input:switch',
-						'label'   => 'Link new target:',
-						'default' => 1,
+						'label'   => 'Open link on new tab?',
+						'default' => true,
 					],
 
 				],

@@ -10,257 +10,256 @@ use Nurture\Pagebox\Module\AbstractModule;
 use Nurture\Pagebox\Module\Fields\Builder\Select;
 use Nurture\Pagebox\Module\View\StaticCacheInterface;
 
-class Contact extends AbstractModule implements StaticCacheInterface {
+class Contact extends AbstractModule implements StaticCacheInterface
+{
 
-	/**
-	 * Module config
-	 * @return array Module configuration.
-	 */
-	protected function config() {
-		return [
-			'version'     => '1.0.0',
-			'title'       => 'Contact Form',
-			'description' => 'Contact module',
-			'js'          => [
-				'depends' => [ 'jquery']
-			],
-		];
-	}
+    /**
+     * Module config
+     * @return array Module configuration.
+     */
+    protected function config()
+    {
+        return [
+            'version' => '1.0.0',
+            'title' => 'Contact Form',
+            'description' => 'Contact module',
+            'js' => [
+                'depends' => ['jquery']
+            ],
+        ];
+    }
 
 
-	/**
-	 * @return array Fields configuration.
-	 */
-	protected function fields() {
+    /**
+     * @return array Fields configuration.
+     */
+    protected function fields()
+    {
 
-		return [
-			//Title
-			'title'           => [
-				'type'        => 'input:text',
-				'label'       => 'Title',
-				'description' => 'Main contacts title',
-				'default'     => 'Contacts'
-			],
+        return [
+            //Title
+            'title' => [
+                'type' => 'input:text',
+                'label' => 'Title',
+                'description' => 'Main contacts title',
+                'default' => 'Contacts'
+            ],
             'downloadButtonText' => [
-                'type'        => 'input:text',
-                'label'       => 'Download button text',
+                'type' => 'input:text',
+                'label' => 'Download button text',
                 'description' => 'PLease, enter download button text',
                 'default' => 'PRESS KIT',
             ],
-            'file'  => [
-                'type'        => 'select',
-                'label'       => 'File',
+            'file' => [
+                'type' => 'select',
+                'label' => 'File',
                 'description' => "Select file for download (pdf only)",
-                'multiple'    => false,
-                'options'     => [
+                'multiple' => false,
+                'options' => [
                     'allowClear' => true
                 ],
-                'values'      => function () {
-                    $files      = get_posts( [
-                        'post_type'      => 'attachment',
-                        'post_mime_type' => 'application/pdf',
-                        'posts_per_page' => - 1
-                    ] );
-                    $filesArray = [];
-                    foreach ( $files as $file ) {
-                        $filesArray[] = [
-                            'id'   => $file->ID,
-                            'url'  => $file->guid,
-                            'name' => $file->post_title
-                        ];
-                    }
-
-                    return $filesArray;
+                'values' => function () {
+                    return Select::postFilter(get_posts(['post_type' => array('documents'), 'posts_per_page' => -1]), [
+                        'postID' => function (\WP_Post $post) {
+                            return $post->ID;
+                        },
+                        'permalink' => function (\WP_Post $post) {
+                            return get_permalink($post->ID);
+                        },
+                        'name' => function (\WP_Post $post) {
+                            return $post->post_name;
+                        },
+                    ]);
                 }
             ],
             'downloadButtonBlank' => [
-                'type'    => 'input:switch',
-                'label'   => 'Open document in the new tab? (NO/YES)',
+                'type' => 'input:switch',
+                'label' => 'Open document in the new tab? (NO/YES)',
                 'description' => 'Open document on actual tab or on new?',
                 'default' => true,
             ],
             'titleColor' => [
-                'type'    => 'input:color',
-                'label'   => 'Title color',
+                'type' => 'input:color',
+                'label' => 'Title color',
                 'default' => '#1e2c32',
-                'sass'    => true
+                'sass' => true
             ],
 
-            'titleFontSize'           => [
-                'type'        => 'input:text',
-                'label'       => 'Title font size',
+            'titleFontSize' => [
+                'type' => 'input:text',
+                'label' => 'Title font size',
                 'description' => 'Please enter title font size',
-                'default'     => '25px',
-                'sass'    => true
+                'default' => '25px',
+                'sass' => true
             ],
 
-			'backgroundColor' => [
-				'type'    => 'input:color',
-				'label'   => 'Background color',
-				'default' => '#ffffff',
-				'sass'    => true
-			],
-            'descriptionHeaderColor' => [
-                'type'    => 'input:color',
-                'label'   => 'Single contact header color',
-                'default' => '#000000',
-                'sass'    => true
+            'backgroundColor' => [
+                'type' => 'input:color',
+                'label' => 'Background color',
+                'default' => '#ffffff',
+                'sass' => true
             ],
-            'descriptionHeaderFontSize'           => [
-                'type'        => 'input:text',
-                'label'       => 'Single contact header font size',
+            'descriptionHeaderColor' => [
+                'type' => 'input:color',
+                'label' => 'Single contact header color',
+                'default' => '#000000',
+                'sass' => true
+            ],
+            'descriptionHeaderFontSize' => [
+                'type' => 'input:text',
+                'label' => 'Single contact header font size',
                 'description' => 'Please enter header font size',
-                'default'     => '17px',
-                'sass'    => true
+                'default' => '17px',
+                'sass' => true
             ],
             'descriptionColor' => [
-                'type'    => 'input:color',
-                'label'   => 'Single contact description color',
+                'type' => 'input:color',
+                'label' => 'Single contact description color',
                 'default' => '#1e2c32',
-                'sass'    => true
+                'sass' => true
             ],
-            'descriptionFontSize'           => [
-                'type'        => 'input:text',
-                'label'       => 'Single contact description font size',
+            'descriptionFontSize' => [
+                'type' => 'input:text',
+                'label' => 'Single contact description font size',
                 'description' => 'Please enter description font size',
-                'default'     => '14px',
-                'sass'    => true
+                'default' => '14px',
+                'sass' => true
             ],
 
-			'addresses' => [
-				'type'   => 'repeater',
-				'label'  => 'Addresses',
+            'addresses' => [
+                'type' => 'repeater',
+                'label' => 'Addresses',
                 'maxItems' => 15,
-				'fields' => [
-					'title'       => [
-						'type'        => 'input:text',
-						'label'       => 'Title',
-						'description' => 'Please enter title'
-					],
-					'isTitle'     => [
-						'type'        => 'input:switch',
-						'label'       => 'Title(off/on)',
-						'description' => 'Please pick option',
-						'default'     => 1
-					],
-                    'marginUnderTitle'       => [
-                        'type'        => 'input:text',
-                        'label'       => 'margin under title',
+                'fields' => [
+                    'title' => [
+                        'type' => 'input:text',
+                        'label' => 'Title',
+                        'description' => 'Please enter title'
+                    ],
+                    'isTitle' => [
+                        'type' => 'input:switch',
+                        'label' => 'Title(off/on)',
+                        'description' => 'Please pick option',
+                        'default' => 1
+                    ],
+                    'marginUnderTitle' => [
+                        'type' => 'input:text',
+                        'label' => 'margin under title',
                         'description' => 'Please enter margin under title (in px)',
                         'default' => '8px'
 
                     ],
-					'description' => [
-						'type'        => 'editor',
-						'label'       => 'Description',
-						'description' => 'Please enter description'
-					],
-					'button'      => [
-						'type'    => 'input:text',
-						'label'   => 'Button Text',
-						'default' => '',
-					],
-					'isPermalink' => [
-						'type'    => 'input:switch',
-						'label'   => 'Use Permalink Link',
-						'default' => true
-					],
-					'buttonUrl'   => [
-						'type'    => 'input:text',
-						'label'   => 'Button Url',
-						'default' => '#'
-					],
-					'pageLink'    => [
-						'type'     => 'select',
-						'label'    => 'Select pagelink for button',
-						'multiple' => false,
-						'options'  => [
-							'allowClear' => true
-						],
-						'values'   => function () {
-							return Select::postFilter( get_pages( [ 'posts_per_page' => - 1 ] ), [
-								'postID'    => function ( \WP_Post $post ) {
-									return $post->ID;
-								},
-								'permalink' => function ( \WP_Post $post ) {
-									return get_permalink( $post->ID );
-								}
-							] );
-						}
-					],
-					'buttonBlank' => [
-						'type'    => 'input:switch',
-						'label'   => 'Button Url New target',
-						'default' => 1,
-					],
-				],
+                    'description' => [
+                        'type' => 'editor',
+                        'label' => 'Description',
+                        'description' => 'Please enter description'
+                    ],
+                    'button' => [
+                        'type' => 'input:text',
+                        'label' => 'Button Text',
+                        'default' => '',
+                    ],
+                    'isPermalink' => [
+                        'type' => 'input:switch',
+                        'label' => 'Use Permalink Link',
+                        'default' => true
+                    ],
+                    'buttonUrl' => [
+                        'type' => 'input:text',
+                        'label' => 'Button Url',
+                        'default' => '#'
+                    ],
+                    'pageLink' => [
+                        'type' => 'select',
+                        'label' => 'Select pagelink for button',
+                        'multiple' => false,
+                        'options' => [
+                            'allowClear' => true
+                        ],
+                        'values' => function () {
+                            return Select::postFilter(get_pages(['posts_per_page' => -1]), [
+                                'postID' => function (\WP_Post $post) {
+                                    return $post->ID;
+                                },
+                                'permalink' => function (\WP_Post $post) {
+                                    return get_permalink($post->ID);
+                                }
+                            ]);
+                        }
+                    ],
+                    'buttonBlank' => [
+                        'type' => 'input:switch',
+                        'label' => 'Button Url New target',
+                        'default' => 1,
+                    ],
+                ],
 
-			],
+            ],
 
-			'contactFormShortCode' => [
-				'type'        => 'input:text',
-				'label'       => 'Contact Form 7 Shortcode',
-				'description' => ''
-			],
+            'contactFormShortCode' => [
+                'type' => 'input:text',
+                'label' => 'Contact Form 7 Shortcode',
+                'description' => ''
+            ],
 
-			'subscriptionDescription' => [
-				'type'        => 'editor',
-				'label'       => 'Subscription Description',
-				'description' => 'Please enter description'
-			],
-			'messageAfterSentOK'      => [
-				'type'        => 'editor',
-				'label'       => 'Message after form is submited',
-				'description' => 'Please enter message'
-			],
+            'subscriptionDescription' => [
+                'type' => 'editor',
+                'label' => 'Subscription Description',
+                'description' => 'Please enter description'
+            ],
+            'messageAfterSentOK' => [
+                'type' => 'editor',
+                'label' => 'Message after form is submited',
+                'description' => 'Please enter message'
+            ],
 
-			'buttonTextColor'       => [
-				'type'    => 'input:color',
-				'label'   => 'Button Text color',
-				'default' => '#002841',
-				'sass'    => true
+            'buttonTextColor' => [
+                'type' => 'input:color',
+                'label' => 'Button Text color',
+                'default' => '#002841',
+                'sass' => true
 
-			],
-			'buttonBackgroundColor' => [
-				'type'    => 'input:color',
-				'label'   => 'Button Background color',
-				'default' => '#56c1a3',
-				'sass'    => true
-			],
-			'buttonBorderColor'     => [
-				'type'    => 'input:color',
-				'label'   => 'Button border color',
-				'default' => '#56c1a3',
-				'sass'    => true
-			],
+            ],
+            'buttonBackgroundColor' => [
+                'type' => 'input:color',
+                'label' => 'Button Background color',
+                'default' => '#56c1a3',
+                'sass' => true
+            ],
+            'buttonBorderColor' => [
+                'type' => 'input:color',
+                'label' => 'Button border color',
+                'default' => '#56c1a3',
+                'sass' => true
+            ],
 
-			'buttonTextHoverColor'                  => [
-				'type'    => 'input:color',
-				'label'   => 'Button text hover color',
-				'default' => '#56c1a3',
-				'sass'    => true
+            'buttonTextHoverColor' => [
+                'type' => 'input:color',
+                'label' => 'Button text hover color',
+                'default' => '#56c1a3',
+                'sass' => true
 
-			],
-			'buttonBackgroundHoverColorTransparent' => [
-				'type'    => 'input:switch',
-				'label'   => 'Button Background Hover Transparent',
-				'default' => 1,
-				'sass'    => true
-			],
-			'buttonBackgroundHoverColor'            => [
-				'type'    => 'input:color',
-				'label'   => 'Button Background Hover color',
-				'default' => '#56c1a3',
-				'sass'    => true
-			],
+            ],
+            'buttonBackgroundHoverColorTransparent' => [
+                'type' => 'input:switch',
+                'label' => 'Button Background Hover Transparent',
+                'default' => 1,
+                'sass' => true
+            ],
+            'buttonBackgroundHoverColor' => [
+                'type' => 'input:color',
+                'label' => 'Button Background Hover color',
+                'default' => '#56c1a3',
+                'sass' => true
+            ],
 
-			'buttonBorderHoverColor' => [
-				'type'    => 'input:color',
-				'label'   => 'Button Border Hover color',
-				'default' => '#56c1a3',
-				'sass'    => true
-			],
+            'buttonBorderHoverColor' => [
+                'type' => 'input:color',
+                'label' => 'Button Border Hover color',
+                'default' => '#56c1a3',
+                'sass' => true
+            ],
 
-		];
-	}
+        ];
+    }
 }
