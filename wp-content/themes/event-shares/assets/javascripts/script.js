@@ -158,9 +158,10 @@ jQuery(function ($) {
 
     subscribers();
 
+    // animation for menu after page is loaded
     setTimeout(function () {
         $('#top-menu').slideToggle('top-menu-visible');
         $('#top-menu').css('display' ,'flex');
-    }, 1000);
+    }, 500);
 
 });
