@@ -2,96 +2,102 @@
 
 // Overall module styles
 @include overall_module() {
-  $header-color: #002842;
-  overflow: hidden;
+    $header-color: #002842;
+    overflow: hidden;
 
-
-  #three-column-boxes {
-    padding-top: 69px;
-    text-align: center;
-    padding-bottom: 90px;
-    @include media-breakpoint-down(md) {
-      padding-top: 60px;
-      padding-bottom: 10px;
-    }
-
-    .svg-wrapper {
-      //max-width: 160px;
-      width: auto;
-      margin: 0 auto;
-
-      @include transition(0.3s all);
-      svg {
-        max-height: 110px;
-        max-width: 100%;
+    #three-column-boxes {
+        padding-top: 69px;
+        text-align: center;
+        padding-bottom: 90px;
         @include media-breakpoint-down(md) {
-          max-height: 160px;
-        }
-        @include transition(0.3s all);
-        path, polygon, circle {
-          fill: #56C1A3;
-          @include transition(0.3s all);
-        }
-        //.st0{
-        //  fill:#EBEBEB;
-        //}
-
-      }
-      &:hover svg {
-        path, polygon, circle {
-          fill: #56C1A3;
+            padding-top: 60px;
+            padding-bottom: 10px;
         }
 
-      }
-      img {
-        max-height: 110px;
-        height: auto;
-        width: auto;
-        @include media-breakpoint-down(md) {
-          max-height: 160px;
+        .svg-wrapper {
+            //max-width: 160px;
+            width: auto;
+            margin: 0 auto;
+
+            //@include transition(0.3s all);
+            //svg {
+            //  max-height: 110px;
+            //  max-width: 100%;
+            //  @include media-breakpoint-down(md) {
+            //    max-height: 160px;
+            //  }
+            //  @include transition(0.3s all);
+            //  path, polygon, circle {
+            //    fill: #56C1A3;
+            //    @include transition(0.3s all);
+            //  }
+            //  //.st0{
+            //  //  fill:#EBEBEB;
+            //  //}
+            //
+            //}
+            //&:hover svg {
+            //  path, polygon, circle {
+            //    fill: #56C1A3;
+            //  }
+            //
+            // }
+            img {
+                transition: 300ms all;
+                max-height: 110px;
+                height: auto;
+                width: auto;
+                @include media-breakpoint-down(md) {
+                    max-height: 160px;
+                }
+                &:hover {
+                    cursor: pointer;
+                    -moz-transform: scale(1.1);
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
         }
-      }
-    }
 
-    h4 {
-      font-size: 25px;
-      font-family: 'Roboto Condensed', sans-serif;
-      color: $header-color;
-      letter-spacing: 5px;
+        h4 {
+            font-size: 25px;
+            font-family: 'Roboto Condensed', sans-serif;
+            color: $header-color;
+            letter-spacing: 5px;
 
-    }
+        }
 
-    p {
-      font-family: 'Merriweather', serif;
-      font-size: 14px;
-    }
-    a {
-      font-size: 16px;
-    }
+        p {
+            font-family: 'Merriweather', serif;
+            font-size: 14px;
+        }
+        a {
+            font-size: 16px;
+        }
 
-    .title-header {
-      font-family: 'Merriweather', serif;
-      color: #182328;
-      background-color: white;
-      text-align: center;
-      h4 {
-        width: 70%;
-        margin: 0 auto;
-      }
-      @include media-breakpoint-down(md) {
-        padding-bottom: 20px;
-      }
+        .title-header {
+            font-family: 'Merriweather', serif;
+            color: #182328;
+            background-color: white;
+            text-align: center;
+            h4 {
+                width: 70%;
+                margin: 0 auto;
+            }
+            @include media-breakpoint-down(md) {
+                padding-bottom: 20px;
+            }
+        }
+        .description-header {
+            font-size: 25px;
+            font-family: 'Roboto Condensed', sans-serif;
+            color: #002842;
+            letter-spacing: 5px;
+            @include media-breakpoint-down(md) {
+                padding-bottom: 20px;
+            }
+        }
     }
-    .description-header {
-      font-size: 25px;
-      font-family: 'Roboto Condensed', sans-serif;
-      color: #002842;
-      letter-spacing: 5px;
-      @include media-breakpoint-down(md) {
-        padding-bottom: 20px;
-      }
-    }
-  }
 }
 
 // Styles for unique page/post module.
@@ -99,60 +105,60 @@
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
-  background-color: get('backgroundColor');
-  #three-column-boxes {
-    .description-header {
-      font-size: get('titleSize');
-      color: get('titleColor');
-      @include media-breakpoint-up(lg) {
-        padding-bottom: get('paddingUnderTitle');
-      }
-    }
-    .title-header {
-      font-size: get('titleSize');
-      color: get('titleColor');
-      background-color: get('backgroundColor');
-      @include media-breakpoint-up(lg) {
-        padding-bottom: get('paddingUnderTitle');
-      }
-    }
-    .svg-wrapper {
-      svg {
-        path, polygon, circle {
-          fill: get('sectionIconColor');
-          stroke: get('sectionIconColor');
+    background-color: get('backgroundColor');
+    #three-column-boxes {
+        .description-header {
+            font-size: get('titleSize');
+            color: get('titleColor');
+            @include media-breakpoint-up(lg) {
+                padding-bottom: get('paddingUnderTitle');
+            }
         }
-      }
-      &:hover svg {
-        path, polygon, circle {
-          fill: get('sectionIconColorHover');
-          stroke: get('sectionIconColorHover');
+        .title-header {
+            font-size: get('titleSize');
+            color: get('titleColor');
+            background-color: get('backgroundColor');
+            @include media-breakpoint-up(lg) {
+                padding-bottom: get('paddingUnderTitle');
+            }
         }
-      }
-    }
+        //.svg-wrapper {
+        //    svg {
+        //        path, polygon, circle {
+        //            fill: get('sectionIconColor');
+        //            stroke: get('sectionIconColor');
+        //        }
+        //    }
+        //    &:hover svg {
+        //        path, polygon, circle {
+        //            fill: get('sectionIconColorHover');
+        //            stroke: get('sectionIconColorHover');
+        //        }
+        //    }
+        //}
 
-    .md-padd-top {
-      p {
-        font-size: get('singleParagraphFontSize');
-        color: get('singleParagraphColor');
-      }
-    }
-    .sub-header {
+        .md-padd-top {
+            p {
+                font-size: get('singleParagraphFontSize');
+                color: get('singleParagraphColor');
+            }
+        }
+        .sub-header {
 
-      font-size: get('sectionTitleSize');
-      color: get('sectionTitleColor');
+            font-size: get('sectionTitleSize');
+            color: get('sectionTitleColor');
+        }
+        .button {
+            @include media-breakpoint-up(lg) {
+                margin-top: get('paddingUnderButton');
+            }
+            color: get('buttonTextColor');
+            background-color: get('buttonBackgroundColor');
+            font-size: get('buttonFontSize');
+            &:hover {
+                color: get('buttonTextHoverColor');
+                background-color: get('buttonBackgroundHoverColor');
+            }
+        }
     }
-    .button {
-      @include media-breakpoint-up(lg) {
-        margin-top: get('paddingUnderButton');
-      }
-      color: get('buttonTextColor');
-      background-color: get('buttonBackgroundColor');
-      font-size: get('buttonFontSize');
-      &:hover {
-        color: get('buttonTextHoverColor');
-        background-color: get('buttonBackgroundHoverColor');
-      }
-    }
-  }
 }
