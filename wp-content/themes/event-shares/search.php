@@ -230,7 +230,7 @@ $args  = array(
                                                 endif;
                                             endif;
                                             $separator =' ';
-                                            if($date == '' && $author == ''){
+                                            if($date == '' && $author == '' && $enableDate == 'off'){
                                                 $separator = '';
                                             }
                                             else {

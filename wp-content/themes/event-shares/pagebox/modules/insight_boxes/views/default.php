@@ -149,7 +149,7 @@ $insightQuery = new WP_Query($args);
                                             endif;
                                         endif;
                                         $separator =' ';
-                                        if($date == '' && $author == ''){
+                                        if($date == '' && $author == '' && $enableDate == 'off'){
                                             $separator = '';
                                         }
                                         else {
