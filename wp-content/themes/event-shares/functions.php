@@ -360,7 +360,7 @@ function sendToSubscribe()
         // Mail from subscription modal
         $hashFromDB = $wpdb->get_results('SELECT hash FROM ' . $tableName . ' WHERE email = "' . $email . '" AND investor = "' . $investor . '"');
         remove_filter('wp_mail_content_type', 'wpse27856_set_content_type');
-        $headers = array('Content-Type: text/html; charset=UTF-8');
+        $headers = array('Content-Type: text/html; charset=UTF-8', 'Content-Transfer-Encoding: quoted-printable');
         $subject = wpx_theme_get_option('wpx_theme_sign_up_mail_subject');
         $userHash = '/?unsubscribe=' . $hashFromDB[0]->hash;
         $unsubscribeLink = '<a href="' . HOME_URL . $userHash . '">Unsubscribe from this list</a>';
@@ -391,7 +391,7 @@ add_action('wp_ajax_nopriv_sendToSubscribe', 'sendToSubscribe');
 
 // Mail for user after fill in form
 add_action('wpcf7_mail_sent', function () {
-    $headers = array('Content-Type: text/html; charset=UTF-8');
+    $headers = array('Content-Type: text/html; charset=UTF-8', 'Content-Transfer-Encoding: quoted-printable');
     $msg = stripslashes(wpx_theme_get_option('wpx_theme_user_mail_mail_content'));
     $subject = wpx_theme_get_option('wpx_theme_user_mail_subject');
     if (!empty($_POST['your-sub'])) {
