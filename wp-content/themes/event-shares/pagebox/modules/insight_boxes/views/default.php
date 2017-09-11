@@ -147,9 +147,17 @@ $insightQuery = new WP_Query($args);
                                             else:
                                               $date = get_the_date('m.d.Y');
                                             endif;
-                                        endif; ?>
+                                        endif;
+                                        $separator =' ';
+                                        if($date == '' && $author == ''){
+                                            $separator = '';
+                                        }
+                                        else {
+                                            $separator = ' | ';
+                                        }
+                                        ?>
 
-                                        <?= $date.' | ' . $author ?>
+                                        <?= $date . $separator . $author ?>
 
                                     </div>
                                     <div class="col-lg-12 px-0"><h3 class="title-insight"><?= get_the_title() ?></h3>

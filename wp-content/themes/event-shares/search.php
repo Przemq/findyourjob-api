@@ -228,8 +228,16 @@ $args  = array(
                                                 else:
                                                     $date = get_the_date('m.d.Y');
                                                 endif;
-                                            endif; ?>
-                                            <span> <?= $date.' | ' . $author ?></span>
+                                            endif;
+                                            $separator =' ';
+                                            if($date == '' && $author == ''){
+                                                $separator = '';
+                                            }
+                                            else {
+                                                $separator = ' | ';
+                                            }
+                                            ?>
+                                            <span> <?= $date . $separator . $author  ?></span>
                                         </div>
                                         <div class="title-article title-article-equal"><?php the_title() ?></div>
                                         <?php the_excerpt() ?>
