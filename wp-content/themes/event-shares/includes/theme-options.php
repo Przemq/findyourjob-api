@@ -80,10 +80,10 @@ class WPX_Theme_Options {
 	 * @since 0.1.0
 	 */
 	public function add_options_page() {
-		$this->options_page = add_menu_page( $this->title, $this->title, 'manage_options', $this->key, [
-			$this,
-			'admin_page_display'
-		] );
+//		$this->options_page = add_menu_page( $this->title, $this->title, 'manage_options', $this->key, [
+//			$this,
+//			'admin_page_display'
+//		] );
 
 		// Include CMB CSS in the head to avoid FOUC
 		add_action( "admin_print_styles-{$this->options_page}", [ 'CMB2_hookup', 'enqueue_cmb_css' ] );
@@ -106,11 +106,11 @@ class WPX_Theme_Options {
 	 * Add the options metabox to the array of metaboxes
 	 * @since  0.1.0
 	 */
-	function add_options_page_metabox() {
+	public function add_options_page_metabox() {
 
 		$box_options = [
 			'id'          => $this->metabox_id,
-			'title'       => __( 'Example tabs', 'cmb2' ),
+			'title'       => __( 'EventShares Theme Options', 'cmb2' ),
 			'show_names'  => true,
 			'object_type' => 'options-page',
 			'show_on'     => [
@@ -135,57 +135,6 @@ class WPX_Theme_Options {
 		//SECTION: RIGHT PANEL
 		$section = 'panel_';
 
-//		$tabs_setting['tabs'][] = [
-//			'id'     => 'right-panel',
-//			'title'  => __( 'Right Panel', 'cmb2' ),
-//			'fields' => [
-//				[
-//					'name'         => 'First Icon',
-//					'desc'         => 'Set first icon on Right Panel',
-//					'id'           => $prefix . $section . 'icon',
-//					'type'         => 'file',
-//					'preview_size' => [ 100, 100 ],
-//					'options'      => [
-//						'url' => false,
-//					],
-//					'query_args'   => [ 'type' => 'image' ]
-//				],
-//				[
-//					'name'         => 'Second Icon',
-//					'desc'         => 'Set second icon on Right Panel',
-//					'id'           => $prefix . $section . 'icon2',
-//					'type'         => 'file',
-//					'preview_size' => [ 100, 100 ],
-//					'options'      => [
-//						'url' => false,
-//					],
-//					'query_args'   => [ 'type' => 'image' ]
-//				],
-//				[
-//					'name'         => 'Third Icon',
-//					'desc'         => 'Set second icon on Right Panel',
-//					'id'           => $prefix . $section . 'icon3',
-//					'type'         => 'file',
-//					'preview_size' => [ 100, 100 ],
-//					'options'      => [
-//						'url' => false,
-//					],
-//					'query_args'   => [ 'type' => 'image' ]
-//				],
-//				[
-//					'name'    => 'Buttons Background',
-//					'id'      => $prefix . $section . 'icons_bg',
-//					'type'    => 'colorpicker',
-//					'default' => '#d98c28',
-//				],
-//				[
-//					'name'    => 'Buttons Background Hover',
-//					'id'      => $prefix . $section . 'icons_bg_hover',
-//					'type'    => 'colorpicker',
-//					'default' => '#bf5700',
-//				]
-//			]
-//		];
 
 		//SECTION: Footer
 		$section = 'footer_';
@@ -442,39 +391,7 @@ class WPX_Theme_Options {
 
 			]
 		];
-//
-//		//REGISTER
-//		$section = 'register_';
-//
-//		$tabs_setting['tabs'][] = [
-//			'id'     => 'register',
-//			'title'  => __( 'Register', 'cmb2' ),
-//			'fields' => [
-//				[
-//					'id'      => $prefix . $section . 'emails',
-//					'type'    => 'group',
-//					'options' => [
-//						'group_title'   => __( 'Email {#}', 'cmb2' ),
-//						'add_button'    => __( 'Add email', 'cmb2' ),
-//						'remove_button' => __( 'Remove email', 'cmb2' ),
-//						'sortable'      => false
-//					],
-//					'fields'  => [
-//						[
-//							'name' => 'Email for new user pending notification',
-//							'id'   => $prefix . $section . 'email',
-//							'type' => 'text'
-//						],
-//					]
-//				],
-//				[
-//					'name' => 'Email body',
-//					'id'   => $prefix . $section . 'body',
-//					'type' => 'wysiwyg'
-//				],
-//			],
-//
-//		];
+
 
 		//SEARCH
 		$section = 'search_';

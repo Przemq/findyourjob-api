@@ -244,13 +244,14 @@ $args  = array(
                             ?>
                             <script>
                                 $(document).ready(function () {
-
+                                    $('.see_more a').on('click', function (e) {
+                                        e.preventDefault();
+                                    });
                                     $('.single-background').on('click', function () {
                                         var link = $(this).find('.see_more a').attr('href');
                                         window.open(link, '_blank');
                                     })
                                 });
-
                             </script>
                         </div>
                     </div>
