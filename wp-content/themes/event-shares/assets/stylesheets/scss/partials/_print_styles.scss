@@ -1,54 +1,54 @@
 @media print {
-  header {
-    .ps-logo-for-printing {
-      display: block !important;
+    header {
+        .ps-logo-for-printing {
+            display: block !important;
+        }
     }
-  }
-  #wpx-eventshare-header {
-    position: static;
-  }
-  #top-menu {
-    display: none !important;
-  }
-  footer {
-    display: none;
-  }
-  .wpx-m3a7fc34e {
-    display: none;
-  }
-  h2::first-letter {
-    margin-top: 0;
-  }
-  h6::first-letter {
-    margin-top: 0;
-  }
+    #wpx-eventshare-header {
+        position: static;
+    }
+    #top-menu {
+        display: none !important;
+    }
+    footer {
+        display: none;
+    }
+    .wpx-m3a7fc34e {
+        display: none;
+    }
+    h2::first-letter {
+        margin-top: 0;
+    }
+    h6::first-letter {
+        margin-top: 0;
+    }
 
-  // styles for post module
+    // styles for post module
 
     iframe {
-      display: none;
+        display: none;
     }
     .media-container {
-      display: block;
-      position: relative;
-      page-break-before: always;
-      page-break-inside: avoid;
+        display: block;
+        position: relative;
+        page-break-before: always;
+        page-break-inside: avoid;
     }
-  .ps-button-all-entries {
-    display: none;
-  }
-  .wpx-m17674a35 {
-    display: none;
-  }
-  .wpx-button-hamburger {
-    display: none;
-  }
-  .fixed-action-btn {
-    display: none;
-  }
-  .printIcon {
-    display: none;
-  }
+    .ps-button-all-entries {
+        display: none;
+    }
+    .wpx-m17674a35 {
+        display: none;
+    }
+    .wpx-button-hamburger {
+        display: none;
+    }
+    .fixed-action-btn {
+        display: none;
+    }
+    .printIcon {
+        display: none;
+    }
 
-  // end styles for post module
+    // end styles for post module
 }
