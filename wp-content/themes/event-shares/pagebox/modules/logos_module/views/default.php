@@ -29,7 +29,7 @@ $module = $this->getModule();
                     ?>
                     <a class="box col-sm-6 col-md-3" <?= $isBlank ?>
                        href="<?php if ($isInternal) echo $internalLink; else echo $section->getInput('logoUrl') ?>">
-                        <?php echo wp_get_attachment_image($ImageID, 'full', false, ['class' => 'media-image']) ?>
+                        <?php echo wp_get_attachment_image($ImageID, 'medium', false, ['class' => 'media-image']) ?>
                     </a>
                 <?php endforeach; ?>
             </div>
