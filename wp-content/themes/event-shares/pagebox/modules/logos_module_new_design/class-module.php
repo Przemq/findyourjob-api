@@ -138,8 +138,9 @@ class LogosModuleNew extends AbstractModule implements StaticCacheInterface
                     ],
                     'logoImage' => [
                         'type' => 'media:image',
-                        'label' => 'Set image for logo',
+                        'label' => 'Set image for logo (SVG file)',
                         'multiple' => false,
+                        'description' => 'Please, use only svg files',
                         'unique' => false,
                         'aspectRatio' => '16:9',
                     ],
