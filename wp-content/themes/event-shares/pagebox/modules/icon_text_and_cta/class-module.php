@@ -86,7 +86,7 @@ class IconTextAndCTA extends AbstractModule implements StaticCacheInterface {
 
 			'buttons'      => [
 				'type'   => 'repeater',
-				'label'  => 'Table',
+				'label'  => 'Buttons',
 				'fields' => [
 					'buttonTitle'    => [
 						'type'    => 'input:text',
@@ -95,8 +95,8 @@ class IconTextAndCTA extends AbstractModule implements StaticCacheInterface {
 					],
 					'buttonHasImage' => [
 						'type'    => 'input:switch',
-						'label'   => 'Buttons has Image',
-						'default' => 0,
+						'label'   => 'Buttons has Image (NO/YES)',
+						'default' => true,
 					],
 					'buttonImage'   => [
 						'type'        => 'media:image',
@@ -110,11 +110,29 @@ class IconTextAndCTA extends AbstractModule implements StaticCacheInterface {
 						'label'   => 'Use document or external link? (Link/Document)',
 						'default' => true,
 					],
-					'buttonPermalink' => [
+					'internalLink' => [
 						'type'    => 'input:text',
-						'label'   => 'Button Permalink ',
+						'label'   => 'Button External Link',
 						'default' => "#"
 					],
+                    'permalink'           => [
+                        'type'     => 'select',
+                        'label'    => 'Select permalink for button',
+                        'multiple' => false,
+                        'options'  => [
+                            'allowClear' => true
+                        ],
+                        'values'   => function () {
+                            return Select::postFilter( get_pages( [ 'posts_per_page' => - 1 ] ), [
+                                'postID'    => function ( \WP_Post $post ) {
+                                    return $post->ID;
+                                },
+                                'permalink' => function ( \WP_Post $post ) {
+                                    return get_permalink( $post->ID );
+                                }
+                            ] );
+                        }
+                    ],
 					'buttonUrl'       => [
 						'type'     => 'select',
 						'label'    => 'Select document',

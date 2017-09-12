@@ -9,6 +9,7 @@
 $module      = $this->getModule();
 $title       = $this->getInput( 'title' );
 $description = $this->getEditor( 'description' )->getContent();
+
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container">
@@ -30,7 +31,14 @@ $description = $this->getEditor( 'description' )->getContent();
 					$buttonText = $button->getInput( 'buttonTitle' );
 					$blank      = $button->getInput( 'buttonBlankLink' )->getValue() ? 'target=_blank' : "";
 					if ( !$button->getInput( 'isPermalink' )->getValue() ) {
-						$url = $button->getInput( 'buttonPermalink' );
+						$internalLink = $button->getInput( 'internalLink' );
+                        $permalink = $button->getSelect('permalink')->getValue()['permalink'];
+                        if(empty($permalink)){
+                            $url = $internalLink;
+                        }
+                        else{
+                            $url = $permalink;
+                        }
 					} else {
 						$url = $button->getSelect( 'buttonUrl' )->getValue()['permalink'];
 

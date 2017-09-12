@@ -28,10 +28,11 @@
     iframe {
       display: none;
     }
-    img {
-      page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
-      page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
-      page-break-inside: avoid; /* or 'auto' */
+    .media-container {
+      display: block;
+      position: relative;
+      page-break-before: always;
+      page-break-inside: avoid;
     }
   .ps-button-all-entries {
     display: none;
