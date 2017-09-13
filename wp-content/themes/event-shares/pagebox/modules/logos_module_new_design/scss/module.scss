@@ -28,9 +28,9 @@
     margin-left: 0;
     .box {
       margin: 0 auto;
-    //  padding: 0;
       min-height: 100px;
       display: flex;
+      overflow: hidden;
     }
     img {
       padding: 15px;
