@@ -22,17 +22,24 @@
     h6::first-letter {
         margin-top: 0;
     }
+    h4::first-letter {
+        margin-top: 0;
+    }
 
     // styles for post module
 
     iframe {
         display: none;
     }
+    article {
+        page-break-after: always;
+    }
     .media-container {
         display: block;
         position: relative;
         page-break-before: always;
         page-break-inside: avoid;
+
     }
     .ps-button-all-entries {
         display: none;
@@ -51,4 +58,49 @@
     }
 
     // end styles for post module
+
+    // styles for home page
+    .shape {
+        display: none;
+    }
+    .bottom-shape {
+        display: none;
+    }
+    #home-banner {
+        padding-top: 20px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        .btn {
+            display: none;
+        }
+        p {
+            width: 60%;
+        }
+    }
+    .large-text-banner {
+        padding-bottom: 0;
+        margin-bottom: 0;
+
+    }
+    #home-page-our-etfs {
+        padding-top: 0;
+        margin-top: 0;
+        page-break-after: always;
+        .table {
+            display: block;
+        }
+    }
+    #in-the-media {
+        display: none;
+    }
+    #three-column-boxes {
+        page-break-inside: avoid !important;
+        .title-header {
+            margin-bottom: 20px;
+        }
+        .single-box {
+            page-break-inside: avoid !important;
+        }
+    }
+    // end of styles for home page
 }
