@@ -26,7 +26,7 @@ $isDescription = $this->getInput( 'isDescription' )->getValue();
 				$sectionImageID = $section->getMedia( 'sectionImage' )->getImage()->getId();
 				$isButtonEnable = $section->getInput( 'enableButton' )->getValue();
 				?>
-                <div
+                <div data-aos-delay="<?= 200 * $index ?>" data-aos="fade-right"
                      class="aos-init aos-animate col-lg-4 md-padd-bottom">
                     <div class="svg-wrapper first-svg" xmlns="http://www.w3.org/2000/svg" version="1.1"> <?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => '' ] ) ?></div>
                     <div class="md-padd-top">

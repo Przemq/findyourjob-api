@@ -342,6 +342,7 @@
   }
   background-color: get('bgcolor');
   article {
+    page-break-after: always;
     .text {
       p {
         font-size: get('textFontSize');

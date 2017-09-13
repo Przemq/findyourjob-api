@@ -1,4 +1,8 @@
 @media print {
+    * {
+        -webkit-transition: none !important;
+        transition: none !important;
+    }
     header {
         .ps-logo-for-printing {
             display: block !important;
