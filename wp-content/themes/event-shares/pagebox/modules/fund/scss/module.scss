@@ -1,0 +1,14 @@
+@import "module-variables";
+
+// Overall module styles
+@include overall_module() {
+
+}
+
+// Styles for unique page/post module.
+// In this scope you can use special functions to get data from pageboxes:
+// - get( key )
+// - get_deep( keys... )
+@include specified_module_loop() {
+
+}
