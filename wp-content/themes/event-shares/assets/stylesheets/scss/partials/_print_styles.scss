@@ -16,10 +16,19 @@
     .wpx-m3a7fc34e {
         display: none;
     }
+    h1::first-letter {
+        margin-top: 0;
+    }
     h2::first-letter {
         margin-top: 0;
     }
+    h3::first-letter {
+        margin-top: 0;
+    }
     h6::first-letter {
+        margin-top: 0;
+    }
+    h5::first-letter {
         margin-top: 0;
     }
     h4::first-letter {
@@ -31,16 +40,16 @@
     iframe {
         display: none;
     }
-    article {
-        page-break-after: always;
-    }
-    .media-container {
-        display: block;
-        position: relative;
-        page-break-before: always;
-        page-break-inside: avoid;
-
-    }
+    //article {
+    //    page-break-after: always;
+    //}
+    //.media-container {
+    //    display: block;
+    //    position: relative;
+    //    page-break-before: always;
+    //    page-break-inside: avoid;
+    //
+    //}
     .ps-button-all-entries {
         display: none;
     }
@@ -65,6 +74,9 @@
     }
     .bottom-shape {
         display: none;
+        .shape-image {
+            display: none;
+        }
     }
     #home-banner {
         padding-top: 20px;
