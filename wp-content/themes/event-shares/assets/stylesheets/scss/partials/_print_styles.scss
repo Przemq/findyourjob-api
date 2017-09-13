@@ -76,13 +76,16 @@
                 display: none !important;
                 .parallax-window {
                     display: none;
-                    background: none;
+                    background: none !important;
                 }
                 .parallax-mask-fix {
                     display: none;
                 }
                 .image-punch {
                     display: none;
+                }
+                svg {
+                    display: none!important;
                 }
             }
         }
@@ -130,4 +133,13 @@
         display: none;
     }
     // end of styles for home page
+
+    // about us page
+    .timeline {
+        display: none;
+    }
+    #sub-nav {
+        display: none;
+    }
+    // END about us page
 }
