@@ -76,6 +76,9 @@
         display: none;
         .shape-image {
             display: none;
+            svg {
+                display: none;
+            }
         }
     }
     #home-banner {
@@ -113,6 +116,10 @@
         .single-box {
             page-break-inside: avoid !important;
         }
+    }
+
+    .video-and-text {
+        display: none;
     }
     // end of styles for home page
 }
