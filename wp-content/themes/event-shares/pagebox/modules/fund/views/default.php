@@ -27,14 +27,12 @@ switch ( WP_ENVIRONMENT ) {
 }
 ?>
 <div class="<?= $module->getClass() ?>">
-    <div class="container">
-        <link rel="stylesheet" type="text/css"
-              href="https://<?= $env; ?>.kurtosys.io/tools/ksys407/static/ksys407_style_<?= $environment; ?>.css">
-        <div class="ksys-wrapper">
-            <div class="ksys407_tools_fund_page" isin="<?= $isin; ?>" culture="en"
-                 baseurl="https://api-uk18.kurtosys.io/tools/ksys407/">
-            </div>
+    <link rel="stylesheet" type="text/css"
+          href="https://<?= $env; ?>.kurtosys.io/tools/ksys407/static/ksys407_style_<?= $environment; ?>.css">
+    <div class="ksys-wrapper">
+        <div class="ksys407_tools_fund_page" isin="<?= $isin; ?>" culture="en"
+             baseurl="https://api-uk18.kurtosys.io/tools/ksys407/">
         </div>
-        <script src="https://api-uk18.kurtosys.io/tools/ksys407/static/ksys407_tools_<?= $environment; ?>.js"></script>
     </div>
+    <script src="https://api-uk18.kurtosys.io/tools/ksys407/static/ksys407_tools_<?= $environment; ?>.js"></script>
 </div>
