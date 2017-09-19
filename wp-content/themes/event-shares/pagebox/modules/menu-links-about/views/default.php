@@ -42,20 +42,25 @@ if ($this->getInput('isImage')->getValue()) {
             $buttonText = $box->getInput('buttonText');
             $anchor = $box->getInput('anchor')->getValue();
             $tabID = $box->getInput('insightID')->getValue();
-            ?>
+
+            // Create correct link
+            if(!empty($tabID)) {
+                $link = $link . '#' . $tabID;
+            }
+	        ?>
             <li class="col-lg-<?= $gridNumber ?> col-sm-12">
                 <div id="<?= $anchor ?>" class="menu-special-hover">
-                    <a href="<?= $link.'/#'.$tabID ?>" <?= $newTarget ?>>
+                    <a href="<?= $link; ?>" <?= $newTarget ?>>
                         <h4><?= $box->getInput('title')->getValue(); ?></h4>
                     </a>
                     <?php if (!empty($box->getInput('subTitle')->getValue())): ?>
-                    <a href="<?= $link.'/#'.$tabID ?>" <?= $newTarget ?>><h5><?= $box->getInput('subTitle')->getValue() ?></h5></a>
+                    <a href="<?= $link; ?>" <?= $newTarget ?>><h5><?= $box->getInput('subTitle')->getValue() ?></h5></a>
                     <?php endif; ?>
                     <?= $box->getEditor('description')->getContent(); ?>
                     <?php if (!empty($buttonText) && $buttonText !== "") : ?>
                 </div>
                 <?php endif;?>
-                <a href="<?= $link.'/#'.$tabID ?>" <?= $newTarget ?>
+                <a href="<?= $link; ?>" <?= $newTarget ?>
                    class="learn-description"><?= $buttonText ?></a>
             </li>
 
@@ -79,7 +84,7 @@ if ($this->getInput('isImage')->getValue()) {
             $tabID = $box->getInput('insightID')->getValue();
             ?>
             <li class="col-lg-<?= $gridNumber ?> col-sm-12 <?= $module->isActive($link) ?>">
-                <h4><a href="<?= $link.'/#'.$tabID ?>" <?= $isBlank ?>><?= $box->getInput('title') ?></a></h4>
+                <h4><a href="<?= $link; ?>" <?= $isBlank ?>><?= $box->getInput('title') ?></a></h4>
             </li>
             <?php
         endforeach;
