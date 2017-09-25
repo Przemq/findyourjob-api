@@ -90,12 +90,30 @@ class IconWithTwoColumnText extends AbstractModule implements StaticCacheInterfa
 				'fields' => [
 					'rowUrl' => [
 						'type'  => 'input:text',
-						'label' => 'Enter link if applicable',
+						'label' => 'Enter external link',
 					],
+                    'linkURL'       => [
+                        'type'     => 'select',
+                        'label'    => 'Select link',
+                        'multiple' => false,
+                        'options'  => [
+                            'allowClear' => true
+                        ],
+                        'values'   => function () {
+                            return Select::postFilter( get_pages( [ 'posts_per_page' => - 1 ] ), [
+                                'postID'    => function ( \WP_Post $post ) {
+                                    return $post->ID;
+                                },
+                                'permalink' => function ( \WP_Post $post ) {
+                                    return get_permalink( $post->ID );
+                                }
+                            ] );
+                        }
+                    ],
 					'rowUrlBlank' => [
 						'type'  => 'input:switch',
 						'label' => 'Link new target',
-						'default' => 1
+						'default' => true
 					],
 					'rowBoldText' => [
 						'type'  => 'input:text',

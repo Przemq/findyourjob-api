@@ -10,6 +10,7 @@ $module      = $this->getModule();
 $title       = $this->getInput( 'title' );
 $description = $this->getEditor( 'description' )->getContent();
 $table       = $this->getEditor( 'description' )->getContent();
+
 ?>
 <div class="<?= $module->getClass() ?>">
     <div class="container"><?= createTaskLink('EV-18') ?>
@@ -43,16 +44,25 @@ $table       = $this->getEditor( 'description' )->getContent();
 					<?php
 					foreach ( $this->getRepeater( 'rows' ) as $index => $repeater )
 						:
+                        /* @var \Nurture\Pagebox\Module\Scope $repeater */
 						$rowUrl = $repeater->getInput( 'rowUrl' );
 						$blank = $repeater->getInput( 'rowUrlBlank' )->getValue() ? 'target=_blank' : "";
+						$internalLink = $repeater->getSelect('linkURL')->getValue()['permalink'];
+						$url = '';
+						if (empty($internalLink)) {
+						    $url = $rowUrl;
+                        }
+                        else {
+						    $url = $internalLink;
+                        }
 
 						?>
                         <tr class="aos-init" data-aos="zoom-in-left" data-aos-delay="<?=150*$index?>ms">
 
 
-                            <th><a  href="<?= $rowUrl ?>" <?= $blank ?>>
+                            <th><a  href="<?= $url ?>" <?= $blank ?>>
 									<?= $repeater->getInput( 'rowBoldText' ); ?></a></th>
-                            <td><a  href="<?= $rowUrl ?>" <?= $blank ?>><?= $repeater->getInput( 'rowText' ); ?></a></td>
+                            <td><a  href="<?= $url ?>" <?= $blank ?>><?= $repeater->getInput( 'rowText' ); ?></a></td>
 
                         </tr>
 
