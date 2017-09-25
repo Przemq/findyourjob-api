@@ -63,6 +63,12 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'default' => '#002841',
                 'sass' => true
             ],
+            'fullWidthHeader' => [
+                'type' => 'input:switch',
+                'label' => 'Full width header background? (NO/YES) ',
+                'description' => 'Select full width header background or container width',
+                'default' => true,
+            ],
             'articleText' => [
                 'type' => 'editor',
                 'label' => 'Article text ',
