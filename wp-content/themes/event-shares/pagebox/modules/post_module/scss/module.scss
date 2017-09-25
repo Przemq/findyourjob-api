@@ -331,12 +331,18 @@
     margin-top: 10px;
   }
 }
-
+.header-part {
+ padding-bottom: 15px;
+}
 // Styles for unique page/post module.
 // In this scope you can use special functions to get data from pageboxes:
 // - get( key )
 // - get_deep( keys... )
 @include specified_module_loop() {
+
+  .header-part {
+    background-color: get('headerBackground');
+  }
   .grey-background {
     background-color: get('footnotesBackgroundColor');
   }

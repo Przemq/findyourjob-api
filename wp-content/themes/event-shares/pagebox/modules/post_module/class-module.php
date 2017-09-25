@@ -56,6 +56,13 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'description' => 'This button will be at top of the module',
                 'default' => true,
             ],
+            'headerBackground' => [
+                'type' => 'input:color',
+                'label' => 'Header background',
+                'description' => 'Please, select header background color',
+                'default' => '#002841',
+                'sass' => true
+            ],
             'articleText' => [
                 'type' => 'editor',
                 'label' => 'Article text ',
@@ -71,7 +78,7 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'type' => 'input:color',
                 'label' => 'Title font color',
                 'description' => 'Please, select title color',
-                'default' => '#1e2c32',
+                'default' => '#55c2a2',
                 'sass' => true
             ],
             'textFontSize' => [
@@ -85,7 +92,7 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'type' => 'input:color',
                 'label' => 'Date and author text color',
                 'description' => 'Please, select date and author text color',
-                'default' => '#849199',
+                'default' => '#55c2a2',
                 'sass' => true
             ],
             'blockquoteFontSize' => [
