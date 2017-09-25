@@ -106,6 +106,7 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'label' => 'Show media? (NO/YES) ',
                 'description' => 'Enable or disable media in post',
                 'default' => true,
+
             ],
             'typeOfMedia' => [
                 'type' => 'select',

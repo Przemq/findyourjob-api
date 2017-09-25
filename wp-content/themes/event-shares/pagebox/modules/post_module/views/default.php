@@ -169,6 +169,7 @@ $videoURL = $this->getInput('videoURL')->getValue();
                         'post__not_in' => array(get_the_ID())
                     );
 
+
                     $posts = '';
                     $posts = new WP_Query($postArray);
 
