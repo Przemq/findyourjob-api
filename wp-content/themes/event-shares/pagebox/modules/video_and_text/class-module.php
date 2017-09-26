@@ -34,7 +34,7 @@ class VideoAndText extends AbstractModule implements StaticCacheInterface {
 		return [
 			'title'       => [
 				'type'  => 'input:text',
-				'label' => 'Set title ',
+				'label' => 'Set titles ',
                 'description' => 'Please, enter title',
 			],
             'titleFontSize'       => [
