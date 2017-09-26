@@ -1,69 +1,6 @@
 <footer>
     <?= createTaskLink('EV-21') ?>
-    <style>
-
-        /*  CUSTOM STYLES FROM WPX_THEME_OPTIONS */
-
-        /*  Footer left/right editor   */
-
-        footer #footer #left-column {
-            font-size: <?=wpx_theme_get_option('wpx_theme_footer_small_text_size')?>;
-            color: <?=wpx_theme_get_option('wpx_theme_footer_small_text_color')?>;
-        }
-
-        footer #footer #right-column {
-            font-size: <?=wpx_theme_get_option('wpx_theme_footer_big_text_size')?>;
-            color: <?=wpx_theme_get_option('wpx_theme_footer_big_text_color')?>;
-        }
-
-        /*End Footer left/right enditor*/
-
-        /*  Footer menu links   */
-        footer #menu-items ul li a {
-            -webkit-transition: 300ms all;
-            -moz-transition: 300ms all;
-            -ms-transition: 300ms all;
-            -o-transition: 300ms all;
-            transition: 300ms all;
-            color: <?=wpx_theme_get_option('wpx_theme_footer_link_color')?>;
-        }
-
-        footer #menu-items ul li a:hover {
-            color: <?=wpx_theme_get_option('wpx_theme_footer_link_color_hover')?>;
-        }
-
-        /*  End Footer menu links   */
-
-        /* Footer icon custom color*/
-        footer #footer-nav svg path, footer #footer-nav svg rect {
-            fill: <?=wpx_theme_get_option('wpx_theme_footer_icon_color')?>;
-
-        }
-
-        footer #footer-nav svg:hover path, footer #footer-nav svg:hover rect {
-            fill: <?=wpx_theme_get_option('wpx_theme_footer_icon_color_hover')?>;
-
-        }
-
-        /*End Footer icon custom color*/
-
-        /*  Footer Copyrights styles   */
-        footer #copyright {
-            color: <?=wpx_theme_get_option('wpx_theme_footer_copyright_color')?>;
-            font-size: <?=wpx_theme_get_option('wpx_theme_footer_copyright_size')?>;
-
-        }
-        footer #bottom-footer-background {
-            background-color: <?=wpx_theme_get_option('wpx_theme_footer_bottom_footer_background_color')?>;
-
-        }
-        footer #bottom-footer-background p {
-            font-size: <?=wpx_theme_get_option('wpx_theme_footer_bottom_footer_font_size')?>;
-            color: <?=wpx_theme_get_option('wpx_theme_footer_bottom_footer_text_color')?>;
-        }
-        /*  End Footer Copyrights styles   */
-
-    </style>
+<!--   footer styles in header.php - moved because of w3 validator-->
     <div class="container">
         <div class="row" id="footer">
             <div class="col-md-3 col-sm-10"
@@ -141,11 +78,11 @@
     </div>
 </footer>
 <?php wp_footer(); ?>
-</body>
 <?php
 /**
  * Google Analytics
  */
 include_once 'includes/analyticstracking.php';
 ?>
+</body>
 </html>

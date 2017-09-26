@@ -32,7 +32,7 @@ $buttonText = $this->getInput('buttonText')->getValue();
                     <?= $paragraphText; ?>
                     <div class="share-icons row">
                         <div class="col-md-2 col-sm-2 col-xs-2 col-lg-3 toggle-icons">
-                            <img class="style-svg" src="<?= THEME_IMAGES_URI ?>/shareIconArrow.svg">
+                            <img class="style-svg" src="<?= THEME_IMAGES_URI ?>/shareIconArrow.svg" alt="share icon">
                             <div class="share-button"><?= $buttonText ?></div>
                         </div>
                         <div class="col-md-10 col-sm-10 col-cs-10 col-lg-9 icons">
@@ -41,32 +41,32 @@ $buttonText = $this->getInput('buttonText')->getValue();
                                             href="<?= $facebook ?>"
                                             target="_blank">
                                         <div class="icon"><img
-                                                    src="<?= THEME_IMAGES_URI; ?>/white_facebook.svg"></div>
+                                                    src="<?= THEME_IMAGES_URI; ?>/white_facebook.svg" alt="facebook icon"></div>
                                     </a></li>
                                 <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="2s"><a
                                             data-aos-delay="300ms"
                                             href="<?= $twitter ?>"
                                             target="_blank">
                                         <div class="icon"><img
-                                                    src="<?= THEME_IMAGES_URI; ?>/Twitter_white.svg"></div>
+                                                    src="<?= THEME_IMAGES_URI; ?>/Twitter_white.svg" alt="twitter icon"></div>
                                     </a></li>
                                 <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a
                                             href="<?= $linked ?>"
                                             target="_blank">
-                                        <div class="icon"><img src="<?= THEME_IMAGES_URI; ?>/Linkedin_white.svg"></div>
+                                        <div class="icon"><img src="<?= THEME_IMAGES_URI; ?>/Linkedin_white.svg" alt="linkedIn icon"></div>
                                     </a>
                                 </li>
                                 <li class="aos-init" data-aos="zoom-in-left" data-aos-delay="3s"><a
                                             href="<?= $stockTwits ?>"
                                             target="_blank">
                                         <div class="icon"><img style="padding: 13px"
-                                                               src="<?= THEME_IMAGES_URI; ?>/StockTwits-Logo-White.svg">
+                                                               src="<?= THEME_IMAGES_URI; ?>/StockTwits-Logo-White.svg" alt="stockTwits icon">
                                         </div>
                                     </a>
                                 </li>
                                 <li class="aos-init copyLink" data-aos="zoom-in-left" data-aos-delay="3s">
                                     <div class="icon"><img style="padding: 12px"
-                                                           src="<?= THEME_IMAGES_URI; ?>/copyLink.svg">
+                                                           src="<?= THEME_IMAGES_URI; ?>/copyLink.svg" alt="copy link icon">
                                     </div>
                                 </li>
                             </ul>

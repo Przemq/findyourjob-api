@@ -31,7 +31,7 @@ if ($this->getInput('isImage')->getValue()) {
     <ul class="row sub-menu-flex sub-menu" <?= $backgroundImage ?>>
         <?php
         foreach ($repeater as $index => $box)
-            /* @var \Nurture\Pagebox\Module\Scope $box*/
+            /* @var \Nurture\Pagebox\Module\Scope $box */
 //		    Links for buttons
             :
             $permalink = $box->getInput('permalink')->getValue();
@@ -40,26 +40,29 @@ if ($this->getInput('isImage')->getValue()) {
             $newTarget = $isBlank ? 'target=_blank' : '';
             $link = $box->getInput('isPermalink')->getValue() ? $permalink : $pageLink;
             $buttonText = $box->getInput('buttonText');
-            $anchor = $box->getInput('anchor')->getValue();
             $tabID = $box->getInput('insightID')->getValue();
 
             // Create correct link
-            if(!empty($tabID)) {
+            if (!empty($tabID)) {
                 $link = $link . '#' . $tabID;
             }
-	        ?>
+
+
+            ?>
             <li class="col-lg-<?= $gridNumber ?> col-sm-12">
-                <div id="<?= $anchor ?>" class="menu-special-hover">
+                <div class="menu-special-hover">
                     <a href="<?= $link; ?>" <?= $newTarget ?>>
                         <h4><?= $box->getInput('title')->getValue(); ?></h4>
                     </a>
                     <?php if (!empty($box->getInput('subTitle')->getValue())): ?>
-                    <a href="<?= $link; ?>" <?= $newTarget ?>><h5><?= $box->getInput('subTitle')->getValue() ?></h5></a>
+                        <a href="<?= $link; ?>" <?= $newTarget ?>><h5><?= $box->getInput('subTitle')->getValue() ?></h5>
+                        </a>
                     <?php endif; ?>
                     <?= $box->getEditor('description')->getContent(); ?>
                     <?php if (!empty($buttonText) && $buttonText !== "") : ?>
                 </div>
-                <?php endif;?>
+                <?php endif;
+                ?>
                 <a href="<?= $link; ?>" <?= $newTarget ?>
                    class="learn-description"><?= $buttonText ?></a>
             </li>
@@ -73,7 +76,7 @@ if ($this->getInput('isImage')->getValue()) {
     <ul class="row sub-menu-mobile-flex">
         <?php
         foreach ($this->getRepeater('boxes') as $index => $box)
-            /* @var \Nurture\Pagebox\Module\Scope $box*/
+            /* @var \Nurture\Pagebox\Module\Scope $box */
 //		    Links for buttons
             :
             $permalink = $box->getInput('permalink')->getValue();

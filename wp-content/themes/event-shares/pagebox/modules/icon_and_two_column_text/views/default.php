@@ -19,7 +19,7 @@ $table       = $this->getEditor( 'description' )->getContent();
                 <?php $sectionImageID = $this->getMedia( 'sectionImage' )->getImage()->getId();?>
 	            <?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => 'style-svg' ] ) ?>
             </div>
-            <div class="col-lg-4 col-12" id="left-column">
+            <div class="col-lg-4 col-12" id="left-part">
                 <h4><?= $title ?></h4>
 				<?= $description ?>
 

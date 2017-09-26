@@ -47,8 +47,6 @@ $buttonRight = $this->getInput('buttonRightTitle');
             </div>
 
             <div class="col-lg-6 pull-lg-6 text-content" id="home-banner">
-                <!--                <h2>--><? //= $title ?><!--<span class="header-second-color">-->
-                <? //= $titleInner ?><!--</span></h2>-->
                 <?= $this->getEditor('title')->getValue(); ?>
                 <?= $description ?>
                 <?php

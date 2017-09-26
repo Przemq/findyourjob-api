@@ -44,7 +44,7 @@
     }
 
 
-    #left-column {
+    #left-part {
       margin-right: 50px;
     }
 
@@ -111,7 +111,7 @@
 
     $colorBackgroundHover: get('buttonBackgroundHoverColor');
     $opacity: get('buttonBackgroundHoverOpacity');
-    #left-column {
+    #left-part {
       .button {
         color: get('buttonTextColor');
         background-color: get('buttonBackgroundColor');

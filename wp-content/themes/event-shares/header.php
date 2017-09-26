@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title><?php wp_title(''); ?></title>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -122,6 +123,70 @@
         header nav .wpx-search-mobile .mobile-search .search-mobile-button {
             background: <?= $menu_background_search_color_mobile?>;
         }
+
+
+        /*  CUSTOM STYLES FROM WPX_THEME_OPTIONS */
+
+        /*  Footer left/right editor   */
+
+        footer #footer #left-column {
+            font-size: <?=wpx_theme_get_option('wpx_theme_footer_small_text_size')?>;
+            color: <?=wpx_theme_get_option('wpx_theme_footer_small_text_color')?>;
+        }
+
+        footer #footer #right-column {
+            font-size: <?=wpx_theme_get_option('wpx_theme_footer_big_text_size')?>;
+            color: <?=wpx_theme_get_option('wpx_theme_footer_big_text_color')?>;
+        }
+
+        /*End Footer left/right enditor*/
+
+        /*  Footer menu links   */
+        footer #menu-items ul li a {
+            -webkit-transition: 300ms all;
+            -moz-transition: 300ms all;
+            -ms-transition: 300ms all;
+            -o-transition: 300ms all;
+            transition: 300ms all;
+            color: <?=wpx_theme_get_option('wpx_theme_footer_link_color')?>;
+        }
+
+        footer #menu-items ul li a:hover {
+            color: <?=wpx_theme_get_option('wpx_theme_footer_link_color_hover')?>;
+        }
+
+        /*  End Footer menu links   */
+
+        /* Footer icon custom color*/
+        footer #footer-nav svg path, footer #footer-nav svg rect {
+            fill: <?=wpx_theme_get_option('wpx_theme_footer_icon_color')?>;
+
+        }
+
+        footer #footer-nav svg:hover path, footer #footer-nav svg:hover rect {
+            fill: <?=wpx_theme_get_option('wpx_theme_footer_icon_color_hover')?>;
+
+        }
+
+        /*End Footer icon custom color*/
+
+        /*  Footer Copyrights styles   */
+        footer #copyright {
+            color: <?=wpx_theme_get_option('wpx_theme_footer_copyright_color')?>;
+            font-size: <?=wpx_theme_get_option('wpx_theme_footer_copyright_size')?>;
+
+        }
+        footer #bottom-footer-background {
+            background-color: <?=wpx_theme_get_option('wpx_theme_footer_bottom_footer_background_color')?>;
+
+        }
+        footer #bottom-footer-background p {
+            font-size: <?=wpx_theme_get_option('wpx_theme_footer_bottom_footer_font_size')?>;
+            color: <?=wpx_theme_get_option('wpx_theme_footer_bottom_footer_text_color')?>;
+        }
+        /*  End Footer Copyrights styles   */
+
+
     </style>
 </head>
 <body class="<?= wpx_body_class() ?>">
@@ -143,12 +208,12 @@
                         <p>Subscribe to Future Updates from EventShares</p>
                         <form>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address*</label>
+                                <label for="subscribe-email">Email address*</label>
                                 <input type="email" class="form-control" id="subscribe-email"
-                                       aria-describedby="emailHelp" placeholder="Enter email">
+                                       aria-describedby="subscribe-email" placeholder="Enter email">
                             </div>
                             <div class="form-group">
-                                <label for="exampleSelect1">How would you describe yourself?</label>
+                                <label for="subscribe-select">How would you describe yourself?</label>
                                 <select class="form-control" id="subscribe-select">
                                     <option value="Individual Investor">Individual Investor</option>
                                     <option value="Financial Advisor">Financial Advisor</option>
@@ -158,7 +223,7 @@
                                 </select>
                             </div>
                             <button id="subscribe-submit" type="submit" class="btn btn-primary button">send</button>
-                            <p class="subscribe-info" class="d-none"></p>
+                            <p class="subscribe-info"></p>
 
                         </form>
                     </div>
@@ -228,6 +293,7 @@
                                                           alt="search"></button>
                                 </form>
                             </div>
+                        </div>
                     </nav>
                 </div>
             </div>
