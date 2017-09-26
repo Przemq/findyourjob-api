@@ -104,22 +104,18 @@ function remove_wp_version_strings($src)
     if (!empty($query['ver']) && $query['ver'] === $wp_version) {
         $src = remove_query_arg('ver', $src);
     }
-
     return $src;
 }
 
 add_filter('script_loader_src', 'remove_wp_version_strings');
 add_filter('style_loader_src', 'remove_wp_version_strings');
-
-
-/**
- * Hide WP version strings from generator meta tag
- */
-function wpmudev_remove_version()
+/* Hide WP version strings from generator meta tag */
+function remove_wp_version()
 {
     return '';
 }
 
+add_filter('the_generator', 'remove_wp_version');
 
 /**
  * Create JIRA task link
