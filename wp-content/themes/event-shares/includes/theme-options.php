@@ -276,6 +276,30 @@ class WPX_Theme_Options {
 					'type'    => 'text',
 					'default' => '13px',
 				],
+                [
+                    'name'    => 'Bottom footer text',
+                    'id'      => $prefix . $section . 'bottom_footer_text',
+                    'type'    => 'wysiwyg',
+                    'options' => [],
+                ],
+                [
+                    'name'    => 'Bottom footer text size',
+                    'id'      => $prefix . $section . 'bottom_footer_font_size',
+                    'type'    => 'text',
+                    'default' => '14px',
+                ],
+                [
+                    'name'    => 'Bottom footer text color',
+                    'id'      => $prefix . $section . 'bottom_footer_text_color',
+                    'type'    => 'colorpicker',
+                    'default' => '#ffffff',
+                ],
+                [
+                    'name'    => 'Bottom footer background color',
+                    'id'      => $prefix . $section . 'bottom_footer_background_color',
+                    'type'    => 'colorpicker',
+                    'default' => '#002841',
+                ],
 			]
 		];
 
