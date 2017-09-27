@@ -124,7 +124,6 @@
             background: <?= $menu_background_search_color_mobile?>;
         }
 
-
         /*  CUSTOM STYLES FROM WPX_THEME_OPTIONS */
 
         /*  Footer left/right editor   */
@@ -176,16 +175,64 @@
             font-size: <?=wpx_theme_get_option('wpx_theme_footer_copyright_size')?>;
 
         }
+
         footer #bottom-footer-background {
             background-color: <?=wpx_theme_get_option('wpx_theme_footer_bottom_footer_background_color')?>;
 
         }
+
         footer #bottom-footer-background p {
             font-size: <?=wpx_theme_get_option('wpx_theme_footer_bottom_footer_font_size')?>;
             color: <?=wpx_theme_get_option('wpx_theme_footer_bottom_footer_text_color')?>;
         }
+
         /*  End Footer Copyrights styles   */
 
+        /* Styles for search */
+
+        <?php
+      if (!empty($isBackgroundImageID) && $isBackgroundImageID ==!"" ) :
+      $backgroundID = (int) $isBackgroundImageID;
+      $backgroundUrl = wp_get_attachment_image_url($backgroundID,'full');
+
+      $isBackgroundImageID = wpx_theme_get_option( 'wpx_theme_search_results_background_image_id' );
+      $opacity = wpx_theme_get_option( 'wpx_theme_search_results_background_opacity' );
+      ?>
+        .search-results .large-header:before {
+            background-size: cover;
+            background: url("<?=$backgroundUrl?>") center;
+            opacity: <?=$opacity?>;
+        }
+
+        <?php else: ?>
+        .search-results .large-header {
+            background-color: <?=wpx_theme_get_option( 'wpx_theme_search_results_background_color' )?>;
+        }
+
+        <?php
+        endif;
+
+             ?>
+        .search-results .large-header .large-header-inner .large-header-content h1 {
+            font-size: <?=wpx_theme_get_option( 'wpx_theme_search_results_title_size' )?>;
+            color: <?=wpx_theme_get_option( 'wpx_theme_search_results_title_color' )?>;
+        }
+
+        .search-results .large-header .large-header-inner .large-header-content h4 {
+            font-size: <?=wpx_theme_get_option( 'wpx_theme_search_results_none_size' )?>;
+            color: <?=wpx_theme_get_option( 'wpx_theme_search_results_none_color' )?>;
+        }
+
+        .search-results .large-header .large-header-inner .large-header-content p {
+            font-size: <?=wpx_theme_get_option( 'wpx_theme_search_results_text_size' )?>;
+            color: <?=wpx_theme_get_option( 'wpx_theme_search_results_text_color' )?>;
+        }
+
+        .search-results .large-header .large-header-inner .large-header-content p strong, .highlight {
+            color: <?=wpx_theme_get_option( 'wpx_theme_search_results_highlight' )?>;
+        }
+
+        /* End styles for search */
 
     </style>
 </head>
@@ -239,8 +286,8 @@
         <div class="container">
             <div class="ps-logo-for-printing">
                 <img
-                     src="<?= THEME_IMAGES_URI; ?>/EventSharesLogo.svg"
-                     alt="logo eventShares">
+                        src="<?= THEME_IMAGES_URI; ?>/EventSharesLogo.svg"
+                        alt="logo eventShares">
             </div>
             <div class="wpx-name-module-header">
                 <div class="row" id="top-menu">

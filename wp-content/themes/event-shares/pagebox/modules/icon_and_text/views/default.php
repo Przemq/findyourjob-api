@@ -20,7 +20,7 @@ $enableInternalLinks = $this->getInput('enableInternalLink')->getValue();
             <div class="col-12">
                 <div id="firm-icon">
                     <img class="style-svg"
-                         src="<?= $this->getMedia('imageUrl')->getImage()->getUrl() ?>">
+                         src="<?= $this->getMedia('imageUrl')->getImage()->getUrl() ?>" alt="event shares icon">
                 </div>
             </div>
             <div class="button-wrapper">

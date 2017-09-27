@@ -77,7 +77,7 @@ $insightQuery = new WP_Query($args);
                             Category
                         </a>
 
-                        <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-menu custom-dropdown-menu">
                             <a class="dropdown-item" data-value="" href="#"><?= $this->getInput('textforAll') ?></a>
                             <?php foreach ($categorys as $index => $cat) : ?>
                                 <a class="dropdown-item" data-value="<?= $cat->slug ?>" href="#"><?= $cat->name ?></a>
@@ -88,7 +88,7 @@ $insightQuery = new WP_Query($args);
                         <a data-picked="" class="dropdown-button current-topic " data-toggle="dropdown">
                             Topic
                         </a>
-                        <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-menu custom-dropdown-menu">
                             <a class="dropdown-item" data-value="" href="#"><?= $this->getInput('textforAll') ?></a>
                             <?php foreach ($topics as $index => $topic) : ?>
                                 <a class="dropdown-item" data-value="<?= $topic->slug ?>"
@@ -162,7 +162,7 @@ $insightQuery = new WP_Query($args);
                                     </div>
                                     <div class="col-lg-12 px-0"><h3 class="title-insight"><?= get_the_title() ?></h3>
                                     </div>
-                                    <div class="col-lg-12 hidden-sm-down px-0"><p><?php the_excerpt() ?></p></div>
+                                    <div class="col-lg-12 hidden-sm-down px-0"><?php the_excerpt() ?></div>
 
                                     <?php
                                     $readButton = get_post_meta(get_the_ID(), '_event_shares_button_text', true);

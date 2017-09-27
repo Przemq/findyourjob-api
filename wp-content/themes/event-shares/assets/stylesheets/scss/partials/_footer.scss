@@ -64,6 +64,7 @@ footer {
       height: 24px;
       width: 24px;
       margin-right: 9px;
+
       path, rect {
         fill:$menu_item_color;
         @include transition(300ms all);

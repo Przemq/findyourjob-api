@@ -21,7 +21,7 @@ $isBlank =  $isBlank ? 'target="_blank"' : '';
                     <div class="row">
                         <div class="col-lg-12 button-wrapper">
                             <a <?= $isBlank ?> href="<?= $file ?>" class="btn btn-primary button">
-                                <span><img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Download icon-01-01.svg"
+                                <span><img class="style-svg" src="<?= THEME_IMAGES_URI; ?>/Download_icon-01-01.svg"
                                            alt="download icon"></span>
                                 <span class="align-middle"><?= $downloadButtonText ?></span>
                             </a>

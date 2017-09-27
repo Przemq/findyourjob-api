@@ -6,52 +6,7 @@
 
 get_header();
 
-$isBackgroundImageID = wpx_theme_get_option( 'wpx_theme_search_results_background_image_id' );
-$opacity             = wpx_theme_get_option( 'wpx_theme_search_results_background_opacity' );
-
 ?>
-<style>
-    <?php
-       if (!empty($isBackgroundImageID) && $isBackgroundImageID ==!"" ) :
-       $backgroundID = (int) $isBackgroundImageID;
-       $backgroundUrl = wp_get_attachment_image_url($backgroundID,'full');
-
-       ?>
-    .search-results .large-header:before {
-        background-image: url("<?=$backgroundUrl?>");
-        background-size: cover;
-        background-position: center;
-        opacity: <?=$opacity?>;
-    }
-
-    <?php else: ?>
-    .search-results .large-header {
-        background-color: <?=wpx_theme_get_option( 'wpx_theme_search_results_background_color' )?>;
-    }
-
-    <?php
-    endif;
-
-         ?>
-    .search-results .large-header .large-header-inner .large-header-content h1 {
-        font-size: <?=wpx_theme_get_option( 'wpx_theme_search_results_title_size' )?>;
-        color: <?=wpx_theme_get_option( 'wpx_theme_search_results_title_color' )?>;
-    }
-
-    .search-results .large-header .large-header-inner .large-header-content h4 {
-        font-size: <?=wpx_theme_get_option( 'wpx_theme_search_results_none_size' )?>;
-        color: <?=wpx_theme_get_option( 'wpx_theme_search_results_none_color' )?>;
-    }
-
-    .search-results .large-header .large-header-inner .large-header-content p {
-        font-size: <?=wpx_theme_get_option( 'wpx_theme_search_results_text_size' )?>;
-        color: <?=wpx_theme_get_option( 'wpx_theme_search_results_text_color' )?>;
-    }
-
-    .search-results .large-header .large-header-inner .large-header-content p strong, .highlight {
-        color: <?=wpx_theme_get_option( 'wpx_theme_search_results_highlight' )?>;
-    }
-</style>
 
 <?= createTaskLink( 'EV-37' ) ?>
 <?php
@@ -294,7 +249,7 @@ $args  = array(
 
         </div>
     </div>
-
+</div>
     <!--If no results found-->
     <?php } else { ?>
 
@@ -316,12 +271,9 @@ $args  = array(
 <?php } ?>
 
 
-<?php wp_reset_query(); ?>
-
-
-<?php
-get_footer();
+<?php wp_reset_query();
 ?>
+
 <script>
     var options = {
         byRow: false,
@@ -337,3 +289,8 @@ get_footer();
         makeEqualsSearchResults(options);
     }
 </script>
+
+<?php
+get_footer();
+?>
+

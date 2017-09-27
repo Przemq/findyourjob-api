@@ -21,7 +21,7 @@ $description = $this->getEditor( 'description' )->getContent();
 					<?php echo wp_get_attachment_image( $sectionImageID, 'full', false, [ 'class' => 'style-svg' ] ) ?>
 
                 </div>
-                <div data-aos-delay="200" data-aos="fade-left"class="aos-init aos-animate">
+                <div data-aos-delay="200" data-aos="fade-left" class="aos-init aos-animate">
                 <h4 class="title"><?= $title ?></h4>
 				<?= $description ?>
 				<?php foreach ( $this->getRepeater( 'buttons' ) as $index => $button ):
