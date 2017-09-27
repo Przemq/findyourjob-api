@@ -222,5 +222,3 @@ $insightQuery = new WP_Query($args);
         </div>
     </div>
 </div>
-
-<?php  dump($readButton) ?>
