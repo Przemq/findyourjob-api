@@ -134,7 +134,7 @@ $args  = array(
                 's'              => $s,
                 'post_type'      => array( 'post' ),
                 'date_query'     => array( $date ),
-                'posts_per_page' => 5,
+                'posts_per_page' => 6,
                 'paged'          => $paged,
                 'category_name'  => $category
             );
