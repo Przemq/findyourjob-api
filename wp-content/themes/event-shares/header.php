@@ -86,8 +86,7 @@
             font-family: <?=$menu_font_family?>;
         }
 
-        <?php endif;
-        ?>
+        <?php endif; ?>
 
         header nav ul > li > a {
             color: <?=$menu_text_color?>;
@@ -97,7 +96,6 @@
             background: <?= wpx_theme_get_option('wpx_theme_search_input_background') ?>;
         }
 
-        /**/
         .wpg-mobile header nav ul li .sub-menu-flex li a h4 {
             color: #292b2c;
         }

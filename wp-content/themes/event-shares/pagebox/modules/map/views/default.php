@@ -29,7 +29,7 @@ $enableTitle = $this->getInput('enableTitle')->getValue();
                     </div>
                 </div>
                 <script type="text/javascript"
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSpN1O9PFMM2acjz66kGZ2H4sDHjsex-A&callback=initMap" async defer>
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOV2eNOLd884bBC6_nStB-0jQAX_juH8g&callback=initMap" async defer>
                 </script>
                 <div id="map"></div>
                 <script type="text/javascript">
