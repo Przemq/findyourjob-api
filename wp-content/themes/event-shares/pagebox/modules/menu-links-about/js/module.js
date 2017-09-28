@@ -23,6 +23,7 @@
 
     setTimeout(delay(), 500);
     window.addEventListener('resize', delay);
+
     /**
      * Debounce function. Really important to use when working with for example resize or scroll to not fire event
      * every time when you scroll or resize.
@@ -45,8 +46,13 @@
     }
 
 
-        setTimeout(function () {
-            $(window.location.hash).trigger('click');
-        },10)
+    setTimeout(function () {
+        $(window.location.hash).trigger('click');
+    }, 10);
+
+    $('.to-refresh-tab').on('click', function () {
+        var id = this.href.substr(this.href.lastIndexOf('/') + 1);
+        $(id).trigger('click')
+    })
 
 })(jQuery);

@@ -337,7 +337,7 @@
   }
 }
 
-.header-container {
+.header-wrapper {
   padding-bottom: 15px;
   background: url($template-url + '/assets/images/background-x.svg') no-repeat;
   background-position-x: 85%;
@@ -353,7 +353,7 @@
 // - get_deep( keys... )
 @include specified_module_loop() {
 
-  .header-container {
+  .header-wrapper {
     background-color: get('headerBackground');
   }
   .grey-background {

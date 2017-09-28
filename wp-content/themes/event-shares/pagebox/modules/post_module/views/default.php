@@ -54,7 +54,7 @@ $videoURL = $this->getInput('videoURL')->getValue();
 ?>
 <div class="<?= $module->getClass() ?> articleTextModule" xmlns:javascript="http://www.w3.org/1999/xhtml">
     <div class="container-fluid header-part" <?= $fullWidthBackground ?>>
-        <div class="container header-container header-part">
+        <div class="container header-wrapper header-part">
             <div class="row">
                 <div class="col-12">
                     <div class="printIcon hidden-md-down"><a href="javascript:window.print();">

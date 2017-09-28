@@ -51,11 +51,11 @@ if ($this->getInput('isImage')->getValue()) {
             ?>
             <li class="col-lg-<?= $gridNumber ?> col-sm-12">
                 <div class="menu-special-hover">
-                    <a href="<?= $link; ?>" <?= $newTarget ?>>
+                    <a href="<?= $link; ?>" <?= $newTarget ?> class="to-refresh-tab">
                         <h4><?= $box->getInput('title')->getValue(); ?></h4>
                     </a>
                     <?php if (!empty($box->getInput('subTitle')->getValue())): ?>
-                        <a href="<?= $link; ?>" <?= $newTarget ?>><h5><?= $box->getInput('subTitle')->getValue() ?></h5>
+                        <a href="<?= $link; ?>" <?= $newTarget ?> class="to-refresh-tab"><h5><?= $box->getInput('subTitle')->getValue() ?></h5>
                         </a>
                     <?php endif; ?>
                     <?= $box->getEditor('description')->getContent(); ?>
@@ -64,7 +64,7 @@ if ($this->getInput('isImage')->getValue()) {
                 <?php endif;
                 ?>
                 <a href="<?= $link; ?>" <?= $newTarget ?>
-                   class="learn-description"><?= $buttonText ?></a>
+                   class="learn-description to-refresh-tab"><?= $buttonText ?></a>
             </li>
 
             <?php
