@@ -14,35 +14,7 @@
      * match have to be changed to used countries and investors in country-investor.php (data-country & data-profile)
      */
     ?>
-    <!--    <script>-->
-    <!--        (function () {-->
-    <!--            /**-->
-    <!--             * Script redirect you to selected country and investor. You are redirected to UK when 'Other country' selected-->
-    <!--             * If you want to set redirect to 'rw' (Rest of World) you have to change data-country in country-investor.php-->
-    <!--             */-->
-    <!--            var countryCookie = document.cookie.match(/country=([a-z]+);/),-->
-    <!--                profileCookie = document.cookie.match(/profile=([a-z, -]+)/),-->
-    <!--                windowLocation = window.location,-->
-    <!--                pathName = windowLocation.pathname,-->
-    <!--                match = pathName.match(/^\/(?:(uk|ie|je|rw)\/)(?:(charities|private-client|financial-adviser|professional-advisers))?(.*)/i);-->
-    <!---->
-    <!--            // If cookie exist and cookie char number >=2-->
-    <!--            if (countryCookie !== null && countryCookie[1] && countryCookie[1].length >= 2) {-->
-    <!--                // If we are not on homepage (empty match mean homepage)-->
-    <!--                if (match !== null) {-->
-    <!--                    // If match[1] (country) is undefined or match[1] (country) != country cookie or match[2] (investor) != profile cookie-->
-    <!--                    if (match[1] === undefined || match[1] != countryCookie[1] || match[2] != profileCookie[1]) {-->
-    <!--                        windowLocation.replace('/' + countryCookie[1] + '/' + profileCookie[1] + '/' + match[3]);-->
-    <!--                    }-->
-    <!--                    // If we are on homepage and cookie set then redirect to country/investor-->
-    <!--                } else if (pathName == '/' && countryCookie[1].length >= 2 && profileCookie[1]) {-->
-    <!--                    windowLocation.replace('/' + countryCookie[1] + '/' + profileCookie[1] + '/');-->
-    <!--                }-->
-    <!--            } else if (pathName != '/' && pathName != '' && countryCookie[1] == 0) {-->
-    <!--                windowLocation.replace('/');-->
-    <!--            }-->
-    <!--        })();-->
-    <!--    </script>-->
+
     <?php wp_head(); ?>
     <?php
     //  Get all style options from wpx_theme
@@ -343,7 +315,24 @@
                 </div>
             </div>
         </div>
-
     </div>
+    <!-- Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-XXXXX-Y', 'auto'); // insert here client code
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
 </header>
 

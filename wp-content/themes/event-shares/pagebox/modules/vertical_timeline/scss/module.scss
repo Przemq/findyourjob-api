@@ -15,7 +15,6 @@ $timeline-color: #56c1a3;
   background-color: white;
   overflow: hidden;
 
-
   .header {
     font-family: 'Roboto Condensed', sans-serif;
     padding-bottom: 15px;
@@ -37,7 +36,7 @@ $timeline-color: #56c1a3;
       color: $line-color;
     }
     max-width: 100%;
-    width:100%;
+    width: 100%;
     color: $line-color;
     h4 {
       color: $header-color;
@@ -86,6 +85,12 @@ $timeline-color: #56c1a3;
                 left: -12px !important;
                 content: '';
                 margin-right: 0 !important;
+                @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                  width: 17px;
+                  height: 17px;
+                  border: none;
+                  box-shadow:  0 0 0 3px rgba(244,244,244,1);
+                }
               }
             }
           }
@@ -118,6 +123,12 @@ $timeline-color: #56c1a3;
                 @include media-breakpoint-between(sm, md) {
                   left: calc(-1% - 8px);
                 }
+                @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                  width: 17px;
+                  height: 17px;
+                  border: none;
+                  box-shadow:  0 0 0 3px rgba(244,244,244,1);
+                }
               }
             }
 
@@ -145,6 +156,12 @@ $timeline-color: #56c1a3;
                 }
                 @include media-breakpoint-between(sm, md) {
                   left: calc(98% - 1px);
+                }
+                @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                  width: 17px;
+                  height: 17px;
+                  border: none;
+                  box-shadow:  0 0 0 3px rgba(244,244,244,1);
                 }
               }
             }
@@ -200,7 +217,7 @@ $timeline-color: #56c1a3;
       }
     }
   }
-  p{
+  p {
     word-wrap: break-word;
   }
   .header {
@@ -216,21 +233,21 @@ $timeline-color: #56c1a3;
       }
       @include media-breakpoint-down(sm) {
         left: 0;
-        text-align: left ;
+        text-align: left;
       }
     }
   }
 
   .header {
-    h4{
+    h4 {
       color: get('headerColor');
       font-size: get('headerSize');
     }
   }
   .description {
-    p{
-      font-size:get('descriptionSize');
-      color:get('descriptionColor');
+    p {
+      font-size: get('descriptionSize');
+      color: get('descriptionColor');
     }
 
   }
@@ -252,16 +269,16 @@ $timeline-color: #56c1a3;
             }
           }
           h4 {
-            font-size:get('timelineheaderSize');
-            color:get('timelineheaderColor');
+            font-size: get('timelineheaderSize');
+            color: get('timelineheaderColor');
             &:after {
               background-color: get('dotColor');
-              border-color:get('backgroundColor');
+              border-color: get('backgroundColor');
             }
           }
-          p{
-            font-size:get('timelineDescriptionSize');
-            color:get('timelineDescriptionColor');
+          p {
+            font-size: get('timelineDescriptionSize');
+            color: get('timelineDescriptionColor');
           }
         }
       }
