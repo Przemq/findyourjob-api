@@ -69,9 +69,37 @@ class ArticleText extends AbstractModule implements StaticCacheInterface
                 'description' => 'Select full width header background or container width',
                 'default' => true,
             ],
+            'printIconColour' => [
+                'type' => 'input:color',
+                'label' => 'Print icon colour color',
+                'description' => 'Please, select print icon color',
+                'default' => '#ffffff',
+                'sass' => true
+            ],
+            'printTextColor' => [
+                'type' => 'input:color',
+                'label' => '"Print" text color',
+                'description' => 'Please, select color',
+                'default' => '#ffffff',
+                'sass' => true
+            ],
             'articleText' => [
                 'type' => 'editor',
                 'label' => 'Article text ',
+            ],
+            'imageCenter'        => [
+                'type'     => 'select',
+                'label'    => 'Image inside article align',
+                'description' => 'Select image align in article (image added in editor)',
+                'multiple' => false,
+                'values'   => [
+                    [ 'id' => 'center', 'name' => 'Center' ],
+                    [ 'id' => 'left', 'name' => 'Left' ],
+                    [ 'id' => 'right', 'name' => 'Right' ],
+                    [ 'id' => 'none', 'name' => 'Do not set' ]
+                ],
+                'default'  => 'center',
+                'sass'     => true
             ],
             'titleFontSize' => [
                 'type' => 'input:text',

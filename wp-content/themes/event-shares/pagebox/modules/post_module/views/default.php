@@ -58,7 +58,7 @@ $videoURL = $this->getInput('videoURL')->getValue();
             <div class="row">
                 <div class="col-12">
                     <div class="printIcon hidden-md-down"><a href="javascript:window.print();">
-                            <img src="<?= THEME_IMAGES_URI; ?>/printIcon.svg"><span>Print</span></a></div>
+                            <img src="<?= THEME_IMAGES_URI; ?>/printIcon.svg" class="style-svg"><span>Print</span></a></div>
                     <?php if (!empty($this->getInput('switchMedia')->getValue())) : ?>
                         <div class="col-12 fixed-action-btn">
                             <a>
@@ -125,6 +125,7 @@ $videoURL = $this->getInput('videoURL')->getValue();
                         endif; ?>
                         <?php if ($showPublicationInfo): ?>
                             <div class="publication-info"> <?= $date . ' | ' . $author ?></div>
+                            <p></p>
                         <?php endif; ?>
                     <?php endif ?>
                 </div>
