@@ -172,7 +172,7 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
                     <div class="col-lg-4 single-article">
                         <div class="content-wrapper">
                             <div class="image-container">
-								<?php the_post_thumbnail( 'full', array( 'class' => 'style-svg article-icon' ) ) ?>
+								<?php the_post_thumbnail( 'medium', array( 'class' => 'style-svg article-icon' ) ) ?>
                             </div>
                             <div class="publication-info col-lg-12">
 								<?php
