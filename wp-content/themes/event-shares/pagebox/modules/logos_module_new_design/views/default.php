@@ -33,7 +33,7 @@ if (empty($internalLink)) {
                     <div>
                         <a class="box col-12" <?= $isBlank ?>
                            href="<?php if ($isInternal) echo $internalLink; else echo $section->getInput('logoUrl') ?>">
-                            <img class="style-svg" src="<?= $image ?>">
+                            <img class="style-svg" src="<?= $image ?>" alt="logo image">
                         </a>
                     </div>
                 <?php endforeach; ?>
