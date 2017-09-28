@@ -25,7 +25,7 @@ $buttonText = $this->getInput('buttonText')->getValue();
             <?= createTaskLink('EV-243') ?>
             <div class="row video-and-text">
                 <div class="col-lg-7 col-12 video-container">
-                            <iframe src="https://www.youtube.com/embed/<?= $videoURL ?>"></iframe>
+                            <iframe id="video-iframe" src="https://www.youtube.com/embed/<?= $videoURL ?>"></iframe>
                 </div>
                 <div class="col-lg-5 col-12 text-container">
                     <h4><?= $title; ?></h4>
