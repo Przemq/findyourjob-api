@@ -449,12 +449,15 @@ add_action('init', function () {
     }
 });
 
-function redirectToDocument () {
+function redirectToDocument ()
+{
     global $post;
-    $post_id = $post->{'ID'};
+    if (!is_404()) {
+        $post_id = $post->{'ID'};
         if ($post->{'post_type'} == 'documents') {
             wp_redirect(get_post_meta($post_id, '_cmb2_document')[0]);
         }
+    }
 }
 add_action('template_redirect', 'redirectToDocument');
 
