@@ -49,7 +49,7 @@ if ($this->getInput('isImage')->getValue()) {
 
 
             ?>
-            <li class="col-lg-<?= $gridNumber ?> col-sm-12">
+            <li class="col-sm-12 col-lg-<?= $gridNumber ?>">
                 <div class="menu-special-hover">
                     <a href="<?= $link; ?>" <?= $newTarget ?> class="to-refresh-tab">
                         <h4><?= $box->getInput('title')->getValue(); ?></h4>

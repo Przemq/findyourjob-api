@@ -215,7 +215,6 @@
 // include 'includes/modal/country-investor.php'; ?>
 
 <?= createTaskLink('EV-15') ?>
-<?= createTaskLink('EV-36') ?>
 <div id="subscribe-modal" class="modal fade ">
     <div class="modal-dialog">
         <div class="container">
@@ -330,7 +329,7 @@
             m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-XXXXX-Y', 'auto'); // insert here client code
+        ga('create', 'UA-99129127-1', 'auto');
         ga('send', 'pageview');
     </script>
     <!-- End Google Analytics -->

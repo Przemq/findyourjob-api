@@ -320,7 +320,6 @@ function sendToSubscribe()
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo "Email address is invalid.";
             die;
-        } else {
         }
         global $wpdb;
         global $tableName;
@@ -390,11 +389,11 @@ add_action('wpcf7_mail_sent', function () {
     $headers = array('Content-Type: text/html; charset=UTF-8', 'Content-Transfer-Encoding: quoted-printable');
     $msg = stripslashes(wpx_theme_get_option('wpx_theme_user_mail_mail_content'));
     $subject = wpx_theme_get_option('wpx_theme_user_mail_subject');
+
     if (!empty($_POST['your-sub'])) {
         $hash = str_shuffle(uniqid());
         global $wpdb;
         $tableName = $wpdb->base_prefix . 'wpx_' . 'subscriptions';
-
 
         $result = $wpdb->get_results('SELECT * FROM ' . $tableName . ' WHERE email = "' . $_POST['your-email'] . '" AND investor = "' . $_POST['wpx_menu-695'] . '"');
 
@@ -417,7 +416,9 @@ add_action('wpcf7_mail_sent', function () {
             $msg = str_replace('[UN-SUBSCRIBE]', $unsubscribeLink, $msg);
             sendMail($_POST['your-email'], $subject, wpautop($msg), $headers, array());
         }
-    } else {
+    }
+
+    else {
         global $wpdb;
         $tableName = $wpdb->base_prefix . 'wpx_' . 'subscriptions';
         $hashFromDB = $wpdb->get_results('SELECT hash FROM ' . $tableName . ' WHERE email = "' . $_POST['your-email'] . '" AND investor = "' . $_POST['wpx_menu-695'] . '"');
@@ -436,12 +437,12 @@ add_action('init', function () {
         global $wpdb;
         $tableName = $wpdb->base_prefix . 'wpx_subscriptions';
         $isRemoved = $wpdb->query("DELETE FROM " . $tableName . " WHERE hash=" . '"' . $hash . '"');
+
         if ($isRemoved == 1) {
             echo '<script>
             alert("You have been removed from subscription list");
               </script>';
-        }
-        else {
+        } else {
             echo '<script>
             alert("Such subscription does not exist");
               </script>';
@@ -449,7 +450,7 @@ add_action('init', function () {
     }
 });
 
-function redirectToDocument ()
+function redirectToDocument()
 {
     global $post;
     if (!is_404()) {
@@ -459,6 +460,7 @@ function redirectToDocument ()
         }
     }
 }
+
 add_action('template_redirect', 'redirectToDocument');
 
 
