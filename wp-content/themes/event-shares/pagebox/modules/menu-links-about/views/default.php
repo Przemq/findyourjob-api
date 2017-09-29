@@ -85,9 +85,14 @@ if ($this->getInput('isImage')->getValue()) {
             $newTarget = $isBlank ? 'target=_blank' : '';
             $link = $box->getInput('isPermalink')->getValue() ? $permalink : $pageLink;
             $tabID = $box->getInput('insightID')->getValue();
+
+            // Create correct link
+            if (!empty($tabID)) {
+                $link = $link . '#' . $tabID;
+            }
             ?>
             <li class="col-lg-<?= $gridNumber ?> col-sm-12 <?= $module->isActive($link) ?>">
-                <h4><a href="<?= $link; ?>" <?= $isBlank ?>><?= $box->getInput('title') ?></a></h4>
+                <h4><a href="<?= $link; ?>" <?= $isBlank ?> class="to-refresh-tab"><?= $box->getInput('title') ?></a></h4>
             </li>
             <?php
         endforeach;
