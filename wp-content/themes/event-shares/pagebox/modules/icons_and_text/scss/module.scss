@@ -14,34 +14,18 @@
             padding-bottom: 10px;
         }
 
+        .button {
+            @media print {
+                display: none;
+            }
+        }
         .svg-wrapper {
-            //max-width: 160px;
+            @media print {
+                display: none;
+            }
             width: auto;
             margin: 0 auto;
 
-            //@include transition(0.3s all);
-            //svg {
-            //  max-height: 110px;
-            //  max-width: 100%;
-            //  @include media-breakpoint-down(md) {
-            //    max-height: 160px;
-            //  }
-            //  @include transition(0.3s all);
-            //  path, polygon, circle {
-            //    fill: #56C1A3;
-            //    @include transition(0.3s all);
-            //  }
-            //  //.st0{
-            //  //  fill:#EBEBEB;
-            //  //}
-            //
-            //}
-            //&:hover svg {
-            //  path, polygon, circle {
-            //    fill: #56C1A3;
-            //  }
-            //
-            // }
             img {
                 transition: 300ms all;
                 max-height: 110px;
@@ -80,6 +64,7 @@
             color: #182328;
             background-color: white;
             text-align: center;
+
             h4 {
                 width: 70%;
                 margin: 0 auto;
@@ -122,21 +107,6 @@
                 padding-bottom: get('paddingUnderTitle');
             }
         }
-        //.svg-wrapper {
-        //    svg {
-        //        path, polygon, circle {
-        //            fill: get('sectionIconColor');
-        //            stroke: get('sectionIconColor');
-        //        }
-        //    }
-        //    &:hover svg {
-        //        path, polygon, circle {
-        //            fill: get('sectionIconColorHover');
-        //            stroke: get('sectionIconColorHover');
-        //        }
-        //    }
-        //}
-
         .md-padd-top {
             p {
                 font-size: get('singleParagraphFontSize');

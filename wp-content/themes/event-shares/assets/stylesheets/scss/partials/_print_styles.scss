@@ -1,11 +1,9 @@
 @media print {
     * {
-        -webkit-transition: none !important;
-        transition: none !important;
         -webkit-print-color-adjust: exact;
     }
     @page {
-        margin: 1cm 1cm 1.5cm 1cm;
+        margin: 1.5cm 1cm 1.5cm 1cm;
     }
 
     header {
@@ -61,10 +59,6 @@
     //
     //}
     .ps-button-all-entries {
-        display: none;
-    }
-
-    .wpx-m17674a35 {
         display: none;
     }
 
@@ -136,29 +130,8 @@
         margin-bottom: 0;
 
     }
-    #home-page-our-etfs {
-        padding-top: 0;
-        padding-bottom: 0!important;
-        margin-bottom: 0;
-        margin-top: 0;
-
-         #left-part {
-             p {
-                 page-break-after: avoid;
-             }
-         }
-    }
     #in-the-media {
         display: none;
-    }
-    #three-column-boxes {
-        page-break-inside: avoid !important;
-        .title-header {
-            margin-bottom: 20px;
-        }
-        .single-box {
-            page-break-inside: avoid !important;
-        }
     }
 
     .video-and-text {

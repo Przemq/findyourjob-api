@@ -7,10 +7,16 @@
   $home-our-etfs-background-color: #EBEBEB;
   $td-Color: #1B1B1B;
 
+
+
   #home-page-our-etfs {
     background-color: $home-our-etfs-background-color;
     padding-top: 65px;
     padding-bottom: 44px;
+    @media print {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
     .svg-image {
       text-align: center;
       svg {
@@ -46,6 +52,11 @@
 
     #left-part {
       margin-right: 50px;
+      .button {
+        @media print {
+          display: none;
+        }
+      }
     }
 
     table {
