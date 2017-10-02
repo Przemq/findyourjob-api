@@ -166,7 +166,9 @@ jQuery(function ($) {
 
     (function() {
         var beforePrint = function() {
-           $('#three-icon-wrapper').removeAttr('data-aos');
+            var threeColumnWrapper = $('#icon-container')
+            threeColumnWrapper.removeAttr('data-aos');
+            threeColumnWrapper.removeAttr('data-aos-delay');
         };
         var afterPrint = function() {
             console.log('Printed');
