@@ -164,4 +164,7 @@ jQuery(function ($) {
         $('#top-menu').css('display' ,'flex');
     }, 500);
 
+    window.onbeforeprint = function() {
+        console.log('test');
+    }
 });

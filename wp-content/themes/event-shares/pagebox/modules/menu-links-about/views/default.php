@@ -55,7 +55,8 @@ if ($this->getInput('isImage')->getValue()) {
                         <h4><?= $box->getInput('title')->getValue(); ?></h4>
                     </a>
                     <?php if (!empty($box->getInput('subTitle')->getValue())): ?>
-                        <a href="<?= $link; ?>" <?= $newTarget ?> class="to-refresh-tab"><h5><?= $box->getInput('subTitle')->getValue() ?></h5>
+                        <a href="<?= $link; ?>" <?= $newTarget ?> class="to-refresh-tab">
+                            <h5><?= $box->getInput('subTitle')->getValue() ?></h5>
                         </a>
                     <?php endif; ?>
                     <?= $box->getEditor('description')->getContent(); ?>

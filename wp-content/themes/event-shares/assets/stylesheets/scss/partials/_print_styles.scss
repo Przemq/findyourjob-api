@@ -2,10 +2,16 @@
     * {
         -webkit-transition: none !important;
         transition: none !important;
+        -webkit-print-color-adjust: exact;
     }
+    @page {
+        margin: 1cm 1cm 1.5cm 1cm;
+    }
+
     header {
         .ps-logo-for-printing {
             display: block !important;
+            margin-bottom: 10px;
         }
     }
     #wpx-eventshare-header {
@@ -57,7 +63,18 @@
     .ps-button-all-entries {
         display: none;
     }
+
     .wpx-m17674a35 {
+        display: none;
+    }
+
+    // logos module new design
+    .wpx-mc19972a5 {
+        display: none;
+    }
+
+    // video and text
+    .wpx-m1117675b {
         display: none;
     }
     .wpx-button-hamburger {
@@ -71,8 +88,7 @@
     }
 
     // end styles for post module
-
-    // styles for home page
+    // ***********************************************HOME PAGE*********************************************************
     .header-container {
         .shape {
             display: none !important;
@@ -117,8 +133,15 @@
     }
     #home-page-our-etfs {
         padding-top: 0;
+        padding-bottom: 0!important;
+        margin-bottom: 0;
         margin-top: 0;
-        page-break-after: always;
+
+         #left-part {
+             p {
+                 page-break-after: avoid;
+             }
+         }
     }
     #in-the-media {
         display: none;
@@ -136,7 +159,7 @@
     .video-and-text {
         display: none;
     }
-    // end of styles for home page
+    //***********************************************END OF HOME PAGE***************************************************
 
     // about us page
     .timeline {
