@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title><?php wp_title( '' ); ?></title>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <title><?php wp_title(''); ?></title>
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="<?php echo THEME_IMAGES_URI ?>/Eventshares-Fav.ico">
-	<?php
-	wp_head();
+    <?php
+    wp_head();
 
-	//  Get all style options from wpx_theme
-	$searchBackground                    = ! empty( wpx_theme_get_option( 'wpx_theme_search_background' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background' ) : '#da8b00';
-	$searchBackgroundHover               = ! empty( wpx_theme_get_option( 'wpx_theme_search_background_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_search_background_hover' ) : '#c17b01';
-	$menu_text_color                     = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color' ) : '#004a85';
-	$menu_text_color_hover               = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_hover' ) : '';
-	$menu_font_family                    = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_font_family' ) : "";
-	$menu_text_color_mobile              = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_mobile' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_text_color_mobile' ) : '';
-	$menu_background_search_color_mobile = ! empty( wpx_theme_get_option( 'wpx_theme_navigation_menu_mobile_search_background' ) ) ? wpx_theme_get_option( 'wpx_theme_navigation_menu_mobile_search_background' ) : '';
+    //  Get all style options from wpx_theme
+    $searchBackground = !empty(wpx_theme_get_option('wpx_theme_search_background')) ? wpx_theme_get_option('wpx_theme_search_background') : '#da8b00';
+    $searchBackgroundHover = !empty(wpx_theme_get_option('wpx_theme_search_background_hover')) ? wpx_theme_get_option('wpx_theme_search_background_hover') : '#c17b01';
+    $menu_text_color = !empty(wpx_theme_get_option('wpx_theme_navigation_menu_text_color')) ? wpx_theme_get_option('wpx_theme_navigation_menu_text_color') : '#004a85';
+    $menu_text_color_hover = !empty(wpx_theme_get_option('wpx_theme_navigation_menu_text_color_hover')) ? wpx_theme_get_option('wpx_theme_navigation_menu_text_color_hover') : '';
+    $menu_font_family = !empty(wpx_theme_get_option('wpx_theme_navigation_font_family')) ? wpx_theme_get_option('wpx_theme_navigation_font_family') : "";
+    $menu_text_color_mobile = !empty(wpx_theme_get_option('wpx_theme_navigation_menu_text_color_mobile')) ? wpx_theme_get_option('wpx_theme_navigation_menu_text_color_mobile') : '';
+    $menu_background_search_color_mobile = !empty(wpx_theme_get_option('wpx_theme_navigation_menu_mobile_search_background')) ? wpx_theme_get_option('wpx_theme_navigation_menu_mobile_search_background') : '';
 
-	//	Get available font family and assign it correct value
-	if ( $menu_font_family === "standard" ) {
-		$menu_font_family = '"Merriweather", serif';
-	} else if ( $menu_font_family === 'standard_italic' ) {
-		$menu_font_family = '"Merriweather Italic",serif';
-	} else if ( $menu_font_family === 'roboto' ) {
-		$menu_font_family = "'Roboto Condensed', sans-serif";
-	} ?>
+    //	Get available font family and assign it correct value
+    if ($menu_font_family === "standard") {
+        $menu_font_family = '"Merriweather", serif';
+    } else if ($menu_font_family === 'standard_italic') {
+        $menu_font_family = '"Merriweather Italic",serif';
+    } else if ($menu_font_family === 'roboto') {
+        $menu_font_family = "'Roboto Condensed', sans-serif";
+    } ?>
 
-<?php include 'assets/stylesheets/scss/partials/footer-header-options.php'; ?>
-    ?>
+    <?php include 'assets/stylesheets/scss/partials/footer-header-options.php'; ?>
+
 </head>
 <body class="<?= wpx_body_class() ?>">
-<?= createTaskLink( 'EV-15' ) ?>
+
+<?= createTaskLink('EV-15') ?>
 <div id="subscribe-modal" class="modal fade ">
     <div class="modal-dialog">
         <div class="container">
@@ -87,11 +88,11 @@
                         <div class="wpx-search-mobile">
                             <div class="mobile-search">
                                 <form role="search" method="get" class="search-form-mobile"
-                                      action="<?php echo home_url( '/' ); ?>">
+                                      action="<?php echo home_url('/'); ?>">
                                     <input type="search" class="search-field"
-                                           placeholder="<?php echo esc_attr_x( 'Search...', 'placeholder' ) ?>"
+                                           placeholder="<?php echo esc_attr_x('Search...', 'placeholder') ?>"
                                            value="<?php echo get_search_query() ?>" name="s"
-                                           title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>"/>
+                                           title="<?php echo esc_attr_x('Search for:', 'label') ?>"/>
                                     <button type="submit" class="search-submit search-mobile-button "
                                             value=""><img src="<?= THEME_IMAGES_URI; ?>/white-cheveron-right.svg"
                                                           alt="chevron">
@@ -102,24 +103,24 @@
                         </div>
 
 
-						<?php
-						if ( function_exists( 'wpx_pagebox' ) ) {
-							foreach ( get_posts( [ 'post_type' => 'header_nav' ] ) as $headerPost ) {
-								/** @var WP_Post $headerPost */
-								wpx_pagebox( $headerPost->ID );
-							}
-						}
-						?>
+                        <?php
+                        if (function_exists('wpx_pagebox')) {
+                            foreach (get_posts(['post_type' => 'header_nav']) as $headerPost) {
+                                /** @var WP_Post $headerPost */
+                                wpx_pagebox($headerPost->ID);
+                            }
+                        }
+                        ?>
 
 
                         <div class="wpx-search">
                             <div class="desktop-search">
                                 <form role="search" method="get" class="search-form"
-                                      action="<?php echo home_url( '/' ); ?>">
+                                      action="<?php echo home_url('/'); ?>">
                                     <input id="search-input" type="search" class="hidden-before-hover search-field"
-                                           placeholder="<?php echo esc_attr_x( 'Search...', 'placeholder' ) ?>"
+                                           placeholder="<?php echo esc_attr_x('Search...', 'placeholder') ?>"
                                            value="<?php echo get_search_query() ?>" name="s"
-                                           title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>"/>
+                                           title="<?php echo esc_attr_x('Search for:', 'label') ?>"/>
                                     <button type="submit" class="search-submit"
                                             value=""><img class="style-svg" id="search-icon"
                                                           src="<?= THEME_IMAGES_URI; ?>/Magnifying%20Glass-01-01.svg"
