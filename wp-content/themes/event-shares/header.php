@@ -25,10 +25,7 @@
 		$menu_font_family = '"Merriweather Italic",serif';
 	} else if ( $menu_font_family === 'roboto' ) {
 		$menu_font_family = "'Roboto Condensed', sans-serif";
-	}
-
-
-	?>
+	} ?>
 
     <style>
         header nav .wpx-search .desktop-search .search-submit svg path {
