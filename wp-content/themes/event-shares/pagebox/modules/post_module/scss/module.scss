@@ -224,14 +224,13 @@
   }
   .media-container {
     text-align: center;
+    @media print {
+      display: none;
+    }
     img {
       width: 100%;
       display: block;
-      @media print {
-        //page-break-inside: avoid;
-        width: 50px;
-        height: 50px;
-      }
+
     }
     @include media-breakpoint-up(lg) {
       margin-top: 40px;
