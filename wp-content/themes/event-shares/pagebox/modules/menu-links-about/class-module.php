@@ -154,7 +154,6 @@ class MenuAboutFlyout extends AbstractModule implements StaticCacheInterface {
                         'type'    => 'input:text',
                         'label'   => 'ID of tab from Insight Boxes',
                         'description' => 'Please, fill this input if this flout menu is linked with tabs in Insight Boxes',
-                        'sass'    => true
                     ],
 				],
 			],

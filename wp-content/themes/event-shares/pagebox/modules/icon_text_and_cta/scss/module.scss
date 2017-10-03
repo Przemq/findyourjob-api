@@ -64,6 +64,9 @@
       span {
         text-transform: uppercase;
       }
+      @media print {
+        display: none;
+      }
     }
   }
 }

@@ -21,9 +21,6 @@
     footer {
         display: none;
     }
-    .wpx-m3a7fc34e {
-        display: none;
-    }
     h1::first-letter {
         margin-top: 0;
     }
@@ -42,7 +39,9 @@
     h4::first-letter {
         margin-top: 0;
     }
-
+    a::first-letter {
+        margin-top: 0;
+    }
     // styles for post module
 
     iframe {
@@ -66,7 +65,6 @@
     .wpx-mc19972a5 {
         display: none;
     }
-
     // video and text
     .wpx-m1117675b {
         display: none;
@@ -87,7 +85,7 @@
     }
 
     // end styles for post module
-    // ***********************************************HOME PAGE*********************************************************
+    // ***********************************************HOME PAGE*******************************************************
     .header-container {
         .shape {
             display: none !important;

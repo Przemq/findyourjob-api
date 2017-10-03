@@ -28,6 +28,11 @@
         word-wrap: break-word;
       }
     }
+    p {
+      @media print {
+        max-width: 60%;
+      }
+    }
   }
 }
 
