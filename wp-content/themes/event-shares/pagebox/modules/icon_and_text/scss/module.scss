@@ -8,6 +8,10 @@
     padding-top: 60px;
     padding-bottom: 80px;
     text-align: center;
+    @media print {
+      padding-top: 20px !important;
+      padding-bottom: 20px !important;
+    }
 
     #firm-icon {
       width: 83px;

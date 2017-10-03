@@ -28,7 +28,7 @@ $isBlank =  $isBlank ? 'target="_blank"' : '';
                         </div>
                         <div class="col-lg-12"><h4><?= $this->getInput('title')->getValue(); ?></h4></div>
                         <?php foreach ($this->getRepeater('addresses') as $index => $address) : ?>
-                            <div class="col-12 padding-bottom">
+                            <div class="col-12 padding-bottom single-address">
                                 <?php if ($address->getInput('isTitle')->getValue()) : ?>
                                     <div>
                                         <h5 style="margin-bottom: <?= $address->getInput('marginUnderTitle')->getValue() ?>"><?= $address->getInput('title') ?></h5>

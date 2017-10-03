@@ -82,6 +82,7 @@
       font-family: 'Roboto Condensed', sans-serif;
       color: #002842;
       letter-spacing: 5px;
+      overflow: visible;
       @include media-breakpoint-down(md) {
         padding-bottom: 20px;
       }
