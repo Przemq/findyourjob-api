@@ -164,28 +164,4 @@ jQuery(function ($) {
         $('#top-menu').css('display' ,'flex');
     }, 500);
 
-    (function() {
-        var beforePrint = function() {
-            var threeColumnWrapper = $('#icon-container')
-            threeColumnWrapper.removeAttr('data-aos');
-            threeColumnWrapper.removeAttr('data-aos-delay');
-        };
-        var afterPrint = function() {
-            console.log('Printed');
-        };
-
-        if (window.matchMedia) {
-            var mediaQueryList = window.matchMedia('print');
-            mediaQueryList.addListener(function(mql) {
-                if (mql.matches) {
-                    beforePrint();
-                } else {
-                    afterPrint();
-                }
-            });
-        }
-
-        window.onbeforeprint = beforePrint;
-        window.onafterprint = afterPrint;
-    }());
 });

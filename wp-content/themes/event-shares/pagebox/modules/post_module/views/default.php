@@ -145,7 +145,7 @@ $videoURL = $this->getInput('videoURL')->getValue();
             </article>
             <?php if ($showMedia): ?>
                 <div class="col-12">
-                    <div class="media-container">
+                    <div class="media-container  <?php if($typeOfMedia == 'video'){ echo 'no-print-container';} ?>">
                         <?php if ($typeOfMedia == 'image' && !empty($image)): ?>
                             <img src="<?= $image ?>" alt="article image">
                         <?php endif; ?>
