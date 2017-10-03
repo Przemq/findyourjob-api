@@ -33,9 +33,7 @@ $enableTitle = $this->getInput('enableTitle')->getValue();
                 </script>
                 <div id="map"></div>
                 <script type="text/javascript">
-                    
-                    console.log(123);
-                    
+
                     var initMap = function() {
                         var london = {lat: <?= $latitude ?>, lng: <?= $longitude ?>};
 
@@ -324,7 +322,6 @@ $enableTitle = $this->getInput('enableTitle')->getValue();
                         });
 
                     };
-                    console.log(555);
                 </script>
 
             </div>
