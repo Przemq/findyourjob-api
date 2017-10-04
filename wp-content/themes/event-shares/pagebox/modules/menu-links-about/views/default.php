@@ -47,7 +47,6 @@ if ($this->getInput('isImage')->getValue()) {
                 $link = $link . '#' . $tabID;
             }
 
-
             ?>
             <li class="col-sm-12 col-lg-<?= $gridNumber ?>">
                 <div class="menu-special-hover">
