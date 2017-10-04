@@ -27,7 +27,7 @@
         $menu_font_family = "'Roboto Condensed', sans-serif";
     } ?>
 
-    <?php include 'assets/stylesheets/scss/partials/footer-header-options.php'; ?>
+    <?php include 'includes/constatn_parts_options/header-footer-search-options.php'; ?>
 
 </head>
 <body class="<?= wpx_body_class() ?>">

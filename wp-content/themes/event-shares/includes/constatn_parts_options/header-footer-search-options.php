@@ -1,4 +1,6 @@
 <style>
+
+    /******************************************HEADER STYLES***********************************************************/
     header nav .wpx-search .desktop-search .search-submit svg path {
         fill: <?=$searchBackground?>;
     }
@@ -54,9 +56,9 @@
         background: <?= $menu_background_search_color_mobile?>;
     }
 
-    /*  CUSTOM STYLES FROM WPX_THEME_OPTIONS */
+    /******************************************END OF HEADER STYLES****************************************************/
 
-    /*  Footer left/right editor   */
+    /******************************************FOOTER STYLES***********************************************************/
 
     footer #footer #left-column {
         font-size: <?=wpx_theme_get_option('wpx_theme_footer_small_text_size')?>;
@@ -68,9 +70,6 @@
         color: <?=wpx_theme_get_option('wpx_theme_footer_big_text_color')?>;
     }
 
-    /*End Footer left/right enditor*/
-
-    /*  Footer menu links   */
     footer #menu-items ul li a {
         -webkit-transition: 300ms all;
         -moz-transition: 300ms all;
@@ -84,9 +83,6 @@
         color: <?=wpx_theme_get_option('wpx_theme_footer_link_color_hover')?>;
     }
 
-    /*  End Footer menu links   */
-
-    /* Footer icon custom color*/
     footer #footer-nav svg path, footer #footer-nav svg rect {
         fill: <?=wpx_theme_get_option('wpx_theme_footer_icon_color')?>;
 
@@ -97,9 +93,6 @@
 
     }
 
-    /*End Footer icon custom color*/
-
-    /*  Footer Copyrights styles   */
     footer #copyright {
         color: <?=wpx_theme_get_option('wpx_theme_footer_copyright_color')?>;
         font-size: <?=wpx_theme_get_option('wpx_theme_footer_copyright_size')?>;
@@ -116,9 +109,9 @@
         color: <?=wpx_theme_get_option('wpx_theme_footer_bottom_footer_text_color')?>;
     }
 
-    /*  End Footer Copyrights styles   */
+    /******************************************END OF FOOTER STYLES*****************************************************/
 
-    /* Styles for search */
+    /******************************************STYLES FOR SEARCH*******************************************************/
 
     <?php
   if (!empty($isBackgroundImageID) && $isBackgroundImageID ==!"" ) :
@@ -139,10 +132,7 @@
         background-color: <?=wpx_theme_get_option( 'wpx_theme_search_results_background_color' )?>;
     }
 
-    <?php
-    endif;
-
-         ?>
+    <?php endif; ?>
     .search-results .large-header .large-header-inner .large-header-content h1 {
         font-size: <?=wpx_theme_get_option( 'wpx_theme_search_results_title_size' )?>;
         color: <?=wpx_theme_get_option( 'wpx_theme_search_results_title_color' )?>;
@@ -162,6 +152,6 @@
         color: <?=wpx_theme_get_option( 'wpx_theme_search_results_highlight' )?>;
     }
 
-    /* End styles for search */
+    /**************************************** END OF STYLES FOR SEARCH*************************************************/
 
 </style>
