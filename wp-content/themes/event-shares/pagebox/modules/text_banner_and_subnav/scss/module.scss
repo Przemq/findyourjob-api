@@ -141,6 +141,11 @@
       //max-width: 650px;
     }
   }
+  @media print {
+    blockquote {
+      border: none;
+    }
+  }
   .button-wrapper {
     text-align: center;
     padding-bottom: 20px;
