@@ -30,7 +30,7 @@
     include 'includes/constatn_parts_options/header-footer-search-options.php';
 
     ?>
-    <script type="text/javascript" src="assets/javascripts/google-analytics.js"></script>
+    <script type="text/javascript" src="<?= THEME_JS_URI ?>/google-analytics.js"></script>
 </head>
 <body class="<?= wpx_body_class() ?>">
 
@@ -101,9 +101,7 @@
                                     </button>
                                 </form>
                             </div>
-
                         </div>
-
 
                         <?php
                         if (function_exists('wpx_pagebox')) {
@@ -113,8 +111,6 @@
                             }
                         }
                         ?>
-
-
                         <div class="wpx-search">
                             <div class="desktop-search">
                                 <form role="search" method="get" class="search-form"
