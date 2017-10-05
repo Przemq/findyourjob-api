@@ -115,13 +115,14 @@ $timeline-color: #56c1a3;
                 height: 20px;
                 border: solid 3px white;
                 border-radius: 50%;
-                @include position (absolute, 18px null null calc(-1% - 6px));
-                content: '';
-                @include media-breakpoint-between(md, lg) {
-                  left: calc(-1% - 7px);
+                @include position (absolute, 18px null null -12px);
+                @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                  @include position (absolute, 18px null null -11px);
                 }
+                content: '';
+
                 @include media-breakpoint-between(sm, md) {
-                  left: calc(-1% - 8px);
+                  left: -12px !important;
                 }
                 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
                   width: 17px;
@@ -149,13 +150,22 @@ $timeline-color: #56c1a3;
                 height: 20px;
                 border: solid 3px white;
                 border-radius: 50%;
-                @include position (absolute, 18px null null calc(98% + 4px));
-                content: '';
-                @include media-breakpoint-between(md, lg) {
-                  left: calc(98% + 2px);
+                position: absolute;
+                top: 18px;
+                @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                  @include position (absolute, 18px null null 559px);
                 }
-                @include media-breakpoint-between(sm, md) {
-                  left: calc(98% - 1px);
+                content: '';
+
+
+                @include media-breakpoint-between(md,lg) {
+                  left: 348px !important
+                }
+                @include media-breakpoint-only(lg) {
+                  left: 468px !important;
+                }
+                @include media-breakpoint-up(lg) {
+                  left: 558px;
                 }
                 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
                   width: 17px;
