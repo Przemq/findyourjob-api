@@ -77,23 +77,7 @@ jQuery(function ($) {
         $window.on("resize", mobileVer);
         $window.on("load", mobileVer);
         $window.on("scroll", sizeBar);
-        //close mobile menu
 
-        // $document.on("click", "body", function (e) {
-        //     if ($wpgMainHeader.hasClass("wpx-active-mobile-menu-parent")) {
-        //         if ($(e.target).is('.wpx-main-header *')) {
-        //             return;
-        //         } else {
-        //             $(".wpx-button-hamburger").trigger("click");
-        //         }
-        //     }
-        // });
-        // $body.on("swiperight", function () {
-        //     if ($wpgMainHeader.hasClass("wpx-active-mobile-menu-parent")) {
-        //         $(".wpx-button-hamburger").trigger("click");
-        //
-        //     }
-        // });
 
     })(jQuery);
 
