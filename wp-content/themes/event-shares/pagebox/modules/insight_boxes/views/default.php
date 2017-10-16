@@ -180,7 +180,7 @@ $insightQuery = new WP_Query($args);
 
                                 $('.content-wrapper').on('click', function () {
                                     var link = $(this).find('.buttons a').attr('href');
-                                    window.open(link, '_blank');
+                                    window.open(link, '_self');
                                 })
                             });
 
