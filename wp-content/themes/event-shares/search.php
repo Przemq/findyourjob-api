@@ -169,6 +169,13 @@ $args  = array(
                                         $enableDate = get_post_meta(get_the_ID(), '_event_shares_enable_date', 1);
                                         $dateFormat = get_post_meta(get_the_ID(), '_event_shares_date_format', 1);
                                         $link = get_post_meta(get_the_ID(), '_event_shares_link', true);
+                                        $postLink = '';
+                                        if (empty($link)) {
+                                            $postLink = get_post_permalink(get_the_ID());
+                                        }
+                                        else {
+                                            $postLink = $link;
+                                        }
                                         ?>
 
                                         <div class="image">
@@ -197,7 +204,7 @@ $args  = array(
                                         <div class="title-article title-article-equal"><?php the_title() ?></div>
                                         <?php the_excerpt() ?>
                                         <div class="see_more">
-                                            <a class="d-inline" href="<?= $link ?> ">
+                                            <a class="d-inline" href="<?= $postLink ?> ">
                                                 <?= $more_article ?></a>
                                         </div>
                                     </div>

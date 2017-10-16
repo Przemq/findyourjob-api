@@ -52,6 +52,7 @@ if (empty($internalLink)) {
 if(empty($buttonLink)){
     $buttonLink = HOME_URL.'/news-insights/';
 }
+
 $typeOfMedia = $this->getSelect('typeOfMedia')->getValue()['id'];
 $videoURL = $this->getInput('videoURL')->getValue();
 ?>

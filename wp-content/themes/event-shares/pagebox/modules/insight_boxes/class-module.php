@@ -202,10 +202,17 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 							$link = ( ! empty( get_post_meta( get_the_ID(), '_event_shares_link', true ) )
 								? get_post_meta( get_the_ID(), '_event_shares_link', true ) : get_the_permalink() );
 
+                            $postLink = '';
+                            if (empty($link)) {
+                                $postLink = get_post_permalink(get_the_ID());
+                            }
+                            else {
+                                $postLink = $link;
+                            }
 							?>
 
                             <div class="col-lg-12 buttons"><a
-                                        href="<?= $link ?>"><?= $readButton ?></a></div>
+                                        href="<?= $postLink ?>"><?= $readButton ?></a></div>
                         </div>
                     </div>
 				<?php endwhile; ?>

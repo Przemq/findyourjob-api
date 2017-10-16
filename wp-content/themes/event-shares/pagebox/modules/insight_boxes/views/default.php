@@ -52,7 +52,8 @@ $insightQuery = new WP_Query($args);
                         ?>
                         <a <?php echo ($index == 0) ? 'class="active"' : '' ?>
                                 href="#htab-<?= $index ?>-<?= $uniqID ?>" data-category="<?= $category ?>"
-                                data-toggle="tab" aria-expanded="true" id="<?= $filter->getInput('tabID')->getValue(); ?>">
+                                data-toggle="tab" aria-expanded="true"
+                                id="<?= $filter->getInput('tabID')->getValue(); ?>">
                             <?= $filter->getInput('title') ?>
                         </a></li>
                 <?php endforeach; ?>
@@ -125,6 +126,13 @@ $insightQuery = new WP_Query($args);
                     <div class="article-boxes row">
                         <?php while ($insightQuery->have_posts()) : $insightQuery->the_post();
                             $link = get_post_meta(get_the_ID(), '_event_shares_link', true);
+                            $postLink = '';
+                            if (empty($link)) {
+                                $postLink = get_post_permalink(get_the_ID());
+                            }
+                            else {
+                                $postLink = $link;
+                            }
                             ?>
 
                             <div class="col-lg-4 single-article">
@@ -143,16 +151,15 @@ $insightQuery = new WP_Query($args);
                                         $date = '';
                                         if ($enableDate == 'on'):
                                             if ($dateFormat == 'uk'):
-                                             $date =  get_the_date('d.m.Y');
+                                                $date = get_the_date('d.m.Y');
                                             else:
-                                              $date = get_the_date('m.d.Y');
+                                                $date = get_the_date('m.d.Y');
                                             endif;
                                         endif;
-                                        $separator =' ';
-                                        if($date == '' && $author == '' && $enableDate != 'on'){
+                                        $separator = ' ';
+                                        if ($date == '' && $author == '' && $enableDate != 'on') {
                                             $separator = '';
-                                        }
-                                        else {
+                                        } else {
                                             $separator = ' | ';
                                         }
                                         ?>
@@ -169,7 +176,7 @@ $insightQuery = new WP_Query($args);
                                     ?>
 
                                     <div class="col-lg-12 buttons px-0"><a
-                                                href="<?= $link ?>" target="_blank"><?= $readButton ?></a></div>
+                                                href="<?= $postLink ?>" target="_blank"><?= $readButton ?></a></div>
                                 </div>
                             </div>
 
