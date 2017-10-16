@@ -27,10 +27,11 @@ $module = $this->getModule();
                     $isInternal = $section->getInput('enableInternalLink')->getValue();
                     $internalLink = $section->getSelect('internalUrl')->getValue()['permalink'];
                     ?>
-                    <a class="box col-sm-6 col-md-3" <?= $isBlank ?>
-                       href="<?php if ($isInternal) echo $internalLink; else echo $section->getInput('logoUrl') ?>">
+
+<!--                    AWA-134 removed link option-->
+                    <div class="box col-sm-6 col-md-3">
                         <?php echo wp_get_attachment_image($ImageID, 'medium', false, ['class' => 'media-image']) ?>
-                    </a>
+                    </div>
                 <?php endforeach; ?>
             </div>
         </div>

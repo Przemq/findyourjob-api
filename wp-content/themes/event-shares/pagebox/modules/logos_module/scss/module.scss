@@ -25,33 +25,31 @@
     margin-left: 0;
     .box {
       margin: 0 auto;
-      padding:0;
+      padding: 0;
     }
     .media-image {
       padding: 15px;
       max-width: 100%;
-      width:auto;
+      width: auto;
       height: auto;
       object-fit: contain;
       max-height: 150px;
-      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
         //float: left;
       }
-      @include media-breakpoint-down(md){
+      @include media-breakpoint-down(md) {
         //max-width: 32%;
       }
-      @include media-breakpoint-down(xs){
+      @include media-breakpoint-down(xs) {
         //max-width: 285px;
       }
     }
-    a {
-      .media-image{
-        //display: inline-flex;
-        @include transition(0.5s all);
-      }
-      &:hover {
-        text-decoration: none;
-      }
+    .media-image {
+      //display: inline-flex;
+      @include transition(0.5s all);
+    }
+    &:hover {
+      text-decoration: none;
     }
 
   }
@@ -65,16 +63,16 @@
   padding: get('modulePadding') 0;
   background-color: get('background');
   #in-the-media {
-    background-color:get('background');
-    h4{
-      color:get('titleColor');
-      font-size:get('titleSize');
+    background-color: get('background');
+    h4 {
+      color: get('titleColor');
+      font-size: get('titleSize');
     }
   }
   $greyScale: get('imageGreyScale');
   .image-container {
-    a {
-      .media-image{
+    .box {
+      .media-image {
         @if (type-of($greyScale) == 'number') {
           -webkit-filter: grayscale($greyScale);
           filter: grayscale($greyScale);
@@ -83,7 +81,7 @@
 
       }
       &:hover {
-        .media-image{
+        .media-image {
           @if (type-of($greyScale) == 'number') {
             -webkit-filter: grayscale($greyScale);
             filter: grayscale($greyScale);
