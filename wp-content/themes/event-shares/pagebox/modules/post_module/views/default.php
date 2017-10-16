@@ -177,14 +177,21 @@ $videoURL = $this->getInput('videoURL')->getValue();
                     $postTagsArgsCheckIfExist = (!empty(wp_get_post_tags(get_the_ID()))) ? wp_get_post_tags(get_the_ID())[0]->slug : null;
                     $postTagsArgs = ($postTagId !== null) ? $postTagId : $postTagsArgsCheckIfExist;
 
-                    $postArray = array(
-                        'posts_per_page' => 5,
-                        'post_type' => 'post',
-                        'category_name' => $postCategoryArgs,
-                        'tag' => $postTagsArgs,
-                        'post__not_in' => array(get_the_ID())
-                    );
 
+                    $postArray = [
+                        'posts_per_page' => 5,
+                        'post_type'      => 'post',
+                        'category_name'  => $postCategoryArgs,
+                        'tag'            => $postTagsArgs,
+                        'tax_query'      => [
+                            [
+                                'taxonomy' => 'timeline',
+                                'terms'    => [ 'social-media' ],
+                                'field'    => 'slug',
+                                'operator' => 'NOT IN',
+                            ],
+                        ]
+                    ];
 
                     $posts = '';
                     $posts = new WP_Query($postArray);
