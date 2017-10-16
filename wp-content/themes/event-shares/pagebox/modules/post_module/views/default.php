@@ -195,9 +195,18 @@ $videoURL = $this->getInput('videoURL')->getValue();
                         $posts->the_post();
                         $post = $posts->post;
                         $ID = $post->ID;
+                        $postURL = '';
+                        $link = get_post_meta($ID, '_event_shares_link', true);
+                        if (empty($link)) {
+                            $postURL = get_permalink($ID);
+                        }
+                        else {
+                            $postURL = $link;
+                        }
+
 
                         ?>
-                        <a class="post-link" href="<?= get_permalink($ID); ?>"><?= get_the_title($ID); ?></a>
+                        <a class="post-link" href="<?= $postURL; ?>"><?= get_the_title($ID); ?></a>
                         <br>
                         <?php
                     endwhile; ?>
