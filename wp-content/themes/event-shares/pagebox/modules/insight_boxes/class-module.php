@@ -212,7 +212,7 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 							?>
 
                             <div class="col-lg-12 buttons"><a
-                                        href="<?= $postLink ?>"><?= $readButton ?></a></div>
+                                        href="<?= $postLink ?>" target="_self"><?= $readButton ?></a></div>
                         </div>
                     </div>
 				<?php endwhile; ?>
@@ -222,7 +222,7 @@ class InsightsBoxes extends AbstractModule implements OnAjaxInterface, StaticCac
 
                         $('.content-wrapper').on('click', function () {
                             var link = $(this).find('.buttons a').attr('href');
-                            window.open(link, '_blank');
+                            window.open(link, '_self');
                         })
                     });
 

@@ -176,7 +176,7 @@ $insightQuery = new WP_Query($args);
                                     ?>
 
                                     <div class="col-lg-12 buttons px-0"><a
-                                                href="<?= $postLink ?>" target="_blank"><?= $readButton ?></a></div>
+                                                href="<?= $postLink ?>" target="_self"><?= $readButton ?></a></div>
                                 </div>
                             </div>
 
