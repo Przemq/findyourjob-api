@@ -32,6 +32,7 @@
     ?>
     <script type="text/javascript" src="<?= THEME_JS_URI ?>/facebook-pixel-code.js"></script>
     <script type="text/javascript" src="<?= THEME_JS_URI ?>/google-analytics.js"></script>
+
 </head>
 <body class="<?= wpx_body_class() ?>">
 
